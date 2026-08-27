@@ -1,0 +1,145 @@
+/* Category Navigation Bar */
+.stickyWrapper {
+  position: sticky;
+  top: 72px; /* Fixed Navbar height */
+  z-index: calc(var(--z-navbar) - 1);
+  background: rgba(250, 247, 242, 0.94);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  transition: box-shadow var(--duration-base) var(--ease-standard);
+  width: 100%;
+}
+
+.stickyWrapperScrolled {
+  box-shadow: 0 4px 20px rgba(30, 18, 8, 0.06);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-top: var(--space-3);
+  padding-bottom: var(--space-3);
+  overflow-x: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.labelWrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-shrink: 0;
+  padding-right: var(--space-4);
+  border-right: 1px solid var(--color-border);
+}
+
+.subnavTitle {
+  font-family: var(--font-label);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: var(--color-mocha);
+  white-space: nowrap;
+}
+
+.navTrack {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+}
+
+.navItem {
+  flex-shrink: 0;
+}
+
+.navPill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.5rem 1.15rem;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-label);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-coffee);
+  background: transparent;
+  border: 1px solid transparent;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    background var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out);
+}
+
+.pillNumber {
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  opacity: 0.6;
+  transition: opacity var(--duration-fast) var(--ease-out);
+}
+
+.navPill:hover {
+  color: var(--color-espresso);
+  background: rgba(196, 137, 122, 0.12);
+  border-color: var(--color-border-rose);
+  transform: translateY(-1px);
+}
+
+.navPill.isActive {
+  background: var(--color-espresso);
+  color: var(--color-ivory);
+  border-color: var(--color-espresso);
+  box-shadow: var(--shadow-sm);
+}
+
+.navPill.isActive .pillNumber {
+  color: var(--color-blush);
+  opacity: 1;
+}
+
+.quickBookingLink {
+  flex-shrink: 0;
+  margin-left: auto;
+  padding-left: var(--space-4);
+  border-left: 1px solid var(--color-border);
+}
+
+@media (max-width: 1024px) {
+  .labelWrapper,
+  .quickBookingLink {
+    display: none;
+  }
+
+  .stickyWrapper {
+    top: 64px;
+  }
+
+  .navTrack {
+    gap: var(--space-1);
+  }
+
+  .navPill {
+    padding: 0.45rem 0.9rem;
+    font-size: 0.6875rem;
+  }
+}

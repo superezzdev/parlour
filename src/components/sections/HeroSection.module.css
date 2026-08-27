@@ -117,12 +117,12 @@
 }
 
 /* Section label override on dark background */
-.heroFull .content :global(.label) {
+.content :global(.label) {
   color: rgba(250, 247, 242, 0.90) !important;
   background: transparent !important;
 }
 
-.heroFull .content :global(.label)::before {
+.content :global(.label)::before {
   background: var(--color-rose) !important;
   width: 24px !important;
   height: 1.5px !important;
@@ -144,10 +144,6 @@
   display: block;
 }
 
-.heroPage .headline {
-  color: var(--color-espresso);
-}
-
 /* Subheadline */
 .subheadline {
   font-family: var(--font-body);
@@ -157,10 +153,6 @@
   line-height: 1.60;
   max-width: 50ch;
   margin: 0;
-}
-
-.heroPage .subheadline {
-  color: var(--color-coffee);
 }
 
 /* Action Group */
