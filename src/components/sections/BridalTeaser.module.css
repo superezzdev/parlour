@@ -54,10 +54,13 @@
 }
 
 /* Label on dark background */
-.labelWrapper :global(.label),
+.labelWrapper :global(.label) {
+  color: rgba(250, 247, 242, 0.90) !important;
+  background: transparent !important;
+}
+
 .labelWrapper :global(.label)::before {
-  color: rgba(250, 247, 242, 0.90);
-  background: var(--color-rose);
+  background: var(--color-rose) !important;
 }
 
 .headline {

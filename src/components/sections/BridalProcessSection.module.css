@@ -70,14 +70,16 @@
 
 .numberRow {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
-  margin-bottom: var(--space-3);
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+  flex-wrap: wrap;
 }
 
 .stepNumber {
   font-family: var(--font-display);
-  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-size: clamp(2.75rem, 4vw, 4rem);
   font-weight: 300;
   line-height: 1;
   color: var(--color-rose);
@@ -89,11 +91,12 @@
   font-size: 0.625rem;
   letter-spacing: var(--label-tracking);
   text-transform: uppercase;
-  color: var(--color-taupe);
+  color: var(--color-mocha);
   background: var(--color-ivory);
-  padding: var(--space-1) var(--space-3);
+  padding: 0.25rem 0.625rem;
   border-radius: var(--radius-pill);
   border: 1px solid var(--color-border);
+  white-space: nowrap;
 }
 
 .stepTitle {

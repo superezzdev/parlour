@@ -126,7 +126,7 @@ export const bridalProcessSteps: BridalStep[] = [
     subtitle: 'The Defining Moment of Poise',
     description:
       'Final veil anchoring, matha patti securing, delicate highlighting, and the quiet reveal where you experience the full transformation with effortless radiance.',
-    timeline: 'Final moments before entrance',
+    timeline: 'Final Reveal & Entry',
   },
 ]
 

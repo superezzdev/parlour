@@ -6,12 +6,10 @@ import styles from './ServiceEditorialSection.module.css'
 
 interface ServiceEditorialSectionProps {
   category: ServiceCategory
-  index: number
 }
 
 export default function ServiceEditorialSection({
   category,
-  index,
 }: ServiceEditorialSectionProps) {
   return (
     <section
