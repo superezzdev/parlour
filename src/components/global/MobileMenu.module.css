@@ -1,99 +1,462 @@
-.overlay {
+/* ═══════════════════════════════════════════════════════════════
+   GLAMOROUS — MOBILE MENU (HAUTE LUXURY EDITORIAL REDESIGN)
+   A bespoke, award-winning mobile navigation experience.
+   ═══════════════════════════════════════════════════════════════ */
+
+.drawer {
   position: fixed;
   inset: 0;
-  background: var(--color-ivory);
   z-index: var(--z-mobile-menu);
+  background-color: var(--color-ivory);
+  background-image: 
+    radial-gradient(ellipse 70% 40% at 85% 10%, rgba(237, 214, 207, 0.42) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 50% at 15% 85%, rgba(237, 224, 204, 0.38) 0%, transparent 65%);
   transform: translateX(100%);
-  transition: transform var(--duration-slow) var(--ease-editorial);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    transform 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.4s ease,
+    visibility 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  padding: var(--space-8);
-  padding-top: var(--space-20);
-  overflow-y: auto;
 }
 
-.overlay.open {
+.drawer.open {
   transform: translateX(0);
+  opacity: 1;
+  visibility: visible;
 }
 
-.close {
+/* ─── Editorial Ghost Watermark ──────────────────────────────── */
+.watermark {
   position: absolute;
-  top: var(--space-6);
-  right: var(--space-6);
-  width: 44px;
-  height: 44px;
+  right: -5%;
+  bottom: 12%;
+  font-family: var(--font-display);
+  font-size: clamp(4.5rem, 15vw, 7.5rem);
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: 0.12em;
+  color: rgba(30, 18, 8, 0.028);
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+  transform: rotate(-7deg);
+  z-index: 0;
+}
+
+/* ─── Container ──────────────────────────────────────────────── */
+.container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  max-width: 540px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: calc(var(--space-6) + env(safe-area-inset-top, 0px)) var(--space-6) calc(var(--space-6) + env(safe-area-inset-bottom, 0px));
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ─── Header: Brand Wordmark & Close Button ──────────────────── */
+.header {
   display: flex;
   align-items: center;
-  justify-content: center;
-  color: var(--color-espresso);
-  background: none;
-  border: none;
-  cursor: pointer;
-  border-radius: var(--radius-md);
-  transition: color var(--duration-fast) var(--ease-out);
+  justify-content: space-between;
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid rgba(30, 18, 8, 0.08);
+  flex-shrink: 0;
+  opacity: 0;
+  transform: translateY(-8px);
+  transition:
+    opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.close:hover {
-  color: var(--color-rose);
+.drawer.open .header {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 80ms;
 }
 
-.logoBlock {
+.brandBlock {
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
-  margin-bottom: var(--space-12);
+  gap: 2px;
+}
+
+.brandLink {
+  text-decoration: none;
+  display: inline-block;
 }
 
 .wordmark {
   font-family: var(--font-display);
-  font-size: 2.5rem;
+  font-size: 1.35rem;
   font-weight: 300;
-  letter-spacing: 0.20em;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--color-espresso);
+  line-height: 1.1;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.brandLink:hover .wordmark {
+  color: var(--color-rose);
 }
 
 .tagline {
   font-family: var(--font-label);
-  font-size: var(--text-label);
+  font-size: 0.5625rem;
   font-weight: var(--label-weight);
-  letter-spacing: var(--label-tracking);
+  letter-spacing: 0.20em;
   text-transform: uppercase;
   color: var(--color-rose);
+  line-height: 1;
 }
 
-.links {
+.closeBtn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(30, 18, 8, 0.14);
+  background: rgba(250, 247, 242, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-espresso);
+  cursor: pointer;
+  padding: 0;
+  transition:
+    border-color var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out),
+    background var(--duration-fast) var(--ease-out),
+    transform var(--duration-base) var(--ease-editorial);
+}
+
+.closeBtn:hover,
+.closeBtn:focus-visible {
+  border-color: var(--color-rose);
+  color: var(--color-rose);
+  background: rgba(237, 214, 207, 0.25);
+  transform: rotate(90deg);
+}
+
+.closeBtn:active {
+  transform: scale(0.92) rotate(90deg);
+}
+
+/* ─── Navigation ─────────────────────────────────────────────── */
+.nav {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 0;
+  justify-content: center;
+  padding-block: clamp(var(--space-4), 3.5vh, var(--space-8));
+  min-height: min-content;
+}
+
+.navList {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(var(--space-1), 1.6vh, var(--space-3));
   list-style: none;
   margin: 0;
   padding: 0;
-  flex: 1;
 }
 
+.navItem {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.drawer.open .navItem {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: calc(140ms + var(--stagger-idx, 0) * 65ms);
+}
+
+.navLink {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-2) 0;
+  text-decoration: none;
+  transition:
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    color var(--duration-fast) var(--ease-out);
+}
+
+.linkLeft {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-4);
+}
+
+.linkIndex {
+  font-family: var(--font-body);
+  font-size: 0.725rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  color: var(--color-rose);
+  opacity: 0.85;
+  width: 24px;
+  flex-shrink: 0;
+  transition:
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    color var(--duration-fast) var(--ease-out),
+    opacity var(--duration-fast) var(--ease-out);
+}
+
+.linkLabel {
+  font-family: var(--font-display);
+  font-size: clamp(2.15rem, 5.8vh, 2.85rem);
+  font-weight: 300;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--color-espresso);
+  transition:
+    color var(--duration-fast) var(--ease-out),
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.activeDot {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-rose);
+  margin-left: 2px;
+  transform: translateY(-2px);
+}
+
+.linkArrow {
+  color: var(--color-rose);
+  opacity: 0;
+  transform: translateX(-8px);
+  transition:
+    opacity 0.3s var(--ease-out),
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hover & Active States */
+.navLink:hover,
+.navLink:focus-visible {
+  transform: translateX(8px);
+}
+
+.navLink:hover .linkIndex,
+.navLink:focus-visible .linkIndex {
+  color: var(--color-espresso);
+  opacity: 1;
+}
+
+.navLink:hover .linkLabel,
+.navLink:focus-visible .linkLabel {
+  color: var(--color-rose);
+  font-style: italic;
+}
+
+.navLink:hover .linkArrow,
+.navLink:focus-visible .linkArrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.navLinkActive .linkLabel {
+  color: var(--color-espresso);
+  font-weight: 400;
+}
+
+/* ─── Footer: CTA & Studio Metadata ──────────────────────────── */
 .footer {
-  margin-top: auto;
-  padding-top: var(--space-12);
+  flex-shrink: 0;
+  padding-top: var(--space-4);
   display: flex;
   flex-direction: column;
-  gap: var(--space-6);
+  gap: var(--space-4);
+  border-top: 1px solid rgba(30, 18, 8, 0.08);
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.contact {
+.drawer.open .footer {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 480ms;
+}
+
+/* Luxury Booking CTA */
+.ctaWrapper {
+  width: 100%;
+}
+
+.ctaButton {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9375rem 1.625rem;
+  background-color: var(--color-espresso);
+  color: var(--color-ivory);
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  box-shadow: 0 4px 18px rgba(30, 18, 8, 0.12);
+  border: 1px solid rgba(30, 18, 8, 0.15);
+  transition:
+    background-color var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out);
+}
+
+.ctaText {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-ivory);
+}
+
+.ctaIcon {
+  color: var(--color-petal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--duration-fast) var(--ease-out), color var(--duration-fast) var(--ease-out);
+}
+
+.ctaButton:hover,
+.ctaButton:focus-visible {
+  background-color: var(--color-coffee);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(30, 18, 8, 0.18);
+}
+
+.ctaButton:hover .ctaIcon,
+.ctaButton:focus-visible .ctaIcon {
+  color: var(--color-blush);
+  transform: translateX(4px);
+}
+
+.ctaButton:active {
+  transform: translateY(0);
+}
+
+/* Bottom Metadata & Contact */
+.bottomMeta {
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
 }
 
-.contactLink {
+.contactRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.metaLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   font-family: var(--font-body);
-  font-size: var(--text-sm);
+  font-size: 0.775rem;
+  font-weight: 400;
   color: var(--color-mocha);
   text-decoration: none;
   transition: color var(--duration-fast) var(--ease-out);
 }
 
-.contactLink:hover {
+.metaIcon {
   color: var(--color-rose);
+  flex-shrink: 0;
+}
+
+.metaLink:hover {
+  color: var(--color-rose);
+}
+
+.locationRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  color: var(--color-taupe);
+  letter-spacing: 0.04em;
+}
+
+.locationDot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--color-rose);
+  flex-shrink: 0;
+}
+
+/* ─── Compact / Small-Height Viewport Adaptation ─────────────── */
+@media (max-height: 680px) {
+  .container {
+    padding: var(--space-4);
+  }
+
+  .nav {
+    padding-block: var(--space-2);
+  }
+
+  .navList {
+    gap: var(--space-1);
+  }
+
+  .linkLabel {
+    font-size: 1.75rem;
+  }
+
+  .linkIndex {
+    font-size: 0.6875rem;
+  }
+
+  .ctaButton {
+    padding: 0.75rem 1.25rem;
+  }
+
+  .watermark {
+    display: none;
+  }
+}
+
+/* ─── Accessibility: Reduced Motion ──────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .drawer,
+  .header,
+  .navItem,
+  .footer,
+  .navLink,
+  .closeBtn,
+  .ctaButton {
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+    transform: none !important;
+  }
 }
