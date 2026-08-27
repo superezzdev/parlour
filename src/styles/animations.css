@@ -347,37 +347,7 @@
 }
 
 /* ─── Mobile Menu ────────────────────────────────────────────── */
-.mobile-menu-overlay {
-  position: fixed;
-  inset: 0;
-  background: var(--color-ivory);
-  z-index: var(--z-mobile-menu);
-  transform: translateX(100%);
-  transition: transform var(--duration-slow) var(--ease-editorial);
-  display: flex;
-  flex-direction: column;
-  padding: var(--space-24) var(--space-8);
-  overflow-y: auto;
-}
-
-.mobile-menu-overlay.is-open {
-  transform: translateX(0);
-}
-
-.mobile-menu-overlay .mobile-nav-link {
-  opacity: 0;
-  transform: translateX(24px);
-  transition:
-    opacity var(--duration-base) var(--ease-out),
-    transform var(--duration-base) var(--ease-out);
-}
-
-.mobile-menu-overlay.is-open .mobile-nav-link:nth-child(1) { opacity: 1; transform: translateX(0); transition-delay: 100ms; }
-.mobile-menu-overlay.is-open .mobile-nav-link:nth-child(2) { opacity: 1; transform: translateX(0); transition-delay: 160ms; }
-.mobile-menu-overlay.is-open .mobile-nav-link:nth-child(3) { opacity: 1; transform: translateX(0); transition-delay: 220ms; }
-.mobile-menu-overlay.is-open .mobile-nav-link:nth-child(4) { opacity: 1; transform: translateX(0); transition-delay: 280ms; }
-.mobile-menu-overlay.is-open .mobile-nav-link:nth-child(5) { opacity: 1; transform: translateX(0); transition-delay: 340ms; }
-.mobile-menu-overlay.is-open .mobile-nav-link:nth-child(6) { opacity: 1; transform: translateX(0); transition-delay: 400ms; }
+/* Mobile menu animations are encapsulated in MobileMenu.module.css */
 
 /* ─── Image Overlay Treatment ────────────────────────────────── */
 .image-overlay {
