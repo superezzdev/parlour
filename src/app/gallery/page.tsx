@@ -72,28 +72,26 @@ export default function GalleryPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(imageGallerySchema) }}
       />
 
-      <main>
-        {/* 1. HERO — Minimalist Museum Exhibition Header */}
-        <GalleryHero />
+      {/* 1. HERO — Minimalist Museum Exhibition Header */}
+      <GalleryHero />
 
-        {/* 2. GALLERY GRID — Interactive Filter Bar & Asymmetric Masonry */}
-        <GalleryGrid images={galleryImages} showFilters initialCategory="all" />
+      {/* 2. GALLERY GRID — Interactive Filter Bar & Asymmetric Masonry */}
+      <GalleryGrid images={galleryImages} showFilters initialCategory="all" />
 
-        {/* 3. UNDERSTATED APPOINTMENT CTA */}
-        <AppointmentCTA
-          label="CONSULTATIONS &amp; BOOKINGS"
-          headline={
-            <>
-              CRAFT YOUR<br />
-              SIGNATURE<br />
-              LOOK.
-            </>
-          }
-          body="Inspired by our portfolio? Reserve a private consultation at our Sarai Meer studio to discuss your upcoming event, bridal look, or personalized beauty treatment."
-          ctaLabel="BOOK AN APPOINTMENT"
-          ctaHref="/contact"
-        />
-      </main>
+      {/* 3. UNDERSTATED APPOINTMENT CTA */}
+      <AppointmentCTA
+        label="CONSULTATIONS &amp; BOOKINGS"
+        headline={
+          <>
+            CRAFT YOUR<br />
+            SIGNATURE<br />
+            LOOK.
+          </>
+        }
+        body="Inspired by our portfolio? Reserve a private consultation at our Sarai Meer studio to discuss your upcoming event, bridal look, or personalized beauty treatment."
+        ctaLabel="BOOK AN APPOINTMENT"
+        ctaHref="/contact"
+      />
     </>
   )
 }

@@ -28,6 +28,7 @@ export interface OpeningHours {
 }
 
 export interface InstagramAccount {
+  name?: string
   handle: string
   url: string
   label: string
@@ -71,14 +72,16 @@ export const salon: SalonData = {
 
   instagram: [
     {
-      handle: '@makeup_by_sabreen_786',
-      url: 'https://instagram.com/makeup_by_sabreen_786',
-      label: 'Makeup by Sabreen',
+      name: 'SABREEN SIDDIQUI',
+      handle: '@glamorouse_makeup_beauty',
+      url: 'https://www.instagram.com/glamorouse_makeup_beauty',
+      label: 'Sabreen Siddiqui',
     },
     {
-      handle: '@glamorouse_makeup_beauty',
-      url: 'https://instagram.com/glamorouse_makeup_beauty',
-      label: 'Glamorous Makeup & Beauty',
+      name: 'GLAMOROUS MAKEUP & BEAUTI',
+      handle: '@makeup_by_sabreen_786',
+      url: 'https://www.instagram.com/makeup_by_sabreen_786',
+      label: 'Glamorous Makeup & Beauti',
     },
   ],
 

@@ -1,0 +1,191 @@
+.artistry {
+  background-color: var(--color-bone);
+  position: relative;
+  overflow: hidden;
+  padding-block: var(--section-padding-y);
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-12);
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .inner {
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: var(--space-16);
+  }
+}
+
+.dualVisualGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  position: relative;
+}
+
+@media (min-width: 640px) {
+  .dualVisualGrid {
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: end;
+  }
+}
+
+.primaryCard {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  aspect-ratio: 3 / 4;
+  background-color: var(--color-parchment);
+}
+
+.secondaryCard {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  aspect-ratio: 1 / 1;
+  background-color: var(--color-parchment);
+  margin-bottom: var(--space-6);
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--transition-slow);
+}
+
+.dualVisualGrid:hover .image {
+  transform: scale(1.03);
+}
+
+.captionBadge {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  background: rgba(30, 18, 8, 0.85);
+  color: var(--color-petal);
+  font-family: var(--font-label);
+  font-size: var(--text-xs);
+  letter-spacing: var(--label-tracking);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-pill);
+  backdrop-filter: blur(8px);
+}
+
+.textContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: var(--text-display-md);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--color-espresso);
+  letter-spacing: -0.01em;
+  margin-top: var(--space-2);
+}
+
+.heading em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--color-rose);
+  display: block;
+}
+
+.bodyText {
+  font-size: var(--text-base);
+  color: var(--color-coffee);
+  line-height: 1.75;
+  max-width: 48ch;
+}
+
+.craftList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+
+.craftItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-5);
+  background-color: var(--color-ivory);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  transition: transform var(--transition-base), border-color var(--transition-base);
+}
+
+.craftItem:hover {
+  transform: translateX(4px);
+  border-color: var(--color-rose);
+}
+
+.craftIcon {
+  width: 24px;
+  height: 24px;
+  color: var(--color-rose);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.craftText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.craftTitle {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-espresso);
+}
+
+.craftDesc {
+  font-size: var(--text-xs);
+  color: var(--color-mocha);
+  line-height: 1.5;
+}
+
+.artistPlaceholderCard {
+  margin-top: var(--space-6);
+  padding: var(--space-6);
+  background: var(--color-ivory);
+  border-left: 3px solid var(--color-rose);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+.artistTag {
+  font-family: var(--font-label);
+  font-size: var(--text-xs);
+  letter-spacing: var(--label-tracking);
+  color: var(--color-rose);
+  text-transform: uppercase;
+  margin-bottom: var(--space-2);
+  display: block;
+}
+
+.artistQuote {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-style: italic;
+  color: var(--color-espresso);
+  line-height: 1.4;
+}
+
+.artistName {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-coffee);
+  margin-top: var(--space-2);
+  display: block;
+}
