@@ -1,0 +1,128 @@
+.processSection {
+  background-color: var(--color-bone);
+  position: relative;
+  padding-block: var(--section-padding-y);
+  border-top: 1px solid var(--color-champagne);
+  border-bottom: 1px solid var(--color-champagne);
+}
+
+.header {
+  max-width: 760px;
+  margin-bottom: clamp(3rem, 6vw, 5.5rem);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: var(--text-display-md);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--color-espresso);
+  margin-top: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.subtitle {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--color-coffee);
+  margin: 0;
+}
+
+/* ─── Process Columns ────────────────────────────────────────── */
+.stepsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-8);
+  position: relative;
+}
+
+@media (max-width: 1024px) {
+  .stepsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-10) var(--space-8);
+  }
+}
+
+@media (max-width: 640px) {
+  .stepsGrid {
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+  }
+}
+
+.stepCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--color-border);
+  transition:
+    border-color var(--duration-base) var(--ease-out),
+    transform var(--duration-base) var(--ease-out);
+}
+
+.stepCard:hover {
+  border-color: var(--color-rose);
+  transform: translateY(-4px);
+}
+
+.numberRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: var(--space-3);
+}
+
+.stepNumber {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-weight: 300;
+  line-height: 1;
+  color: var(--color-rose);
+  letter-spacing: -0.02em;
+}
+
+.timelineTag {
+  font-family: var(--font-label);
+  font-size: 0.625rem;
+  letter-spacing: var(--label-tracking);
+  text-transform: uppercase;
+  color: var(--color-taupe);
+  background: var(--color-ivory);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-border);
+}
+
+.stepTitle {
+  font-family: var(--font-display);
+  font-size: var(--text-display-sm);
+  font-weight: 400;
+  color: var(--color-espresso);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin: 0 0 var(--space-2) 0;
+  line-height: 1.15;
+}
+
+.stepSubtitle {
+  font-family: var(--font-label);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: var(--label-tracking);
+  text-transform: uppercase;
+  color: var(--color-mocha);
+  margin-bottom: var(--space-4);
+  display: block;
+}
+
+.stepDescription {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--color-coffee);
+  margin: 0;
+}

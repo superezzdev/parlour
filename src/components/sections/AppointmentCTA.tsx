@@ -3,7 +3,21 @@ import { SectionLabel, EditorialHeading } from '@/components/ui/Primitives'
 import { salon } from '@/data/salon'
 import styles from './AppointmentCTA.module.css'
 
-export default function AppointmentCTA() {
+interface AppointmentCTAProps {
+  label?: string
+  headline?: React.ReactNode
+  body?: string
+  ctaLabel?: string
+  ctaHref?: string
+}
+
+export default function AppointmentCTA({
+  label = 'RESERVATIONS & CONSULTATIONS',
+  headline,
+  body = 'Whether reserving your auspicious bridal dates, preparing for a grand celebration, or scheduling a personal beauty treatment — our team is dedicated to your transformation.',
+  ctaLabel = 'BOOK AN APPOINTMENT',
+  ctaHref = '/contact',
+}: AppointmentCTAProps) {
   return (
     <section className={styles.appointmentCta} aria-labelledby="cta-heading">
       <div className={styles.bg} aria-hidden="true">
@@ -12,7 +26,7 @@ export default function AppointmentCTA() {
 
       <div className={`container ${styles.content}`}>
         <div className={styles.inner} data-reveal>
-          <SectionLabel>RESERVATIONS &amp; CONSULTATIONS</SectionLabel>
+          <SectionLabel>{label}</SectionLabel>
 
           <EditorialHeading
             as="h2"
@@ -20,19 +34,20 @@ export default function AppointmentCTA() {
             id="cta-heading"
             className={styles.headline}
           >
-            READY<br />
-            FOR YOUR<br />
-            MOMENT?
+            {headline || (
+              <>
+                READY<br />
+                FOR YOUR<br />
+                MOMENT?
+              </>
+            )}
           </EditorialHeading>
 
-          <p className={`${styles.body} lead`}>
-            Whether reserving your auspicious bridal dates, preparing for a grand celebration,
-            or scheduling a personal beauty treatment &mdash; our team is dedicated to your transformation.
-          </p>
+          <p className={`${styles.body} lead`}>{body}</p>
 
           <div className={styles.actions}>
-            <Link href="/contact" className={`btn btn-filled btn-lg ${styles.primaryBtn}`}>
-              <span>BOOK AN APPOINTMENT</span>
+            <Link href={ctaHref} className={`btn btn-filled btn-lg ${styles.primaryBtn}`}>
+              <span>{ctaLabel}</span>
               <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <line x1="4" y1="10" x2="16" y2="10" />
                 <polyline points="11,5 16,10 11,15" />
