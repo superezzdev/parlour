@@ -1,0 +1,41 @@
+.galleryHero {
+  padding-top: calc(72px + clamp(4rem, 8vw, 7rem));
+  padding-bottom: clamp(2.5rem, 5vw, 4.5rem);
+  background-color: var(--color-ivory);
+  text-align: center;
+  position: relative;
+  border-bottom: 1px solid var(--color-champagne);
+}
+
+.inner {
+  max-width: 800px;
+  margin-inline: auto;
+}
+
+.labelWrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--space-4);
+}
+
+.displayTitle {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 9vw, 8rem);
+  font-weight: 300;
+  line-height: 0.95;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-espresso);
+  margin: 0 0 var(--space-4) 0;
+}
+
+.curatorialNote {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  color: var(--color-mocha);
+  max-width: 540px;
+  margin-inline: auto;
+  line-height: 1.6;
+}

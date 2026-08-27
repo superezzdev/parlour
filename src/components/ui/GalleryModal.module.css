@@ -1,0 +1,172 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(18, 10, 4, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  z-index: var(--z-lightbox);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration-base) var(--ease-out);
+}
+
+.overlayOpen {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* ─── Top Control Bar ─────────────────────────────────────────── */
+.topBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: var(--space-6) var(--space-8);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 20;
+}
+
+.counter {
+  font-family: var(--font-label);
+  font-size: 0.75rem;
+  letter-spacing: var(--label-tracking);
+  color: var(--color-blush);
+  text-transform: uppercase;
+}
+
+.closeButton {
+  background: rgba(250, 247, 242, 0.08);
+  border: 1px solid rgba(250, 247, 242, 0.15);
+  color: var(--color-ivory);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition:
+    background var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out);
+}
+
+.closeButton:hover {
+  background: var(--color-rose);
+  border-color: var(--color-rose);
+  transform: scale(1.05);
+}
+
+/* ─── Navigation Buttons ──────────────────────────────────────── */
+.navBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(250, 247, 242, 0.08);
+  border: 1px solid rgba(250, 247, 242, 0.15);
+  color: var(--color-ivory);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 20;
+  transition:
+    background var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out);
+}
+
+.navBtn:hover {
+  background: var(--color-rose);
+  border-color: var(--color-rose);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.prevBtn {
+  left: var(--space-6);
+}
+
+.nextBtn {
+  right: var(--space-6);
+}
+
+@media (max-width: 768px) {
+  .navBtn {
+    width: 40px;
+    height: 40px;
+  }
+  .prevBtn { left: var(--space-2); }
+  .nextBtn { right: var(--space-2); }
+}
+
+/* ─── Image Container ────────────────────────────────────────── */
+.imageContainer {
+  max-width: 88vw;
+  max-height: 82vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transform: scale(0.95);
+  opacity: 0;
+  transition:
+    transform var(--duration-slow) var(--ease-editorial),
+    opacity var(--duration-slow) var(--ease-out);
+}
+
+.overlayOpen .imageContainer {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.activeImage {
+  max-width: 80vw;
+  max-height: 70vh;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
+}
+
+/* ─── Caption Block ──────────────────────────────────────────── */
+.captionBlock {
+  margin-top: var(--space-4);
+  text-align: center;
+  max-width: 600px;
+}
+
+.categoryTag {
+  font-family: var(--font-label);
+  font-size: 0.625rem;
+  letter-spacing: var(--label-tracking);
+  text-transform: uppercase;
+  color: var(--color-blush);
+  display: block;
+  margin-bottom: var(--space-1);
+}
+
+.imageTitle {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 300;
+  color: var(--color-ivory);
+  margin: 0 0 var(--space-1) 0;
+  letter-spacing: 0.02em;
+}
+
+.imageDesc {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: rgba(250, 247, 242, 0.7);
+  margin: 0;
+}

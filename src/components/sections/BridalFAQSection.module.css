@@ -1,0 +1,82 @@
+.faqSection {
+  background-color: var(--color-ivory);
+  padding-block: var(--section-padding-y);
+  position: relative;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: clamp(3rem, 6vw, 6rem);
+  align-items: flex-start;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+  }
+}
+
+.leftColumn {
+  position: sticky;
+  top: calc(72px + var(--space-8));
+}
+
+@media (max-width: 1024px) {
+  .leftColumn {
+    position: static;
+  }
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: var(--text-display-md);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--color-espresso);
+  margin-top: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.subtitle {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--color-coffee);
+  margin: 0 0 var(--space-8) 0;
+}
+
+.contactCard {
+  background: var(--color-bone);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+}
+
+.contactCardTitle {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 400;
+  color: var(--color-espresso);
+  margin: 0 0 var(--space-2) 0;
+}
+
+.contactCardText {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-coffee);
+  line-height: 1.5;
+  margin: 0 0 var(--space-4) 0;
+}
+
+.contactLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.rightColumn {
+  width: 100%;
+}
