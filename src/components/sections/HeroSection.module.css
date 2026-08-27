@@ -29,7 +29,7 @@
   height: 100%;
   object-fit: cover;
   object-position: center 25%;
-  animation: heroSubtleScale 12s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite alternate;
+  animation: heroSubtleScale 16s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite alternate;
 }
 
 @keyframes heroSubtleScale {
@@ -37,7 +37,7 @@
     transform: scale(1);
   }
   100% {
-    transform: scale(1.05);
+    transform: scale(1.06);
   }
 }
 
@@ -58,10 +58,10 @@
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(30, 18, 8, 0.25) 0%,
-    rgba(30, 18, 8, 0.45) 45%,
-    rgba(30, 18, 8, 0.78) 85%,
-    rgba(30, 18, 8, 0.90) 100%
+    rgba(30, 18, 8, 0.35) 0%,
+    rgba(30, 18, 8, 0.50) 45%,
+    rgba(30, 18, 8, 0.82) 85%,
+    rgba(30, 18, 8, 0.92) 100%
   );
 }
 
@@ -84,7 +84,7 @@
   letter-spacing: 0.20em;
   text-transform: uppercase;
   color: rgba(250, 247, 242, 0.85);
-  background: rgba(30, 18, 8, 0.40);
+  background: rgba(30, 18, 8, 0.45);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   padding: 0.5rem 1rem;
@@ -116,11 +116,16 @@
   padding-bottom: 0;
 }
 
-/* Label override on dark background */
-.heroFull .content :global(.label),
+/* Section label override on dark background */
+.heroFull .content :global(.label) {
+  color: rgba(250, 247, 242, 0.90) !important;
+  background: transparent !important;
+}
+
 .heroFull .content :global(.label)::before {
-  color: rgba(250, 247, 242, 0.90);
-  background: var(--color-rose);
+  background: var(--color-rose) !important;
+  width: 24px !important;
+  height: 1.5px !important;
 }
 
 /* Headline */
@@ -133,6 +138,10 @@
   color: var(--color-ivory);
   margin: 0;
   text-transform: uppercase;
+}
+
+.headlineRow {
+  display: block;
 }
 
 .heroPage .headline {
@@ -191,6 +200,9 @@
   border-radius: var(--radius-pill);
   padding: 0.95rem 1.85rem;
   transition: all var(--duration-fast) var(--ease-out);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
 }
 
 .heroSecondaryCta:hover {
@@ -272,6 +284,7 @@
   .heroSecondaryCta {
     width: 100%;
     text-align: center;
+    justify-content: center;
   }
 
   .scroll {
