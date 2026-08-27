@@ -28,7 +28,7 @@ export default function HeroSection({
   secondaryCtaHref = '/bridal',
   locationTag = 'SARAI MEER · UTTAR PRADESH',
   imageSrc = '/images/hero/hero-editorial.jpg',
-  imageAlt = 'Glamorous makeup and bridal beauty artistry in Sarai Meer',
+  imageAlt = 'Glamorous beauty studio — editorial bridal and luxury makeup artistry in Sarai Meer',
   fullBleed = true,
 }: HeroSectionProps) {
   return (
@@ -36,7 +36,7 @@ export default function HeroSection({
       className={fullBleed ? styles.heroFull : styles.heroPage}
       aria-label="Hero section"
     >
-      {/* Background Image with Clip Reveal and subtle movement */}
+      {/* Background Image with subtle movement and overlay */}
       <div className={`${styles.media} hero-image-reveal`} aria-hidden="true">
         {imageSrc ? (
           // eslint-disable-next-line @next/next/no-img-element
@@ -71,11 +71,11 @@ export default function HeroSection({
         <h1 className={styles.headline}>
           {Array.isArray(headline)
             ? headline.map((line, i) => (
-                <span key={i} className={`text-reveal-line hero-line-${i + 1}`}>
-                  <span>{line}</span>
+                <span key={i} className={`${styles.headlineRow} hero-line-${i + 1}`}>
+                  {line}
                 </span>
               ))
-            : <span className="text-reveal-line hero-line-1"><span>{headline}</span></span>
+            : <span className={`${styles.headlineRow} hero-line-1`}>{headline}</span>
           }
         </h1>
 
