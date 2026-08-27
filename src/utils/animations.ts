@@ -19,29 +19,37 @@ export function wait(ms: number): Promise<void> {
 export function initScrollAnimations(): () => void {
   if (typeof window === 'undefined') return () => {}
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible')
-          // One-shot — unobserve after trigger
-          observer.unobserve(entry.target)
-        }
-      })
-    },
-    {
-      threshold: 0.12,
-      rootMargin: '0px 0px -40px 0px',
-    }
-  )
+  let observer: IntersectionObserver | null = null
 
-  const targets = document.querySelectorAll<HTMLElement>(
-    '[data-reveal], [data-stagger], .image-reveal-wrapper'
-  )
-  targets.forEach((el) => observer.observe(el))
+  const timeoutId = setTimeout(() => {
+    observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.setAttribute('data-visible', 'true')
+            entry.target.classList.add('is-visible')
+            // One-shot — unobserve after trigger
+            observer?.unobserve(entry.target)
+          }
+        })
+      },
+      {
+        threshold: 0.12,
+        rootMargin: '0px 0px -40px 0px',
+      }
+    )
+
+    const targets = document.querySelectorAll<HTMLElement>(
+      '[data-reveal], [data-stagger], .image-reveal-wrapper'
+    )
+    targets.forEach((el) => observer?.observe(el))
+  }, 50)
 
   // Return cleanup function
-  return () => observer.disconnect()
+  return () => {
+    clearTimeout(timeoutId)
+    observer?.disconnect()
+  }
 }
 
 /** Initialize parallax scroll effect */

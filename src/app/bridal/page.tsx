@@ -106,37 +106,35 @@ export default function BridalPage() {
         fullBleed={false}
       />
 
-      <main>
-        {/* 2. STORY SECTION — The Bridal Moment & Approach */}
-        <BridalStorySection />
+      {/* 2. STORY SECTION — The Bridal Moment & Approach */}
+      <BridalStorySection />
 
-        {/* 3. PROCESS — 01 CONSULT, 02 PREPARE, 03 CREATE, 04 REVEAL */}
-        <BridalProcessSection />
+      {/* 3. PROCESS — 01 CONSULT, 02 PREPARE, 03 CREATE, 04 REVEAL */}
+      <BridalProcessSection />
 
-        {/* 4. BRIDAL GALLERY — Large Immersive Showcase */}
-        <BridalGallerySection />
+      {/* 4. BRIDAL GALLERY — Large Immersive Showcase */}
+      <BridalGallerySection />
 
-        {/* 5. OPTIONAL PACKAGES — Editable Package UI */}
-        <BridalPackagesSection />
+      {/* 5. OPTIONAL PACKAGES — Editable Package UI */}
+      <BridalPackagesSection />
 
-        {/* 6. FAQ — Accordion for 5 Key Bridal Questions */}
-        <BridalFAQSection />
+      {/* 6. FAQ — Accordion for 5 Key Bridal Questions */}
+      <BridalFAQSection />
 
-        {/* 7. FINAL CTA — Emotional Closing Action */}
-        <AppointmentCTA
-          label="BRIDAL RESERVATIONS"
-          headline={
-            <>
-              YOUR<br />
-              BRIDAL LOOK<br />
-              STARTS HERE.
-            </>
-          }
-          body="Dates during the wedding season fill quickly. Reserve your bridal consultation with our master artists in Sarai Meer today to begin designing your defining look."
-          ctaLabel="BOOK AN APPOINTMENT"
-          ctaHref="/contact?service=bridal"
-        />
-      </main>
+      {/* 7. FINAL CTA — Emotional Closing Action */}
+      <AppointmentCTA
+        label="BRIDAL RESERVATIONS"
+        headline={
+          <>
+            YOUR<br />
+            BRIDAL LOOK<br />
+            STARTS HERE.
+          </>
+        }
+        body="Dates during the wedding season fill quickly. Reserve your bridal consultation with our master artists in Sarai Meer today to begin designing your defining look."
+        ctaLabel="BOOK AN APPOINTMENT"
+        ctaHref="/contact?service=bridal"
+      />
     </>
   )
 }

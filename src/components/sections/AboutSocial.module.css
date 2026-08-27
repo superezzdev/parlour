@@ -1,0 +1,197 @@
+.socialSection {
+  background-color: var(--color-ivory);
+  position: relative;
+  overflow: hidden;
+  padding-block: var(--section-padding-y);
+  border-top: 1px solid var(--color-champagne);
+}
+
+.headerBlock {
+  text-align: center;
+  max-width: 640px;
+  margin-inline: auto;
+  margin-bottom: var(--space-12);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: var(--text-display-md);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--color-espresso);
+  letter-spacing: -0.01em;
+  margin-top: var(--space-2);
+}
+
+.heading em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--color-rose);
+  display: block;
+}
+
+.subText {
+  font-size: var(--text-lg);
+  font-weight: 300;
+  color: var(--color-coffee);
+  line-height: 1.7;
+  margin-top: var(--space-4);
+}
+
+.accountsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+  max-width: 960px;
+  margin-inline: auto;
+  margin-bottom: var(--space-12);
+}
+
+@media (min-width: 768px) {
+  .accountsGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.accountCard {
+  background-color: var(--color-bone);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-6);
+  text-decoration: none;
+  color: inherit;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.accountCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-rose);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.instagramBadge {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: var(--color-petal);
+  color: var(--color-burgundy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--transition-fast);
+}
+
+.accountCard:hover .instagramBadge {
+  transform: scale(1.08) rotate(4deg);
+}
+
+.arrowIcon {
+  color: var(--color-rose);
+  transition: transform var(--transition-fast);
+}
+
+.accountCard:hover .arrowIcon {
+  transform: translate(3px, -3px);
+}
+
+.accountDetails {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.accountName {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  color: var(--color-espresso);
+  letter-spacing: -0.01em;
+}
+
+.accountHandle {
+  font-family: var(--font-label);
+  font-size: var(--text-sm);
+  letter-spacing: 0.05em;
+  color: var(--color-rose);
+}
+
+.accountBio {
+  font-size: var(--text-sm);
+  color: var(--color-coffee);
+  line-height: 1.6;
+}
+
+.cardFooter {
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: var(--text-xs);
+  font-family: var(--font-label);
+  letter-spacing: var(--label-tracking);
+  text-transform: uppercase;
+  color: var(--color-mocha);
+}
+
+.feedVisualGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+  margin-bottom: var(--space-12);
+}
+
+@media (min-width: 640px) {
+  .feedVisualGrid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-6);
+  }
+}
+
+.feedImageFrame {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  background-color: var(--color-parchment);
+}
+
+.feedImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--transition-slow);
+}
+
+.feedImageFrame:hover .feedImage {
+  transform: scale(1.05);
+}
+
+.ctaWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.journeyBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+}
