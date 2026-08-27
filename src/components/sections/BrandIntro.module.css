@@ -1,0 +1,48 @@
+.brandIntro {
+  background: var(--color-ivory);
+}
+
+.inner {
+  align-items: flex-start;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  padding-top: var(--space-4);
+}
+
+.accent {
+  width: 1px;
+  height: 80px;
+  background: var(--color-rose);
+  margin-left: 2px;
+}
+
+.location {
+  color: var(--color-taupe);
+  letter-spacing: 0.04em;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.headline {
+  margin-bottom: var(--space-8);
+}
+
+@media (max-width: 768px) {
+  .left {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .accent {
+    width: 40px;
+    height: 1px;
+  }
+}

@@ -1,0 +1,139 @@
+/* ═══════════════════════════════════════════════════════════════
+   GLAMOROUS — LAYOUT SYSTEM
+   Container, grid, section, full-bleed utilities.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ─── Container ──────────────────────────────────────────────── */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
+}
+
+.container--narrow {
+  max-width: 800px;
+}
+
+.container--wide {
+  max-width: 1440px;
+}
+
+/* ─── Section ────────────────────────────────────────────────── */
+.section {
+  padding-block: var(--section-padding-y);
+}
+
+.section--sm {
+  padding-block: clamp(3rem, 5vw, 6rem);
+}
+
+.section--lg {
+  padding-block: clamp(8rem, 12vw, 14rem);
+}
+
+/* ─── Full-Bleed ─────────────────────────────────────────────── */
+.full-bleed {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* ─── Grid ───────────────────────────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-cols), 1fr);
+  gap: var(--grid-gap);
+}
+
+.grid--2 { grid-template-columns: repeat(2, 1fr); }
+.grid--3 { grid-template-columns: repeat(3, 1fr); }
+.grid--4 { grid-template-columns: repeat(4, 1fr); }
+
+@media (max-width: 1024px) {
+  .grid--4 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .grid--2,
+  .grid--3,
+  .grid--4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ─── Flex Utilities ─────────────────────────────────────────── */
+.flex         { display: flex; }
+.flex-center  { display: flex; align-items: center; justify-content: center; }
+.flex-between { display: flex; align-items: center; justify-content: space-between; }
+.flex-col     { display: flex; flex-direction: column; }
+.gap-4  { gap: var(--space-4); }
+.gap-6  { gap: var(--space-6); }
+.gap-8  { gap: var(--space-8); }
+.gap-12 { gap: var(--space-12); }
+.gap-16 { gap: var(--space-16); }
+
+/* ─── Asymmetric Editorial Layouts ──────────────────────────── */
+.editorial-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(3rem, 6vw, 8rem);
+  align-items: center;
+}
+
+.editorial-split--60-40 {
+  grid-template-columns: 60fr 40fr;
+}
+
+.editorial-split--40-60 {
+  grid-template-columns: 40fr 60fr;
+}
+
+@media (max-width: 768px) {
+  .editorial-split,
+  .editorial-split--60-40,
+  .editorial-split--40-60 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ─── Spacing Utilities ──────────────────────────────────────── */
+.mt-4   { margin-top: var(--space-4); }
+.mt-6   { margin-top: var(--space-6); }
+.mt-8   { margin-top: var(--space-8); }
+.mt-10  { margin-top: var(--space-10); }
+.mt-12  { margin-top: var(--space-12); }
+.mt-16  { margin-top: var(--space-16); }
+.mt-20  { margin-top: var(--space-20); }
+
+.mb-4   { margin-bottom: var(--space-4); }
+.mb-6   { margin-bottom: var(--space-6); }
+.mb-8   { margin-bottom: var(--space-8); }
+.mb-10  { margin-bottom: var(--space-10); }
+.mb-12  { margin-bottom: var(--space-12); }
+.mb-16  { margin-bottom: var(--space-16); }
+
+/* ─── Divider ────────────────────────────────────────────────── */
+.divider {
+  width: 100%;
+  height: 1px;
+  background: var(--color-border);
+  border: none;
+  margin-block: var(--space-12);
+}
+
+.divider--rose {
+  background: var(--color-border-rose);
+}
+
+/* ─── Visually Hidden ────────────────────────────────────────── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

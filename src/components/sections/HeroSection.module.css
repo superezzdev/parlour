@@ -1,0 +1,158 @@
+/* Full hero (home page) */
+.heroFull {
+  position: relative;
+  height: 100dvh;
+  min-height: 600px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+/* Page hero (inner pages) */
+.heroPage {
+  position: relative;
+  padding-top: calc(72px + clamp(4rem, 8vw, 8rem));
+  padding-bottom: clamp(4rem, 6vw, 6rem);
+  overflow: hidden;
+}
+
+/* Media */
+.media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.imagePlaceholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    var(--color-champagne) 0%,
+    var(--color-parchment) 30%,
+    var(--color-bone) 60%,
+    var(--color-champagne) 100%
+  );
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(30, 18, 8, 0.15) 0%,
+    rgba(30, 18, 8, 0.55) 70%,
+    rgba(30, 18, 8, 0.72) 100%
+  );
+}
+
+/* Content */
+.content {
+  position: relative;
+  z-index: 1;
+  padding-bottom: clamp(4rem, 7vw, 8rem);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  max-width: 900px;
+}
+
+.heroPage .content {
+  padding-bottom: 0;
+}
+
+/* Label override on dark background */
+.heroFull .content :global(.label),
+.heroFull .content :global(.label)::before {
+  color: rgba(250, 247, 242, 0.80);
+  background: rgba(250, 247, 242, 0.80);
+}
+
+/* Headline */
+.headline {
+  font-family: var(--font-display);
+  font-size: var(--text-display-xl);
+  font-weight: 300;
+  line-height: 1.05;
+  color: var(--color-ivory);
+  margin: 0;
+}
+
+.heroPage .headline {
+  color: var(--color-espresso);
+}
+
+/* Subheadline */
+.subheadline {
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  font-weight: 300;
+  color: rgba(250, 247, 242, 0.80);
+  line-height: 1.65;
+  max-width: 55ch;
+  margin: 0;
+}
+
+.heroPage .subheadline {
+  color: var(--color-coffee);
+}
+
+/* CTA */
+.heroCta {
+  color: var(--color-ivory) !important;
+  border-color: rgba(250, 247, 242, 0.50) !important;
+  margin-top: var(--space-2);
+}
+
+.heroCta:hover {
+  background: var(--color-rose) !important;
+  border-color: var(--color-rose) !important;
+}
+
+/* Scroll indicator */
+.scroll {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+  margin-top: var(--space-8);
+}
+
+.scrollLine {
+  width: 1px;
+  height: 48px;
+  background: rgba(250, 247, 242, 0.40);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.9; }
+}
+
+.scrollText {
+  font-family: var(--font-label);
+  font-size: var(--text-label);
+  font-weight: var(--label-weight);
+  letter-spacing: var(--label-tracking);
+  text-transform: uppercase;
+  color: rgba(250, 247, 242, 0.50);
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+@media (max-width: 768px) {
+  .headline {
+    font-size: var(--text-display-lg);
+  }
+  .scroll {
+    display: none;
+  }
+}
