@@ -7,8 +7,8 @@ export default function LocationBlock() {
     <section className={`${styles.location} section`} aria-labelledby="location-heading">
       <div className="container">
         <div className={`${styles.inner} editorial-split editorial-split--60-40`}>
-          {/* Map side */}
-          <div className={`${styles.map} image-reveal-wrapper`} aria-label="Map embed area">
+          {/* Map Side / Visual Location Frame */}
+          <div className={`${styles.mapContainer} image-reveal-wrapper`} aria-label="Studio location preview">
             {salon.googleMapsEmbedUrl ? (
               <iframe
                 src={salon.googleMapsEmbedUrl}
@@ -19,71 +19,92 @@ export default function LocationBlock() {
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 title={`Map showing ${salon.name} location`}
+                className={styles.mapIframe}
               />
             ) : (
-              /* Placeholder map UI until embed URL is provided */
               <a
                 href={salon.googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.mapPlaceholder}
-                aria-label="View Glamorous on Google Maps"
+                aria-label="Get directions to Glamorous on Google Maps"
               >
                 <div className={styles.mapBg} aria-hidden="true" />
-                <div className={styles.mapPin} aria-hidden="true">
-                  <svg width="32" height="40" viewBox="0 0 32 40" fill="none" aria-hidden="true">
-                    <path d="M16 0C7.163 0 0 7.163 0 16c0 10 16 24 16 24s16-14 16-24C32 7.163 24.837 0 16 0z" fill="var(--color-rose)" />
-                    <circle cx="16" cy="16" r="6" fill="white" />
-                  </svg>
+                <div className={styles.mapPinWrapper} aria-hidden="true">
+                  <div className={styles.mapPinPulse} />
+                  <div className={styles.mapPin}>
+                    <svg width="28" height="36" viewBox="0 0 32 40" fill="none" aria-hidden="true">
+                      <path d="M16 0C7.163 0 0 7.163 0 16c0 10 16 24 16 24s16-14 16-24C32 7.163 24.837 0 16 0z" fill="var(--color-rose)" />
+                      <circle cx="16" cy="16" r="6" fill="white" />
+                    </svg>
+                  </div>
                 </div>
-                <div className={styles.mapLabel}>
-                  <span>View on Google Maps ↗</span>
+                <div className={styles.mapBadge}>
+                  <span className={styles.mapBadgeTitle}>Glamorous Makeup &amp; Beauty</span>
+                  <span className={styles.mapBadgeSub}>Sabji Mandi Rd, Sarai Meer</span>
+                  <span className={styles.mapBadgeAction}>Tap for live GPS navigation &rarr;</span>
                 </div>
               </a>
             )}
           </div>
 
-          {/* Details side */}
+          {/* Details Side */}
           <div className={styles.details} data-reveal>
-            <SectionLabel>Find Us</SectionLabel>
+            <SectionLabel>VISIT OUR SANCTUARY</SectionLabel>
 
             <EditorialHeading as="h2" size="md" id="location-heading" className={styles.heading}>
-              Come and see us
+              Glamorous<br />
+              <em>(makeup &amp; beauty)</em>
             </EditorialHeading>
 
             {/* Address */}
             <address className={styles.address}>
-              <p>{salon.address.line1}</p>
-              <p>{salon.address.line2}</p>
-              <p>{salon.address.city}</p>
-              <p>{salon.address.state} &mdash; {salon.address.pincode}</p>
+              <p className={styles.addressLinePrimary}>1st Floor, Mumtaz Bangle Store</p>
+              <p>Sabji Mandi Rd, Sarai Meer</p>
+              <p>Uttar Pradesh 276305</p>
             </address>
 
+            {/* Phone & Direct Contact */}
+            <div className={styles.phoneBlock}>
+              <span className={styles.subLabel}>DIRECT TELEPHONE</span>
+              <a
+                href={`tel:${salon.phone}`}
+                className={styles.phoneNumber}
+                aria-label={`Call ${salon.phoneDisplay}`}
+              >
+                {salon.phoneDisplay}
+              </a>
+            </div>
+
             {/* Hours */}
-            <div aria-label="Opening hours">
-              <p className={`${styles.sectionLabel} label`}>Hours</p>
+            <div className={styles.hoursBlock} aria-label="Studio opening hours">
+              <span className={styles.subLabel}>STUDIO HOURS</span>
               <dl className={styles.hoursList}>
                 {salon.hours.map((h, i) => (
                   <div key={i} className={styles.hoursRow}>
-                    <dt className="caption">{h.day}</dt>
-                    <dd className="caption">{h.hours}</dd>
+                    <dt className={styles.hoursDay}>{h.day}</dt>
+                    <dd className={styles.hoursTime}>{h.hours}</dd>
                   </div>
                 ))}
               </dl>
-              <p className={`caption ${styles.hoursNote}`}>
-                Hours to be confirmed with business owner.
-              </p>
             </div>
 
             {/* CTAs */}
             <div className={styles.actions}>
               <a
-                href={`tel:${salon.phone}`}
-                className="btn btn-primary"
-                aria-label={`Call us at ${salon.phoneDisplay}`}
+                href={salon.googleMapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`btn btn-primary btn-lg ${styles.directionsBtn}`}
+                aria-label="Get directions to Glamorous in Google Maps"
               >
-                Call {salon.phoneDisplay}
+                <span>GET DIRECTIONS</span>
+                <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <line x1="4" y1="10" x2="16" y2="10" />
+                  <polyline points="11,5 16,10 11,15" />
+                </svg>
               </a>
+
               <a
                 href={salon.whatsappUrl}
                 target="_blank"
@@ -91,7 +112,7 @@ export default function LocationBlock() {
                 className="btn btn-ghost"
                 aria-label="Chat on WhatsApp"
               >
-                WhatsApp →
+                WhatsApp Inquiry &rarr;
               </a>
             </div>
           </div>

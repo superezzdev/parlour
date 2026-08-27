@@ -1,28 +1,31 @@
 .bridalTeaser {
   position: relative;
-  min-height: 80vh;
+  min-height: 85vh;
   display: flex;
   align-items: center;
   overflow: hidden;
+  background: var(--color-espresso);
 }
 
 .media {
   position: absolute;
   inset: 0;
   z-index: 0;
-}
-
-.bg {
   width: 100%;
   height: 100%;
-  /* [PLACEHOLDER G02] — editorial bridal gradient until real image added */
-  background: linear-gradient(
-    135deg,
-    var(--color-espresso) 0%,
-    var(--color-coffee) 40%,
-    #2D1A12 70%,
-    var(--color-espresso) 100%
-  );
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  filter: contrast(105%) brightness(95%);
+  transition: transform 1200ms var(--ease-standard);
+}
+
+.bridalTeaser:hover .image {
+  transform: scale(1.02);
 }
 
 .overlay {
@@ -30,55 +33,112 @@
   inset: 0;
   background: linear-gradient(
     to right,
-    rgba(30, 18, 8, 0.60) 0%,
-    rgba(30, 18, 8, 0.20) 60%,
-    transparent 100%
+    rgba(30, 18, 8, 0.88) 0%,
+    rgba(30, 18, 8, 0.72) 40%,
+    rgba(30, 18, 8, 0.40) 80%,
+    rgba(30, 18, 8, 0.60) 100%
   );
 }
 
 .content {
   position: relative;
   z-index: 1;
-  padding-block: clamp(6rem, 10vw, 12rem);
+  padding-block: clamp(5rem, 8vw, 10rem);
 }
 
 .inner {
-  max-width: 640px;
+  max-width: 680px;
   display: flex;
   flex-direction: column;
-  gap: var(--space-8);
+  gap: var(--space-6);
 }
 
-/* Override label for dark bg */
-.inner :global(.label),
-.inner :global(.label)::before {
-  color: rgba(250, 247, 242, 0.70);
-  background: rgba(250, 247, 242, 0.70);
+/* Label on dark background */
+.labelWrapper :global(.label),
+.labelWrapper :global(.label)::before {
+  color: rgba(250, 247, 242, 0.90);
+  background: var(--color-rose);
 }
 
 .headline {
   color: var(--color-ivory) !important;
   line-height: 1.05;
+  letter-spacing: -0.01em;
+  font-weight: 300;
+  margin: 0;
 }
 
 .body {
-  color: rgba(250, 247, 242, 0.75);
-  max-width: 45ch;
+  color: rgba(250, 247, 242, 0.85);
+  max-width: 50ch;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* Highlights */
+.highlights {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+  margin-bottom: var(--space-2);
+}
+
+.highlightItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: rgba(250, 247, 242, 0.90);
+  letter-spacing: 0.02em;
+}
+
+.highlightDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-rose);
+  flex-shrink: 0;
+}
+
+.ctaWrapper {
+  margin-top: var(--space-4);
 }
 
 .cta {
+  background: var(--color-rose) !important;
   color: var(--color-ivory) !important;
-  border-color: rgba(250, 247, 242, 0.40) !important;
-  align-self: flex-start;
+  border-color: var(--color-rose) !important;
+  box-shadow: 0 4px 20px rgba(196, 137, 122, 0.35);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
 }
 
 .cta:hover {
-  background: var(--color-rose) !important;
-  border-color: var(--color-rose) !important;
+  background: var(--color-blush) !important;
+  border-color: var(--color-blush) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(196, 137, 122, 0.45);
 }
 
 @media (max-width: 768px) {
   .bridalTeaser {
     min-height: 70vh;
+  }
+
+  .overlay {
+    background: linear-gradient(
+      to top,
+      rgba(30, 18, 8, 0.95) 0%,
+      rgba(30, 18, 8, 0.75) 50%,
+      rgba(30, 18, 8, 0.50) 100%
+    );
+  }
+
+  .cta {
+    width: 100%;
+    justify-content: center;
   }
 }

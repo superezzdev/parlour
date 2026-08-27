@@ -7,16 +7,17 @@ export default function BrandIntro() {
     <section className={`${styles.brandIntro} section`} aria-labelledby="brand-intro-heading">
       <div className="container">
         <div className={`${styles.inner} editorial-split editorial-split--40-60`}>
-          {/* Left — Label + Decorative */}
+          {/* Left — Section Label, Accent & Studio Origin */}
           <div className={styles.left} data-reveal="left">
-            <SectionLabel>Our Studio</SectionLabel>
+            <SectionLabel>THE GLAMOROUS EXPERIENCE</SectionLabel>
             <div className={styles.accent} aria-hidden="true" />
-            <p className={`${styles.location} caption`}>
-              Sarai Meer, Uttar Pradesh
-            </p>
+            <div className={styles.metaBlock}>
+              <p className={styles.metaTitle}>BOUTIQUE BEAUTY STUDIO</p>
+              <p className={styles.metaLocation}>Sabji Mandi Rd, Sarai Meer</p>
+            </div>
           </div>
 
-          {/* Right — Content */}
+          {/* Right — Philosophy Statement & Narrative */}
           <div className={styles.right}>
             <EditorialHeading
               as="h2"
@@ -25,32 +26,30 @@ export default function BrandIntro() {
               className={styles.headline}
               data-reveal
             >
-              {/* PLACEHOLDER H04 */}
-              Beauty is not an afterthought.<br />
-              <em>It is the beginning of the story.</em>
+              Beauty should never disguise who you are &mdash;<br />
+              <em>it should reveal your most luminous self.</em>
             </EditorialHeading>
 
-            <div data-stagger>
+            <div data-stagger className={styles.narrative}>
               <p className="lead">
-                {/* PLACEHOLDER BRAND_INTRO */}
-                Nestled in Sarai Meer, Glamorous is a beauty studio dedicated to the
-                art of transformation. From bridal days to evening events, every look
-                we create is considered, crafted, and entirely yours.
+                Nestled on the 1st Floor at Sabji Mandi Road in Sarai Meer, Glamorous is
+                an intimate beauty sanctuary dedicated to the art of personalized aesthetic expression.
+                From sacred bridal rituals to radiant evening celebrations, every look we compose
+                is tailored with intentional nuance.
               </p>
 
-              <p className="body-text mt-8">
-                We believe that skilled artistry — patient, precise, and personal —
-                can help every woman feel her most confident. That belief is at the
-                heart of everything we do.
+              <p className="body-text">
+                We believe true glamour is not a mask, but an authentic elevation. With patient precision,
+                skin-first artistry, and deep reverence for timeless elegance, we ensure you walk
+                into your most cherished moments looking and feeling unmistakably extraordinary.
               </p>
 
-              <Link
-                href="/about"
-                className="btn btn-ghost mt-10"
-                style={{ display: 'inline-block' }}
-              >
-                Our story →
-              </Link>
+              <div className={styles.action}>
+                <Link href="/about" className="btn btn-ghost">
+                  <span>Explore our philosophy &amp; story</span>
+                  <span aria-hidden="true">&rarr;</span>
+                </Link>
+              </div>
             </div>
           </div>
         </div>

@@ -11,13 +11,13 @@ export default function Footer() {
       <div className="container">
         {/* ── Top ─────────────────────────────────────────────── */}
         <div className={styles.top}>
-          {/* Brand */}
+          {/* Brand & Narrative */}
           <div className={styles.brand}>
             <p className={styles.wordmark}>{salon.name}</p>
-            <p className={styles.tagline}>Makeup &amp; Beauty</p>
+            <p className={styles.tagline}>MAKEUP &amp; BEAUTY</p>
             <p className={styles.description}>
               A boutique beauty studio in Sarai Meer, Uttar Pradesh.
-              Crafting considered looks for brides and beauty seekers.
+              Crafting considered, luminous looks for brides and beauty seekers.
             </p>
           </div>
 
@@ -75,18 +75,24 @@ export default function Footer() {
                 className={styles.contactLink}
                 aria-label="View on Google Maps"
               >
-                View on Google Maps ↗
+                View on Google Maps &rarr;
               </a>
             </div>
           </div>
 
           {/* CTA */}
           <div className={styles.cta}>
-            <p className={styles.ctaHeadline}>Ready to begin?</p>
+            <p className={styles.ctaHeadline}>Ready for your moment?</p>
             <Link href={ctaLink.href} className={`btn btn-primary ${styles.footerPrimaryBtn}`}>
               Book an Appointment
             </Link>
           </div>
+        </div>
+
+        {/* ── Signature Statement Brand Banner ── */}
+        <div className={styles.brandBanner} aria-hidden="true">
+          <span className={styles.giantWordmark}>GLAMOROUS</span>
+          <span className={styles.subWordmark}>MAKEUP &amp; BEAUTY</span>
         </div>
 
         {/* ── Bottom ──────────────────────────────────────────── */}

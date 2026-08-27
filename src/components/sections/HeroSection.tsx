@@ -4,10 +4,13 @@ import styles from './HeroSection.module.css'
 
 interface HeroSectionProps {
   label?: string
-  headline: React.ReactNode
+  headline: string | string[]
   subheadline?: React.ReactNode
   ctaLabel?: string
   ctaHref?: string
+  secondaryCtaLabel?: string
+  secondaryCtaHref?: string
+  locationTag?: string
   /** Background image URL — null shows gradient placeholder */
   imageSrc?: string | null
   imageAlt?: string
@@ -16,13 +19,16 @@ interface HeroSectionProps {
 }
 
 export default function HeroSection({
-  label,
-  headline,
+  label = 'GLAMOROUS / MAKEUP & BEAUTY',
+  headline = ['BEAUTY,', 'MADE', 'PERSONAL.'],
   subheadline,
-  ctaLabel = 'Book an Appointment',
+  ctaLabel = 'BOOK AN APPOINTMENT',
   ctaHref = '/contact',
-  imageSrc = null,
-  imageAlt = 'Glamorous beauty studio — bridal makeup artistry in Sarai Meer',
+  secondaryCtaLabel = 'EXPLORE BRIDAL',
+  secondaryCtaHref = '/bridal',
+  locationTag = 'SARAI MEER · UTTAR PRADESH',
+  imageSrc = '/images/hero/hero-editorial.jpg',
+  imageAlt = 'Glamorous makeup and bridal beauty artistry in Sarai Meer',
   fullBleed = true,
 }: HeroSectionProps) {
   return (
@@ -30,7 +36,7 @@ export default function HeroSection({
       className={fullBleed ? styles.heroFull : styles.heroPage}
       aria-label="Hero section"
     >
-      {/* Background Image / Placeholder */}
+      {/* Background Image with Clip Reveal and subtle movement */}
       <div className={`${styles.media} hero-image-reveal`} aria-hidden="true">
         {imageSrc ? (
           // eslint-disable-next-line @next/next/no-img-element
@@ -47,7 +53,14 @@ export default function HeroSection({
         <div className={styles.overlay} aria-hidden="true" />
       </div>
 
-      {/* Content */}
+      {/* Hero Meta Pinned Top-Right on Desktop */}
+      {locationTag && (
+        <div className={styles.metaTopRight} aria-hidden="true">
+          <span className={styles.locationBadge}>{locationTag}</span>
+        </div>
+      )}
+
+      {/* Main Content Container */}
       <div className={`container ${styles.content}`}>
         {label && (
           <div className="hero-label">
@@ -70,11 +83,30 @@ export default function HeroSection({
           <p className={`${styles.subheadline} hero-body`}>{subheadline}</p>
         )}
 
-        {ctaLabel && (
-          <div className="hero-cta">
-            <Link href={ctaHref} className={`btn btn-primary btn-lg ${styles.heroCta}`}>
+        {/* Action Group: Primary CTA + Secondary CTA */}
+        <div className={`${styles.actionGroup} hero-cta`}>
+          {ctaLabel && (
+            <Link href={ctaHref} className={`btn btn-primary btn-lg ${styles.heroPrimaryCta}`}>
               {ctaLabel}
             </Link>
+          )}
+
+          {secondaryCtaLabel && (
+            <Link href={secondaryCtaHref} className={`btn ${styles.heroSecondaryCta}`}>
+              <span>{secondaryCtaLabel}</span>
+              <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <line x1="4" y1="10" x2="16" y2="10" />
+                <polyline points="11,5 16,10 11,15" />
+              </svg>
+            </Link>
+          )}
+        </div>
+
+        {/* Location footnote for mobile */}
+        {locationTag && (
+          <div className={styles.locationMobile} aria-hidden="true">
+            <span className={styles.locationDot} />
+            <span>{locationTag}</span>
           </div>
         )}
 

@@ -1,0 +1,237 @@
+.selectedWork {
+  background: var(--color-ivory);
+  position: relative;
+  overflow: hidden;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: var(--space-8);
+  align-items: flex-end;
+  margin-bottom: clamp(3rem, 5vw, 5rem);
+}
+
+.headerLeft {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.headline {
+  margin: 0;
+  line-height: 1.1;
+}
+
+.headerRight {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.headerDesc {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-coffee);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* Asymmetrical Editorial Grid */
+.editorialGrid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: var(--space-8);
+  align-items: stretch;
+}
+
+.featureCol {
+  position: relative;
+  display: flex;
+}
+
+.imageCardLarge {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3/4;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.overlayGradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(30, 18, 8, 0.82) 0%,
+    rgba(30, 18, 8, 0.30) 40%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.overlapBadge {
+  position: absolute;
+  bottom: var(--space-8);
+  left: var(--space-8);
+  right: var(--space-8);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.lookNumber {
+  font-family: var(--font-label);
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: var(--color-petal);
+}
+
+.lookTitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  font-weight: 300;
+  color: var(--color-ivory);
+  line-height: 1.15;
+  margin: 0;
+}
+
+.lookCategory {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: rgba(250, 247, 242, 0.75);
+  margin: 0;
+  letter-spacing: 0.04em;
+}
+
+/* Secondary Column */
+.secondaryCol {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  justify-content: space-between;
+}
+
+.imageCardMedium {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.cardCaption {
+  position: absolute;
+  bottom: var(--space-6);
+  left: var(--space-6);
+  right: var(--space-6);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.lookTitleSmall {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--color-ivory);
+  line-height: 1.2;
+  margin: 0;
+}
+
+/* Detail Row */
+.detailRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+}
+
+.imageCardDetail {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1/1;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-xs);
+}
+
+.detailOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(30, 18, 8, 0.80) 0%,
+    rgba(30, 18, 8, 0.15) 50%,
+    transparent 100%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--space-4);
+  gap: 2px;
+}
+
+.detailTag {
+  font-family: var(--font-label);
+  font-size: 0.5625rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-petal);
+}
+
+.detailTitle {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--color-ivory);
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* Footer Action */
+.footerAction {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(3rem, 5vw, 4.5rem);
+}
+
+@media (max-width: 1024px) {
+  .header {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  .editorialGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .imageCardLarge {
+    aspect-ratio: 4/3;
+  }
+}
+
+@media (max-width: 640px) {
+  .overlapBadge {
+    bottom: var(--space-4);
+    left: var(--space-4);
+    right: var(--space-4);
+  }
+
+  .detailRow {
+    grid-template-columns: 1fr;
+  }
+}
