@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useId } from 'react'
+import { useState, useId } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { serviceCategories } from '@/data/services'
 import { bridalPackages } from '@/data/bridal'
@@ -24,9 +24,30 @@ interface FormErrors {
   preferredTime?: string
 }
 
+function getInitialService(serviceParam: string | null): string {
+  if (!serviceParam) return ''
+  const normalized = serviceParam.toLowerCase()
+  if (normalized.includes('bridal') || normalized.includes('wedding')) {
+    return 'Bridal Artistry & Consultation'
+  }
+  if (normalized.includes('makeup') || normalized.includes('party')) {
+    return 'Party & Occasion Makeup'
+  }
+  if (normalized.includes('hair')) {
+    return 'Couture Hair Styling'
+  }
+  if (normalized.includes('skin') || normalized.includes('facial')) {
+    return 'Skin & Facial Therapy'
+  }
+  if (normalized.includes('nail')) {
+    return 'Nail Architecture & Art'
+  }
+  return serviceParam
+}
+
 export default function BookingForm() {
   const searchParams = useSearchParams()
-  const serviceParam = searchParams.get('service') || ''
+  const serviceParam = searchParams.get('service')
 
   const nameId = useId()
   const phoneId = useId()
@@ -35,43 +56,22 @@ export default function BookingForm() {
   const timeId = useId()
   const messageId = useId()
 
-  const [formData, setFormData] = useState<FormData>({
+  const [formData, setFormData] = useState<FormData>(() => ({
     name: '',
     phone: '',
-    service: '',
+    service: getInitialService(serviceParam),
     preferredDate: '',
     preferredTime: '',
     message: '',
-  })
+  }))
 
   const [errors, setErrors] = useState<FormErrors>({})
   const [touched, setTouched] = useState<Record<string, boolean>>({})
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
 
-  // Pre-select service from URL parameter if present
-  useEffect(() => {
-    if (!serviceParam) return
-
-    const normalizedParam = serviceParam.toLowerCase()
-    if (normalizedParam.includes('bridal') || normalizedParam.includes('wedding')) {
-      setFormData((prev) => ({ ...prev, service: 'Bridal Artistry & Consultation' }))
-    } else if (normalizedParam.includes('makeup') || normalizedParam.includes('party')) {
-      setFormData((prev) => ({ ...prev, service: 'Party & Occasion Makeup' }))
-    } else if (normalizedParam.includes('hair')) {
-      setFormData((prev) => ({ ...prev, service: 'Couture Hair Styling' }))
-    } else if (normalizedParam.includes('skin') || normalizedParam.includes('facial')) {
-      setFormData((prev) => ({ ...prev, service: 'Skin & Facial Therapy' }))
-    } else if (normalizedParam.includes('nail')) {
-      setFormData((prev) => ({ ...prev, service: 'Nail Architecture & Art' }))
-    }
-  }, [serviceParam])
-
-  const [minDate, setMinDate] = useState<string>('')
-
-  useEffect(() => {
-    setMinDate(new Date().toISOString().split('T')[0])
-  }, [])
+  // Get current date string for min date in picker
+  const [minDate] = useState<string>(() => new Date().toISOString().split('T')[0])
 
   const validateField = (name: string, value: string): string | undefined => {
     switch (name) {
@@ -172,7 +172,7 @@ export default function BookingForm() {
       `• Preferred Time: ${formData.preferredTime}\n` +
       (formData.message ? `• Notes: ${formData.message}\n` : '')
     )
-    return `https://wa.me/917007875415?text=${text}`
+    return `https://wa.me/${salon.phone.replace(/[^0-9]/g, '')}?text=${text}`
   }
 
   const handleReset = () => {

@@ -4,7 +4,6 @@ import CategoryNav from '@/components/sections/CategoryNav'
 import ServiceEditorialSection from '@/components/sections/ServiceEditorialSection'
 import AppointmentCTA from '@/components/sections/AppointmentCTA'
 import { serviceCategories } from '@/data/services'
-import { salon } from '@/data/salon'
 
 export const metadata: Metadata = {
   title: 'Our Services — Bridal, Makeup, Hair & Beauty Menu',
@@ -97,11 +96,10 @@ export default function ServicesPage() {
 
       {/* 3. Large Alternating Editorial Service Presentation */}
       <main id="services-menu" aria-label="Services Menu">
-        {serviceCategories.map((category, index) => (
+        {serviceCategories.map((category) => (
           <ServiceEditorialSection
             key={category.id}
             category={category}
-            index={index}
           />
         ))}
       </main>

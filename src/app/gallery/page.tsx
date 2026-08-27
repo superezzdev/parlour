@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import GalleryHero from '@/components/sections/GalleryHero'
+import HeroSection from '@/components/sections/HeroSection'
 import GalleryGrid from '@/components/ui/GalleryGrid'
 import AppointmentCTA from '@/components/sections/AppointmentCTA'
 import { galleryImages } from '@/data/gallery'
@@ -72,11 +72,29 @@ export default function GalleryPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(imageGallerySchema) }}
       />
 
-      {/* 1. HERO — Minimalist Museum Exhibition Header */}
-      <GalleryHero />
+      {/* 1. HERO — Cinematic Editorial Exhibition Hero */}
+      <HeroSection
+        label="SELECTED WORK / PORTFOLIO ARCHIVE"
+        headline={[
+          'SELECTED',
+          'WORK &',
+          'ARTISTRY.',
+        ]}
+        subheadline="An art-directed exhibition of bespoke bridal transformations, editorial makeup, couture hairstyling, and finishing craft in Sarai Meer."
+        ctaLabel="BOOK AN APPOINTMENT"
+        ctaHref="/contact"
+        secondaryCtaLabel="EXPLORE ARCHIVE"
+        secondaryCtaHref="#gallery-portfolio"
+        locationTag="SARAI MEER · STUDIO ARCHIVE"
+        imageSrc="/images/gallery/bridal/bridal-01.jpg"
+        imageAlt="Curated bridal and makeup artistry gallery at Glamorous Studio"
+        fullBleed={false}
+      />
 
       {/* 2. GALLERY GRID — Interactive Filter Bar & Asymmetric Masonry */}
-      <GalleryGrid images={galleryImages} showFilters initialCategory="all" />
+      <div id="gallery-portfolio">
+        <GalleryGrid images={galleryImages} showFilters initialCategory="all" />
+      </div>
 
       {/* 3. UNDERSTATED APPOINTMENT CTA */}
       <AppointmentCTA
