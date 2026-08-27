@@ -47,19 +47,23 @@ export default function CursorEffect() {
       animId = requestAnimationFrame(animate)
     }
 
-    const handleHoverIn = () => ring.classList.add('is-hovering')
-    const handleHoverOut = () => ring.classList.remove('is-hovering')
+    const handleMouseOver = (e: MouseEvent) => {
+      const target = e.target as HTMLElement | null
+      if (target?.closest('a, button, [role="button"], [role="tab"], input, select, textarea, label')) {
+        ring.classList.add('is-hovering')
+      } else {
+        ring.classList.remove('is-hovering')
+      }
+    }
 
-    window.addEventListener('mousemove', moveCursor)
-    document.querySelectorAll('a, button, [role="button"]').forEach((el) => {
-      el.addEventListener('mouseenter', handleHoverIn)
-      el.addEventListener('mouseleave', handleHoverOut)
-    })
+    window.addEventListener('mousemove', moveCursor, { passive: true })
+    window.addEventListener('mouseover', handleMouseOver, { passive: true })
 
     animId = requestAnimationFrame(animate)
 
     return () => {
       window.removeEventListener('mousemove', moveCursor)
+      window.removeEventListener('mouseover', handleMouseOver)
       cancelAnimationFrame(animId)
     }
   }, [])

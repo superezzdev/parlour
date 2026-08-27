@@ -94,7 +94,11 @@ export default function RootLayout({
   const schema = localBusinessSchema(salon)
 
   return (
-    <html lang="en-IN" className={`${cormorant.variable} ${dmSans.variable}`}>
+    <html
+      lang="en-IN"
+      className={`${cormorant.variable} ${dmSans.variable}`}
+      data-scroll-behavior="smooth"
+    >
       <head>
         {/* JSON-LD: LocalBusiness / BeautySalon — every page */}
         <script

@@ -95,7 +95,8 @@
   transition: transform var(--duration-slow) var(--ease-editorial);
 }
 
-.text-reveal-line.is-visible > span {
+.text-reveal-line.is-visible > span,
+.text-reveal-line[data-visible="true"] > span {
   transform: translateY(0);
 }
 

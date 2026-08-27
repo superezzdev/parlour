@@ -19,6 +19,16 @@ export function wait(ms: number): Promise<void> {
 export function initScrollAnimations(): () => void {
   if (typeof window === 'undefined') return () => {}
 
+  const targets = document.querySelectorAll<HTMLElement>(
+    '[data-reveal], [data-stagger], .image-reveal-wrapper, .text-reveal-line'
+  )
+
+  // If user prefers reduced motion, reveal everything immediately
+  if (prefersReducedMotion()) {
+    targets.forEach((el) => el.setAttribute('data-visible', 'true'))
+    return () => {}
+  }
+
   let observer: IntersectionObserver | null = null
 
   const timeoutId = setTimeout(() => {
@@ -27,23 +37,27 @@ export function initScrollAnimations(): () => void {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.setAttribute('data-visible', 'true')
-            entry.target.classList.add('is-visible')
             // One-shot — unobserve after trigger
             observer?.unobserve(entry.target)
           }
         })
       },
       {
-        threshold: 0.12,
-        rootMargin: '0px 0px -40px 0px',
+        threshold: 0.08,
+        rootMargin: '0px 0px -30px 0px',
       }
     )
 
-    const targets = document.querySelectorAll<HTMLElement>(
-      '[data-reveal], [data-stagger], .image-reveal-wrapper'
-    )
-    targets.forEach((el) => observer?.observe(el))
-  }, 50)
+    targets.forEach((el) => {
+      // If already visible in viewport, reveal immediately
+      const rect = el.getBoundingClientRect()
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        el.setAttribute('data-visible', 'true')
+      } else {
+        observer?.observe(el)
+      }
+    })
+  }, 40)
 
   // Return cleanup function
   return () => {
