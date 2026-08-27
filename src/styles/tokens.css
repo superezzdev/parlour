@@ -1,0 +1,142 @@
+/* ═══════════════════════════════════════════════════════════════
+   GLAMOROUS — DESIGN TOKENS
+   Single source of truth for all design decisions.
+   ═══════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ─── Core Palette ─────────────────────────────────────────── */
+  --color-ivory:       #FAF7F2;   /* Primary background */
+  --color-bone:        #F2EDE6;   /* Warm white, card backgrounds */
+  --color-champagne:   #EDE0CC;   /* Soft champagne — section dividers */
+  --color-parchment:   #E8DECE;   /* Warm mid-tone */
+
+  /* ─── Text Colors ───────────────────────────────────────────── */
+  --color-espresso:    #1E1208;   /* Primary text — deep, warm dark */
+  --color-coffee:      #3D2B1A;   /* Secondary text */
+  --color-mocha:       #6B4C36;   /* Muted text, captions */
+  --color-taupe:       #9A8070;   /* Placeholder text, hints */
+
+  /* ─── Accent ────────────────────────────────────────────────── */
+  --color-rose:        #C4897A;   /* Primary accent — muted rose */
+  --color-blush:       #D9A89B;   /* Hover states, lighter accent */
+  --color-petal:       #EDD6CF;   /* Very light blush — backgrounds, borders */
+  --color-burgundy:    #6B1A2A;   /* Sparingly — special emphasis only */
+
+  /* ─── UI Functional ─────────────────────────────────────────── */
+  --color-border:      rgba(30, 18, 8, 0.12);
+  --color-border-rose: rgba(196, 137, 122, 0.30);
+  --color-overlay:     rgba(30, 18, 8, 0.72);
+  --color-surface:     rgba(250, 247, 242, 0.88);  /* Frosted nav */
+  --color-success:     #4A7C5F;
+  --color-error:       #B54242;
+
+  /* ─── Shadows ───────────────────────────────────────────────── */
+  --shadow-xs:  0 1px 2px rgba(30, 18, 8, 0.06);
+  --shadow-sm:  0 2px 8px rgba(30, 18, 8, 0.08);
+  --shadow-md:  0 4px 16px rgba(30, 18, 8, 0.10);
+  --shadow-lg:  0 8px 32px rgba(30, 18, 8, 0.12);
+  --shadow-xl:  0 16px 56px rgba(30, 18, 8, 0.16);
+
+  /* ─── Typography: Font Stacks ───────────────────────────────── */
+  --font-display: var(--font-cormorant), 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  --font-body:    var(--font-dmsans), 'DM Sans', 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-label:   var(--font-dmsans), 'DM Sans', sans-serif;
+
+  /* ─── Typography: Display Scale (Cormorant Garamond) ────────── */
+  --text-display-2xl: clamp(4.5rem, 9vw, 9rem);
+  --text-display-xl:  clamp(3.5rem, 7vw, 7rem);
+  --text-display-lg:  clamp(2.8rem, 5vw, 5.5rem);
+  --text-display-md:  clamp(2.2rem, 4vw, 4rem);
+  --text-display-sm:  clamp(1.8rem, 3vw, 2.75rem);
+
+  /* ─── Typography: Body Scale (DM Sans) ─────────────────────── */
+  --text-xl:    1.25rem;
+  --text-lg:    1.125rem;
+  --text-base:  1rem;
+  --text-sm:    0.875rem;
+  --text-xs:    0.75rem;
+
+  /* ─── Typography: Label ─────────────────────────────────────── */
+  --text-label:    0.6875rem;
+  --label-tracking: 0.18em;
+  --label-weight:   500;
+
+  /* ─── Spacing (4px base unit) ───────────────────────────────── */
+  --space-1:   0.25rem;
+  --space-2:   0.5rem;
+  --space-3:   0.75rem;
+  --space-4:   1rem;
+  --space-5:   1.25rem;
+  --space-6:   1.5rem;
+  --space-8:   2rem;
+  --space-10:  2.5rem;
+  --space-12:  3rem;
+  --space-16:  4rem;
+  --space-20:  5rem;
+  --space-24:  6rem;
+  --space-32:  8rem;
+  --space-40: 10rem;
+  --space-48: 12rem;
+
+  /* ─── Section & Container ───────────────────────────────────── */
+  --section-padding-y: clamp(5rem, 8vw, 10rem);
+  --section-padding-x: clamp(1.5rem, 5vw, 5rem);
+  --container-max:     1280px;
+  --container-pad:     clamp(1.5rem, 5vw, 5rem);
+
+  /* ─── Grid ──────────────────────────────────────────────────── */
+  --grid-cols: 12;
+  --grid-gap:  clamp(1rem, 2vw, 1.5rem);
+
+  /* ─── Border Radius ─────────────────────────────────────────── */
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   16px;
+  --radius-xl:   24px;
+  --radius-pill: 9999px;
+
+  /* ─── Z-Index Scale ─────────────────────────────────────────── */
+  --z-base:        0;
+  --z-raised:      10;
+  --z-dropdown:    20;
+  --z-sticky:      30;
+  --z-overlay:     40;
+  --z-navbar:      100;
+  --z-mobile-menu: 200;
+  --z-lightbox:    300;
+  --z-cursor:      400;
+  --z-preloader:   500;
+
+  /* ─── Animation: Duration ───────────────────────────────────── */
+  --duration-instant:  100ms;
+  --duration-fast:     200ms;
+  --duration-base:     350ms;
+  --duration-slow:     550ms;
+  --duration-slower:   800ms;
+  --duration-reveal:   1100ms;
+
+  /* ─── Animation: Easing ─────────────────────────────────────── */
+  --ease-standard:  cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-in:        cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  --ease-out:       cubic-bezier(0.215, 0.61, 0.355, 1);
+  --ease-inout:     cubic-bezier(0.645, 0.045, 0.355, 1);
+  --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-reveal:    cubic-bezier(0.77, 0, 0.175, 1);
+
+  /* ─── Animation: Stagger Delays ─────────────────────────────── */
+  --stagger-base:  60ms;
+  --stagger-lg:    100ms;
+  --stagger-xl:    150ms;
+
+  /* ─── Form Tokens ───────────────────────────────────────────── */
+  --input-bg:           var(--color-bone);
+  --input-border:       var(--color-border);
+  --input-border-focus: var(--color-rose);
+  --input-radius:       var(--radius-md);
+  --input-padding:      0.875rem 1rem;
+  --input-font:         var(--font-body);
+  --input-font-size:    var(--text-base);
+  --input-color:        var(--color-espresso);
+  --input-placeholder:  var(--color-taupe);
+  --input-shadow-focus: 0 0 0 3px rgba(196, 137, 122, 0.20);
+}

@@ -1,0 +1,111 @@
+.serviceGrid {
+  background: var(--color-bone);
+}
+
+.header {
+  max-width: 600px;
+  margin-bottom: clamp(3rem, 6vw, 6rem);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.headline {
+  margin-top: var(--space-4);
+}
+
+/* Editorial list — not cards */
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  align-items: center;
+  gap: var(--space-8);
+  padding-block: var(--space-8);
+  border-bottom: 1px solid var(--color-border);
+  transition: background var(--duration-fast) var(--ease-out);
+}
+
+.item:first-child {
+  border-top: 1px solid var(--color-border);
+}
+
+.item:hover {
+  background: rgba(196, 137, 122, 0.04);
+}
+
+.number {
+  font-family: var(--font-display);
+  font-size: var(--text-display-sm);
+  font-weight: 300;
+  color: var(--color-champagne);
+  line-height: 1;
+  user-select: none;
+}
+
+.itemContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.itemTitle {
+  font-family: var(--font-display);
+  font-size: var(--text-display-sm);
+  font-weight: 300;
+  color: var(--color-espresso);
+  line-height: 1.15;
+}
+
+.itemDescription {
+  font-size: var(--text-base);
+  color: var(--color-coffee);
+  max-width: 55ch;
+  margin: 0;
+}
+
+.itemAction {
+  flex-shrink: 0;
+}
+
+.itemLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  color: var(--color-espresso);
+  transition:
+    background var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out);
+}
+
+.item:hover .itemLink {
+  background: var(--color-espresso);
+  color: var(--color-ivory);
+  border-color: var(--color-espresso);
+  transform: translateX(4px);
+}
+
+.footer {
+  margin-top: clamp(3rem, 5vw, 4rem);
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 640px) {
+  .item {
+    grid-template-columns: 48px 1fr;
+  }
+  .itemAction {
+    display: none;
+  }
+}

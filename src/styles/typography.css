@@ -1,0 +1,142 @@
+/* ═══════════════════════════════════════════════════════════════
+   GLAMOROUS — TYPOGRAPHY SYSTEM
+   Fluid type scale. Display uses Cormorant Garamond.
+   Body uses DM Sans. Labels use DM Sans uppercase.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ─── Display Scale ──────────────────────────────────────────── */
+.text-display-2xl {
+  font-family: var(--font-display);
+  font-size: var(--text-display-2xl);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: var(--color-espresso);
+}
+
+.text-display-xl {
+  font-family: var(--font-display);
+  font-size: var(--text-display-xl);
+  font-weight: 300;
+  line-height: 1.08;
+  color: var(--color-espresso);
+}
+
+.text-display-lg {
+  font-family: var(--font-display);
+  font-size: var(--text-display-lg);
+  font-weight: 300;
+  line-height: 1.10;
+  color: var(--color-espresso);
+}
+
+.text-display-md {
+  font-family: var(--font-display);
+  font-size: var(--text-display-md);
+  font-weight: 300;
+  line-height: 1.15;
+  color: var(--color-espresso);
+}
+
+.text-display-sm {
+  font-family: var(--font-display);
+  font-size: var(--text-display-sm);
+  font-weight: 300;
+  line-height: 1.20;
+  color: var(--color-espresso);
+}
+
+.text-display-italic {
+  font-style: italic;
+}
+
+/* ─── Body Scale ─────────────────────────────────────────────── */
+.text-xl   { font-size: var(--text-xl); }
+.text-lg   { font-size: var(--text-lg); }
+.text-base { font-size: var(--text-base); }
+.text-sm   { font-size: var(--text-sm); }
+.text-xs   { font-size: var(--text-xs); }
+
+/* ─── Section Label Style ────────────────────────────────────── */
+.label {
+  font-family: var(--font-label);
+  font-size: var(--text-label);
+  font-weight: var(--label-weight);
+  letter-spacing: var(--label-tracking);
+  text-transform: uppercase;
+  color: var(--color-rose);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.label::before {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 1.5px;
+  background: var(--color-rose);
+  flex-shrink: 0;
+}
+
+/* ─── Lead Paragraph ─────────────────────────────────────────── */
+.lead {
+  font-family: var(--font-body);
+  font-size: var(--text-xl);
+  font-weight: 300;
+  line-height: 1.70;
+  color: var(--color-coffee);
+  max-width: 65ch;
+}
+
+/* ─── Body Text ──────────────────────────────────────────────── */
+.body-text {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 400;
+  line-height: 1.70;
+  color: var(--color-coffee);
+  max-width: 70ch;
+}
+
+/* ─── Caption ────────────────────────────────────────────────── */
+.caption {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 400;
+  line-height: 1.60;
+  color: var(--color-mocha);
+}
+
+/* ─── Default Element Styles ─────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 300;
+  color: var(--color-espresso);
+  line-height: 1.10;
+}
+
+p {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.70;
+  color: var(--color-coffee);
+}
+
+/* ─── Italic Emphasis (Editorial) ────────────────────────────── */
+em {
+  font-style: italic;
+  font-family: var(--font-display);
+}
+
+/* ─── Pull Quote ─────────────────────────────────────────────── */
+.pull-quote {
+  font-family: var(--font-display);
+  font-size: var(--text-display-sm);
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.30;
+  color: var(--color-espresso);
+  border-left: 2px solid var(--color-rose);
+  padding-left: var(--space-8);
+}
