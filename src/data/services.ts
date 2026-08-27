@@ -37,10 +37,9 @@ export const serviceCategories: ServiceCategory[] = [
     name: 'Makeup',
     slug: 'makeup',
     description:
-      'From subtle day looks to full editorial glamour — every face tells a story worth telling beautifully.', // [PLACEHOLDER S04]
+      'From subtle day looks to full editorial glamour — every face tells a story worth telling beautifully.',
     icon: 'sparkles',
     services: [
-      // [PLACEHOLDER S01] — replace entire list with verified services from owner
       {
         id: 'makeup-01',
         name: 'Party Makeup',
@@ -48,6 +47,7 @@ export const serviceCategories: ServiceCategory[] = [
         duration: null,
         priceRange: null,
         isSignature: true,
+        imageUrl: '/images/services/makeup.jpg',
         placeholder: true,
       },
       {
@@ -56,6 +56,7 @@ export const serviceCategories: ServiceCategory[] = [
         description: 'Effortless elegance for everyday occasions.',
         duration: null,
         priceRange: null,
+        imageUrl: '/images/gallery/makeup/makeup-01.jpg',
         placeholder: true,
       },
       {
@@ -64,6 +65,7 @@ export const serviceCategories: ServiceCategory[] = [
         description: 'Designed to photograph beautifully from every angle.',
         duration: null,
         priceRange: null,
+        imageUrl: '/images/services/event.jpg',
         placeholder: true,
       },
     ],
@@ -73,7 +75,7 @@ export const serviceCategories: ServiceCategory[] = [
     name: 'Bridal',
     slug: 'bridal',
     description:
-      'Your wedding day deserves a look that is entirely, unmistakably you — crafted with patience and precision.', // [PLACEHOLDER S04]
+      'Your wedding day deserves a look that is entirely, unmistakably you — crafted with patience and precision.',
     icon: 'diamond',
     services: [
       {
@@ -83,15 +85,17 @@ export const serviceCategories: ServiceCategory[] = [
         duration: null,
         priceRange: null,
         isSignature: true,
+        imageUrl: '/images/services/bridal.jpg',
         placeholder: true,
       },
       {
         id: 'bridal-02',
         name: 'Bridal Trial Session',
         description:
-          'A relaxed session to explore your look ahead of your wedding day.', // [PLACEHOLDER BR03]
+          'A relaxed session to explore your look ahead of your wedding day.',
         duration: null,
         priceRange: null,
+        imageUrl: '/images/bridal/bridal-portrait.jpg',
         placeholder: true,
       },
       {
@@ -101,6 +105,7 @@ export const serviceCategories: ServiceCategory[] = [
           'A personalised series of treatments in the lead-up to your big day.',
         duration: null,
         priceRange: null,
+        imageUrl: '/images/hero/editorial-moment.jpg',
         placeholder: true,
       },
     ],
@@ -109,7 +114,7 @@ export const serviceCategories: ServiceCategory[] = [
     id: 'hair',
     name: 'Hair',
     slug: 'hair',
-    description: 'From classic updos to flowing waves — hair styled to complement your look.', // [PLACEHOLDER S07]
+    description: 'From classic updos to flowing waves — hair styled to complement your look.',
     icon: 'scissors',
     services: [
       {
@@ -119,6 +124,7 @@ export const serviceCategories: ServiceCategory[] = [
         duration: null,
         priceRange: null,
         isSignature: true,
+        imageUrl: '/images/services/hair.jpg',
         placeholder: true,
       },
       {
@@ -127,6 +133,7 @@ export const serviceCategories: ServiceCategory[] = [
         description: 'Elegant styling for events, functions, and celebrations.',
         duration: null,
         priceRange: null,
+        imageUrl: '/images/gallery/hair/hair-01.jpg',
         placeholder: true,
       },
     ],
@@ -135,7 +142,7 @@ export const serviceCategories: ServiceCategory[] = [
     id: 'skin',
     name: 'Skin & Beauty',
     slug: 'skin',
-    description: 'Considered skin treatments that enhance your natural radiance.', // [PLACEHOLDER S06]
+    description: 'Considered skin treatments that enhance your natural radiance.',
     icon: 'leaf',
     services: [
       {
@@ -144,6 +151,7 @@ export const serviceCategories: ServiceCategory[] = [
         description: 'Restore glow and clarity with a tailored facial.',
         duration: null,
         priceRange: null,
+        imageUrl: '/images/services/skin.jpg',
         placeholder: true,
       },
       {
@@ -152,6 +160,7 @@ export const serviceCategories: ServiceCategory[] = [
         description: 'Clean, precise shaping for brows and face.',
         duration: null,
         priceRange: null,
+        imageUrl: '/images/gallery/beauty/beauty-02.jpg',
         placeholder: true,
       },
     ],
@@ -160,7 +169,7 @@ export const serviceCategories: ServiceCategory[] = [
     id: 'nails',
     name: 'Nails',
     slug: 'nails',
-    description: 'Perfectly finished nails to complete every look.', // [PLACEHOLDER S05 — verify if offered]
+    description: 'Perfectly finished nails to complete every look.',
     icon: 'hand',
     services: [
       {
@@ -169,6 +178,7 @@ export const serviceCategories: ServiceCategory[] = [
         description: 'Classic manicure with cuticle care and polish of your choice.',
         duration: null,
         priceRange: null,
+        imageUrl: '/images/services/nails.jpg',
         placeholder: true,
       },
       {
@@ -177,6 +187,7 @@ export const serviceCategories: ServiceCategory[] = [
         description: 'Intricate nail art for weddings and special occasions.',
         duration: null,
         priceRange: null,
+        imageUrl: '/images/gallery/details/details-02.jpg',
         placeholder: true,
       },
     ],
@@ -195,6 +206,7 @@ export const serviceCategories: ServiceCategory[] = [
         duration: null,
         priceRange: null,
         isSignature: true,
+        imageUrl: '/images/services/event.jpg',
         placeholder: true,
       },
       {
@@ -203,13 +215,14 @@ export const serviceCategories: ServiceCategory[] = [
         description: 'A striking look for your evening celebrations.',
         duration: null,
         priceRange: null,
+        imageUrl: '/images/services/makeup.jpg',
         placeholder: true,
       },
     ],
   },
 ]
 
-/** Convenience: get signature services for the home page (max 3) */
+/** Convenience: get signature services for the home page (4-6 services) */
 export const signatureServices: Service[] = serviceCategories
   .flatMap((cat) => cat.services.filter((s) => s.isSignature))
-  .slice(0, 3)
+  .slice(0, 5)

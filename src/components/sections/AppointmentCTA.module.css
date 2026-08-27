@@ -2,13 +2,26 @@
   position: relative;
   padding-block: clamp(6rem, 10vw, 12rem);
   overflow: hidden;
+  background: var(--color-bone);
 }
 
 .bg {
   position: absolute;
   inset: 0;
-  background: var(--color-bone);
   border-top: 1px solid var(--color-border);
+  overflow: hidden;
+}
+
+.ambientGlow {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(196, 137, 122, 0.15) 0%, transparent 70%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
 }
 
 .content {
@@ -21,18 +34,26 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: var(--space-8);
-  max-width: 720px;
+  gap: var(--space-6);
+  max-width: 800px;
   margin-inline: auto;
 }
 
 .headline {
-  line-height: 1.08;
+  line-height: 1.02;
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  color: var(--color-espresso);
+  margin: 0;
+  text-transform: uppercase;
 }
 
 .body {
-  max-width: 55ch;
+  max-width: 54ch;
   text-align: center;
+  color: var(--color-coffee);
+  line-height: 1.65;
+  margin: 0;
 }
 
 .actions {
@@ -44,23 +65,61 @@
   margin-top: var(--space-4);
 }
 
+.primaryBtn {
+  background: var(--color-espresso) !important;
+  color: var(--color-ivory) !important;
+  border-color: var(--color-espresso) !important;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  box-shadow: var(--shadow-md);
+}
+
+.primaryBtn:hover {
+  background: var(--color-rose) !important;
+  border-color: var(--color-rose) !important;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
 .whatsapp {
   border-color: #25D366 !important;
-  color: #25D366 !important;
+  color: #128C7E !important;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
 }
 
 .whatsapp:hover {
   background: #25D366 !important;
   color: var(--color-ivory) !important;
+  transform: translateY(-2px);
 }
 
-.call {
-  color: var(--color-mocha) !important;
-  font-weight: 400 !important;
+.callBlock {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-taupe);
 }
 
-.call:hover {
-  color: var(--color-rose) !important;
+.callPrefix {
+  color: var(--color-mocha);
+}
+
+.callLink {
+  color: var(--color-espresso);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.callLink:hover {
+  color: var(--color-rose);
+  text-decoration: underline;
 }
 
 @media (max-width: 640px) {
@@ -69,7 +128,8 @@
     width: 100%;
   }
 
-  .actions :global(.btn) {
+  .primaryBtn,
+  .whatsapp {
     width: 100%;
     justify-content: center;
   }
