@@ -1,16 +1,16 @@
 /* ═══════════════════════════════════════════════════════════════
-   GLAMOROUS — MOBILE MENU (HAUTE LUXURY EDITORIAL REDESIGN)
-   A bespoke, award-winning mobile navigation experience.
+   GLAMOROUS — MOBILE MENU (HAUTE LUXURY EDITORIAL NOIR)
+   A bespoke, luxury mobile navigation experience for the dark aesthetic.
    ═══════════════════════════════════════════════════════════════ */
 
 .drawer {
   position: fixed;
   inset: 0;
   z-index: var(--z-mobile-menu, 200);
-  background-color: var(--color-ivory);
+  background-color: #080808;
   background-image: 
-    radial-gradient(ellipse 70% 40% at 85% 10%, rgba(237, 214, 207, 0.42) 0%, transparent 70%),
-    radial-gradient(ellipse 60% 50% at 15% 85%, rgba(237, 224, 204, 0.38) 0%, transparent 65%);
+    radial-gradient(ellipse 70% 40% at 85% 10%, rgba(201, 168, 106, 0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 50% at 15% 85%, rgba(196, 137, 122, 0.05) 0%, transparent 65%);
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
@@ -45,7 +45,7 @@
   font-weight: 300;
   font-style: italic;
   letter-spacing: 0.12em;
-  color: rgba(30, 18, 8, 0.028);
+  color: rgba(250, 247, 242, 0.025);
   pointer-events: none;
   user-select: none;
   white-space: nowrap;
@@ -76,7 +76,7 @@
   align-items: center;
   justify-content: space-between;
   padding-bottom: var(--space-4);
-  border-bottom: 1px solid rgba(30, 18, 8, 0.08);
+  border-bottom: 1px solid rgba(250, 247, 242, 0.08);
   flex-shrink: 0;
   opacity: 0;
   transform: translateY(-8px);
@@ -108,13 +108,13 @@
   font-weight: 300;
   letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: var(--color-espresso);
+  color: var(--color-ivory);
   line-height: 1.1;
   transition: color var(--duration-fast) var(--ease-out);
 }
 
 .brandLink:hover .wordmark {
-  color: var(--color-rose);
+  color: var(--color-gold);
 }
 
 .tagline {
@@ -128,17 +128,17 @@
 }
 
 .closeBtn {
-  width: 38px;
-  height: 38px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  border: 1px solid rgba(30, 18, 8, 0.14);
-  background: rgba(250, 247, 242, 0.7);
+  border: 1px solid rgba(250, 247, 242, 0.15);
+  background: rgba(22, 22, 22, 0.8);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-espresso);
+  color: var(--color-ivory);
   cursor: pointer;
   padding: 0;
   transition:
@@ -150,9 +150,9 @@
 
 .closeBtn:hover,
 .closeBtn:focus-visible {
-  border-color: var(--color-rose);
-  color: var(--color-rose);
-  background: rgba(237, 214, 207, 0.25);
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+  background: rgba(201, 168, 106, 0.15);
   transform: rotate(90deg);
 }
 
@@ -213,7 +213,7 @@
 
 .linkIndex {
   font-family: var(--font-body);
-  font-size: 0.725rem;
+  font-size: 0.75rem;
   font-weight: 500;
   letter-spacing: 0.16em;
   color: var(--color-rose);
@@ -232,7 +232,7 @@
   font-weight: 300;
   line-height: 1.15;
   letter-spacing: -0.01em;
-  color: var(--color-espresso);
+  color: var(--color-ivory);
   transition:
     color var(--duration-fast) var(--ease-out),
     transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
@@ -243,13 +243,13 @@
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: var(--color-rose);
+  background: var(--color-gold);
   margin-left: 2px;
   transform: translateY(-2px);
 }
 
 .linkArrow {
-  color: var(--color-rose);
+  color: var(--color-gold);
   opacity: 0;
   transform: translateX(-8px);
   transition:
@@ -268,13 +268,13 @@
 
 .navLink:hover .linkIndex,
 .navLink:focus-visible .linkIndex {
-  color: var(--color-espresso);
+  color: var(--color-gold);
   opacity: 1;
 }
 
 .navLink:hover .linkLabel,
 .navLink:focus-visible .linkLabel {
-  color: var(--color-rose);
+  color: var(--color-gold);
   font-style: italic;
 }
 
@@ -285,7 +285,7 @@
 }
 
 .navLinkActive .linkLabel {
-  color: var(--color-espresso);
+  color: var(--color-gold);
   font-weight: 400;
 }
 
@@ -296,7 +296,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
-  border-top: 1px solid rgba(30, 18, 8, 0.08);
+  border-top: 1px solid rgba(250, 247, 242, 0.08);
   opacity: 0;
   transform: translateY(14px);
   transition:
@@ -389,11 +389,11 @@
 .metaLink {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   font-family: var(--font-body);
-  font-size: 0.775rem;
+  font-size: 0.8rem;
   font-weight: 400;
-  color: var(--color-mocha);
+  color: var(--color-coffee);
   text-decoration: none;
   transition: color var(--duration-fast) var(--ease-out);
 }
@@ -404,15 +404,15 @@
 }
 
 .metaLink:hover {
-  color: var(--color-rose);
+  color: var(--color-gold);
 }
 
 .locationRow {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   font-family: var(--font-body);
-  font-size: 0.6875rem;
+  font-size: 0.725rem;
   color: var(--color-taupe);
   letter-spacing: 0.04em;
 }
