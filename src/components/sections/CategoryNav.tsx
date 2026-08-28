@@ -85,7 +85,7 @@ export default function CategoryNav({
       <aside className={styles.desktopSidebar} aria-label="Service categories navigation">
         <div className={styles.sidebarStickyInner}>
           <div className={styles.sidebarHeader}>
-            <span className={styles.sidebarSubhead}>DISCIPLINES</span>
+            <span className={styles.sidebarSubhead}>SERVICE CATEGORIES</span>
             <div className={styles.sidebarDivider} aria-hidden="true" />
           </div>
 

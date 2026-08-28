@@ -20,6 +20,10 @@ function TestimonialItem({ item, delay }: { item: Testimonial; delay: number }) 
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
+        background: 'var(--color-elevated)',
+        border: '1px solid rgba(250, 247, 242, 0.08)',
+        borderRadius: 'var(--radius-lg)',
+        padding: 'var(--space-8)',
       }}
     >
       <p
@@ -27,7 +31,7 @@ function TestimonialItem({ item, delay }: { item: Testimonial; delay: number }) 
           fontFamily: 'var(--font-display)',
           fontSize: 'var(--text-lg)',
           fontStyle: 'italic',
-          color: 'var(--color-espresso)',
+          color: 'rgba(250, 247, 242, 0.70)',
           lineHeight: 1.5,
           marginBottom: 'var(--space-6)',
         }}
@@ -41,7 +45,7 @@ function TestimonialItem({ item, delay }: { item: Testimonial; delay: number }) 
           alignItems: 'center',
           gap: 'var(--space-4)',
           paddingTop: 'var(--space-4)',
-          borderTop: '1px solid var(--color-border)',
+          borderTop: '1px solid rgba(250, 247, 242, 0.08)',
         }}
       >
         <div
@@ -49,8 +53,9 @@ function TestimonialItem({ item, delay }: { item: Testimonial; delay: number }) 
             width: '36px',
             height: '36px',
             borderRadius: '50%',
-            background: 'var(--color-petal)',
-            color: 'var(--color-espresso)',
+            background: 'rgba(201, 168, 106, 0.15)',
+            color: 'var(--color-gold)',
+            border: '1px solid rgba(201, 168, 106, 0.3)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -68,12 +73,12 @@ function TestimonialItem({ item, delay }: { item: Testimonial; delay: number }) 
               fontFamily: 'var(--font-body)',
               fontWeight: 500,
               fontSize: 'var(--text-sm)',
-              color: 'var(--color-espresso)',
+              color: '#F0EAE0',
             }}
           >
             {item.authorName}
           </cite>
-          <p className="caption" style={{ margin: 0, fontSize: 'var(--text-xs)' }}>
+          <p className="caption" style={{ margin: 0, fontSize: 'var(--text-xs)', color: '#7A7066' }}>
             Verified via {item.platform}
           </p>
         </div>

@@ -143,7 +143,7 @@
   font-weight: var(--label-weight);
   letter-spacing: var(--label-tracking);
   text-transform: uppercase;
-  color: var(--color-rose);
+  color: var(--color-gold);
   display: flex;
   align-items: center;
   gap: var(--space-3);
@@ -155,7 +155,7 @@
   display: inline-block;
   width: 24px;
   height: 1.5px;
-  background: var(--color-rose);
+  background: var(--color-gold);
   flex-shrink: 0;
 }
 

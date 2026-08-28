@@ -70,7 +70,7 @@ export default function BridalTeaser() {
           </div>
 
           <div ref={ctaRef} className={styles.ctaWrapper}>
-            <Link href="/bridal" className={`btn btn-primary btn-lg ${styles.cta}`}>
+            <Link href="/bridal" className="btn btn-primary btn-lg">
               <span>Explore Bridal Packages</span>
               <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <line x1="4" y1="10" x2="16" y2="10" />

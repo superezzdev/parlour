@@ -320,46 +320,50 @@
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.9375rem 1.625rem;
-  background-color: var(--color-espresso);
-  color: var(--color-ivory);
-  border-radius: var(--radius-pill);
+  padding: 14px 32px;
+  background-color: transparent;
+  color: var(--color-gold);
+  border-radius: 0;
   text-decoration: none;
-  box-shadow: 0 4px 18px rgba(30, 18, 8, 0.12);
-  border: 1px solid rgba(30, 18, 8, 0.15);
+  border: 1px solid var(--color-gold);
   transition:
-    background-color var(--duration-fast) var(--ease-out),
-    transform var(--duration-fast) var(--ease-out),
-    box-shadow var(--duration-fast) var(--ease-out);
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    transform var(--duration-fast) var(--ease-out);
 }
 
 .ctaText {
   font-family: var(--font-body);
-  font-size: 0.8125rem;
+  font-size: 0.8rem;
   font-weight: 500;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--color-ivory);
+  color: var(--color-gold);
+  transition: color 0.3s ease;
 }
 
 .ctaIcon {
-  color: var(--color-petal);
+  color: var(--color-gold);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform var(--duration-fast) var(--ease-out), color var(--duration-fast) var(--ease-out);
+  transition: transform var(--duration-fast) var(--ease-out), color 0.3s ease;
 }
 
 .ctaButton:hover,
 .ctaButton:focus-visible {
-  background-color: var(--color-coffee);
+  background-color: var(--color-gold);
+  color: #080808;
+  border-color: var(--color-gold);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(30, 18, 8, 0.18);
 }
 
+.ctaButton:hover .ctaText,
+.ctaButton:focus-visible .ctaText,
 .ctaButton:hover .ctaIcon,
 .ctaButton:focus-visible .ctaIcon {
-  color: var(--color-blush);
+  color: #080808;
   transform: translateX(4px);
 }
 

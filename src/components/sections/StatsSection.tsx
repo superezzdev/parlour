@@ -1,52 +1,32 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import { useInView } from 'react-intersection-observer'
+import { useScrollReveal } from '@/hooks/useScrollReveal'
 import styles from './StatsSection.module.css'
 
 interface StatItemData {
-  value: number
-  suffix: string
+  value: string
+  suffix?: string
   label: string
 }
 
 const statsData: StatItemData[] = [
-  { value: 500, suffix: '+', label: 'Happy Brides' },
-  { value: 6, suffix: '', label: 'Years of Craft' },
-  { value: 98, suffix: '%', label: 'Satisfaction Rate' },
-  { value: 12, suffix: '+', label: 'Services Offered' },
+  { value: '500', suffix: '+', label: 'Happy Brides' },
+  { value: '6', suffix: '', label: 'Years of Craft' },
+  { value: '98', suffix: '%', label: 'Satisfaction Rate' },
+  { value: '12', suffix: '+', label: 'Services Offered' },
 ]
 
-function useCounter(end: number, duration = 2000) {
-  const [count, setCount] = useState(0)
-  const { ref, inView } = useInView({ triggerOnce: true })
-
-  useEffect(() => {
-    if (!inView) return
-    let start = 0
-    const step = end / (duration / 16)
-    const timer = setInterval(() => {
-      start += step
-      if (start >= end) {
-        setCount(end)
-        clearInterval(timer)
-      } else {
-        setCount(Math.floor(start))
-      }
-    }, 16)
-    return () => clearInterval(timer)
-  }, [inView, end, duration])
-
-  return { ref, count }
-}
-
-function StatCard({ item }: { item: StatItemData }) {
-  const { ref, count } = useCounter(item.value)
+function StatCard({ item, index }: { item: StatItemData; index: number }) {
+  const cardRef = useScrollReveal<HTMLDivElement>({
+    y: 20,
+    delay: 0.08 * index,
+    duration: 0.7,
+  })
 
   return (
-    <div ref={ref} className={styles.statCard}>
+    <div ref={cardRef} className={styles.statCard}>
       <div className={styles.numberWrapper}>
-        <span className={styles.number}>{count}</span>
+        <span className={styles.number}>{item.value}</span>
         {item.suffix && <span className={styles.suffix}>{item.suffix}</span>}
       </div>
       <div className={styles.divider} aria-hidden="true" />
@@ -56,25 +36,28 @@ function StatCard({ item }: { item: StatItemData }) {
 }
 
 export default function StatsSection() {
+  const eyebrowRef = useScrollReveal<HTMLDivElement>({ y: 15, delay: 0 })
+  const quoteRef = useScrollReveal<HTMLDivElement>({ y: 20, delay: 0.25 })
+
   return (
     <section className={styles.statsSection} aria-label="Glamorous by the numbers">
       <div className={styles.topDivider} aria-hidden="true" />
 
       <div className="container">
         {/* Eyebrow */}
-        <div className={styles.eyebrowWrapper}>
+        <div ref={eyebrowRef} className={styles.eyebrowWrapper}>
           <p className={styles.eyebrow}>BY THE NUMBERS</p>
         </div>
 
         {/* 4 Stats Grid */}
         <div className={styles.grid}>
           {statsData.map((item, idx) => (
-            <StatCard key={idx} item={item} />
+            <StatCard key={idx} item={item} index={idx} />
           ))}
         </div>
 
         {/* Centered Italic Quote */}
-        <div className={styles.quoteBlock}>
+        <div ref={quoteRef} className={styles.quoteBlock}>
           <blockquote className={styles.quote}>
             &ldquo;I want every woman who sits in my chair to feel completely at ease, confident, and beautiful.&rdquo;
           </blockquote>

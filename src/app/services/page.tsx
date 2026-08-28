@@ -1,6 +1,9 @@
 import type { Metadata } from 'next'
 import HeroSection from '@/components/sections/HeroSection'
+import ServicesStandards from '@/components/sections/ServicesStandards'
 import ServicesMenu from '@/components/sections/ServicesMenu'
+import ServicesFAQ from '@/components/sections/ServicesFAQ'
+import AppointmentCTA from '@/components/sections/AppointmentCTA'
 import CompactWhatsAppStrip from '@/components/sections/CompactWhatsAppStrip'
 import { serviceCategories } from '@/data/services'
 
@@ -51,7 +54,8 @@ export default function ServicesPage() {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     name: 'Glamorous Studio Services',
-    description: 'Comprehensive beauty, bridal, and makeup service catalog offered by Glamorous Studio in Sarai Meer.',
+    description:
+      'Comprehensive beauty, bridal, and makeup service catalog offered by Glamorous Studio in Sarai Meer.',
     itemListElement: serviceCategories.map((cat, idx) => ({
       '@type': 'ListItem',
       position: idx + 1,
@@ -72,25 +76,54 @@ export default function ServicesPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceCatalogSchema) }}
       />
 
-      {/* 1. Services Hero — Centered Editorial Heading */}
+      {/* 1. Cinematic Services Hero — Atmospheric Editorial Header */}
       <HeroSection
         variant="services"
-        label="GLAMOROUS / SERVICE MENU"
+        label="GLAMOROUS / COMPLETE SERVICE MENU"
         headline={
           <>
-            <span className="block">BEAUTY,</span>
-            <span className="block text-gold italic font-light">YOUR WAY.</span>
+            <div className="overflow-hidden">
+              <span className="hero-line-1 block">BEAUTY,</span>
+            </div>
+            <div className="overflow-hidden">
+              <span className="hero-line-2 block text-gold italic font-light">YOUR WAY.</span>
+            </div>
           </>
         }
-        subheadline="Our complete menu of bridal makeup, party glam, hair styling, and skin care — crafted with care for your special occasions."
+        subheadline="Our complete menu of bespoke bridal makeup, party glam, hair styling, skin rituals, and nail artistry — crafted with patience and care in Sarai Meer."
+        ctaLabel="BOOK AN APPOINTMENT"
+        ctaHref="/contact"
+        secondaryCtaLabel="EXPLORE BRIDAL"
+        secondaryCtaHref="/bridal"
         locationTag="SARAI MEER · STUDIO MENU"
-        imageSrc={null}
+        imageSrc="/images/services/makeup.jpg"
+        imageAlt="Glamorous studio services and bridal makeup menu in Sarai Meer"
       />
 
-      {/* 2. Visual, Scannable Luxury Table Services Menu */}
+      {/* 2. Studio Standards & Quality Promises */}
+      <ServicesStandards />
+
+      {/* 3. Visual, Scannable Luxury Services Catalog */}
       <ServicesMenu />
 
-      {/* 3. Compact WhatsApp Action Strip */}
+      {/* 4. Practical Services FAQ Accordion */}
+      <ServicesFAQ />
+
+      {/* 5. Grand Closing Call to Action */}
+      <AppointmentCTA
+        label="RESERVATIONS &amp; CONSULTATIONS"
+        headline={
+          <>
+            FIND YOUR<br />
+            PERFECT LOOK.
+          </>
+        }
+        body="Whether you are reserving wedding dates, preparing for a family celebration, or scheduling a refreshing skin care treatment — we take our time to get your look just right."
+        ctaLabel="BOOK AN APPOINTMENT"
+        ctaHref="/contact"
+      />
+
+      {/* 6. Compact WhatsApp Action Strip */}
       <CompactWhatsAppStrip />
     </>
   )

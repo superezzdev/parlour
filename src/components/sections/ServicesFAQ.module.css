@@ -1,0 +1,109 @@
+/* ═══════════════════════════════════════════════════════════════
+   GLAMOROUS — SERVICES FAQ SECTION
+   ═══════════════════════════════════════════════════════════════ */
+
+.faqSection {
+  position: relative;
+  background: var(--color-noir);
+  padding: clamp(4rem, 7vw, 7rem) 0;
+  border-top: 1px solid rgba(250, 247, 242, 0.08);
+}
+
+.faqContainer {
+  max-width: 900px;
+  margin-inline: auto;
+}
+
+.faqHeader {
+  text-align: center;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.labelWrapper {
+  margin-bottom: var(--space-3);
+}
+
+.faqHeading {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--color-ivory);
+  margin-bottom: var(--space-3);
+}
+
+.faqSubhead {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 300;
+  line-height: 1.65;
+  color: rgba(250, 247, 242, 0.70);
+  max-width: 540px;
+  margin-inline: auto;
+}
+
+.faqList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.faqItem {
+  background: rgba(250, 247, 242, 0.02);
+  border: 1px solid rgba(250, 247, 242, 0.07);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  transition: all var(--duration-fast) var(--ease-standard);
+}
+
+.faqItem[data-open="true"] {
+  background: rgba(250, 247, 242, 0.04);
+  border-color: rgba(201, 168, 106, 0.30);
+}
+
+.faqButton {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: 1.35rem 1.5rem;
+  background: transparent;
+  border: none;
+  color: var(--color-ivory);
+  text-align: left;
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 400;
+  transition: color var(--duration-fast) var(--ease-standard);
+}
+
+.faqButton:hover {
+  color: var(--color-gold);
+}
+
+.faqIcon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: var(--color-gold);
+  transition: transform var(--duration-fast) var(--ease-standard);
+}
+
+.faqItem[data-open="true"] .faqIcon {
+  transform: rotate(45deg);
+}
+
+.faqAnswer {
+  padding: 0 1.5rem 1.35rem 1.5rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(250, 247, 242, 0.70);
+  border-top: 1px solid rgba(250, 247, 242, 0.05);
+  margin-top: 0.25rem;
+  padding-top: 1rem;
+}

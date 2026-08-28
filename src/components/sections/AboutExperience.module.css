@@ -1,9 +1,9 @@
 .experience {
-  background-color: var(--color-ivory);
+  background-color: var(--color-noir);
   position: relative;
   overflow: hidden;
   padding-block: var(--section-padding-y);
-  border-top: 1px solid var(--color-champagne);
+  border-top: 1px solid rgba(250, 247, 242, 0.08);
 }
 
 .headerBlock {
@@ -16,7 +16,7 @@
   font-size: var(--text-display-md);
   font-weight: 300;
   line-height: 1.1;
-  color: var(--color-espresso);
+  color: #F0EAE0;
   letter-spacing: -0.01em;
   margin-top: var(--space-2);
 }
@@ -24,14 +24,14 @@
 .heading em {
   font-style: italic;
   font-weight: 300;
-  color: var(--color-rose);
+  color: var(--color-gold);
   display: block;
 }
 
 .subText {
   font-size: var(--text-lg);
   font-weight: 300;
-  color: var(--color-coffee);
+  color: #7A7066;
   line-height: 1.7;
   margin-top: var(--space-4);
 }
@@ -59,23 +59,24 @@
   display: flex;
   flex-direction: column;
   padding: var(--space-8) var(--space-6);
-  background-color: var(--color-bone);
+  background-color: var(--color-surface);
   border-radius: var(--radius-lg);
-  border: 1px solid var(--color-border);
+  border: 1px solid rgba(250, 247, 242, 0.08);
   position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
 }
 
 .stepCard:hover {
   transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
-  border-color: var(--color-rose);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+  border-color: var(--color-gold);
 }
 
 .stepNumber {
   font-family: var(--font-display);
   font-size: var(--text-display-sm);
-  color: var(--color-rose);
+  color: var(--color-gold);
   line-height: 1;
   margin-bottom: var(--space-4);
   font-weight: 300;
@@ -85,21 +86,22 @@
   font-family: var(--font-display);
   font-size: var(--text-2xl);
   font-weight: 400;
-  color: var(--color-espresso);
+  color: #F0EAE0;
   line-height: 1.2;
   margin-bottom: var(--space-3);
 }
 
 .stepDescription {
   font-size: var(--text-sm);
-  color: var(--color-coffee);
+  color: rgba(250, 247, 242, 0.65);
   line-height: 1.65;
 }
 
 .conciergeNote {
   margin-top: var(--space-12);
   padding: var(--space-6) var(--space-8);
-  background: var(--color-parchment);
+  background: var(--color-elevated);
+  border: 1px solid rgba(250, 247, 242, 0.08);
   border-radius: var(--radius-lg);
   display: flex;
   flex-direction: column;
@@ -119,11 +121,11 @@
   font-family: var(--font-body);
   font-weight: 500;
   font-size: var(--text-base);
-  color: var(--color-espresso);
+  color: #F0EAE0;
 }
 
 .noteDesc {
   font-size: var(--text-sm);
-  color: var(--color-coffee);
+  color: rgba(250, 247, 242, 0.65);
   max-width: 60ch;
 }

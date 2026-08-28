@@ -1,0 +1,90 @@
+/* ═══════════════════════════════════════════════════════════════
+   GLAMOROUS — STUDIO STANDARDS & QUALITY REASSURANCE STRIP
+   ═══════════════════════════════════════════════════════════════ */
+
+.standardsSection {
+  position: relative;
+  background: #0C0C0C;
+  border-top: 1px solid rgba(250, 247, 242, 0.08);
+  border-bottom: 1px solid rgba(250, 247, 242, 0.08);
+  padding: clamp(2.5rem, 4.5vw, 4rem) 0;
+  width: 100%;
+}
+
+.standardsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.standardCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-4);
+  background: rgba(250, 247, 242, 0.02);
+  border: 1px solid rgba(250, 247, 242, 0.05);
+  border-radius: var(--radius-sm);
+  transition: all var(--duration-fast) var(--ease-standard);
+  position: relative;
+}
+
+.standardCard:hover {
+  background: rgba(250, 247, 242, 0.04);
+  border-color: rgba(201, 168, 106, 0.25);
+  transform: translateY(-2px);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  margin-bottom: var(--space-1);
+}
+
+.cardNumber {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--color-gold);
+}
+
+.cardIcon {
+  color: var(--color-gold);
+  opacity: 0.85;
+}
+
+.cardTitle {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: var(--color-ivory);
+  margin: 0;
+  line-height: 1.25;
+}
+
+.cardDesc {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 1.55;
+  color: rgba(250, 247, 242, 0.60);
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 1023px) {
+  .standardsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .standardsGrid {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+}

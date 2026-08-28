@@ -1,5 +1,5 @@
 .faqSection {
-  background-color: var(--color-ivory);
+  background-color: var(--color-surface);
   padding-block: var(--section-padding-y);
   position: relative;
 }
@@ -34,7 +34,7 @@
   font-size: var(--text-display-md);
   font-weight: 300;
   line-height: 1.1;
-  color: var(--color-espresso);
+  color: #F0EAE0;
   margin-top: var(--space-3);
   margin-bottom: var(--space-4);
 }
@@ -44,29 +44,30 @@
   font-size: var(--text-base);
   font-weight: 300;
   line-height: 1.7;
-  color: var(--color-coffee);
+  color: #7A7066;
   margin: 0 0 var(--space-8) 0;
 }
 
 .contactCard {
-  background: var(--color-bone);
-  border: 1px solid var(--color-border);
+  background: var(--color-elevated);
+  border: 1px solid rgba(250, 247, 242, 0.08);
   border-radius: var(--radius-md);
   padding: var(--space-6);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .contactCardTitle {
   font-family: var(--font-display);
   font-size: var(--text-lg);
   font-weight: 400;
-  color: var(--color-espresso);
+  color: #F0EAE0;
   margin: 0 0 var(--space-2) 0;
 }
 
 .contactCardText {
   font-family: var(--font-body);
   font-size: var(--text-sm);
-  color: var(--color-coffee);
+  color: rgba(250, 247, 242, 0.65);
   line-height: 1.5;
   margin: 0 0 var(--space-4) 0;
 }

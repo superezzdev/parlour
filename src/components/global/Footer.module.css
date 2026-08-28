@@ -1,10 +1,11 @@
 .footer {
-  background: var(--color-espresso);
+  background: var(--color-noir);
   color: var(--color-ivory);
   padding-top: clamp(5rem, 8vw, 8rem);
   padding-bottom: var(--space-8);
   position: relative;
   overflow: hidden;
+  border-top: 1px solid var(--color-ghost-border);
 }
 
 .top {
@@ -12,7 +13,7 @@
   grid-template-columns: 1.8fr 1fr 1.2fr 1fr;
   gap: var(--space-12);
   padding-bottom: clamp(3rem, 5vw, 5rem);
-  border-bottom: 1px solid rgba(250, 247, 242, 0.10);
+  border-bottom: 1px solid var(--color-ghost-border);
 }
 
 @media (max-width: 1024px) {
@@ -32,7 +33,7 @@
 .wordmark {
   font-family: var(--font-display);
   font-size: 2rem;
-  font-weight: 300;
+  font-weight: 600;
   letter-spacing: 0.20em;
   text-transform: uppercase;
   color: var(--color-ivory);
@@ -45,26 +46,26 @@
   font-weight: var(--label-weight);
   letter-spacing: var(--label-tracking);
   text-transform: uppercase;
-  color: var(--color-rose);
+  color: var(--color-gold);
   margin-bottom: var(--space-6);
 }
 
 .description {
   font-family: var(--font-body);
   font-size: var(--text-sm);
-  color: rgba(250, 247, 242, 0.60);
+  color: rgba(250, 247, 242, 0.65);
   line-height: 1.70;
   max-width: 28ch;
 }
 
 /* Nav */
 .navHeading {
-  color: var(--color-rose);
+  color: var(--color-gold);
   margin-bottom: var(--space-6);
 }
 
 .navHeading::before {
-  background: var(--color-rose);
+  background: var(--color-gold);
 }
 
 .navLinks {
@@ -85,7 +86,7 @@
 }
 
 .navLink:hover {
-  color: var(--color-ivory);
+  color: var(--color-gold);
 }
 
 /* Contact */
@@ -113,7 +114,7 @@
 }
 
 .contactLink:hover {
-  color: var(--color-rose);
+  color: var(--color-gold);
 }
 
 /* CTA */
@@ -133,16 +134,6 @@
   line-height: 1.15;
 }
 
-.footerPrimaryBtn {
-  color: var(--color-ivory) !important;
-  border-color: rgba(196, 137, 122, 0.60) !important;
-}
-
-.footerPrimaryBtn:hover {
-  background: var(--color-rose) !important;
-  border-color: var(--color-rose) !important;
-}
-
 /* Signature Brand Banner */
 .brandBanner {
   display: flex;
@@ -150,7 +141,7 @@
   align-items: center;
   justify-content: center;
   padding-block: clamp(3rem, 6vw, 5rem);
-  border-bottom: 1px solid rgba(250, 247, 242, 0.08);
+  border-bottom: 1px solid var(--color-ghost-border);
   user-select: none;
   text-align: center;
   gap: var(--space-2);
@@ -159,7 +150,7 @@
 .giantWordmark {
   font-family: var(--font-display);
   font-size: clamp(3rem, 10vw, 8.5rem);
-  font-weight: 300;
+  font-weight: 700;
   letter-spacing: 0.18em;
   color: rgba(250, 247, 242, 0.08);
   line-height: 0.9;
@@ -168,7 +159,7 @@
 }
 
 .footer:hover .giantWordmark {
-  color: rgba(250, 247, 242, 0.12);
+  color: rgba(201, 168, 106, 0.16);
 }
 
 .subWordmark {
@@ -176,7 +167,7 @@
   font-size: var(--text-label);
   font-weight: var(--label-weight);
   letter-spacing: 0.28em;
-  color: rgba(196, 137, 122, 0.45);
+  color: rgba(201, 168, 106, 0.55);
   text-transform: uppercase;
 }
 

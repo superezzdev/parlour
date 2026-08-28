@@ -1,5 +1,5 @@
 .location {
-  background: var(--color-ivory);
+  background: var(--color-noir);
   position: relative;
   overflow: hidden;
 }
@@ -15,8 +15,8 @@
   min-height: 480px;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: var(--shadow-md);
-  border: 1px solid var(--color-border);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(250, 247, 242, 0.08);
 }
 
 .mapIframe {
@@ -43,8 +43,8 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 50% 40%, rgba(196, 137, 122, 0.18) 0%, transparent 60%),
-    linear-gradient(135deg, var(--color-champagne) 0%, var(--color-bone) 50%, var(--color-parchment) 100%);
+    radial-gradient(circle at 50% 40%, rgba(201, 168, 106, 0.15) 0%, transparent 60%),
+    linear-gradient(135deg, #161616 0%, #0d0d0d 100%);
   background-size: cover;
 }
 
@@ -62,7 +62,7 @@
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  background: rgba(196, 137, 122, 0.25);
+  background: rgba(201, 168, 106, 0.25);
   animation: pinPulse 2.5s ease-out infinite;
 }
 
@@ -74,7 +74,8 @@
 .mapPin {
   position: relative;
   z-index: 2;
-  filter: drop-shadow(0 4px 8px rgba(30, 18, 8, 0.20));
+  color: var(--color-gold);
+  filter: drop-shadow(0 4px 12px rgba(201, 168, 106, 0.35));
   transition: transform var(--duration-fast) var(--ease-out);
 }
 
@@ -85,11 +86,13 @@
 .mapBadge {
   position: relative;
   z-index: 1;
-  background: var(--color-ivory);
+  background: rgba(22, 22, 22, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   padding: var(--space-4) var(--space-6);
   border-radius: var(--radius-md);
-  border: 1px solid var(--color-border);
-  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(250, 247, 242, 0.12);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -100,23 +103,23 @@
 .mapBadgeTitle {
   font-family: var(--font-display);
   font-size: 1.1rem;
-  font-weight: 500;
-  color: var(--color-espresso);
+  font-weight: 400;
+  color: #F0EAE0;
 }
 
 .mapBadgeSub {
   font-family: var(--font-body);
   font-size: var(--text-xs);
-  color: var(--color-mocha);
+  color: #7A7066;
 }
 
 .mapBadgeAction {
-  font-family: var(--font-label);
+  font-family: var(--font-mono);
   font-size: 0.625rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
+  font-weight: 500;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--color-rose);
+  color: var(--color-gold);
   margin-top: var(--space-2);
 }
 
@@ -132,13 +135,14 @@
 .heading {
   margin: 0;
   line-height: 1.15;
+  color: #F0EAE0;
 }
 
 .heading em {
   font-family: var(--font-body);
   font-size: var(--text-base);
   font-style: normal;
-  color: var(--color-rose);
+  color: var(--color-gold);
   text-transform: uppercase;
   letter-spacing: 0.12em;
   font-weight: 500;
@@ -150,23 +154,23 @@
   font-style: normal;
   font-family: var(--font-body);
   font-size: var(--text-base);
-  color: var(--color-coffee);
+  color: rgba(250, 247, 242, 0.70);
   line-height: 1.6;
   margin: 0;
 }
 
 .addressLinePrimary {
   font-weight: 500;
-  color: var(--color-espresso);
+  color: #F0EAE0;
 }
 
 .subLabel {
-  font-family: var(--font-label);
+  font-family: var(--font-mono);
   font-size: 0.625rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
+  font-weight: 500;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: var(--color-rose);
+  color: var(--color-gold);
   display: block;
   margin-bottom: var(--space-2);
 }
@@ -180,13 +184,13 @@
   font-family: var(--font-display);
   font-size: 1.6rem;
   font-weight: 400;
-  color: var(--color-espresso);
+  color: #F0EAE0;
   text-decoration: none;
   transition: color var(--duration-fast) var(--ease-out);
 }
 
 .phoneNumber:hover {
-  color: var(--color-rose);
+  color: var(--color-gold);
 }
 
 .hoursBlock {
@@ -205,7 +209,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px dashed var(--color-border);
+  border-bottom: 1px dashed rgba(250, 247, 242, 0.12);
   padding-bottom: var(--space-1);
   max-width: 320px;
 }
@@ -213,14 +217,14 @@
 .hoursDay {
   font-family: var(--font-body);
   font-size: var(--text-sm);
-  color: var(--color-coffee);
+  color: rgba(250, 247, 242, 0.65);
 }
 
 .hoursTime {
   font-family: var(--font-body);
   font-size: var(--text-sm);
   font-weight: 500;
-  color: var(--color-espresso);
+  color: #F0EAE0;
   margin: 0;
 }
 
@@ -231,19 +235,6 @@
   flex-wrap: wrap;
   gap: var(--space-4);
   margin-top: var(--space-2);
-}
-
-.directionsBtn {
-  background: var(--color-espresso) !important;
-  color: var(--color-ivory) !important;
-  border-color: var(--color-espresso) !important;
-  box-shadow: var(--shadow-sm);
-}
-
-.directionsBtn:hover {
-  background: var(--color-coffee) !important;
-  border-color: var(--color-coffee) !important;
-  transform: translateY(-2px);
 }
 
 @media (max-width: 768px) {

@@ -88,17 +88,21 @@ export function useHeadingReveal<T extends HTMLElement = HTMLHeadingElement>() {
       return
     }
 
-    const tween = gsap.from(el, {
-      y: '100%',
-      opacity: 0,
-      duration: 0.9,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: el,
-        start: 'top 92%',
-        toggleActions: 'play none none none',
-      },
-    })
+    const tween = gsap.fromTo(
+      el,
+      { y: 35, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.9,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 92%',
+          toggleActions: 'play none none none',
+        },
+      }
+    )
 
     return () => {
       if (tween.scrollTrigger) {

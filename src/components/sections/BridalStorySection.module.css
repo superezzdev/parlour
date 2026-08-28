@@ -1,5 +1,5 @@
 .storySection {
-  background-color: var(--color-ivory);
+  background-color: var(--color-noir);
   position: relative;
   overflow: hidden;
   padding-block: var(--section-padding-y);
@@ -28,9 +28,9 @@
   position: relative;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: var(--shadow-xl);
-  background-color: var(--color-bone);
-  border: 1px solid var(--color-border);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+  background-color: var(--color-elevated);
+  border: 1px solid rgba(250, 247, 242, 0.08);
 }
 
 .portraitImage {
@@ -50,21 +50,21 @@
   bottom: var(--space-6);
   left: var(--space-6);
   right: var(--space-6);
-  background: rgba(250, 247, 242, 0.92);
+  background: rgba(22, 22, 22, 0.92);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(250, 247, 242, 0.6);
+  border: 1px solid rgba(250, 247, 242, 0.12);
   padding: var(--space-5) var(--space-6);
   border-radius: var(--radius-md);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 .badgeTag {
-  font-family: var(--font-label);
+  font-family: var(--font-mono);
   font-size: 0.625rem;
-  letter-spacing: var(--label-tracking);
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--color-rose);
+  color: var(--color-gold);
   display: block;
   margin-bottom: var(--space-1);
 }
@@ -73,7 +73,7 @@
   font-family: var(--font-display);
   font-size: var(--text-lg);
   font-style: italic;
-  color: var(--color-espresso);
+  color: #F0EAE0;
   line-height: 1.3;
   margin: 0;
 }
@@ -88,7 +88,7 @@
   font-size: var(--text-display-md);
   font-weight: 300;
   line-height: 1.1;
-  color: var(--color-espresso);
+  color: #F0EAE0;
   margin-top: var(--space-3);
   margin-bottom: var(--space-5);
 }
@@ -98,7 +98,7 @@
   font-size: var(--text-lg);
   font-weight: 300;
   line-height: 1.7;
-  color: var(--color-coffee);
+  color: rgba(250, 247, 242, 0.70);
   margin: 0;
 }
 
@@ -118,9 +118,10 @@
 
 .pointItem {
   padding: var(--space-5);
-  background: var(--color-bone);
-  border: 1px solid var(--color-border);
+  background: var(--color-elevated);
+  border: 1px solid rgba(250, 247, 242, 0.08);
   border-radius: var(--radius-md);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
   transition:
     transform var(--duration-fast) var(--ease-out),
     border-color var(--duration-fast) var(--ease-out),
@@ -129,15 +130,15 @@
 
 .pointItem:hover {
   transform: translateY(-2px);
-  border-color: var(--color-border-rose);
-  box-shadow: var(--shadow-sm);
+  border-color: rgba(201, 168, 106, 0.35);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
 }
 
 .pointNumber {
-  font-family: var(--font-label);
+  font-family: var(--font-mono);
   font-size: 0.6875rem;
-  letter-spacing: var(--label-tracking);
-  color: var(--color-rose);
+  letter-spacing: 0.2em;
+  color: var(--color-gold);
   font-weight: 600;
   display: inline-block;
   margin-bottom: var(--space-2);
@@ -147,7 +148,7 @@
   font-family: var(--font-display);
   font-size: var(--text-lg);
   font-weight: 400;
-  color: var(--color-espresso);
+  color: #F0EAE0;
   margin: 0 0 var(--space-1) 0;
   line-height: 1.25;
 }
@@ -155,7 +156,7 @@
 .pointSubtitle {
   font-family: var(--font-body);
   font-size: var(--text-xs);
-  color: var(--color-mocha);
+  color: #7A7066;
   text-transform: uppercase;
   letter-spacing: 0.04em;
   margin-bottom: var(--space-3);
@@ -165,7 +166,7 @@
 .pointDesc {
   font-family: var(--font-body);
   font-size: var(--text-sm);
-  color: var(--color-coffee);
+  color: rgba(250, 247, 242, 0.65);
   line-height: 1.6;
   margin: 0;
 }

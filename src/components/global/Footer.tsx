@@ -93,7 +93,7 @@ export default function Footer() {
           {/* CTA */}
           <div className={styles.cta}>
             <p className={styles.ctaHeadline}>Ready for your moment?</p>
-            <Link href={ctaLink.href} className={`btn btn-primary ${styles.footerPrimaryBtn}`}>
+            <Link href={ctaLink.href} className="btn btn-primary">
               Book an Appointment
             </Link>
           </div>

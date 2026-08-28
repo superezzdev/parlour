@@ -96,7 +96,7 @@
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--color-ghost-border);
-  border-radius: var(--radius-pill);
+  border-radius: 0;
   pointer-events: none;
   transition: opacity 0.4s ease, transform 0.4s ease;
 }

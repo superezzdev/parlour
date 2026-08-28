@@ -112,7 +112,7 @@ export default function LocationBlock() {
                 href={salon.googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`btn btn-primary btn-lg ${styles.directionsBtn}`}
+                className="btn btn-primary btn-lg"
                 aria-label="Get directions to Glamorous in Google Maps"
               >
                 <span>GET DIRECTIONS</span>
