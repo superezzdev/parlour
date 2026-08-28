@@ -1,8 +1,7 @@
 import type { Metadata } from 'next'
 import HeroSection from '@/components/sections/HeroSection'
-import CategoryNav from '@/components/sections/CategoryNav'
-import ServiceEditorialSection from '@/components/sections/ServiceEditorialSection'
-import AppointmentCTA from '@/components/sections/AppointmentCTA'
+import ServicesMenu from '@/components/sections/ServicesMenu'
+import ServicesBookingCTA from '@/components/sections/ServicesBookingCTA'
 import { serviceCategories } from '@/data/services'
 
 export const metadata: Metadata = {
@@ -73,39 +72,26 @@ export default function ServicesPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceCatalogSchema) }}
       />
 
-      {/* 1. Services Hero — Large Editorial Heading */}
+      {/* 1. Services Hero — Centered Editorial Heading */}
       <HeroSection
+        variant="services"
         label="GLAMOROUS / SERVICE PORTFOLIO"
-        headline={[
-          'BEAUTY,',
-          'YOUR WAY.',
-        ]}
+        headline={
+          <>
+            <span className="block">BEAUTY,</span>
+            <span className="block text-gold italic">YOUR WAY.</span>
+          </>
+        }
         subheadline="A bespoke portfolio of bridal artistry, elevated occasion glamour, and rejuvenating studio rituals crafted for your defining moments."
-        ctaLabel="BOOK AN APPOINTMENT"
-        ctaHref="/contact"
-        secondaryCtaLabel="EXPLORE DISCIPLINES"
-        secondaryCtaHref="#makeup"
         locationTag="SARAI MEER · STUDIO MENU"
-        imageSrc="/images/services/makeup.jpg"
-        imageAlt="Glamorous curated services and luxury makeup artistry in Sarai Meer"
-        fullBleed={false}
+        imageSrc={null}
       />
 
-      {/* 2. Tactile Category Sub-Navigation */}
-      <CategoryNav />
+      {/* 2. Visual, Scannable Luxury Table Services Menu */}
+      <ServicesMenu />
 
-      {/* 3. Large Alternating Editorial Service Presentation */}
-      <main id="services-menu" aria-label="Services Menu">
-        {serviceCategories.map((category) => (
-          <ServiceEditorialSection
-            key={category.id}
-            category={category}
-          />
-        ))}
-      </main>
-
-      {/* 4. Final CTA — Grand Closing Section */}
-      <AppointmentCTA />
+      {/* 3. Final Unified Booking CTA */}
+      <ServicesBookingCTA />
     </>
   )
 }

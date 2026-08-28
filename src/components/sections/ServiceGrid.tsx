@@ -1,5 +1,8 @@
+'use client'
+
 import Link from 'next/link'
 import { SectionLabel, EditorialHeading } from '@/components/ui/Primitives'
+import { useScrollReveal, useHeadingReveal } from '@/hooks/useScrollReveal'
 import styles from './ServiceGrid.module.css'
 
 interface FeaturedCategory {
@@ -75,22 +78,89 @@ const featuredCategories: FeaturedCategory[] = [
   },
 ]
 
+function ServiceGridCard({ item, delay }: { item: FeaturedCategory; delay: number }) {
+  const cardRef = useScrollReveal<HTMLAnchorElement>({ delay, y: 35 })
+
+  return (
+    <Link
+      ref={cardRef}
+      href={`/services#${item.slug}`}
+      className={styles.rowLink}
+      role="listitem"
+      aria-label={`Explore ${item.title}`}
+    >
+      <article className={styles.item}>
+        {/* 1. Number */}
+        <div className={styles.numberCol}>
+          <span className={styles.number}>{item.number}</span>
+        </div>
+
+        {/* 2. Visual Thumbnail */}
+        <div className={styles.imageCol} aria-hidden="true">
+          <div className={styles.imageWrapper}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={item.image}
+              alt={item.title}
+              className={styles.thumbnail}
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        {/* 3. Title & Tag */}
+        <div className={styles.titleCol}>
+          <span className={styles.tag}>{item.tag}</span>
+          <h3 className={styles.itemTitle}>{item.title}</h3>
+        </div>
+
+        {/* 4. Description */}
+        <div className={styles.descCol}>
+          <p className={styles.itemDescription}>{item.description}</p>
+        </div>
+
+        {/* 5. Action Arrow */}
+        <div className={styles.actionCol} aria-hidden="true">
+          <div className={styles.actionCircle}>
+            <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="4" y1="10" x2="16" y2="10" />
+              <polyline points="11,5 16,10 11,15" />
+            </svg>
+          </div>
+        </div>
+      </article>
+    </Link>
+  )
+}
+
 export default function ServiceGrid() {
+  const headingRef = useHeadingReveal<HTMLHeadingElement>()
+  const headerLeadRef = useScrollReveal<HTMLParagraphElement>({ y: 30, delay: 0.1 })
+  const footerRef = useScrollReveal<HTMLDivElement>({ y: 30, delay: 0.2 })
+
   return (
     <section className={`${styles.serviceGrid} section`} aria-labelledby="services-heading">
       <div className="container">
         {/* Header */}
-        <div className={styles.header} data-reveal>
+        <div className={styles.header}>
           <div className={styles.headerTop}>
             <SectionLabel>SIGNATURE OFFERINGS</SectionLabel>
             <span className={styles.categoryCount}>06 Disciplines</span>
           </div>
           <div className={styles.headerContent}>
-            <EditorialHeading as="h2" size="lg" id="services-heading" className={styles.headline}>
-              Curated beauty disciplines,<br />
-              <em>executed with mastery.</em>
-            </EditorialHeading>
-            <p className={styles.headerLead}>
+            <div className="overflow-hidden">
+              <EditorialHeading
+                ref={headingRef}
+                as="h2"
+                size="lg"
+                id="services-heading"
+                className={`${styles.headline} section-heading`}
+              >
+                Curated beauty disciplines,<br />
+                <em>executed with mastery.</em>
+              </EditorialHeading>
+            </div>
+            <p ref={headerLeadRef} className={styles.headerLead}>
               Every service is delivered using premium products, meticulous hygiene,
               and tailored techniques aligned with your personal features.
             </p>
@@ -98,61 +168,18 @@ export default function ServiceGrid() {
         </div>
 
         {/* Services — Horizontal Editorial Presentation */}
-        <div className={styles.list} data-stagger role="list">
-          {featuredCategories.map((item) => (
-            <Link
+        <div className={styles.list} role="list">
+          {featuredCategories.map((item, index) => (
+            <ServiceGridCard
               key={item.id}
-              href={`/services#${item.slug}`}
-              className={styles.rowLink}
-              role="listitem"
-              aria-label={`Explore ${item.title}`}
-            >
-              <article className={styles.item}>
-                {/* 1. Number */}
-                <div className={styles.numberCol}>
-                  <span className={styles.number}>{item.number}</span>
-                </div>
-
-                {/* 2. Visual Thumbnail */}
-                <div className={styles.imageCol} aria-hidden="true">
-                  <div className={styles.imageWrapper}>
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      className={styles.thumbnail}
-                      loading="lazy"
-                    />
-                  </div>
-                </div>
-
-                {/* 3. Title & Tag */}
-                <div className={styles.titleCol}>
-                  <span className={styles.tag}>{item.tag}</span>
-                  <h3 className={styles.itemTitle}>{item.title}</h3>
-                </div>
-
-                {/* 4. Description */}
-                <div className={styles.descCol}>
-                  <p className={styles.itemDescription}>{item.description}</p>
-                </div>
-
-                {/* 5. Action Arrow */}
-                <div className={styles.actionCol} aria-hidden="true">
-                  <div className={styles.actionCircle}>
-                    <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                      <line x1="4" y1="10" x2="16" y2="10" />
-                      <polyline points="11,5 16,10 11,15" />
-                    </svg>
-                  </div>
-                </div>
-              </article>
-            </Link>
+              item={item}
+              delay={index * 0.15}
+            />
           ))}
         </div>
 
         {/* Note on custom bookings & Footer CTA */}
-        <div className={styles.footer} data-reveal>
+        <div ref={footerRef} className={styles.footer}>
           <div className={styles.footerInfo}>
             <p className={styles.placeholderNote}>
               * Service durations and packages can be customized for group bookings and wedding parties.
@@ -166,3 +193,5 @@ export default function ServiceGrid() {
     </section>
   )
 }
+
+export { ServiceGrid as ServicesPreview }

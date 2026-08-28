@@ -1,0 +1,236 @@
+/* ═══════════════════════════════════════════════════════════════
+   GLAMOROUS — SERVICE CATEGORY TABLE / LIST
+   Clean luxury scannable horizontal rows.
+   ═══════════════════════════════════════════════════════════════ */
+
+.categorySection {
+  scroll-margin-top: 140px;
+  margin-bottom: clamp(3.5rem, 6vw, 5.5rem);
+}
+
+.categorySection:last-child {
+  margin-bottom: var(--space-12);
+}
+
+/* ─── Category Header ────────────────────────────────────────── */
+.categoryHeader {
+  margin-bottom: var(--space-3);
+}
+
+.headerMeta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-2);
+}
+
+.categoryNumber {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-rose);
+  letter-spacing: 0.10em;
+}
+
+.categoryTag {
+  font-family: var(--font-label);
+  font-size: var(--text-label);
+  font-weight: 600;
+  letter-spacing: var(--label-tracking);
+  text-transform: uppercase;
+  color: rgba(250, 247, 242, 0.45);
+}
+
+/* Category header in huge Cormorant 300 italic text (3rem), gold, left-aligned */
+.categoryTitle {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 4.5vw, 3rem);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.1;
+  color: var(--color-gold);
+  letter-spacing: -0.01em;
+  margin: 0 0 var(--space-3) 0;
+  text-align: left;
+}
+
+/* Single intro sentence max — DM Sans 0.9rem muted */
+.categoryIntro {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.65;
+  color: rgba(250, 247, 242, 0.65);
+  max-width: 65ch;
+  margin: 0 0 var(--space-5) 0;
+  text-align: left;
+}
+
+/* 1px Ghost Divider below intro */
+.ghostDivider {
+  width: 100%;
+  height: 1px;
+  background: rgba(250, 247, 242, 0.12);
+  margin: 0;
+}
+
+/* ─── Clean Table / List ─────────────────────────────────────── */
+.serviceTable {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-top: none;
+}
+
+/* Single horizontal row */
+.serviceRow {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: 1.35rem 1.25rem;
+  border-bottom: 1px solid rgba(250, 247, 242, 0.09);
+  background: transparent;
+  transition: background-color var(--duration-fast) var(--ease-editorial),
+              transform var(--duration-fast) var(--ease-editorial);
+  cursor: default;
+  outline: none;
+}
+
+.serviceRow:focus-visible {
+  background: rgba(250, 247, 242, 0.04);
+}
+
+/* On hover: bg changes to bg-elevated, and a gold accent appears on left edge (3px) */
+.serviceRow:hover {
+  background: rgba(250, 247, 242, 0.04);
+}
+
+.goldHoverBar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--color-gold);
+  opacity: 0;
+  transform: scaleY(0.4);
+  transform-origin: center;
+  transition: opacity var(--duration-fast) var(--ease-editorial),
+              transform var(--duration-fast) var(--ease-editorial);
+}
+
+.serviceRow:hover .goldHoverBar,
+.serviceRow:focus-visible .goldHoverBar {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+/* Left Content: Title + Short 8-word description */
+.serviceMain {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+/* Service Name (Cormorant 400, 1.25rem, ivory) */
+.serviceName {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--color-ivory);
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
+.signatureBadge {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  background: rgba(201, 168, 106, 0.12);
+  border: 1px solid rgba(201, 168, 106, 0.30);
+  padding: 0.15rem 0.45rem;
+  border-radius: var(--radius-sm);
+  vertical-align: middle;
+}
+
+/* [Short 8-word description] (DM Sans 0.8rem, muted) */
+.serviceDescription {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: rgba(250, 247, 242, 0.50);
+  margin: 0;
+  max-width: 60ch;
+}
+
+/* Right Content: Duration + Price */
+.serviceMeta {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+  gap: var(--space-6);
+  flex-shrink: 0;
+  text-align: right;
+}
+
+/* Duration: Space Mono 0.7rem, muted */
+.serviceDuration {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: rgba(250, 247, 242, 0.45);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Price: Space Mono 0.9rem, gold */
+.servicePrice {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-gold);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  min-width: 90px;
+  text-align: right;
+}
+
+/* ─── Responsive Adjustments ─────────────────────────────────── */
+@media (max-width: 640px) {
+  .serviceRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+    padding: 1.1rem 0.75rem 1.1rem 1rem;
+  }
+
+  .serviceMeta {
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-3);
+    padding-top: 0.25rem;
+  }
+
+  .servicePrice {
+    min-width: auto;
+    text-align: right;
+  }
+}

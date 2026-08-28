@@ -1,6 +1,9 @@
+'use client'
+
 import Link from 'next/link'
 import { SectionLabel, EditorialHeading } from '@/components/ui/Primitives'
 import { salon } from '@/data/salon'
+import { useScrollReveal, useHeadingReveal } from '@/hooks/useScrollReveal'
 import styles from './AppointmentCTA.module.css'
 
 interface AppointmentCTAProps {
@@ -18,6 +21,11 @@ export default function AppointmentCTA({
   ctaLabel = 'BOOK AN APPOINTMENT',
   ctaHref = '/contact',
 }: AppointmentCTAProps) {
+  const headingRef = useHeadingReveal<HTMLHeadingElement>()
+  const bodyRef = useScrollReveal<HTMLParagraphElement>({ y: 30, delay: 0.15 })
+  const actionsRef = useScrollReveal<HTMLDivElement>({ y: 30, delay: 0.25 })
+  const callRef = useScrollReveal<HTMLDivElement>({ y: 30, delay: 0.35 })
+
   return (
     <section className={styles.appointmentCta} aria-labelledby="cta-heading">
       <div className={styles.bg} aria-hidden="true">
@@ -25,27 +33,30 @@ export default function AppointmentCTA({
       </div>
 
       <div className={`container ${styles.content}`}>
-        <div className={styles.inner} data-reveal>
+        <div className={styles.inner}>
           <SectionLabel>{label}</SectionLabel>
 
-          <EditorialHeading
-            as="h2"
-            size="xl"
-            id="cta-heading"
-            className={styles.headline}
-          >
-            {headline || (
-              <>
-                READY<br />
-                FOR YOUR<br />
-                MOMENT?
-              </>
-            )}
-          </EditorialHeading>
+          <div className="overflow-hidden">
+            <EditorialHeading
+              ref={headingRef}
+              as="h2"
+              size="xl"
+              id="cta-heading"
+              className={`${styles.headline} section-heading`}
+            >
+              {headline || (
+                <>
+                  READY<br />
+                  FOR YOUR<br />
+                  MOMENT?
+                </>
+              )}
+            </EditorialHeading>
+          </div>
 
-          <p className={`${styles.body} lead`}>{body}</p>
+          <p ref={bodyRef} className={`${styles.body} lead`}>{body}</p>
 
-          <div className={styles.actions}>
+          <div ref={actionsRef} className={styles.actions}>
             <Link href={ctaHref} className={`btn btn-filled btn-lg ${styles.primaryBtn}`}>
               <span>{ctaLabel}</span>
               <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -68,7 +79,7 @@ export default function AppointmentCTA({
             </a>
           </div>
 
-          <div className={styles.callBlock}>
+          <div ref={callRef} className={styles.callBlock}>
             <span className={styles.callPrefix}>Direct Studio Hotline:</span>
             <a
               href={`tel:${salon.phone}`}

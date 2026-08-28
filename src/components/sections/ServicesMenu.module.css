@@ -1,0 +1,58 @@
+/* ═══════════════════════════════════════════════════════════════
+   GLAMOROUS — SERVICES MENU LAYOUT (DESKTOP SIDEBAR & RIGHT TABLES)
+   ═══════════════════════════════════════════════════════════════ */
+
+.servicesMenuSection {
+  position: relative;
+  background: var(--color-noir);
+  padding-bottom: clamp(4rem, 8vw, 8rem);
+  width: 100%;
+}
+
+.mobileNavWrapper {
+  display: block;
+  position: sticky;
+  top: 72px;
+  z-index: 40;
+}
+
+.layoutContainer {
+  display: block;
+  padding-top: var(--space-6);
+}
+
+.sidebarColumn {
+  display: none;
+}
+
+.tablesColumn {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* ─── Desktop 2-Column Split (>= 1024px) ─────────────────────── */
+@media (min-width: 1024px) {
+  .mobileNavWrapper {
+    display: none;
+  }
+
+  .layoutContainer {
+    display: grid;
+    grid-template-columns: 240px minmax(0, 1fr);
+    gap: clamp(3.5rem, 6vw, 6.5rem);
+    align-items: start;
+    padding-top: var(--space-8);
+  }
+
+  .sidebarColumn {
+    display: block;
+    position: sticky;
+    top: 96px;
+    height: auto;
+  }
+
+  .tablesColumn {
+    min-width: 0;
+    padding-left: var(--space-2);
+  }
+}

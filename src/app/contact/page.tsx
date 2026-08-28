@@ -96,21 +96,19 @@ export default function ContactPage() {
 
       {/* 1. HERO — Clean High-Impact Editorial Entrance */}
       <HeroSection
-        label="APPOINTMENTS &amp; CONCIERGE"
-        headline={[
-          'BOOK',
-          'YOUR',
-          'MOMENT.',
-        ]}
+        variant="contact"
+        label="APPOINTMENTS & CONCIERGE"
+        headline={
+          <>
+            <span className="block">BOOK YOUR</span>
+            <span className="block font-light">
+              <span className="gold-underline-animated text-gold italic">APPOINTMENT.</span>
+            </span>
+          </>
+        }
         subheadline="Reserve your bridal consultation, occasion makeup session, or personalized beauty treatment at our Sarai Meer studio."
-        ctaLabel="FILL RESERVATION FORM"
-        ctaHref="#booking-concierge"
-        secondaryCtaLabel="INSTANT WHATSAPP"
-        secondaryCtaHref="https://wa.me/917007875415?text=Hi%20Glamorous!%20I%27d%20like%20to%20book%20an%20appointment."
         locationTag="SARAI MEER · APPOINTMENTS"
-        imageSrc="/images/hero/hero-editorial.jpg"
-        imageAlt="Book your beauty appointment at Glamorous Studio Sarai Meer"
-        fullBleed={false}
+        imageSrc={null}
       />
 
       {/* 2. CONTACT DETAILS & LUXURY BOOKING FORM */}

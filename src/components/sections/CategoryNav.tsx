@@ -1,104 +1,134 @@
 'use client'
 
 import { useEffect, useState, useRef } from 'react'
-import Link from 'next/link'
 import { serviceCategories } from '@/data/services'
 import styles from './CategoryNav.module.css'
 
-export default function CategoryNav() {
-  const [activeSlug, setActiveSlug] = useState<string>(serviceCategories[0].slug)
-  const [isScrolled, setIsScrolled] = useState(false)
-  const navContainerRef = useRef<HTMLDivElement>(null)
+interface CategoryNavProps {
+  activeSlug: string
+  onCategorySelect?: (slug: string) => void
+}
+
+export default function CategoryNav({
+  activeSlug,
+  onCategorySelect,
+}: CategoryNavProps) {
+  const [internalActive, setInternalActive] = useState<string>(
+    activeSlug || serviceCategories[0].slug
+  )
+  const navTrackRef = useRef<HTMLUListElement>(null)
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 300)
+    if (activeSlug) {
+      setInternalActive(activeSlug)
     }
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  }, [activeSlug])
 
+  // Center active item in mobile horizontal scroll view
   useEffect(() => {
-    // Observer for detecting which category section is in view
-    const observerOptions = {
-      root: null,
-      rootMargin: '-20% 0px -50% 0px',
-      threshold: 0.1,
-    }
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const categoryId = entry.target.getAttribute('id')
-          if (categoryId) {
-            setActiveSlug(categoryId)
-          }
-        }
-      })
-    }, observerOptions)
-
-    serviceCategories.forEach((cat) => {
-      const el = document.getElementById(cat.slug)
-      if (el) observer.observe(el)
-    })
-
-    return () => observer.disconnect()
-  }, [])
-
-  const handlePillClick = (e: React.MouseEvent<HTMLAnchorElement>, slug: string) => {
-    e.preventDefault()
-    setActiveSlug(slug)
-    const target = document.getElementById(slug)
-    if (target) {
-      // Calculate offset taking sticky navbar (72px) + CategoryNav (~54px) + margin into account
-      const navOffset = 136
-      const elementPosition = target.getBoundingClientRect().top
-      const offsetPosition = elementPosition + window.pageYOffset - navOffset
-
-      window.scrollTo({
-        top: offsetPosition,
+    if (!navTrackRef.current) return
+    const activeItem = navTrackRef.current.querySelector(
+      `[data-slug="${internalActive}"]`
+    ) as HTMLElement
+    if (activeItem) {
+      const container = navTrackRef.current
+      const scrollLeft =
+        activeItem.offsetLeft -
+        container.offsetWidth / 2 +
+        activeItem.offsetWidth / 2
+      container.scrollTo({
+        left: scrollLeft,
         behavior: 'smooth',
       })
+    }
+  }, [internalActive])
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, slug: string) => {
+    e.preventDefault()
+    setInternalActive(slug)
+    if (onCategorySelect) {
+      onCategorySelect(slug)
+    } else {
+      const target = document.getElementById(slug)
+      if (target) {
+        const navOffset = window.innerWidth >= 1024 ? 100 : 130
+        const elementPosition = target.getBoundingClientRect().top
+        const offsetPosition = elementPosition + window.pageYOffset - navOffset
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth',
+        })
+      }
     }
   }
 
   return (
-    <nav
-      className={`${styles.stickyWrapper}${isScrolled ? ` ${styles.stickyWrapperScrolled}` : ''}`}
-      aria-label="Service categories navigation"
-      ref={navContainerRef}
-    >
-      <div className={`container ${styles.container}`}>
-        <div className={styles.labelWrapper} aria-hidden="true">
-          <span className={styles.subnavTitle}>Disciplines</span>
-        </div>
-
-        <ul className={styles.navTrack} role="menubar">
+    <div className={styles.navWrapper}>
+      {/* Mobile Horizontal Sticky Bar */}
+      <div className={styles.mobileNavContainer} aria-label="Mobile service categories">
+        <ul className={styles.mobileNavTrack} ref={navTrackRef} role="tablist">
           {serviceCategories.map((cat) => {
-            const isActive = activeSlug === cat.slug
+            const isActive = internalActive === cat.slug
             return (
-              <li key={cat.slug} className={styles.navItem} role="none">
+              <li key={cat.slug} className={styles.mobileNavItem} role="presentation">
                 <a
                   href={`#${cat.slug}`}
-                  onClick={(e) => handlePillClick(e, cat.slug)}
-                  className={`${styles.navPill}${isActive ? ` ${styles.isActive}` : ''}`}
-                  role="menuitem"
-                  aria-current={isActive ? 'true' : undefined}
+                  data-slug={cat.slug}
+                  onClick={(e) => handleClick(e, cat.slug)}
+                  className={`${styles.mobileNavPill}${isActive ? ` ${styles.activeMobile}` : ''}`}
+                  role="tab"
+                  aria-selected={isActive}
                 >
-                  <span className={styles.pillNumber}>{cat.number}</span>
-                  <span>{cat.navLabel}</span>
+                  <span className={styles.mobilePillNum}>{cat.number}</span>
+                  <span className={styles.mobilePillLabel}>{cat.navLabel}</span>
+                  {isActive && <span className={styles.goldDot} aria-hidden="true" />}
                 </a>
               </li>
             )
           })}
         </ul>
-
-        <div className={styles.quickBookingLink}>
-          <Link href="/contact" className="btn btn-ghost btn-sm" style={{ padding: 0 }}>
-            Book Consultation →
-          </Link>
-        </div>
       </div>
-    </nav>
+
+      {/* Desktop Sticky Sidebar Nav */}
+      <aside className={styles.desktopSidebar} aria-label="Service categories navigation">
+        <div className={styles.sidebarStickyInner}>
+          <div className={styles.sidebarHeader}>
+            <span className={styles.sidebarSubhead}>DISCIPLINES</span>
+            <div className={styles.sidebarDivider} aria-hidden="true" />
+          </div>
+
+          <nav className={styles.sidebarNav}>
+            <ul className={styles.sidebarList}>
+              {serviceCategories.map((cat) => {
+                const isActive = internalActive === cat.slug
+                return (
+                  <li key={cat.slug} className={styles.sidebarListItem}>
+                    <a
+                      href={`#${cat.slug}`}
+                      onClick={(e) => handleClick(e, cat.slug)}
+                      className={`${styles.sidebarLink}${isActive ? ` ${styles.activeDesktop}` : ''}`}
+                      aria-current={isActive ? 'true' : undefined}
+                    >
+                      <span className={styles.sidebarItemNumber}>{cat.number}</span>
+                      <span className={styles.sidebarItemLabel}>{cat.navLabel}</span>
+                      {isActive && (
+                        <span className={styles.sidebarGoldDot} aria-hidden="true" />
+                      )}
+                    </a>
+                  </li>
+                )
+              })}
+            </ul>
+          </nav>
+
+          <div className={styles.sidebarFooter}>
+            <p className={styles.sidebarNote}>
+              Bespoke consultations tailored to your skin and occasion.
+            </p>
+          </div>
+        </div>
+      </aside>
+    </div>
   )
 }

@@ -1,13 +1,21 @@
+'use client'
+
 import { salon } from '@/data/salon'
 import BookingForm from './BookingForm'
+import { useScrollReveal, useHeadingReveal } from '@/hooks/useScrollReveal'
 import styles from './ContactDetailsSection.module.css'
 
 export default function ContactDetailsSection() {
+  const actionBarRef = useScrollReveal<HTMLDivElement>({ y: 30, delay: 0 })
+  const formColRef = useScrollReveal<HTMLDivElement>({ y: 40, delay: 0.15 })
+  const sideColRef = useScrollReveal<HTMLDivElement>({ y: 40, delay: 0.25 })
+  const cardTitleRef = useHeadingReveal<HTMLHeadingElement>()
+
   return (
     <section className={styles.contactSection} aria-label="Contact and booking section">
       <div className="container">
         {/* Quick Action Buttons (Bar) */}
-        <div className={styles.actionBar} data-reveal>
+        <div ref={actionBarRef} className={styles.actionBar}>
           {/* 1. CALL NOW */}
           <a
             href={`tel:${salon.phone}`}
@@ -67,15 +75,17 @@ export default function ContactDetailsSection() {
         {/* Main Grid: Form + Studio Details */}
         <div className={styles.mainGrid}>
           {/* Left Column: The Concierge Booking Form */}
-          <div data-reveal>
+          <div ref={formColRef}>
             <BookingForm />
           </div>
 
           {/* Right Column: Studio Information, Map, and Concierge Notes */}
-          <div className={styles.sideColumn} data-reveal>
+          <div ref={sideColRef} className={styles.sideColumn}>
             {/* Details Card */}
             <div className={styles.detailsCard}>
-              <h2 className={styles.cardTitle}>Glamorous (makeup &amp; beauty)</h2>
+              <div className="overflow-hidden">
+                <h2 ref={cardTitleRef} className={`${styles.cardTitle} section-heading`}>Glamorous (makeup &amp; beauty)</h2>
+              </div>
 
               {/* Exact Address */}
               <address className={styles.addressBlock}>

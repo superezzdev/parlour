@@ -91,23 +91,20 @@ export default function AboutPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutPageSchema) }}
       />
 
-      {/* 1. HERO — Quiet Editorial Introduction */}
+      {/* 1. HERO — Quiet Editorial Portrait Split */}
       <HeroSection
+        variant="about"
         label="THE ATELIER & SANCTUARY"
-        headline={[
-          'BEAUTY',
-          'IS AN',
-          'EXPERIENCE.',
-        ]}
+        headline={
+          <>
+            <span className="block font-light">SABREEN</span>
+            <span className="block text-gold italic font-light">SIDDIQUI.</span>
+          </>
+        }
         subheadline="An intimate sanctuary in Sarai Meer dedicated to mindful artistry, personal elegance, and the timeless rituals of beauty."
-        ctaLabel="BOOK AN APPOINTMENT"
-        ctaHref="/contact"
-        secondaryCtaLabel="EXPLORE OUR SERVICES"
-        secondaryCtaHref="/services"
         locationTag="SARAI MEER · THE SANCTUARY"
         imageSrc="/images/about/about-studio.jpg"
         imageAlt="Glamorous beauty studio sanctuary in Sarai Meer"
-        fullBleed={false}
       />
 
       {/* 2. THE PHILOSOPHY */}

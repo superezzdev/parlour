@@ -1,18 +1,23 @@
+/* ═══════════════════════════════════════════════════════════════
+   GLAMOROUS — FULL-SCREEN LIGHTBOX MODAL
+   ═══════════════════════════════════════════════════════════════ */
+
 .overlay {
   position: fixed;
   inset: 0;
-  background: rgba(18, 10, 4, 0.94);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  z-index: var(--z-lightbox);
+  background: rgba(8, 8, 8, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: var(--z-lightbox, 300);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: var(--space-6);
   opacity: 0;
   pointer-events: none;
-  transition: opacity var(--duration-base) var(--ease-out);
+  transition: opacity 0.3s ease;
+  user-select: none;
+  touch-action: pan-y;
 }
 
 .overlayOpen {
@@ -26,52 +31,55 @@
   top: 0;
   left: 0;
   right: 0;
-  padding: var(--space-6) var(--space-8);
+  padding: clamp(1rem, 3vw, 1.75rem) clamp(1.25rem, 4vw, 2.5rem);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  z-index: 20;
+  z-index: 50;
 }
 
 .counter {
-  font-family: var(--font-label);
+  font-family: var(--font-mono), 'Space Mono', monospace;
   font-size: 0.75rem;
-  letter-spacing: var(--label-tracking);
-  color: var(--color-blush);
+  letter-spacing: 0.15em;
+  color: var(--color-gold, #C9A86A);
   text-transform: uppercase;
 }
 
 .closeButton {
-  background: rgba(250, 247, 242, 0.08);
+  background: rgba(250, 247, 242, 0.06);
   border: 1px solid rgba(250, 247, 242, 0.15);
-  color: var(--color-ivory);
+  color: var(--color-ivory, #FAF7F2);
   width: 44px;
   height: 44px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: var(--font-body), 'DM Sans', sans-serif;
+  font-size: 1.5rem;
+  line-height: 1;
   cursor: pointer;
-  transition:
-    background var(--duration-fast) var(--ease-out),
-    transform var(--duration-fast) var(--ease-out),
-    border-color var(--duration-fast) var(--ease-out);
+  transition: all 0.25s ease;
 }
 
-.closeButton:hover {
-  background: var(--color-rose);
-  border-color: var(--color-rose);
-  transform: scale(1.05);
+.closeButton:hover,
+.closeButton:focus-visible {
+  color: var(--color-gold, #C9A86A);
+  border-color: var(--color-gold, #C9A86A);
+  background: rgba(201, 168, 106, 0.15);
+  transform: rotate(90deg) scale(1.05);
+  outline: none;
 }
 
-/* ─── Navigation Buttons ──────────────────────────────────────── */
+/* ─── Navigation Arrows ───────────────────────────────────────── */
 .navBtn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(250, 247, 242, 0.08);
+  background: rgba(250, 247, 242, 0.06);
   border: 1px solid rgba(250, 247, 242, 0.15);
-  color: var(--color-ivory);
+  color: var(--color-ivory, #FAF7F2);
   width: 52px;
   height: 52px;
   border-radius: 50%;
@@ -79,50 +87,53 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  z-index: 20;
-  transition:
-    background var(--duration-fast) var(--ease-out),
-    transform var(--duration-fast) var(--ease-out),
-    border-color var(--duration-fast) var(--ease-out);
+  z-index: 50;
+  transition: all 0.25s ease;
 }
 
-.navBtn:hover {
-  background: var(--color-rose);
-  border-color: var(--color-rose);
+.navBtn:hover,
+.navBtn:focus-visible {
+  color: var(--color-gold, #C9A86A);
+  border-color: var(--color-gold, #C9A86A);
+  background: rgba(201, 168, 106, 0.15);
   transform: translateY(-50%) scale(1.08);
+  outline: none;
 }
 
 .prevBtn {
-  left: var(--space-6);
+  left: clamp(0.75rem, 3vw, 2rem);
 }
 
 .nextBtn {
-  right: var(--space-6);
+  right: clamp(0.75rem, 3vw, 2rem);
 }
 
 @media (max-width: 768px) {
   .navBtn {
     width: 40px;
     height: 40px;
+    background: rgba(8, 8, 8, 0.6);
   }
-  .prevBtn { left: var(--space-2); }
-  .nextBtn { right: var(--space-2); }
+  .prevBtn {
+    left: 0.75rem;
+  }
+  .nextBtn {
+    right: 0.75rem;
+  }
 }
 
 /* ─── Image Container ────────────────────────────────────────── */
 .imageContainer {
-  max-width: 88vw;
-  max-height: 82vh;
+  max-width: 90vw;
+  max-height: 85vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   position: relative;
-  transform: scale(0.95);
+  transform: scale(0.96);
   opacity: 0;
-  transition:
-    transform var(--duration-slow) var(--ease-editorial),
-    opacity var(--duration-slow) var(--ease-out);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
 }
 
 .overlayOpen .imageContainer {
@@ -130,43 +141,49 @@
   opacity: 1;
 }
 
-.activeImage {
-  max-width: 80vw;
-  max-height: 70vh;
+.mainImage {
+  max-width: 90vw;
+  max-height: calc(85vh - 70px);
   object-fit: contain;
-  border-radius: var(--radius-sm);
-  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
-}
-
-/* ─── Caption Block ──────────────────────────────────────────── */
-.captionBlock {
-  margin-top: var(--space-4);
-  text-align: center;
-  max-width: 600px;
-}
-
-.categoryTag {
-  font-family: var(--font-label);
-  font-size: 0.625rem;
-  letter-spacing: var(--label-tracking);
-  text-transform: uppercase;
-  color: var(--color-blush);
+  border-radius: 4px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.75);
   display: block;
-  margin-bottom: var(--space-1);
+}
+
+/* ─── Bottom Bar ─────────────────────────────────────────────── */
+.bottomBar {
+  margin-top: 1rem;
+  text-align: center;
+  max-width: 680px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0 1rem;
+}
+
+.categoryBadge {
+  font-family: var(--font-mono), 'Space Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--color-gold, #C9A86A);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
 }
 
 .imageTitle {
-  font-family: var(--font-display);
-  font-size: var(--text-lg);
-  font-weight: 300;
-  color: var(--color-ivory);
-  margin: 0 0 var(--space-1) 0;
-  letter-spacing: 0.02em;
+  font-family: var(--font-display), 'Cormorant Garamond', Georgia, serif;
+  font-weight: 400;
+  font-size: 1.25rem;
+  color: var(--color-ivory, #FAF7F2);
+  margin: 0;
+  line-height: 1.25;
+  letter-spacing: 0.01em;
 }
 
-.imageDesc {
-  font-family: var(--font-body);
-  font-size: var(--text-xs);
-  color: rgba(250, 247, 242, 0.7);
+.imageDescription {
+  font-family: var(--font-body), 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  color: rgba(250, 247, 242, 0.6);
   margin: 0;
+  line-height: 1.4;
 }

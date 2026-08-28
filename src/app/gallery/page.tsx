@@ -74,21 +74,19 @@ export default function GalleryPage() {
 
       {/* 1. HERO — Cinematic Editorial Exhibition Hero */}
       <HeroSection
+        variant="gallery"
         label="SELECTED WORK / PORTFOLIO ARCHIVE"
-        headline={[
-          'SELECTED',
-          'WORK &',
-          'ARTISTRY.',
-        ]}
+        headline={
+          <>
+            <span className="block">SELECTED</span>
+            <span className="block">WORK &</span>
+            <span className="block text-gold italic font-light">ARTISTRY.</span>
+          </>
+        }
         subheadline="An art-directed exhibition of bespoke bridal transformations, editorial makeup, couture hairstyling, and finishing craft in Sarai Meer."
-        ctaLabel="BOOK AN APPOINTMENT"
-        ctaHref="/contact"
-        secondaryCtaLabel="EXPLORE ARCHIVE"
-        secondaryCtaHref="#gallery-portfolio"
         locationTag="SARAI MEER · STUDIO ARCHIVE"
         imageSrc="/images/gallery/bridal/bridal-01.jpg"
         imageAlt="Curated bridal and makeup artistry gallery at Glamorous Studio"
-        fullBleed={false}
       />
 
       {/* 2. GALLERY GRID — Interactive Filter Bar & Asymmetric Masonry */}

@@ -1,14 +1,23 @@
+'use client'
+
 import { SectionLabel, EditorialHeading } from '@/components/ui/Primitives'
 import { salon } from '@/data/salon'
+import { useScrollReveal, useHeadingReveal } from '@/hooks/useScrollReveal'
 import styles from './LocationBlock.module.css'
 
 export default function LocationBlock() {
+  const mapRef = useScrollReveal<HTMLDivElement>({ y: 40, delay: 0 })
+  const headingRef = useHeadingReveal<HTMLHeadingElement>()
+  const addressRef = useScrollReveal<HTMLElement>({ y: 30, delay: 0.15 })
+  const hoursRef = useScrollReveal<HTMLDivElement>({ y: 30, delay: 0.25 })
+  const actionsRef = useScrollReveal<HTMLDivElement>({ y: 30, delay: 0.35 })
+
   return (
     <section className={`${styles.location} section`} aria-labelledby="location-heading">
       <div className="container">
         <div className={`${styles.inner} editorial-split editorial-split--60-40`}>
           {/* Map Side / Visual Location Frame */}
-          <div className={`${styles.mapContainer} image-reveal-wrapper`} aria-label="Studio location preview">
+          <div ref={mapRef} className={`${styles.mapContainer} image-reveal-wrapper`} aria-label="Studio location preview">
             {salon.googleMapsEmbedUrl ? (
               <iframe
                 src={salon.googleMapsEmbedUrl}
@@ -49,16 +58,24 @@ export default function LocationBlock() {
           </div>
 
           {/* Details Side */}
-          <div className={styles.details} data-reveal>
+          <div className={styles.details}>
             <SectionLabel>VISIT OUR SANCTUARY</SectionLabel>
 
-            <EditorialHeading as="h2" size="md" id="location-heading" className={styles.heading}>
-              Glamorous<br />
-              <em>(makeup &amp; beauty)</em>
-            </EditorialHeading>
+            <div className="overflow-hidden">
+              <EditorialHeading
+                ref={headingRef}
+                as="h2"
+                size="md"
+                id="location-heading"
+                className={`${styles.heading} section-heading`}
+              >
+                Glamorous<br />
+                <em>(makeup &amp; beauty)</em>
+              </EditorialHeading>
+            </div>
 
             {/* Address */}
-            <address className={styles.address}>
+            <address ref={addressRef} className={styles.address}>
               <p className={styles.addressLinePrimary}>1st Floor, Mumtaz Bangle Store</p>
               <p>Sabji Mandi Rd, Sarai Meer</p>
               <p>Uttar Pradesh 276305</p>
@@ -77,7 +94,7 @@ export default function LocationBlock() {
             </div>
 
             {/* Hours */}
-            <div className={styles.hoursBlock} aria-label="Studio opening hours">
+            <div ref={hoursRef} className={styles.hoursBlock} aria-label="Studio opening hours">
               <span className={styles.subLabel}>STUDIO HOURS</span>
               <dl className={styles.hoursList}>
                 {salon.hours.map((h, i) => (
@@ -90,7 +107,7 @@ export default function LocationBlock() {
             </div>
 
             {/* CTAs */}
-            <div className={styles.actions}>
+            <div ref={actionsRef} className={styles.actions}>
               <a
                 href={salon.googleMapsUrl}
                 target="_blank"
