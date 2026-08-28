@@ -1,58 +1,61 @@
 .brandIntro {
   background: var(--color-noir);
   position: relative;
-  overflow: hidden;
   border-top: 1px solid rgba(250, 247, 242, 0.06);
 }
 
 .inner {
   display: grid;
-  grid-template-columns: 42fr 58fr;
-  gap: clamp(2.5rem, 5vw, 5rem);
-  align-items: flex-start;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 48px;
+  width: 100%;
 }
 
 /* ─── Left Column ────────────────────────────────────────────── */
 .left {
   display: flex;
   flex-direction: column;
-  gap: var(--space-6);
+  gap: var(--space-4);
+  position: sticky;
+  top: 96px;
 }
 
 .labelWrapper {
-  margin-bottom: -0.5rem;
+  margin-bottom: 0;
 }
 
-.visualCard {
-  position: relative;
-  background: var(--color-surface);
-  border: 1px solid rgba(201, 168, 106, 0.18);
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  box-shadow: var(--shadow-md);
-  transition: border-color var(--duration-base) ease, transform var(--duration-base) ease;
-}
-
-.visualCard:hover {
-  border-color: rgba(201, 168, 106, 0.35);
-  transform: translateY(-2px);
+.visualWrapper {
+  display: flex;
+  flex-direction: column;
+  background: transparent;
+  border: none;
+  border-radius: 0;
 }
 
 .imageWrapper {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 3 / 4;
   overflow: hidden;
+  border-radius: 0;
 }
 
 .studioImage {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 3 / 4;
   object-fit: cover;
-  object-position: center 35%;
+  object-position: center;
+  display: block;
   transition: transform 0.8s var(--ease-editorial);
 }
 
-.visualCard:hover .studioImage {
-  transform: scale(1.03);
+.visualWrapper:hover .studioImage {
+  transform: scale(1.02);
 }
 
 .imageOverlay {
@@ -60,88 +63,79 @@
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(8, 8, 8, 0.1) 0%,
-    rgba(8, 8, 8, 0.4) 60%,
-    rgba(8, 8, 8, 0.85) 100%
+    transparent 0%,
+    transparent 60%,
+    rgba(8, 8, 8, 0.45) 100%
   );
   pointer-events: none;
 }
 
-.cardContent {
-  padding: var(--space-5) var(--space-6);
+.studioInfo {
+  padding: 20px 0 0 0;
+  border-top: 1px solid rgba(201, 169, 110, 0.2);
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
-  background: var(--color-surface);
-}
-
-.metaBlock {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
+  background: transparent;
 }
 
 .metaBadge {
   font-family: var(--font-mono);
-  font-size: 0.625rem;
+  font-size: 0.6rem;
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: var(--color-gold);
+  color: #C9A96E;
   font-weight: 500;
+  display: block;
 }
 
 .studioName {
   font-family: var(--font-display);
-  font-size: var(--text-2xl);
-  font-weight: 300;
-  letter-spacing: 0.08em;
-  color: var(--color-ivory);
-  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  color: #F0EAE0;
+  margin: 0.25rem 0 0 0;
   line-height: 1.2;
 }
 
 .metaLocation {
-  font-family: var(--font-body);
-  font-size: var(--text-xs);
-  color: var(--color-taupe);
-  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: #7A7066;
+  margin: 0.25rem 0 0 0;
   letter-spacing: 0.02em;
 }
 
-.accentLine {
+.dividerLine {
   width: 100%;
   height: 1px;
-  background: linear-gradient(
-    to right,
-    rgba(201, 168, 106, 0.35) 0%,
-    rgba(201, 168, 106, 0.05) 80%,
-    transparent 100%
-  );
-  margin-block: 0.125rem;
+  background: rgba(240, 234, 224, 0.08);
+  margin-block: 0.75rem; /* my-3 */
 }
 
 .studioTagline {
   font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  color: rgba(250, 247, 242, 0.65);
+  font-size: 0.6rem;
+  color: #7A7066;
+  letter-spacing: 0.05em;
   margin: 0;
-  letter-spacing: 0.06em;
 }
 
 /* ─── Right Column ───────────────────────────────────────────── */
 .right {
   display: flex;
   flex-direction: column;
-  gap: var(--space-6);
+  gap: 32px;
+  padding-top: 0;
 }
 
 .headingWrapper {
-  margin-bottom: var(--space-2);
+  margin-bottom: 0;
 }
 
 .headline {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 3.8vw, 3.25rem);
+  font-size: clamp(2rem, 3.5vw, 3.25rem);
   font-weight: 300;
   line-height: 1.15;
   color: #F0EAE0;
@@ -151,7 +145,7 @@
 
 .headlineHighlight {
   font-style: italic;
-  color: var(--color-gold);
+  color: #C9A96E;
   font-weight: 300;
   display: inline-block;
   margin-top: 0.25rem;
@@ -160,15 +154,15 @@
 .narrative {
   display: flex;
   flex-direction: column;
-  gap: var(--space-6);
+  gap: 24px;
 }
 
 .leadText {
   font-family: var(--font-body);
-  font-size: clamp(1.0625rem, 1.2vw, 1.2rem);
+  font-size: clamp(1rem, 1.2vw, 1.125rem);
   line-height: 1.75;
   font-weight: 300;
-  color: rgba(250, 247, 242, 0.88);
+  color: rgba(240, 234, 224, 0.88);
   margin: 0;
 }
 
@@ -177,91 +171,123 @@
   font-size: 0.9375rem;
   line-height: 1.7;
   font-weight: 400;
-  color: rgba(250, 247, 242, 0.65);
+  color: rgba(240, 234, 224, 0.65);
   margin: 0;
 }
 
-/* ─── 3 Core Pillars ─────────────────────────────────────────── */
+/* ─── 3 Value Columns ─────────────────────────────────────────── */
 .pillarsGrid {
+  border-top: 1px solid rgba(240, 234, 224, 0.08);
+  padding-top: 32px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-4);
-  padding: var(--space-5) 0;
-  margin-block: var(--space-2);
-  border-top: 1px solid rgba(250, 247, 242, 0.08);
-  border-bottom: 1px solid rgba(250, 247, 242, 0.08);
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
 }
 
 .pillarItem {
   display: flex;
   flex-direction: column;
-  gap: var(--space-1);
+  background: transparent;
+  border: none;
+  padding: 0;
+  border-radius: 0;
 }
 
 .pillarNum {
   font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  color: var(--color-gold);
-  letter-spacing: 0.15em;
+  font-size: 0.65rem;
+  color: #C9A96E;
+  letter-spacing: 0.1em;
   font-weight: 500;
-}
-
-.pillarText {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
 }
 
 .pillarTitle {
-  font-family: var(--font-display);
-  font-size: 1.0625rem;
+  font-family: var(--font-body);
   font-weight: 500;
-  color: var(--color-ivory);
+  font-size: 0.9rem;
+  color: #F0EAE0;
+  margin-top: 0.25rem; /* mt-1 */
   letter-spacing: 0.01em;
 }
 
 .pillarDesc {
   font-family: var(--font-body);
-  font-size: 0.75rem;
-  line-height: 1.45;
-  color: rgba(250, 247, 242, 0.55);
+  font-weight: 400;
+  font-size: 0.8rem;
+  color: #7A7066;
+  margin-top: 0.25rem; /* mt-1 */
+  line-height: 1.5;
 }
 
 /* ─── Action Button ──────────────────────────────────────────── */
 .action {
-  margin-top: var(--space-2);
+  margin-top: 8px;
   display: flex;
+}
+
+.exploreBtn {
+  margin-top: 8px;
+  border: 1px solid rgba(240, 234, 224, 0.25);
+  border-radius: 0;
+  color: #F0EAE0;
+  background: transparent;
+  padding: 16px 32px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  width: fit-content;
+  display: inline-flex;
   align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.exploreBtn:hover {
+  border-color: #C9A96E;
+  color: #C9A96E;
 }
 
 /* ─── Responsive Breakpoints ─────────────────────────────────── */
-@media (max-width: 991px) {
+@media (max-width: 768px) {
   .inner {
     grid-template-columns: 1fr;
-    gap: var(--space-8);
+    gap: 32px;
+    padding-inline: 1.5rem;
   }
 
-  .visualCard {
-    max-width: 500px;
+  .left {
+    position: static;
+  }
+
+  .imageWrapper {
+    aspect-ratio: 4 / 3;
+    width: 100%;
+  }
+
+  .studioImage {
+    aspect-ratio: 4 / 3;
+  }
+
+  .right {
+    gap: 24px;
   }
 
   .pillarsGrid {
     grid-template-columns: 1fr;
-    gap: var(--space-4);
-  }
-}
-
-@media (max-width: 640px) {
-  .headline {
-    font-size: 1.875rem;
-    line-height: 1.2;
+    gap: 20px;
+    padding-top: 24px;
   }
 
-  .leadText {
-    font-size: 1rem;
+  .action {
+    width: 100%;
   }
 
-  .cardContent {
-    padding: var(--space-4);
+  .exploreBtn {
+    width: 100%;
   }
 }

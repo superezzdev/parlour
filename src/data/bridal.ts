@@ -33,12 +33,14 @@ export interface BridalGalleryItem {
 
 export interface BridalPackage {
   id: string
+  number: string
   name: string
-  subtitle: string
-  description: string
+  subtitle?: string
+  description?: string
   includes: string[]
-  idealFor: string
-  priceLabel: string
+  idealFor?: string
+  price: string
+  priceLabel?: string
   isSignature?: boolean
 }
 
@@ -48,7 +50,6 @@ export interface BridalFAQ {
   answer: string
 }
 
-/** Story section focus points */
 /** Story section focus points */
 export const bridalStoryPoints: BridalStoryPoint[] = [
   {
@@ -186,60 +187,46 @@ export const bridalGalleryShowcase: BridalGalleryItem[] = [
   },
 ]
 
-/** Optional bridal packages (editable structure without hardcoded pricing) */
+/** Bridal package tiers */
 export const bridalPackages: BridalPackage[] = [
   {
     id: 'pkg-essential',
-    name: 'BRIDAL ESSENTIAL',
-    subtitle: 'Classic Wedding Day Artistry',
-    description:
-      'A complete wedding day makeup and styling service designed for brides who want a timeless, elegant look without the rush.',
-    idealFor: 'Wedding ceremony or single-event celebrations',
-    priceLabel: 'Pricing upon consultation',
+    number: '01',
+    name: 'Essential Bridal',
+    subtitle: 'Solo ceremony makeup + basic hair',
+    price: 'From ₹4,000',
     includes: [
-      'Pre-event consultation to discuss your look',
-      'Long-lasting bridal base with waterproof formulas',
-      'Skin prep and hydrating primer',
-      'Bridal hair styling and fresh floral setting',
-      'Dupatta, veil & jewelry pinning',
-      'Lash application and eyebrow definition',
+      'Solo ceremony makeup & lightweight skin prep',
+      'Basic bridal hair styling & setting',
+      'Lash application & eyebrow definition',
+      'Essential dupatta pinning',
     ],
   },
   {
-    id: 'pkg-signature',
-    name: 'BRIDAL SIGNATURE',
-    subtitle: 'The Complete Trial & Ceremony Experience',
-    description:
-      'Our most popular bridal service — includes a full trial session beforehand plus complete wedding day makeup, hair, and draping.',
-    idealFor: 'Brides who want to test and finalize their look before the wedding',
-    priceLabel: 'Pricing upon consultation',
+    id: 'pkg-full-bridal',
+    number: '02',
+    name: 'Full Bridal',
+    subtitle: 'Makeup + hair + dupatta draping',
+    price: 'From ₹6,500',
     isSignature: true,
     includes: [
-      'Detailed style consultation and moodboard',
-      'Full bridal trial session for makeup and hair',
-      'Long-lasting bridal makeup with natural contouring and highlight',
-      'Hydrating skin prep for a fresh, natural glow',
-      'Bridal hair styling with floral placement',
-      'Double dupatta draping and heavy jewelry setting',
-      'Complimentary touch-up kit for the ceremony',
+      'HD waterproof bridal makeup with contour & highlight',
+      'Elaborate bridal hair styling with floral placement',
+      'Traditional dupatta draping & veil styling',
+      'Complete jewelry & accessory pinning',
     ],
   },
   {
-    id: 'pkg-editorial',
-    name: 'BRIDAL CELEBRATION SUITE',
-    subtitle: 'Multi-Event Celebration Package',
-    description:
-      'A complete beauty package covering multiple wedding functions like Engagement, Mehendi, Sangeet, Wedding, and Reception.',
-    idealFor: 'Multi-day weddings: Engagement, Mehendi, Sangeet, Wedding & Reception',
-    priceLabel: 'Pricing upon consultation',
+    id: 'pkg-complete-journey',
+    number: '03',
+    name: 'Complete Bridal Journey',
+    subtitle: 'Pre-bridal + trial + ceremony + reception',
+    price: 'From ₹12,000',
     includes: [
-      'Look planning for every wedding function',
-      'Full trial session before wedding week',
-      'Pre-bridal skin cleanup and glow facial',
-      'Artistry for main wedding ceremony and reception/sangeet',
-      'Distinct hairstyles and draping styles for each event',
-      'On-location assistance and mid-event touch-ups (on request)',
-      'Family member makeup coordination (on request)',
+      'Pre-bridal skin consultation & custom prep plan',
+      'Full bridal trial session for makeup and hair',
+      'Main ceremony & reception makeup artistry',
+      'Multi-event hair styling & complete draping',
     ],
   },
 ]

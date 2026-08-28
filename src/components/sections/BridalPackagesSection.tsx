@@ -2,61 +2,41 @@
 
 import Link from 'next/link'
 import { SectionLabel } from '@/components/ui/Primitives'
-import { bridalPackages } from '@/data/bridal'
+import { bridalPackages, type BridalPackage } from '@/data/bridal'
 import { useScrollReveal, useHeadingReveal } from '@/hooks/useScrollReveal'
 import styles from './BridalPackagesSection.module.css'
 
-function BridalPackageCard({ pkg, delay }: { pkg: (typeof bridalPackages)[0]; delay: number }) {
-  const cardRef = useScrollReveal<HTMLDivElement>({ delay, y: 35 })
+function BridalTierRow({ pkg, delay }: { pkg: BridalPackage; delay: number }) {
+  const rowRef = useScrollReveal<HTMLDivElement>({ delay, y: 25 })
 
   return (
-    <div
-      ref={cardRef}
-      className={`${styles.card} ${pkg.isSignature ? styles.cardFeatured : ''}`}
-    >
-      {pkg.isSignature && (
-        <span className={styles.popularBadge}>MOST REQUESTED</span>
-      )}
-
-      <div className={styles.cardHeader}>
-        <h3 className={styles.packageName}>{pkg.name}</h3>
-        <span className={styles.packageSubtitle}>{pkg.subtitle}</span>
-        <p className={styles.packageDesc}>{pkg.description}</p>
+    <div ref={rowRef} className={styles.tierRow}>
+      {/* LEFT: 30% - Tier number & Tier name */}
+      <div className={styles.leftCol}>
+        <span className={styles.tierNumber}>{pkg.number}</span>
+        <h3 className={styles.tierName}>{pkg.name}</h3>
       </div>
 
-      <div className={styles.idealBox}>
-        <span className={styles.idealLabel}>RECOMMENDED FOR</span>
-        <p className={styles.idealText}>{pkg.idealFor}</p>
+      {/* MIDDLE: 50% - Inclusions with plain em dash prefix */}
+      <div className={styles.middleCol}>
+        <ul className={styles.inclusionsList}>
+          {pkg.includes.slice(0, 4).map((item, idx) => (
+            <li key={idx} className={styles.inclusionItem}>
+              <span className={styles.dash} aria-hidden="true">—</span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
       </div>
 
-      <span className={styles.inclusionsTitle}>EXPERIENCE INCLUDES</span>
-      <ul className={styles.inclusionsList}>
-        {pkg.includes.map((item, idx) => (
-          <li key={idx} className={styles.inclusionItem}>
-            <svg
-              className={styles.checkIcon}
-              viewBox="0 0 20 20"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              <polyline points="4 10 8 14 16 6" />
-            </svg>
-            <span>{item}</span>
-          </li>
-        ))}
-      </ul>
-
-      <div className={styles.cardFooter}>
-        <span className={styles.priceTag}>{pkg.priceLabel}</span>
+      {/* RIGHT: 20% - Price & Book Link */}
+      <div className={styles.rightCol}>
+        <span className={styles.tierPrice}>{pkg.price}</span>
         <Link
           href={`/contact?service=bridal&package=${pkg.id}`}
-          className={`btn ${pkg.isSignature ? 'btn-filled' : 'btn-primary'} ${styles.packageBtn}`}
+          className={styles.bookLink}
         >
-          ENQUIRE FOR AVAILABILITY
+          Book &rarr;
         </Link>
       </div>
     </div>
@@ -66,7 +46,7 @@ function BridalPackageCard({ pkg, delay }: { pkg: (typeof bridalPackages)[0]; de
 export default function BridalPackagesSection() {
   const headingRef = useHeadingReveal<HTMLHeadingElement>()
   const subtitleRef = useScrollReveal<HTMLParagraphElement>({ y: 30, delay: 0.1 })
-  const disclaimerRef = useScrollReveal<HTMLDivElement>({ y: 30, delay: 0.25 })
+  const noteRef = useScrollReveal<HTMLParagraphElement>({ y: 20, delay: 0.25 })
 
   return (
     <section id="packages" className={styles.packagesSection} aria-labelledby="bridal-packages-heading">
@@ -84,23 +64,21 @@ export default function BridalPackagesSection() {
           </p>
         </div>
 
-        {/* 3 Package Tiers */}
-        <div className={styles.grid}>
+        {/* Three Horizontal Tiers */}
+        <div className={styles.tiersContainer}>
           {bridalPackages.map((pkg, idx) => (
-            <BridalPackageCard
+            <BridalTierRow
               key={pkg.id}
               pkg={pkg}
-              delay={idx * 0.15}
+              delay={idx * 0.12}
             />
           ))}
         </div>
 
-        {/* Disclaimer / Transparency Footnote */}
-        <div ref={disclaimerRef} className={styles.disclaimer}>
-          <p className={styles.disclaimerText}>
-            <em>Note on Inclusions &amp; Pricing:</em> All bridal services at Glamorous are personalized. Final pricing depends on event dates, travel requirements (in-studio or on-location), and any add-ons like family makeup. Details and quotes are shared transparently during your consultation.
-          </p>
-        </div>
+        {/* Personalized Pricing Note */}
+        <p ref={noteRef} className={styles.personalizedNote}>
+          Pricing is personalized. Final quote shared after your consultation based on date, location, and services.
+        </p>
       </div>
     </section>
   )

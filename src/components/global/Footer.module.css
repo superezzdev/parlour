@@ -1,7 +1,7 @@
 .footer {
   background: var(--color-noir);
   color: var(--color-ivory);
-  padding-top: clamp(5rem, 8vw, 8rem);
+  padding-top: clamp(4.5rem, 7vw, 7.5rem);
   padding-bottom: var(--space-8);
   position: relative;
   overflow: hidden;
@@ -10,15 +10,17 @@
 
 .top {
   display: grid;
-  grid-template-columns: 1.8fr 1fr 1.2fr 1fr;
-  gap: var(--space-12);
-  padding-bottom: clamp(3rem, 5vw, 5rem);
+  grid-template-columns: 1.5fr 0.9fr 1.3fr 1.3fr;
+  gap: clamp(2rem, 3.5vw, 4rem);
+  padding-bottom: clamp(3rem, 5vw, 4.5rem);
   border-bottom: 1px solid var(--color-ghost-border);
+  align-items: start;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1100px) {
   .top {
     grid-template-columns: 1fr 1fr;
+    gap: var(--space-10) var(--space-8);
   }
 }
 
@@ -29,137 +31,327 @@
   }
 }
 
-/* Brand */
+/* ─── 1. Brand Column ─── */
+.brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.brandHeader {
+  display: inline-flex;
+  flex-direction: column;
+  text-decoration: none;
+  margin-bottom: var(--space-3);
+  transition: opacity var(--duration-fast) var(--ease-out);
+}
+
+.brandHeader:hover {
+  opacity: 0.9;
+}
+
 .wordmark {
   font-family: var(--font-display);
   font-size: 2rem;
   font-weight: 600;
-  letter-spacing: 0.20em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--color-ivory);
+  line-height: 1.1;
   margin-bottom: var(--space-1);
 }
 
 .tagline {
   font-family: var(--font-label);
-  font-size: var(--text-label);
-  font-weight: var(--label-weight);
-  letter-spacing: var(--label-tracking);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--color-gold);
-  margin-bottom: var(--space-6);
 }
 
 .description {
   font-family: var(--font-body);
   font-size: var(--text-sm);
   color: rgba(250, 247, 242, 0.65);
-  line-height: 1.70;
-  max-width: 28ch;
+  line-height: 1.7;
+  max-width: 32ch;
+  margin-bottom: var(--space-5);
 }
 
-/* Nav */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.35rem 0.75rem;
+  background: rgba(201, 168, 106, 0.06);
+  border: 1px solid rgba(201, 168, 106, 0.18);
+  border-radius: 9999px;
+}
+
+.badgeDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  box-shadow: 0 0 8px var(--color-gold);
+}
+
+.badgeText {
+  font-family: var(--font-label);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-gold-light);
+}
+
+/* ─── Shared Section Headings ─── */
 .navHeading {
+  font-family: var(--font-label);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
   color: var(--color-gold);
-  margin-bottom: var(--space-6);
+  margin-bottom: var(--space-5);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
 }
 
 .navHeading::before {
+  content: '';
+  display: inline-block;
+  width: 14px;
+  height: 1px;
   background: var(--color-gold);
 }
 
+/* ─── 2. Navigation Column ─── */
 .navLinks {
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
+  gap: 0.65rem;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
 .navLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
   font-family: var(--font-body);
   font-size: var(--text-sm);
   color: rgba(250, 247, 242, 0.70);
   text-decoration: none;
-  transition: color var(--duration-fast) var(--ease-out);
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.linkArrow {
+  opacity: 0;
+  transform: translateX(-4px);
+  color: var(--color-gold);
+  font-size: 0.8rem;
+  transition: all var(--duration-fast) var(--ease-out);
 }
 
 .navLink:hover {
-  color: var(--color-gold);
+  color: var(--color-ivory);
 }
 
-/* Contact */
-.address {
-  font-style: normal;
-  font-family: var(--font-body);
-  font-size: var(--text-sm);
-  color: rgba(250, 247, 242, 0.60);
-  line-height: 1.80;
-  margin-bottom: var(--space-6);
+.navLink:hover .linkArrow {
+  opacity: 1;
+  transform: translateX(0);
 }
 
-.links {
+/* ─── 3. Contact & Studio Info Column ─── */
+.contact {
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
 }
 
-.contactLink {
+.addressBlock {
+  font-style: normal;
   font-family: var(--font-body);
+  margin-bottom: var(--space-5);
+}
+
+.addressLinePrimary {
   font-size: var(--text-sm);
-  color: rgba(250, 247, 242, 0.70);
+  font-weight: 500;
+  color: var(--color-ivory);
+  margin-bottom: 0.15rem;
+}
+
+.addressLineSecondary {
+  font-size: var(--text-xs);
+  color: rgba(250, 247, 242, 0.55);
+  line-height: 1.5;
+  margin-bottom: 0.45rem;
+}
+
+.mapActionLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-label);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-gold);
   text-decoration: none;
   transition: color var(--duration-fast) var(--ease-out);
 }
 
-.contactLink:hover {
+.mapActionLink:hover {
+  color: var(--color-gold-light);
+  text-decoration: underline;
+}
+
+.contactChannels {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.contactItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: rgba(250, 247, 242, 0.75);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.contactItem:hover {
   color: var(--color-gold);
 }
 
-/* CTA */
+.iconSm {
+  color: var(--color-gold);
+  flex-shrink: 0;
+}
+
+.iconXs {
+  color: var(--color-gold);
+  flex-shrink: 0;
+}
+
+.socialRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-top: 0.35rem;
+}
+
+.socialPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: rgba(250, 247, 242, 0.60);
+  text-decoration: none;
+  transition: all var(--duration-fast) var(--ease-out);
+  width: fit-content;
+}
+
+.socialPill:hover {
+  color: var(--color-gold);
+}
+
+/* ─── 4. Reservations & CTA Column ─── */
 .cta {
   display: flex;
   flex-direction: column;
-  gap: var(--space-6);
   align-items: flex-start;
 }
 
 .ctaHeadline {
   font-family: var(--font-display);
-  font-size: var(--text-display-sm);
+  font-size: 1.65rem;
   font-weight: 300;
   font-style: italic;
   color: var(--color-ivory);
-  line-height: 1.15;
+  line-height: 1.2;
+  margin-bottom: var(--space-2);
 }
 
-/* Signature Brand Banner */
+.ctaSubtext {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: rgba(250, 247, 242, 0.60);
+  line-height: 1.5;
+  margin-bottom: var(--space-4);
+  max-width: 26ch;
+}
+
+.hoursNote {
+  display: flex;
+  flex-direction: column;
+  margin-top: var(--space-5);
+  padding: 0.75rem 1rem;
+  background: rgba(250, 247, 242, 0.02);
+  border: 1px solid rgba(250, 247, 242, 0.06);
+  border-left: 2px solid var(--color-gold);
+  border-radius: 2px;
+  width: 100%;
+}
+
+.hoursTitle {
+  font-family: var(--font-label);
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 0.2rem;
+}
+
+.hoursTime {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: var(--color-ivory);
+  font-weight: 500;
+}
+
+.hoursSub {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  color: rgba(250, 247, 242, 0.50);
+}
+
+/* ─── Signature Statement Brand Banner ─── */
 .brandBanner {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-block: clamp(3rem, 6vw, 5rem);
+  padding-block: clamp(2.5rem, 5vw, 4rem);
   border-bottom: 1px solid var(--color-ghost-border);
   user-select: none;
   text-align: center;
-  gap: var(--space-2);
+  gap: var(--space-1);
 }
 
 .giantWordmark {
   font-family: var(--font-display);
-  font-size: clamp(3rem, 10vw, 8.5rem);
+  font-size: clamp(2.5rem, 8.5vw, 7.5rem);
   font-weight: 700;
   letter-spacing: 0.18em;
-  color: rgba(250, 247, 242, 0.08);
-  line-height: 0.9;
+  color: rgba(250, 247, 242, 0.05);
+  line-height: 0.95;
   text-transform: uppercase;
   transition: color var(--duration-base) var(--ease-out);
 }
 
 .footer:hover .giantWordmark {
-  color: rgba(201, 168, 106, 0.16);
+  color: rgba(201, 168, 106, 0.12);
 }
 
 .subWordmark {
@@ -167,81 +359,64 @@
   font-size: var(--text-label);
   font-weight: var(--label-weight);
   letter-spacing: 0.28em;
-  color: rgba(201, 168, 106, 0.55);
+  color: rgba(201, 168, 106, 0.45);
   text-transform: uppercase;
 }
 
-/* Bottom */
+/* ─── Bottom Bar ─── */
 .bottom {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: var(--space-8);
+  padding-top: var(--space-6);
   gap: var(--space-4);
 }
 
+.copy {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: rgba(250, 247, 242, 0.45);
+}
+
+.bottomMeta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-label);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  color: rgba(250, 247, 242, 0.40);
+  text-transform: uppercase;
+}
+
+.metaDivider {
+  color: var(--color-gold);
+  opacity: 0.6;
+}
+
+/* ─── Responsive Media Queries ─── */
 @media (max-width: 768px) {
   .top {
     grid-template-columns: 1fr;
     gap: var(--space-8);
-    text-align: center;
-    justify-items: center;
   }
 
   .brand,
   .nav,
   .contact,
   .cta {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
     width: 100%;
   }
 
   .description {
-    text-align: center;
-    margin-inline: auto;
-  }
-
-  .navHeading {
-    justify-content: center;
-    text-align: center;
-  }
-
-  .navHeading::before {
-    display: none;
-  }
-
-  .navLinks {
-    align-items: center;
-    text-align: center;
-  }
-
-  .address {
-    text-align: center;
-  }
-
-  .links {
-    align-items: center;
-    text-align: center;
-  }
-
-  .ctaHeadline {
-    text-align: center;
+    max-width: 100%;
   }
 
   .bottom {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    justify-content: center;
+    gap: var(--space-3);
   }
 }
 
-.copy,
-.location {
-  font-family: var(--font-body);
-  font-size: var(--text-xs);
-  color: rgba(250, 247, 242, 0.40);
-}
