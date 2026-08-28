@@ -141,6 +141,7 @@ export default function HeroSection({
               className={styles.servicesImage}
               loading="eager"
               fetchPriority="high"
+              decoding="async"
             />
             <div className={styles.servicesOverlay} aria-hidden="true" />
           </div>
@@ -208,6 +209,7 @@ export default function HeroSection({
               className={styles.galleryImage}
               loading="eager"
               fetchPriority="high"
+              decoding="async"
             />
           )}
           {/* Black gradient overlay: transparent 40% to rgba(8,8,8,0.95) 100% */}
@@ -272,6 +274,7 @@ export default function HeroSection({
                     className={styles.aboutPortraitImage}
                     loading="eager"
                     fetchPriority="high"
+                    decoding="async"
                   />
                 )}
                 <div className={styles.aboutImageOverlay} aria-hidden="true" />
@@ -329,6 +332,7 @@ export default function HeroSection({
               className={styles.bridalImage}
               loading="eager"
               fetchPriority="high"
+              decoding="async"
             />
           )}
           <div className={styles.bridalOverlay} aria-hidden="true" />
@@ -393,6 +397,7 @@ export default function HeroSection({
             className={styles.homeImage}
             loading="eager"
             fetchPriority="high"
+            decoding="async"
           />
         )}
         <div className={styles.homeMediaOverlay} aria-hidden="true" />

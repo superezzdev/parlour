@@ -29,7 +29,7 @@ export default function BrandIntro() {
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 536px"
                 className={styles.studioImage}
-                priority
+                loading="lazy"
               />
               <div className={styles.imageOverlay} />
             </div>

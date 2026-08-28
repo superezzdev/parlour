@@ -13,7 +13,7 @@ import { localBusinessSchema } from '@/utils/schema'
 
 const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
+  weight: ['300', '400', '600'],
   style: ['normal', 'italic'],
   variable: '--font-cormorant',
   display: 'swap',
@@ -21,18 +21,19 @@ const cormorant = Cormorant_Garamond({
 
 const dmSans = DM_Sans({
   subsets: ['latin'],
-  weight: ['300', '400', '500'],
-  style: ['normal', 'italic'],
+  weight: ['400', '500'],
+  style: ['normal'],
   variable: '--font-dmsans',
   display: 'swap',
 })
 
 const spaceMono = Space_Mono({
   subsets: ['latin'],
-  weight: ['400', '700'],
-  style: ['normal', 'italic'],
+  weight: ['400'],
+  style: ['normal'],
   variable: '--font-mono',
   display: 'swap',
+  preload: false,
 })
 
 export const metadata: Metadata = {

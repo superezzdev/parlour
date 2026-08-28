@@ -89,7 +89,8 @@ export default function ServiceGrid() {
                   src={service.image}
                   alt={service.name}
                   className={styles.image}
-                  loading={index === 0 ? 'eager' : 'lazy'}
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
             ))}
