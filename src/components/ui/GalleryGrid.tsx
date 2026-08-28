@@ -125,7 +125,8 @@ export default function GalleryGrid({
                   <img
                     src={image.src}
                     alt={image.alt}
-                    loading={index < 4 ? 'eager' : 'lazy'}
+                    loading="lazy"
+                    decoding="async"
                     className={styles.image}
                   />
 

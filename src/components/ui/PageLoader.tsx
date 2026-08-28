@@ -33,21 +33,21 @@ export default function PageLoader() {
     tl.fromTo(
       lineRef.current,
       { scaleX: 0, transformOrigin: 'left center' },
-      { scaleX: 1, duration: 1.2, ease: 'power2.inOut' }
+      { scaleX: 1, duration: 0.5, ease: 'power2.inOut' }
     )
       // Fade in text
       .fromTo(
         textRef.current,
-        { opacity: 0, letterSpacing: '0.6em' },
-        { opacity: 1, letterSpacing: '0.4em', duration: 0.8, ease: 'power2.out' },
-        '-=0.8'
+        { opacity: 0, letterSpacing: '0.5em' },
+        { opacity: 1, letterSpacing: '0.4em', duration: 0.35, ease: 'power2.out' },
+        '-=0.3'
       )
-      // Pause
-      .to({}, { duration: 0.4 })
+      // Brief pause
+      .to({}, { duration: 0.15 })
       // Slide the loader UP and OFF screen
       .to(loaderRef.current, {
         yPercent: -100,
-        duration: 0.8,
+        duration: 0.45,
         ease: 'power2.inOut',
       })
 

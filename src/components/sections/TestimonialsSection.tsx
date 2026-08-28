@@ -118,6 +118,8 @@ export default function TestimonialsSection() {
                 src={current.image}
                 alt={`Client portrait — ${current.name}`}
                 className={styles.portraitImg}
+                loading="lazy"
+                decoding="async"
               />
             </div>
           </div>
@@ -178,6 +180,8 @@ export default function TestimonialsSection() {
               src={current.image}
               alt={`Client portrait — ${current.name}`}
               className={styles.portraitImg}
+              loading="lazy"
+              decoding="async"
             />
           </div>
 
