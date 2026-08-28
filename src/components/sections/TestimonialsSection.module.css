@@ -4,8 +4,7 @@
 
 .testimonialsSection {
   background-color: var(--color-noir, #080808);
-  padding: 6rem 1.5rem;
-  min-height: 85vh;
+  padding: clamp(4rem, 7vw, 6rem) clamp(1.25rem, 4vw, 1.5rem);
   position: relative;
   display: flex;
   flex-direction: column;
@@ -16,6 +15,7 @@
 @media (min-width: 1024px) {
   .testimonialsSection {
     padding: 6rem 4rem;
+    min-height: 80vh;
   }
 }
 
@@ -220,7 +220,7 @@
 }
 
 .quoteWrapper {
-  min-height: 280px;
+  min-height: 200px;
   display: flex;
   align-items: flex-start;
 }
@@ -335,7 +335,7 @@
 }
 
 .mobileQuoteWrapper {
-  min-height: 180px;
+  min-height: 160px;
   display: flex;
   align-items: center;
 }

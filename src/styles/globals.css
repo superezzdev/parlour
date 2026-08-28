@@ -39,6 +39,25 @@ a {
   transition: color 0.2s ease;
 }
 
+/* ─── Mobile Touch Improvements ─────────────────────────────── */
+a,
+button,
+[role="button"],
+input,
+select,
+textarea,
+label {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/* Prevent text resize on rotate in iOS */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+
 /* ─── Text Selection ─────────────────────────────────────────── */
 ::selection {
   background-color: #C9A96E;

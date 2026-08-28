@@ -397,11 +397,6 @@
 
 /* ─── Responsive Media Queries ─── */
 @media (max-width: 768px) {
-  .top {
-    grid-template-columns: 1fr;
-    gap: var(--space-8);
-  }
-
   .brand,
   .nav,
   .contact,

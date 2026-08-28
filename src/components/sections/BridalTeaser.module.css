@@ -111,20 +111,33 @@
 
 @media (max-width: 768px) {
   .bridalTeaser {
-    min-height: 70vh;
+    min-height: 85dvh;
+    min-height: 85svh;
+    align-items: flex-end;
   }
 
   .overlay {
     background: linear-gradient(
       to top,
-      rgba(30, 18, 8, 0.95) 0%,
-      rgba(30, 18, 8, 0.75) 50%,
-      rgba(30, 18, 8, 0.50) 100%
+      rgba(8, 8, 8, 0.97) 0%,
+      rgba(8, 8, 8, 0.75) 40%,
+      rgba(8, 8, 8, 0.30) 100%
     );
+  }
+
+  .content {
+    padding-block: clamp(3rem, 6vw, 5rem);
   }
 
   .ctaWrapper > * {
     width: 100%;
     justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .headline {
+    font-size: clamp(2.4rem, 11vw, 3.5rem) !important;
+    line-height: 1.0;
   }
 }

@@ -409,3 +409,21 @@
     justify-content: center;
   }
 }
+
+@media (max-width: 480px) {
+  .serviceRight {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
+
+  .serviceActions {
+    width: 100%;
+  }
+
+  .bookBtn {
+    flex: 1;
+    justify-content: center;
+  }
+}
+

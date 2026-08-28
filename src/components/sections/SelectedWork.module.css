@@ -242,16 +242,16 @@
 @media (max-width: 768px) {
   .editorialGrid {
     grid-template-columns: 1fr;
-    gap: var(--space-6);
+    gap: var(--space-5);
   }
 
   .secondaryCol {
-    gap: var(--space-6);
+    gap: var(--space-5);
   }
 
+  /* Keep 2-col grid for detail images — looks better as a pair */
   .detailRow {
-    grid-template-columns: 1fr;
-    gap: var(--space-6);
+    gap: var(--space-4);
   }
 
   .overlapBadge {
@@ -261,6 +261,24 @@
   }
 
   .imageCardLarge {
-    aspect-ratio: 4/3;
+    aspect-ratio: 3/4;
+  }
+
+  .cardCaption {
+    bottom: var(--space-4);
+    left: var(--space-4);
+    right: var(--space-4);
   }
 }
+
+@media (max-width: 480px) {
+  .detailRow {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3);
+  }
+
+  .lookTitle {
+    font-size: clamp(1.4rem, 6vw, 1.8rem);
+  }
+}
+
