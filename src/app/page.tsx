@@ -58,7 +58,7 @@ export default function HomePage() {
         ctaHref="/contact"
         secondaryCtaLabel="EXPLORE BRIDAL"
         secondaryCtaHref="/bridal"
-        locationTag="SARAI MEER · UTTAR PRADESH"
+        locationTag="SARAIMEER · AZAMGARH"
         imageSrc="/images/hero/hero-editorial.jpg"
         imageAlt="Glamorous beauty studio — editorial bridal and luxury makeup artistry in Sarai Meer"
       />
