@@ -1,192 +1,168 @@
 'use client'
 
+import { useState } from 'react'
 import Link from 'next/link'
-import { SectionLabel, EditorialHeading } from '@/components/ui/Primitives'
 import { useScrollReveal, useHeadingReveal } from '@/hooks/useScrollReveal'
 import styles from './ServiceGrid.module.css'
 
-interface FeaturedCategory {
+interface ServiceItem {
   number: string
   id: string
-  title: string
+  name: string
   slug: string
   description: string
   image: string
-  tag: string
 }
 
-const featuredCategories: FeaturedCategory[] = [
+const servicesList: ServiceItem[] = [
   {
     number: '01',
-    id: 'bridal-makeup',
-    title: 'Bridal Artistry',
+    id: 'bridal-artistry',
+    name: 'Bridal Artistry',
     slug: 'bridal',
-    description:
-      'Bespoke, ceremony-ready bridal looks crafted with endurance, radiant skin precision, and classic elegance.',
+    description: 'Personalized bridal makeup tailored with enduring elegance and waterproof wear.',
     image: '/images/services/bridal.jpg',
-    tag: 'SIGNATURE CRAFT',
   },
   {
     number: '02',
-    id: 'party-makeup',
-    title: 'Party & Occasion Makeup',
+    id: 'party-occasion',
+    name: 'Party & Occasion',
     slug: 'makeup',
-    description:
-      'Luminous, sculpted glamour tailored for engagements, receptions, and unforgettable festive gatherings.',
+    description: 'Glowing, elegant glamour for engagements, receptions, and family celebrations.',
     image: '/images/services/makeup.jpg',
-    tag: 'EDITORIAL GLOW',
   },
   {
     number: '03',
-    id: 'hair-styling',
-    title: 'Hair Styling & Draping',
+    id: 'hair-draping',
+    name: 'Hair & Draping',
     slug: 'hair',
-    description:
-      'Intricate bridal updos, romantic textured waves, and immaculate dupatta & saree draping artistry.',
+    description: 'Party hairstyles, traditional bridal updos, and neat saree and dupatta draping.',
     image: '/images/services/hair.jpg',
-    tag: 'BESPOKE FINISH',
   },
   {
     number: '04',
-    id: 'skin-care',
-    title: 'Skin Care & Facials',
-    slug: 'skin',
-    description:
-      'Nourishing pre-bridal prep, brightening facials, and delicate cleanup treatments that awaken natural radiance.',
-    image: '/images/services/skin.jpg',
-    tag: 'SKIN RITUALS',
+    id: 'festive-beauty',
+    name: 'Festive Beauty',
+    slug: 'event',
+    description: 'Vibrant party looks crafted for mehendi, sangeet, and festive celebrations.',
+    image: '/images/services/event.jpg',
   },
   {
     number: '05',
-    id: 'nails-art',
-    title: 'Manicure & Nail Art',
-    slug: 'nails',
-    description:
-      'Refined manicures, custom bridal nail accents, and lasting polish finishes to complement your styling.',
-    image: '/images/services/nails.jpg',
-    tag: 'STUDIO DETAILS',
+    id: 'skin-rituals',
+    name: 'Skin Rituals',
+    slug: 'skin',
+    description: 'Pre-bridal skin care, rejuvenating facials, and gentle cleansing treatments.',
+    image: '/images/services/skin.jpg',
   },
   {
     number: '06',
-    id: 'event-celebration',
-    title: 'Mehendi & Festive Looks',
-    slug: 'event',
-    description:
-      'Vibrant, festive beauty aesthetics coordinated seamlessly with your traditional wardrobe and celebrations.',
-    image: '/images/services/event.jpg',
-    tag: 'FESTIVE EDIT',
+    id: 'nail-artistry',
+    name: 'Nail Artistry',
+    slug: 'nails',
+    description: 'Hand-painted nail art, bridal designs, and relaxing manicures.',
+    image: '/images/services/nails.jpg',
   },
 ]
 
-function ServiceGridCard({ item, delay }: { item: FeaturedCategory; delay: number }) {
-  const cardRef = useScrollReveal<HTMLAnchorElement>({ delay, y: 35 })
-
-  return (
-    <Link
-      ref={cardRef}
-      href={`/services#${item.slug}`}
-      className={styles.rowLink}
-      role="listitem"
-      aria-label={`Explore ${item.title}`}
-    >
-      <article className={styles.item}>
-        {/* 1. Number */}
-        <div className={styles.numberCol}>
-          <span className={styles.number}>{item.number}</span>
-        </div>
-
-        {/* 2. Visual Thumbnail */}
-        <div className={styles.imageCol} aria-hidden="true">
-          <div className={styles.imageWrapper}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={item.image}
-              alt={item.title}
-              className={styles.thumbnail}
-              loading="lazy"
-            />
-          </div>
-        </div>
-
-        {/* 3. Title & Tag */}
-        <div className={styles.titleCol}>
-          <span className={styles.tag}>{item.tag}</span>
-          <h3 className={styles.itemTitle}>{item.title}</h3>
-        </div>
-
-        {/* 4. Description */}
-        <div className={styles.descCol}>
-          <p className={styles.itemDescription}>{item.description}</p>
-        </div>
-
-        {/* 5. Action Arrow */}
-        <div className={styles.actionCol} aria-hidden="true">
-          <div className={styles.actionCircle}>
-            <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-              <line x1="4" y1="10" x2="16" y2="10" />
-              <polyline points="11,5 16,10 11,15" />
-            </svg>
-          </div>
-        </div>
-      </article>
-    </Link>
-  )
-}
-
 export default function ServiceGrid() {
+  const [activeService, setActiveService] = useState<number>(0)
+  const imagePanelRef = useScrollReveal<HTMLDivElement>({ y: 30, delay: 0 })
   const headingRef = useHeadingReveal<HTMLHeadingElement>()
-  const headerLeadRef = useScrollReveal<HTMLParagraphElement>({ y: 30, delay: 0.1 })
-  const footerRef = useScrollReveal<HTMLDivElement>({ y: 30, delay: 0.2 })
+  const rightColRef = useScrollReveal<HTMLDivElement>({ y: 30, delay: 0.15 })
 
   return (
-    <section className={`${styles.serviceGrid} section`} aria-labelledby="services-heading">
-      <div className="container">
-        {/* Header */}
-        <div className={styles.header}>
-          <div className={styles.headerTop}>
-            <SectionLabel>SIGNATURE OFFERINGS</SectionLabel>
-            <span className={styles.categoryCount}>06 Disciplines</span>
-          </div>
-          <div className={styles.headerContent}>
-            <div className="overflow-hidden">
-              <EditorialHeading
-                ref={headingRef}
-                as="h2"
-                size="lg"
-                id="services-heading"
-                className={`${styles.headline} section-heading`}
+    <section className={styles.servicesSection} aria-labelledby="services-preview-heading">
+      <div className={styles.container}>
+        <div className={styles.splitLayout}>
+          {/* ─── Left Column: Dynamic Visual Panel (60% width, desktop) ─── */}
+          <div ref={imagePanelRef} className={styles.leftCol} aria-hidden="true">
+            {servicesList.map((service, index) => (
+              <div
+                key={service.id}
+                className={`${styles.imageWrapper} ${
+                  activeService === index ? styles.imageActive : ''
+                }`}
               >
-                Curated beauty disciplines,<br />
-                <em>executed with mastery.</em>
-              </EditorialHeading>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={service.image}
+                  alt={service.name}
+                  className={styles.image}
+                  loading={index === 0 ? 'eager' : 'lazy'}
+                />
+              </div>
+            ))}
+            <div className={styles.imageOverlay} />
+            <div className={styles.imageBadge}>
+              <span className={styles.badgeNumber}>
+                {servicesList[activeService].number} / 06
+              </span>
+              <span className={styles.badgeDot} />
+              <span className={styles.badgeName}>
+                {servicesList[activeService].name}
+              </span>
             </div>
-            <p ref={headerLeadRef} className={styles.headerLead}>
-              Every service is delivered using premium products, meticulous hygiene,
-              and tailored techniques aligned with your personal features.
-            </p>
           </div>
-        </div>
 
-        {/* Services — Horizontal Editorial Presentation */}
-        <div className={styles.list} role="list">
-          {featuredCategories.map((item, index) => (
-            <ServiceGridCard
-              key={item.id}
-              item={item}
-              delay={index * 0.15}
-            />
-          ))}
-        </div>
+          {/* ─── Right Column: Accordion-Style Content (40% width, desktop) ─── */}
+          <div ref={rightColRef} className={styles.rightCol}>
+            <span className={styles.eyebrow}>WHAT WE CREATE</span>
 
-        {/* Note on custom bookings & Footer CTA */}
-        <div ref={footerRef} className={styles.footer}>
-          <div className={styles.footerInfo}>
-            <p className={styles.placeholderNote}>
-              * Service durations and packages can be customized for group bookings and wedding parties.
-            </p>
-            <Link href="/services" className="btn btn-primary btn-lg">
-              Explore Complete Menu
-            </Link>
+            <div className="overflow-hidden">
+              <h2
+                ref={headingRef}
+                id="services-preview-heading"
+                className={styles.heading}
+              >
+                {'Six disciplines,\none standard.'}
+              </h2>
+            </div>
+
+            {/* Interactive Accordion Rows */}
+            <div className={styles.serviceList} role="list">
+              {servicesList.map((service, index) => {
+                const isActive = activeService === index
+
+                return (
+                  <Link
+                    key={service.id}
+                    href={`/services#${service.slug}`}
+                    className={`${styles.rowItem} ${isActive ? styles.rowActive : ''}`}
+                    onMouseEnter={() => setActiveService(index)}
+                    onFocus={() => setActiveService(index)}
+                    role="listitem"
+                    aria-label={`${service.number} ${service.name}`}
+                  >
+                    <div className={styles.rowHeader}>
+                      {/* Left: Number */}
+                      <span className={styles.rowNumber}>{service.number}</span>
+
+                      {/* Center: Name & Expanding 1-Line Description */}
+                      <div className={styles.rowContent}>
+                        <h3 className={styles.rowName}>{service.name}</h3>
+                        <p className={styles.description}>{service.description}</p>
+                      </div>
+
+                      {/* Right: Arrow */}
+                      <span className={styles.rowArrow} aria-hidden="true">
+                        &rarr;
+                      </span>
+                    </div>
+                  </Link>
+                )
+              })}
+            </div>
+
+            {/* Bottom Explore Link */}
+            <div className={styles.footerLinkWrapper}>
+              <Link href="/services" className={styles.exploreLink}>
+                <span>Explore complete menu</span>
+                <span className={styles.exploreArrow} aria-hidden="true">
+                  &rarr;
+                </span>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

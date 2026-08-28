@@ -84,9 +84,9 @@ export default function TrustSection() {
         {/* Instagram Trust Bar */}
         <div ref={igBarRef} className={styles.instagramBar}>
           <div className={styles.instagramLeft}>
-            <span className={styles.instagramTag}>INSTAGRAM SANCTUARY</span>
+            <span className={styles.instagramTag}>INSTAGRAM UPDATES</span>
             <p className={styles.instagramHeading}>
-              Follow daily transformations &amp; ceremony reels
+              Follow daily transformations &amp; real client reels
             </p>
           </div>
 

@@ -22,7 +22,7 @@ export default function EditorialMoment({
   return (
     <section className={styles.momentSection} aria-label="Editorial beauty showcase">
       {/* Full-bleed media container */}
-      <div ref={mediaRef} className={`${styles.mediaContainer} image-reveal-wrapper`}>
+      <div ref={mediaRef} className={styles.mediaContainer}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={imageSrc}

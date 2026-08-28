@@ -41,7 +41,7 @@
 .counter {
   font-family: var(--font-mono), 'Space Mono', monospace;
   font-size: 0.75rem;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.25em;
   color: var(--color-gold, #C9A86A);
   text-transform: uppercase;
 }
@@ -167,7 +167,7 @@
   font-size: 0.65rem;
   color: var(--color-gold, #C9A86A);
   text-transform: uppercase;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.25em;
 }
 
 .imageTitle {

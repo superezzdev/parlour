@@ -80,7 +80,7 @@ export default function BridalPackagesSection() {
             </h2>
           </div>
           <p ref={subtitleRef} className={styles.subtitle}>
-            Thoughtfully structured tiers designed to accompany you through every step of your celebration. Every package is completely customizable to your individual timeline and aesthetic.
+            Thoughtfully structured packages designed to take care of you on your wedding day. Every package can be customized to your timeline and preferences.
           </p>
         </div>
 
@@ -98,7 +98,7 @@ export default function BridalPackagesSection() {
         {/* Disclaimer / Transparency Footnote */}
         <div ref={disclaimerRef} className={styles.disclaimer}>
           <p className={styles.disclaimerText}>
-            <em>Note on Inclusions &amp; Pricing:</em> All bridal experiences at Glamorous are bespoke. Final investment varies based on event dates, travel requirements (in-studio or on-location), and custom add-ons such as family makeup or multi-day festivities. Inclusions and quotes are finalized transparently during your consultation.
+            <em>Note on Inclusions &amp; Pricing:</em> All bridal services at Glamorous are personalized. Final pricing depends on event dates, travel requirements (in-studio or on-location), and any add-ons like family makeup. Details and quotes are shared transparently during your consultation.
           </p>
         </div>
       </div>

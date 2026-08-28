@@ -6,9 +6,15 @@
 /* ─── Container ──────────────────────────────────────────────── */
 .container {
   width: 100%;
-  max-width: var(--container-max);
+  max-width: 80rem; /* max-w-7xl (1280px) */
   margin-inline: auto;
-  padding-inline: var(--container-pad);
+  padding-inline: clamp(1.25rem, 4vw, 1.5rem);
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding-inline: 3rem; /* lg:px-12 (48px) */
+  }
 }
 
 .container--narrow {
@@ -21,7 +27,7 @@
 
 /* ─── Section ────────────────────────────────────────────────── */
 .section {
-  padding-block: var(--section-padding-y);
+  padding-block: var(--section-padding-y); /* py-16 mobile / py-24 desktop */
 }
 
 .section--sm {

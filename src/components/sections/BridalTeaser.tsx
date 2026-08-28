@@ -15,7 +15,7 @@ export default function BridalTeaser() {
   return (
     <section className={styles.bridalTeaser} aria-labelledby="bridal-teaser-heading">
       {/* Full-bleed background media with clip-path reveal */}
-      <div ref={imageRef} className={`${styles.media} image-reveal-wrapper`} aria-hidden="true">
+      <div ref={imageRef} className={styles.media} aria-hidden="true">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/images/bridal/bridal-hero.jpg"
@@ -48,9 +48,9 @@ export default function BridalTeaser() {
           </div>
 
           <p ref={bodyRef} className={`${styles.body} lead`}>
-            Every bride carries a distinct aura. We compose bespoke bridal artistry
-            with patient precision, skin-first endurance, and an intuitive understanding
-            of your ceremony, heirloom jewellery, and personal grace.
+            Every bride deserves to look and feel her best. We create personalized bridal looks
+            with patient precision, long-lasting formulas, and careful attention to your wedding
+            outfits, jewelry, and personal style.
           </p>
 
           {/* Bridal Feature Highlights */}

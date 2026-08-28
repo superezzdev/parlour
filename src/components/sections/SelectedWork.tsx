@@ -2,17 +2,17 @@
 
 import Link from 'next/link'
 import { SectionLabel, EditorialHeading } from '@/components/ui/Primitives'
-import { useScrollReveal, useHeadingReveal, useImageClipReveal } from '@/hooks/useScrollReveal'
+import { useScrollReveal, useHeadingReveal } from '@/hooks/useScrollReveal'
 import styles from './SelectedWork.module.css'
 
 export default function SelectedWork() {
   const headingRef = useHeadingReveal<HTMLHeadingElement>()
-  const descRef = useScrollReveal<HTMLDivElement>({ y: 30, delay: 0.1 })
-  const img1Ref = useImageClipReveal<HTMLDivElement>({ delay: 0 * 0.08 })
-  const img2Ref = useImageClipReveal<HTMLDivElement>({ delay: 1 * 0.08 })
-  const img3Ref = useImageClipReveal<HTMLDivElement>({ delay: 2 * 0.08 })
-  const img4Ref = useImageClipReveal<HTMLDivElement>({ delay: 3 * 0.08 })
-  const footerRef = useScrollReveal<HTMLDivElement>({ y: 30, delay: 4 * 0.08 })
+  const descRef = useScrollReveal<HTMLDivElement>({ y: 25, delay: 0.08 })
+  const img1Ref = useScrollReveal<HTMLDivElement>({ y: 30, delay: 0 })
+  const img2Ref = useScrollReveal<HTMLDivElement>({ y: 30, delay: 0.12 })
+  const img3Ref = useScrollReveal<HTMLDivElement>({ y: 30, delay: 0.18 })
+  const img4Ref = useScrollReveal<HTMLDivElement>({ y: 30, delay: 0.24 })
+  const footerRef = useScrollReveal<HTMLDivElement>({ y: 20, delay: 0.3 })
 
   return (
     <section className={`${styles.selectedWork} section`} aria-labelledby="selected-work-heading">
@@ -29,18 +29,18 @@ export default function SelectedWork() {
                 id="selected-work-heading"
                 className={`${styles.headline} section-heading`}
               >
-                Selected works,<br />
-                <em>curated from our studio</em>
+                Selected looks,<br />
+                <em>from our studio</em>
               </EditorialHeading>
             </div>
           </div>
           <div ref={descRef} className={styles.headerRight}>
             <p className={styles.headerDesc}>
-              A glimpse into real bridal transformations, soft-glam party artistry,
-              and intricate styling crafted for clients across Sarai Meer and Eastern UP.
+              A look at real bridal transformations, soft-glam party makeup,
+              and hair styling created for clients in Sarai Meer and across Eastern UP.
             </p>
             <Link href="/gallery" className="btn btn-ghost">
-              <span>View full archive (12+ works)</span>
+              <span>View full gallery (12+ looks)</span>
               <span aria-hidden="true">&rarr;</span>
             </Link>
           </div>
@@ -63,8 +63,8 @@ export default function SelectedWork() {
               {/* Overlapping Typography Badge */}
               <div className={styles.overlapBadge}>
                 <span className={styles.lookNumber}>LOOK 01</span>
-                <h3 className={styles.lookTitle}>Traditional Bridal Radiance</h3>
-                <p className={styles.lookCategory}>Bridal Couture &middot; Sarai Meer</p>
+                <h3 className={styles.lookTitle}>Traditional Bridal Glow</h3>
+                <p className={styles.lookCategory}>Bridal Makeup &middot; Sarai Meer</p>
               </div>
             </div>
           </div>

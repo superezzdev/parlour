@@ -76,7 +76,7 @@ export default function StatsSection() {
         {/* Centered Italic Quote */}
         <div className={styles.quoteBlock}>
           <blockquote className={styles.quote}>
-            &ldquo;Every bride deserves to walk in with nerves and walk out with wings.&rdquo;
+            &ldquo;I want every woman who sits in my chair to feel completely at ease, confident, and beautiful.&rdquo;
           </blockquote>
           <cite className={styles.quoteAuthor}>
             &mdash; Sabreen, Glamorous Studio

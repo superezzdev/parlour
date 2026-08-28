@@ -31,17 +31,17 @@ export default function AboutPhilosophy() {
     {
       number: '01',
       title: 'Mindful Artistry',
-      description: 'Precision over haste. Every tone, stroke, and highlight is placed with deliberate intent.',
+      description: 'Precision over haste. Every brushstroke and color is chosen carefully for your look.',
     },
     {
       number: '02',
-      title: 'Skin-First Rituals',
-      description: 'Luminous, deeply prepared skin that feels breathable, weightless, and alive in all lighting.',
+      title: 'Skin-First Prep',
+      description: 'Well-prepped, hydrated skin so your makeup feels lightweight, breathable, and fresh all day.',
     },
     {
       number: '03',
-      title: 'Timeless Grace',
-      description: 'Transcending fleeting trends to craft elegance that endures across years and cherished photographs.',
+      title: 'Timeless Beauty',
+      description: 'Classic, flattering styles that look just as beautiful in your wedding albums years from now.',
     },
   ]
 
@@ -51,7 +51,7 @@ export default function AboutPhilosophy() {
         <div className={styles.inner}>
           {/* Text Content */}
           <div className={styles.textContent}>
-            <SectionLabel>01 / THE PHILOSOPHY</SectionLabel>
+            <SectionLabel>01 / OUR PHILOSOPHY</SectionLabel>
 
             <div className="overflow-hidden">
               <h2 id="philosophy-heading" ref={headingRef} className={`${styles.heading} section-heading`}>
@@ -61,9 +61,9 @@ export default function AboutPhilosophy() {
             </div>
 
             <p ref={leadRef} className={styles.leadText}>
-              We approach every face with patience, deep observation, and reverence. True beauty is never
-              about masking features; it is an intimate collaboration that honors individual facial
-              architecture, skin vitality, and personal confidence.
+              We take time with every client. Good makeup isn&apos;t about covering up who you are &mdash;
+              it&apos;s about understanding your features, prepping your skin properly, and creating a look
+              that makes you feel confident and beautiful.
             </p>
 
             <div className={styles.pillarsGrid}>
@@ -90,7 +90,7 @@ export default function AboutPhilosophy() {
             </div>
             <aside className={styles.quotePill}>
               <p className={styles.quoteText}>
-                &ldquo;Every face is an unwritten canvas of grace.&rdquo;
+                &ldquo;Good makeup enhances your natural beauty &mdash; it never hides it.&rdquo;
               </p>
               <span className={styles.quoteAuthor}>Studio Creed · Sarai Meer</span>
             </aside>

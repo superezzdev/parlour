@@ -29,19 +29,19 @@ function getInitialService(serviceParam: string | null): string {
   if (!serviceParam) return ''
   const normalized = serviceParam.toLowerCase()
   if (normalized.includes('bridal') || normalized.includes('wedding')) {
-    return 'Bridal Artistry & Consultation'
+    return 'Bridal Makeup & Consultation'
   }
   if (normalized.includes('makeup') || normalized.includes('party')) {
     return 'Party & Occasion Makeup'
   }
   if (normalized.includes('hair')) {
-    return 'Couture Hair Styling'
+    return 'Hair Styling & Draping'
   }
   if (normalized.includes('skin') || normalized.includes('facial')) {
-    return 'Skin & Facial Therapy'
+    return 'Facial & Skin Care'
   }
   if (normalized.includes('nail')) {
-    return 'Nail Architecture & Art'
+    return 'Manicure & Nail Art'
   }
   return serviceParam
 }
@@ -200,7 +200,7 @@ export default function BookingForm() {
               <h2 ref={formHeadingRef} className={`${styles.formTitle} section-heading`}>Reserve Your Session</h2>
             </div>
             <p className={styles.formSubtitle}>
-              Fill in your details below and our studio concierge will confirm your slot within a few hours.
+              Fill in your details below and we will confirm your appointment shortly.
             </p>
           </div>
 
@@ -274,10 +274,10 @@ export default function BookingForm() {
                 aria-describedby={errors.service ? `${serviceId}-error` : undefined}
                 className={`${styles.select} ${errors.service ? styles.inputError : ''}`}
               >
-                <option value="">— Select an artistry service —</option>
+                <option value="">— Select a service —</option>
 
-                <optgroup label="Bridal Experiences">
-                  <option value="Bridal Artistry & Consultation">Bespoke Bridal Artistry &amp; Consultation</option>
+                <optgroup label="Bridal Services">
+                  <option value="Bridal Makeup & Consultation">Bridal Makeup &amp; Consultation</option>
                   {bridalPackages.map((pkg) => (
                     <option key={pkg.id} value={`Bridal: ${pkg.name}`}>
                       Bridal Package — {pkg.name}
@@ -285,7 +285,7 @@ export default function BookingForm() {
                   ))}
                 </optgroup>
 
-                <optgroup label="Occasion & Makeup Artistry">
+                <optgroup label="Occasion & Makeup">
                   {serviceCategories
                     .find((c) => c.slug === 'makeup')
                     ?.services.map((s) => (
@@ -295,11 +295,11 @@ export default function BookingForm() {
                     ))}
                 </optgroup>
 
-                <optgroup label="Hair, Skin & Beauty">
-                  <option value="Couture Hair Styling & Draping">Couture Hair Styling &amp; Draping</option>
-                  <option value="Radiant Facial & Skin Therapy">Radiant Facial &amp; Skin Therapy</option>
-                  <option value="Nail Architecture & Art">Nail Architecture &amp; Art</option>
-                  <option value="Complete Beauty Consultation">General Studio Consultation</option>
+                <optgroup label="Hair, Skin & Nails">
+                  <option value="Hair Styling & Draping">Hair Styling &amp; Draping</option>
+                  <option value="Facial & Skin Care">Facial &amp; Skin Care</option>
+                  <option value="Manicure & Nail Art">Manicure &amp; Nail Art</option>
+                  <option value="General Studio Consultation">General Studio Consultation</option>
                 </optgroup>
               </select>
               {errors.service && (

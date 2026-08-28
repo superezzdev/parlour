@@ -2,13 +2,13 @@
 
 import { useEffect, useRef } from 'react'
 import { gsap } from '@/lib/gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 export interface ScrollRevealOptions {
   delay?: number
   y?: number
   duration?: number
   ease?: string
+  start?: string
 }
 
 export interface ImageClipRevealOptions {
@@ -24,6 +24,11 @@ export interface ImageClipRevealOptions {
  */
 export function useScrollReveal<T extends HTMLElement = HTMLDivElement>(options?: ScrollRevealOptions) {
   const ref = useRef<T>(null)
+  const delay = options?.delay ?? 0
+  const y = options?.y ?? 30
+  const duration = options?.duration ?? 0.8
+  const ease = options?.ease ?? 'power3.out'
+  const start = options?.start ?? 'top 92%'
 
   useEffect(() => {
     const el = ref.current
@@ -31,21 +36,23 @@ export function useScrollReveal<T extends HTMLElement = HTMLDivElement>(options?
 
     // Respect prefers-reduced-motion
     if (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      el.style.opacity = '1'
+      el.style.transform = 'none'
       return
     }
 
     const tween = gsap.fromTo(
       el,
-      { opacity: 0, y: options?.y ?? 40 },
+      { opacity: 0, y },
       {
         opacity: 1,
         y: 0,
-        duration: options?.duration ?? 0.8,
-        delay: options?.delay ?? 0,
-        ease: options?.ease ?? 'power3.out',
+        duration,
+        delay,
+        ease,
         scrollTrigger: {
           trigger: el,
-          start: 'top 85%',
+          start,
           toggleActions: 'play none none none',
         },
       }
@@ -57,13 +64,13 @@ export function useScrollReveal<T extends HTMLElement = HTMLDivElement>(options?
       }
       tween.kill()
     }
-  }, [options?.delay, options?.y, options?.duration, options?.ease])
+  }, [delay, y, duration, ease, start])
 
   return ref
 }
 
 /**
- * PART B — Section heading reveals (scroll-triggered, apply to ALL section H2s):
+ * Section heading reveals (scroll-triggered, apply to ALL section H2s):
  * <div className="overflow-hidden">
  *   <h2 ref={headingRef} className="section-heading">...</h2>
  * </div>
@@ -76,17 +83,20 @@ export function useHeadingReveal<T extends HTMLElement = HTMLHeadingElement>() {
     if (!el) return
 
     if (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      el.style.opacity = '1'
+      el.style.transform = 'none'
       return
     }
 
     const tween = gsap.from(el, {
       y: '100%',
       opacity: 0,
-      duration: 1.0,
+      duration: 0.9,
       ease: 'power3.out',
       scrollTrigger: {
         trigger: el,
-        start: 'top 88%',
+        start: 'top 92%',
+        toggleActions: 'play none none none',
       },
     })
 
@@ -102,38 +112,40 @@ export function useHeadingReveal<T extends HTMLElement = HTMLHeadingElement>() {
 }
 
 /**
- * PART C — Image clip-path reveals (for hero image, gallery teaser images, about portrait, bridal hero):
- * gsap.from(imageRef.current, {
- *   clipPath: 'inset(0 100% 0 0)',
- *   duration: 1.2,
- *   ease: 'power2.inOut',
- *   scrollTrigger: {
- *     trigger: imageRef.current,
- *     start: 'top 80%',
- *   }
- * })
+ * Image clip-path reveals (for hero image, gallery teaser images, about portrait, bridal hero):
  */
 export function useImageClipReveal<T extends HTMLElement = HTMLDivElement>(options?: ImageClipRevealOptions) {
   const ref = useRef<T>(null)
+  const delay = options?.delay ?? 0
+  const duration = options?.duration ?? 1.1
+  const ease = options?.ease ?? 'power2.inOut'
+  const start = options?.start ?? 'top 92%'
+  const clipFrom = options?.clipFrom ?? 'inset(0 100% 0 0)'
 
   useEffect(() => {
     const el = ref.current
     if (!el) return
 
     if (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      el.style.clipPath = 'none'
       return
     }
 
-    const tween = gsap.from(el, {
-      clipPath: options?.clipFrom ?? 'inset(0 100% 0 0)',
-      duration: options?.duration ?? 1.2,
-      delay: options?.delay ?? 0,
-      ease: options?.ease ?? 'power2.inOut',
-      scrollTrigger: {
-        trigger: el,
-        start: options?.start ?? 'top 80%',
-      },
-    })
+    const tween = gsap.fromTo(
+      el,
+      { clipPath: clipFrom },
+      {
+        clipPath: 'inset(0 0% 0 0)',
+        duration,
+        delay,
+        ease,
+        scrollTrigger: {
+          trigger: el,
+          start,
+          toggleActions: 'play none none none',
+        },
+      }
+    )
 
     return () => {
       if (tween.scrollTrigger) {
@@ -141,7 +153,9 @@ export function useImageClipReveal<T extends HTMLElement = HTMLDivElement>(optio
       }
       tween.kill()
     }
-  }, [options?.delay, options?.duration, options?.ease, options?.start, options?.clipFrom])
+  }, [delay, duration, ease, start, clipFrom])
 
   return ref
 }
+
+

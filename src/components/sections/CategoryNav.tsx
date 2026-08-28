@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import { serviceCategories } from '@/data/services'
 import styles from './CategoryNav.module.css'
 
@@ -13,22 +13,14 @@ export default function CategoryNav({
   activeSlug,
   onCategorySelect,
 }: CategoryNavProps) {
-  const [internalActive, setInternalActive] = useState<string>(
-    activeSlug || serviceCategories[0].slug
-  )
+  const currentActive = activeSlug || serviceCategories[0].slug
   const navTrackRef = useRef<HTMLUListElement>(null)
-
-  useEffect(() => {
-    if (activeSlug) {
-      setInternalActive(activeSlug)
-    }
-  }, [activeSlug])
 
   // Center active item in mobile horizontal scroll view
   useEffect(() => {
     if (!navTrackRef.current) return
     const activeItem = navTrackRef.current.querySelector(
-      `[data-slug="${internalActive}"]`
+      `[data-slug="${currentActive}"]`
     ) as HTMLElement
     if (activeItem) {
       const container = navTrackRef.current
@@ -41,11 +33,10 @@ export default function CategoryNav({
         behavior: 'smooth',
       })
     }
-  }, [internalActive])
+  }, [currentActive])
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, slug: string) => {
     e.preventDefault()
-    setInternalActive(slug)
     if (onCategorySelect) {
       onCategorySelect(slug)
     } else {
@@ -69,7 +60,7 @@ export default function CategoryNav({
       <div className={styles.mobileNavContainer} aria-label="Mobile service categories">
         <ul className={styles.mobileNavTrack} ref={navTrackRef} role="tablist">
           {serviceCategories.map((cat) => {
-            const isActive = internalActive === cat.slug
+            const isActive = currentActive === cat.slug
             return (
               <li key={cat.slug} className={styles.mobileNavItem} role="presentation">
                 <a
@@ -101,7 +92,7 @@ export default function CategoryNav({
           <nav className={styles.sidebarNav}>
             <ul className={styles.sidebarList}>
               {serviceCategories.map((cat) => {
-                const isActive = internalActive === cat.slug
+                const isActive = currentActive === cat.slug
                 return (
                   <li key={cat.slug} className={styles.sidebarListItem}>
                     <a
@@ -124,7 +115,7 @@ export default function CategoryNav({
 
           <div className={styles.sidebarFooter}>
             <p className={styles.sidebarNote}>
-              Bespoke consultations tailored to your skin and occasion.
+              Personalized consultations tailored to your skin and occasion.
             </p>
           </div>
         </div>

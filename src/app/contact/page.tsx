@@ -6,14 +6,14 @@ import ContactDetailsSection from '@/components/sections/ContactDetailsSection'
 export const metadata: Metadata = {
   title: 'Book an Appointment & Visit — Glamorous Studio Sarai Meer',
   description:
-    'Reserve your bridal consultation, occasion makeup session, or beauty treatment at Glamorous Studio in Sarai Meer. Call +91 70078 75415 or book online.',
+    'Book your bridal consultation, occasion makeup session, or beauty treatment at Glamorous Studio in Sarai Meer. Call +91 70078 75415 or book online.',
   alternates: {
     canonical: 'https://glamorous.in/contact',
   },
   openGraph: {
-    title: 'Book Your Moment | Glamorous Studio Sarai Meer',
+    title: 'Book an Appointment | Glamorous Studio Sarai Meer',
     description:
-      'Reserve your luxury bridal consultation or beauty appointment. Located at 1st Floor, Mumtaz Bangle Store, Sabji Mandi Rd, Sarai Meer.',
+      'Book your bridal consultation or beauty appointment. Located at 1st Floor, Mumtaz Bangle Store, Sabji Mandi Rd, Sarai Meer.',
     url: 'https://glamorous.in/contact',
     images: [
       {
@@ -63,7 +63,7 @@ export default function ContactPage() {
         addressCountry: 'IN',
       },
       telephone: '+91 70078 75415',
-      url: 'https://glamorous.in',
+      url: 'https://glamorous.in/contact',
       potentialAction: {
         '@type': 'ReserveAction',
         target: {
@@ -97,7 +97,7 @@ export default function ContactPage() {
       {/* 1. HERO — Clean High-Impact Editorial Entrance */}
       <HeroSection
         variant="contact"
-        label="APPOINTMENTS & CONCIERGE"
+        label="APPOINTMENTS & BOOKINGS"
         headline={
           <>
             <span className="block">BOOK YOUR</span>
@@ -106,7 +106,7 @@ export default function ContactPage() {
             </span>
           </>
         }
-        subheadline="Reserve your bridal consultation, occasion makeup session, or personalized beauty treatment at our Sarai Meer studio."
+        subheadline="Book your bridal consultation, occasion makeup session, or personalized beauty treatment at our Sarai Meer studio."
         locationTag="SARAI MEER · APPOINTMENTS"
         imageSrc={null}
       />

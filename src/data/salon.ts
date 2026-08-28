@@ -60,9 +60,9 @@ export interface SalonData {
 
 export const salon: SalonData = {
   name: 'Glamorous',
-  tagline: 'Beauty Crafted for Your Most Memorable Moments', // [PLACEHOLDER H01]
+  tagline: 'Bridal and Occasion Makeup by Sabreen in Sarai Meer',
   description:
-    'A premium makeup and beauty studio in Sarai Meer, Uttar Pradesh, specialising in bridal artistry and beauty transformations. Every look we create is considered, crafted, and entirely yours.', // [PLACEHOLDER BRAND_INTRO]
+    'A boutique makeup and beauty studio on Sabji Mandi Road, Sarai Meer. Specialising in bridal makeup, party glam, hair styling, and skin care — crafted with patience, precision, and care.',
 
   phone: '+917007875415',
   phoneDisplay: '+91 70078 75415',

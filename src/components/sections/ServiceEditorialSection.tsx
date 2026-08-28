@@ -82,7 +82,7 @@ function ServiceRowItem({
               {service.highlights.map((highlight, hIdx) => (
                 <li key={hIdx} className={styles.highlightItem}>
                   <span className={styles.highlightBullet} aria-hidden="true">
-                    ◆
+                    –
                   </span>
                   <span>{highlight}</span>
                 </li>

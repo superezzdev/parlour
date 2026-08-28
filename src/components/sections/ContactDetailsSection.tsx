@@ -108,7 +108,7 @@ export default function ContactDetailsSection() {
 
               {/* Social / Instagram */}
               <div className={styles.instagramBlock}>
-                <span className={styles.blockLabel}>INSTAGRAM ATELIERS</span>
+                <span className={styles.blockLabel}>OUR INSTAGRAM</span>
                 {salon.instagram.map((item, idx) => (
                   <a
                     key={idx}
@@ -154,13 +154,13 @@ export default function ContactDetailsSection() {
               </div>
             </div>
 
-            {/* Luxury Preparation Concierge Note */}
+            {/* Preparation Note */}
             <div className={styles.prepNote}>
-              <h3 className={styles.prepTitle}>Before Your Visit</h3>
+              <h3 className={styles.prepTitle}>Before Your Appointment</h3>
               <p className={styles.prepText}>
-                To ensure a flawless experience, please arrive with clean, moisturized skin.
-                For bridal and reception trials, bringing your outfit color swatches and jewelry
-                references allows our artists to coordinate your look seamlessly.
+                For the best results, please arrive with clean, moisturized skin.
+                For bridal consultations and trials, bringing your outfit pictures or fabric
+                swatches helps us match your makeup and hair perfectly.
               </p>
             </div>
           </div>

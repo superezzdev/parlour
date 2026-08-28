@@ -17,7 +17,7 @@ export default function Footer() {
             <p className={styles.tagline}>MAKEUP &amp; BEAUTY</p>
             <p className={styles.description}>
               A boutique beauty studio in Sarai Meer, Uttar Pradesh.
-              Crafting considered, luminous looks for brides and beauty seekers.
+              Crafting personalized, glowing looks for brides and clients.
             </p>
           </div>
 

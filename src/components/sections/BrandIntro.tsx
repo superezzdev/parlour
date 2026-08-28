@@ -35,27 +35,22 @@ export default function BrandIntro() {
                 className={`${styles.headline} section-heading`}
               >
                 Beauty should never disguise who you are &mdash;<br />
-                <em>it should reveal your most luminous self.</em>
+                <em>it should reveal your most glowing self.</em>
               </EditorialHeading>
             </div>
 
             <div ref={rightTextRef} className={styles.narrative}>
               <p className="lead">
-                Nestled on the 1st Floor at Sabji Mandi Road in Sarai Meer, Glamorous is
-                an intimate beauty sanctuary dedicated to the art of personalized aesthetic expression.
-                From sacred bridal rituals to radiant evening celebrations, every look we compose
-                is tailored with intentional nuance.
+                We&apos;re a boutique makeup and beauty studio on Sabji Mandi Road, Sarai Meer. We do bridal makeup, party glam, hair styling, and skin care &mdash; and we take our time getting every look right. Because your occasion deserves nothing less.
               </p>
 
               <p className="body-text">
-                We believe true glamour is not a mask, but an authentic elevation. With patient precision,
-                skin-first artistry, and deep reverence for timeless elegance, we ensure you walk
-                into your most cherished moments looking and feeling unmistakably extraordinary.
+                We believe great makeup doesn&apos;t hide your features &mdash; it enhances them. With careful attention to detail, skin-friendly products, and a calm, welcoming environment, we make sure you step out feeling confident, comfortable, and beautiful.
               </p>
 
               <div className={styles.action}>
                 <Link href="/about" className="btn btn-ghost">
-                  <span>Explore our philosophy &amp; story</span>
+                  <span>Explore our story &amp; philosophy</span>
                   <span aria-hidden="true">&rarr;</span>
                 </Link>
               </div>
