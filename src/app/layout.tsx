@@ -141,6 +141,9 @@ export default function RootLayout({
         />
       </head>
       <body>
+        {/* Skip to main content — accessibility */}
+        <a href="#main-content" className="skip-to-main">Skip to main content</a>
+
         {/* PWA Service Worker Registration */}
         <PWARegister />
 

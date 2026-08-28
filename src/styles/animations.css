@@ -514,7 +514,36 @@ button,
   opacity: 0.9;
 }
 
-/* ─── Preloader ──────────────────────────────────────────────── */
+/* Hide cursor on touch devices */
+@media (hover: none) {
+  .cursor-dot,
+  .cursor-ring {
+    display: none !important;
+  }
+}
+
+/* ─── Skip to Main Content (Accessibility) ────────────── */
+.skip-to-main {
+  position: fixed;
+  top: -100%;
+  left: var(--space-4);
+  z-index: 9999;
+  background: var(--color-gold);
+  color: var(--color-noir);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  padding: var(--space-3) var(--space-5);
+  text-decoration: none;
+  transition: top 0.15s ease;
+}
+
+.skip-to-main:focus {
+  top: var(--space-4);
+}
+
+/* ─── Preloader ──────────────────────────────────── */
 .preloader {
   position: fixed;
   inset: 0;
