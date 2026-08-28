@@ -47,7 +47,7 @@ export default function HeroSection({
   ctaHref = '/contact',
   secondaryCtaLabel = 'EXPLORE BRIDAL',
   secondaryCtaHref = '/bridal',
-  locationTag = 'SARAI MEER · UTTAR PRADESH',
+  locationTag = 'SARAIMEER · AZAMGARH',
   imageSrc = '/images/hero/hero-editorial.jpg',
   imageAlt = 'Glamorous beauty studio — luxury makeup artistry in Sarai Meer',
 }: HeroSectionProps) {
