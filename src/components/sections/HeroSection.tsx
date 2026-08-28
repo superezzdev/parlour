@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { SectionLabel } from '@/components/ui/Primitives'
 import { gsap } from '@/lib/gsap'
 import { useImageClipReveal } from '@/hooks/useScrollReveal'
@@ -134,14 +135,13 @@ export default function HeroSection({
 
         {imageSrc && (
           <div className={`${styles.servicesMedia} hero-image`} aria-hidden="true">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src={imageSrc}
               alt={imageAlt || 'Glamorous beauty and bridal services menu'}
+              fill
+              priority
+              sizes="100vw"
               className={styles.servicesImage}
-              loading="eager"
-              fetchPriority="high"
-              decoding="async"
             />
             <div className={styles.servicesOverlay} aria-hidden="true" />
           </div>
@@ -199,17 +199,15 @@ export default function HeroSection({
       <section ref={heroRef} className={styles.heroGallery} aria-label="Gallery portfolio hero">
         {locationBadgeNode}
 
-        {/* Full viewport hero image */}
         <div className={`${styles.galleryMedia} hero-image`} aria-hidden="true">
           {imageSrc && (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
+            <Image
               src={imageSrc}
-              alt={imageAlt}
+              alt={imageAlt || 'Glamorous gallery portfolio'}
+              fill
+              priority
+              sizes="100vw"
               className={styles.galleryImage}
-              loading="eager"
-              fetchPriority="high"
-              decoding="async"
             />
           )}
           {/* Black gradient overlay: transparent 40% to rgba(8,8,8,0.95) 100% */}
@@ -263,18 +261,16 @@ export default function HeroSection({
               )}
             </div>
 
-            {/* 60% Right: full-height portrait image with clip-path reveal */}
             <div className={styles.aboutRightMedia}>
               <div ref={aboutImageRef} className={styles.aboutImageFrame}>
                 {imageSrc && (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img
+                  <Image
                     src={imageSrc}
-                    alt={imageAlt}
+                    alt={imageAlt || 'Glamorous studio portrait'}
+                    fill
+                    priority
+                    sizes="(max-width: 768px) 100vw, 58vw"
                     className={styles.aboutPortraitImage}
-                    loading="eager"
-                    fetchPriority="high"
-                    decoding="async"
                   />
                 )}
                 <div className={styles.aboutImageOverlay} aria-hidden="true" />
@@ -325,14 +321,13 @@ export default function HeroSection({
 
         <div ref={bridalImageRef} className={`${styles.bridalMedia} hero-image`} aria-hidden="true">
           {imageSrc && (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
+            <Image
               src={imageSrc}
-              alt={imageAlt}
+              alt={imageAlt || 'Glamorous bridal beauty in Sarai Meer'}
+              fill
+              priority
+              sizes="100vw"
               className={styles.bridalImage}
-              loading="eager"
-              fetchPriority="high"
-              decoding="async"
             />
           )}
           <div className={styles.bridalOverlay} aria-hidden="true" />
@@ -390,14 +385,13 @@ export default function HeroSection({
       {/* 50% Right Full-Height Image Panel (position: absolute, right: 0, top: 0, width: 50%, height: 100%) */}
       <div className={`${styles.homeMediaRight} hero-image`} aria-hidden="true">
         {imageSrc && (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
+          <Image
             src={imageSrc}
-            alt={imageAlt}
+            alt={imageAlt || 'Glamorous luxury makeup and beauty studio in Sarai Meer'}
+            fill
+            priority
+            sizes="(max-width: 768px) 100vw, 50vw"
             className={styles.homeImage}
-            loading="eager"
-            fetchPriority="high"
-            decoding="async"
           />
         )}
         <div className={styles.homeMediaOverlay} aria-hidden="true" />
