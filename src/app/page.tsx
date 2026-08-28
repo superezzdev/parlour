@@ -6,7 +6,7 @@ import ServiceGrid from '@/components/sections/ServiceGrid'
 import EditorialMoment from '@/components/sections/EditorialMoment'
 import BridalTeaser from '@/components/sections/BridalTeaser'
 import SelectedWork from '@/components/sections/SelectedWork'
-import TrustSection from '@/components/sections/TrustSection'
+import TestimonialsSection from '@/components/sections/TestimonialsSection'
 import LocationBlock from '@/components/sections/LocationBlock'
 import AppointmentCTA from '@/components/sections/AppointmentCTA'
 
@@ -86,8 +86,8 @@ export default function HomePage() {
       {/* 6. Selected Work — Asymmetrical Editorial Gallery Preview */}
       <SelectedWork />
 
-      {/* 7. Trust — Editorial Client Praise & Instagram Artistry Showcase */}
-      <TrustSection />
+      {/* 7. Client Appreciation — Editorial Testimonial Carousel */}
+      <TestimonialsSection />
 
       {/* 8. Visit — Studio Details, Map Visual & Get Directions */}
       <LocationBlock />

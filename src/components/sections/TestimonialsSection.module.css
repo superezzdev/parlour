@@ -1,0 +1,446 @@
+/* ═══════════════════════════════════════════════════════════════
+   GLAMOROUS — EDITORIAL TESTIMONIALS SECTION
+   ═══════════════════════════════════════════════════════════════ */
+
+.testimonialsSection {
+  background-color: var(--color-noir, #080808);
+  padding: 6rem 1.5rem;
+  min-height: 85vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+  .testimonialsSection {
+    padding: 6rem 4rem;
+  }
+}
+
+.innerContainer {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* ─── Section Header ─────────────────────────────────────────── */
+.header {
+  margin-bottom: 3.5rem;
+  width: 100%;
+}
+
+.eyebrow {
+  font-family: var(--font-mono, 'Space Mono', monospace);
+  font-size: 0.65rem;
+  font-weight: 400;
+  color: var(--color-gold, #C9A96E);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.headingLine {
+  overflow: hidden;
+  display: block;
+}
+
+.h2Line1 {
+  font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+  font-weight: 300;
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  line-height: 1.15;
+  color: var(--color-ivory-warm, #F0EAE0);
+  margin: 0;
+}
+
+.h2Line2 {
+  font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  line-height: 1.15;
+  color: var(--color-gold, #C9A96E);
+  margin: 0;
+}
+
+/* ─── Desktop 3-Column Grid ─────────────────────────────────── */
+.desktopGrid {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .desktopGrid {
+    display: grid;
+    grid-template-columns: 48px 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 0 48px;
+    align-items: center;
+    width: 100%;
+    position: relative;
+  }
+}
+
+/* ─── Column 1: Vertical Metadata ────────────────────────────── */
+.col1 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  height: 100%;
+  justify-content: flex-start;
+  padding-top: 1rem;
+}
+
+.counter {
+  font-family: var(--font-mono, 'Space Mono', monospace);
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: var(--color-muted, #7A7066);
+  letter-spacing: 0.1em;
+}
+
+.rotatedLabel {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-family: var(--font-mono, 'Space Mono', monospace);
+  font-size: 0.65rem;
+  font-weight: 400;
+  color: var(--color-muted, #7A7066);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin-top: 12px;
+}
+
+/* Desktop Thumbnail Strip */
+.desktopThumbnails {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.thumbnailBtn {
+  width: 56px;
+  height: 72px;
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: opacity 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.thumbnailBtn:focus-visible {
+  outline: 2px solid var(--color-gold, #C9A96E);
+  outline-offset: 2px;
+}
+
+.thumbActive {
+  opacity: 1;
+  border: 1px solid var(--color-gold, #C9A96E);
+}
+
+.thumbInactive {
+  opacity: 0.35;
+  border: 1px solid transparent;
+}
+
+.thumbInactive:hover {
+  opacity: 0.75;
+}
+
+.thumbImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+/* ─── Column 2: Center Portrait Frame ─────────────────────────── */
+.col2 {
+  width: 100%;
+  max-width: 320px;
+  justify-self: center;
+}
+
+.portraitFrame {
+  width: 100%;
+  aspect-ratio: 2/3;
+  overflow: hidden;
+  border-radius: 16px;
+  position: relative;
+  background: #121212;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+}
+
+.portraitImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+/* ─── Column 3: Testimonial Text & Controls ───────────────────── */
+.col3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+  padding-left: 24px;
+}
+
+.locationLabel {
+  font-family: var(--font-mono, 'Space Mono', monospace);
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: var(--color-gold, #C9A96E);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin: 0;
+}
+
+.clientName {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-ivory-warm, #F0EAE0);
+  margin-top: -12px;
+  margin-bottom: 0;
+}
+
+.quoteWrapper {
+  min-height: 280px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.quoteText {
+  font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  line-height: 1.3;
+  color: var(--color-ivory-warm, #F0EAE0);
+  margin: 0;
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+.quoteText::before {
+  content: "“";
+}
+
+.quoteText::after {
+  content: "”";
+}
+
+/* Controls */
+.navButtons {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+  align-items: center;
+}
+
+.prevButton {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(201, 169, 110, 0.4);
+  background: transparent;
+  color: var(--color-ivory-warm, #F0EAE0);
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.3s ease, background 0.3s ease, transform 0.15s ease;
+  user-select: none;
+}
+
+.prevButton:hover {
+  border-color: var(--color-gold, #C9A96E);
+  background: rgba(201, 169, 110, 0.08);
+}
+
+.prevButton:active {
+  transform: scale(0.95);
+}
+
+.prevButton:focus-visible {
+  outline: 2px solid var(--color-gold, #C9A96E);
+  outline-offset: 2px;
+}
+
+.nextButton {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--color-gold, #C9A96E);
+  border: 1px solid var(--color-gold, #C9A96E);
+  color: var(--color-noir, #080808);
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, transform 0.15s ease;
+  user-select: none;
+}
+
+.nextButton:hover {
+  background-color: #D4BE8A;
+  transform: scale(1.05);
+}
+
+.nextButton:active {
+  transform: scale(0.98);
+}
+
+.nextButton:focus-visible {
+  outline: 2px solid var(--color-gold, #C9A96E);
+  outline-offset: 2px;
+}
+
+/* ─── Mobile View (< 1024px) ─────────────────────────────────── */
+.mobileContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .mobileContainer {
+    display: none;
+  }
+}
+
+.mobileTopBar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1.5rem;
+}
+
+.mobileCounter {
+  font-family: var(--font-mono, 'Space Mono', monospace);
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--color-muted, #7A7066);
+  letter-spacing: 0.1em;
+}
+
+.mobilePortraitFrame {
+  width: 100%;
+  max-width: 260px;
+  aspect-ratio: 2/3;
+  margin: 0 auto 1.5rem;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  background: #121212;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
+}
+
+.mobileDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  text-align: left;
+}
+
+.mobileQuoteWrapper {
+  min-height: 180px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.mobileQuoteText {
+  font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(1.5rem, 6vw, 2rem);
+  line-height: 1.3;
+  color: var(--color-ivory-warm, #F0EAE0);
+  margin: 0;
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+.mobileQuoteText::before {
+  content: "“";
+}
+
+.mobileQuoteText::after {
+  content: "”";
+}
+
+.mobileThumbnails {
+  display: flex;
+  gap: 10px;
+  margin-top: 1.75rem;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+}
+
+.mobileThumbBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: opacity 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+}
+
+.mobileThumbBtn:focus-visible {
+  outline: 2px solid var(--color-gold, #C9A96E);
+  outline-offset: 2px;
+}
+
+.mobileThumbActive {
+  border: 1px solid var(--color-gold, #C9A96E);
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.mobileThumbInactive {
+  border: 1px solid transparent;
+  opacity: 0.3;
+}
+
+.mobileThumbInactive:hover {
+  opacity: 0.6;
+}
+
+.mobileThumbImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+/* ─── Fade In Animation ──────────────────────────────────────── */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

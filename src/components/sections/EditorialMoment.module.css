@@ -5,10 +5,62 @@
   overflow: hidden;
   display: flex;
   align-items: flex-end;
-  background: var(--color-noir);
+  background: #080808;
 }
 
-.mediaContainer {
+/* Desktop Horizontal Accordion Gallery */
+.accordionContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.strip {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  cursor: pointer;
+  border-radius: 0;
+  border-right: 1px solid rgba(240, 234, 224, 0.08);
+  transition: flex 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+}
+
+.strip:last-child {
+  border-right: none;
+}
+
+.stripImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transform: scale(1.05);
+  transition: transform 0.6s ease;
+  pointer-events: none;
+}
+
+.stripOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    to right,
+    rgba(8, 8, 8, 0.55) 0%,
+    rgba(8, 8, 8, 0.1) 60%,
+    rgba(8, 8, 8, 0.35) 100%
+  );
+}
+
+/* Mobile Fallback (<768px) */
+.mobileMediaContainer {
+  display: none;
   position: absolute;
   inset: 0;
   width: 100%;
@@ -16,20 +68,15 @@
   z-index: 0;
 }
 
-.image {
+.mobileImage {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center 30%;
   filter: contrast(102%) brightness(95%);
-  transition: transform 1200ms var(--ease-standard);
 }
 
-.momentSection:hover .image {
-  transform: scale(1.03);
-}
-
-.overlay {
+.mobileOverlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
@@ -40,11 +87,14 @@
   );
 }
 
+/* Editorial Floating Text Overlay */
 .contentContainer {
-  position: relative;
-  z-index: 1;
-  padding-bottom: clamp(3rem, 6vw, 5rem);
-  width: 100%;
+  position: absolute;
+  bottom: 60px;
+  left: 60px;
+  z-index: 10;
+  pointer-events: none;
+  max-width: 520px;
 }
 
 .minimalBadge {
@@ -71,6 +121,23 @@
   color: var(--color-ivory);
   line-height: 1.25;
   margin: 0;
+}
+
+@media (max-width: 768px) {
+  .accordionContainer {
+    display: none;
+  }
+
+  .mobileMediaContainer {
+    display: block;
+  }
+
+  .contentContainer {
+    bottom: 30px;
+    left: 20px;
+    right: 20px;
+    max-width: calc(100% - 40px);
+  }
 }
 
 @media (max-width: 640px) {
