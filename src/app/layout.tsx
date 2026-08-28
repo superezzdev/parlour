@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Cormorant_Garamond, DM_Sans, Space_Mono } from 'next/font/google'
 import '../styles/globals.css'
 import Navbar from '@/components/global/Navbar'
@@ -8,12 +8,13 @@ import CursorEffect from '@/components/global/CursorEffect'
 import ScrollProgress from '@/components/global/ScrollProgress'
 import ScrollAnimationProvider from '@/components/global/ScrollAnimationProvider'
 import LenisProvider from '@/components/providers/LenisProvider'
+import PWARegister from '@/components/global/PWARegister'
 import { salon } from '@/data/salon'
 import { localBusinessSchema } from '@/utils/schema'
 
 const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
-  weight: ['300', '400', '600'],
+  weight: ['300', '400', '600', '700'],
   style: ['normal', 'italic'],
   variable: '--font-cormorant',
   display: 'swap',
@@ -36,8 +37,17 @@ const spaceMono = Space_Mono({
   preload: false,
 })
 
+export const viewport: Viewport = {
+  themeColor: '#080808',
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  viewportFit: 'cover',
+}
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://glamorous.in'), // [PLACEHOLDER B04]
+  applicationName: 'Glamorous',
   title: {
     default: 'Glamorous — Makeup & Beauty Studio | Sarai Meer, Uttar Pradesh',
     template: '%s | Glamorous, Sarai Meer',
@@ -90,9 +100,24 @@ export const metadata: Metadata = {
     images: ['/og-home.jpg'],
   },
   icons: {
-    icon: '/favicon.svg',
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/icons/icon-192x192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/icons/icon-512x512.png', sizes: '512x512', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/icons/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
   },
-  manifest: '/site.webmanifest',
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'black-translucent',
+    title: 'Glamorous',
+  },
+  formatDetection: {
+    telephone: true,
+  },
+  manifest: '/manifest.webmanifest',
 }
 
 export default function RootLayout({
@@ -116,6 +141,9 @@ export default function RootLayout({
         />
       </head>
       <body>
+        {/* PWA Service Worker Registration */}
+        <PWARegister />
+
         {/* Cinematic page loader (runs once per session) */}
         <PageLoader />
 

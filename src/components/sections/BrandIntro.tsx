@@ -36,7 +36,7 @@ export default function BrandIntro() {
 
             <div className={styles.studioInfo}>
               <span className={styles.metaBadge}>BOUTIQUE STUDIO</span>
-              <h3 className={styles.studioName}>GLAMOROUS</h3>
+              <div className={styles.studioName}>GLAMOROUS</div>
               <p className={styles.metaLocation}>Sabji Mandi Rd, Sarai Meer, UP</p>
               <div className={styles.dividerLine} aria-hidden="true" />
               <p className={styles.studioTagline}>

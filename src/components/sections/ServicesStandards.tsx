@@ -56,6 +56,7 @@ export default function ServicesStandards() {
   return (
     <section className={styles.standardsSection} aria-label="Studio Standards & Promises">
       <div className="container">
+        <h2 className="sr-only">Studio Standards &amp; Quality Promises</h2>
         <div ref={containerRef} className={styles.standardsGrid}>
           {standards.map((item) => (
             <div key={item.number} className={styles.standardCard}>

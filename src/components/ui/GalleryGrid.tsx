@@ -87,6 +87,7 @@ export default function GalleryGrid({
 
       {/* 2. MASONRY GRID & 3. HOVER EFFECT */}
       <div className={`container ${styles.gridContainer}`}>
+        <h2 className="sr-only">Curated Artistry Gallery</h2>
         {filteredImages.length > 0 ? (
           <div
             id="gallery-masonry-grid"

@@ -6,7 +6,7 @@
 /* ─── Unified Top-Left Location Badge (Single Instance) ──────── */
 .badgeTopLeft {
   position: absolute;
-  top: calc(72px + var(--space-6));
+  top: calc(72px + env(safe-area-inset-top, 0px) + var(--space-6));
   left: clamp(1.5rem, 5vw, 5rem);
   z-index: 20;
   pointer-events: none;
@@ -22,11 +22,11 @@
   font-weight: 500;
   letter-spacing: 0.20em;
   text-transform: uppercase;
-  color: var(--color-muted, #7A7066);
+  color: var(--color-muted, #B5ADA2);
   background: transparent;
   padding: 6px 12px;
   border-radius: 0;
-  border: 1px solid rgba(240, 234, 224, 0.15);
+  border: 1px solid rgba(240, 234, 224, 0.22);
 }
 
 .locationBadge::before {
@@ -138,7 +138,7 @@
   position: relative;
   background: var(--color-noir);
   min-height: clamp(580px, 78vh, 840px);
-  padding-top: calc(72px + var(--space-12));
+  padding-top: calc(72px + env(safe-area-inset-top, 0px) + var(--space-12));
   padding-bottom: clamp(4rem, 8vw, 7rem);
   overflow: hidden;
   display: flex;
@@ -329,7 +329,7 @@
   position: relative;
   min-height: 100dvh;
   background: var(--color-noir);
-  padding-top: calc(72px + var(--space-12));
+  padding-top: calc(72px + env(safe-area-inset-top, 0px) + var(--space-12));
   padding-bottom: var(--space-16);
   display: flex;
   align-items: center;
@@ -435,7 +435,7 @@
 .heroContact {
   position: relative;
   background: var(--color-noir);
-  padding-top: calc(72px + var(--space-16));
+  padding-top: calc(72px + env(safe-area-inset-top, 0px) + var(--space-16));
   padding-bottom: var(--space-12); /* py-20 small height */
   overflow: hidden;
 }
@@ -489,7 +489,7 @@
   display: flex;
   align-items: flex-end;
   overflow: hidden;
-  padding-top: calc(72px + var(--space-12));
+  padding-top: calc(72px + env(safe-area-inset-top, 0px) + var(--space-12));
   background: var(--color-noir);
 }
 
@@ -613,13 +613,13 @@
 .scrollLine {
   width: 32px;
   height: 1px;
-  background: rgba(250, 247, 242, 0.40);
+  background: rgba(250, 247, 242, 0.55);
   animation: scrollPulse 2s ease-in-out infinite;
 }
 
 @keyframes scrollPulse {
-  0%, 100% { opacity: 0.3; width: 24px; }
-  50% { opacity: 0.9; width: 44px; }
+  0%, 100% { opacity: 0.4; width: 24px; }
+  50% { opacity: 1; width: 44px; }
 }
 
 .scrollText {
@@ -628,7 +628,7 @@
   font-weight: var(--label-weight);
   letter-spacing: var(--label-tracking);
   text-transform: uppercase;
-  color: rgba(250, 247, 242, 0.60);
+  color: rgba(250, 247, 242, 0.75);
 }
 
 @keyframes heroSubtleScale {
@@ -725,7 +725,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding-top: calc(72px + var(--space-8));
+    padding-top: calc(72px + env(safe-area-inset-top, 0px) + var(--space-6));
     padding-bottom: clamp(2.5rem, 6vw, 3.5rem);
   }
 
@@ -741,9 +741,7 @@
   }
 
   .badgeTopLeft {
-    top: calc(72px + var(--space-3));
-    left: clamp(1rem, 4vw, 1.5rem);
-    z-index: 20;
+    display: none; /* Hide on mobile to eliminate overlap collision with sticky navbar on scroll */
   }
 
   .actionGroup {

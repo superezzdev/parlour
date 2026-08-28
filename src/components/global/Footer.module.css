@@ -187,7 +187,7 @@
 
 .addressLineSecondary {
   font-size: var(--text-xs);
-  color: rgba(250, 247, 242, 0.55);
+  color: rgba(250, 247, 242, 0.75);
   line-height: 1.5;
   margin-bottom: 0.45rem;
 }
@@ -255,7 +255,7 @@
   gap: 0.45rem;
   font-family: var(--font-body);
   font-size: var(--text-xs);
-  color: rgba(250, 247, 242, 0.60);
+  color: rgba(250, 247, 242, 0.75);
   text-decoration: none;
   transition: all var(--duration-fast) var(--ease-out);
   width: fit-content;
@@ -285,7 +285,7 @@
 .ctaSubtext {
   font-family: var(--font-body);
   font-size: var(--text-xs);
-  color: rgba(250, 247, 242, 0.60);
+  color: rgba(250, 247, 242, 0.75);
   line-height: 1.5;
   margin-bottom: var(--space-4);
   max-width: 26ch;
@@ -323,7 +323,7 @@
 .hoursSub {
   font-family: var(--font-body);
   font-size: 0.7rem;
-  color: rgba(250, 247, 242, 0.50);
+  color: rgba(250, 247, 242, 0.70);
 }
 
 /* ─── Signature Statement Brand Banner ─── */
@@ -336,22 +336,23 @@
   border-bottom: 1px solid var(--color-ghost-border);
   user-select: none;
   text-align: center;
-  gap: var(--space-1);
+  gap: var(--space-2);
 }
 
 .giantWordmark {
   font-family: var(--font-display);
-  font-size: clamp(2.5rem, 8.5vw, 7.5rem);
+  font-size: clamp(3.2rem, 11vw, 8.5rem);
   font-weight: 700;
-  letter-spacing: 0.18em;
-  color: rgba(250, 247, 242, 0.05);
+  letter-spacing: clamp(0.12em, 2vw, 0.2em);
+  color: rgba(201, 168, 106, 0.28);
   line-height: 0.95;
   text-transform: uppercase;
-  transition: color var(--duration-base) var(--ease-out);
+  transition: all var(--duration-base) var(--ease-out);
+  display: block;
 }
 
 .footer:hover .giantWordmark {
-  color: rgba(201, 168, 106, 0.12);
+  color: rgba(201, 168, 106, 0.45);
 }
 
 .subWordmark {
@@ -359,7 +360,7 @@
   font-size: var(--text-label);
   font-weight: var(--label-weight);
   letter-spacing: 0.28em;
-  color: rgba(201, 168, 106, 0.45);
+  color: rgba(201, 168, 106, 0.85);
   text-transform: uppercase;
 }
 
@@ -375,7 +376,7 @@
 .copy {
   font-family: var(--font-body);
   font-size: var(--text-xs);
-  color: rgba(250, 247, 242, 0.45);
+  color: rgba(250, 247, 242, 0.75);
 }
 
 .bottomMeta {
@@ -385,7 +386,7 @@
   font-family: var(--font-label);
   font-size: 0.6875rem;
   letter-spacing: 0.08em;
-  color: rgba(250, 247, 242, 0.40);
+  color: rgba(250, 247, 242, 0.70);
   text-transform: uppercase;
 }
 
@@ -410,6 +411,23 @@
 
   .description {
     max-width: 100%;
+  }
+
+  .brandBanner {
+    padding-block: clamp(2rem, 6vw, 3rem);
+  }
+
+  .giantWordmark {
+    font-size: clamp(2.75rem, 12.5vw, 4.5rem);
+    font-weight: 700;
+    letter-spacing: clamp(0.08em, 2vw, 0.14em);
+    color: rgba(201, 168, 106, 0.36);
+  }
+
+  .subWordmark {
+    font-size: 0.65rem;
+    letter-spacing: 0.22em;
+    color: rgba(201, 168, 106, 0.9);
   }
 
   .bottom {

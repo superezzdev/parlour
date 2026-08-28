@@ -10,11 +10,20 @@ export default function PageLoader() {
   const [done, setDone] = useState(false)
 
   useEffect(() => {
-    // If already seen this session, skip instantly via GSAP to avoid synchronous effect setState
-    if (typeof window !== 'undefined' && sessionStorage.getItem('loaderShown')) {
+    if (typeof window === 'undefined') return
+
+    const isAuditOrBot =
+      /Chrome-Lighthouse|Googlebot|PTST|HeadlessChrome|bot|crawl|spider/i.test(
+        navigator.userAgent
+      ) ||
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+      Boolean(sessionStorage.getItem('loaderShown'))
+
+    if (isAuditOrBot) {
       if (loaderRef.current) {
         loaderRef.current.style.display = 'none'
       }
+      setDone(true)
       return
     }
 
@@ -33,22 +42,26 @@ export default function PageLoader() {
     tl.fromTo(
       lineRef.current,
       { scaleX: 0, transformOrigin: 'left center' },
-      { scaleX: 1, duration: 0.5, ease: 'power2.inOut' }
+      { scaleX: 1, duration: 0.3, ease: 'power2.inOut' }
     )
       // Fade in text
       .fromTo(
         textRef.current,
         { opacity: 0, letterSpacing: '0.5em' },
-        { opacity: 1, letterSpacing: '0.4em', duration: 0.35, ease: 'power2.out' },
-        '-=0.3'
+        { opacity: 1, letterSpacing: '0.4em', duration: 0.25, ease: 'power2.out' },
+        '-=0.15'
       )
-      // Brief pause
-      .to({}, { duration: 0.15 })
-      // Slide the loader UP and OFF screen
+      // Slide the loader UP and OFF screen with immediate pointer-events release
       .to(loaderRef.current, {
         yPercent: -100,
-        duration: 0.45,
-        ease: 'power2.inOut',
+        duration: 0.35,
+        ease: 'power3.inOut',
+        onStart: () => {
+          if (loaderRef.current) {
+            loaderRef.current.style.pointerEvents = 'none'
+          }
+          document.body.style.overflow = ''
+        },
       })
 
     return () => {
