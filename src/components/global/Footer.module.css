@@ -189,10 +189,62 @@
   gap: var(--space-4);
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
+  .top {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    text-align: center;
+    justify-items: center;
+  }
+
+  .brand,
+  .nav,
+  .contact,
+  .cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  .description {
+    text-align: center;
+    margin-inline: auto;
+  }
+
+  .navHeading {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .navHeading::before {
+    display: none;
+  }
+
+  .navLinks {
+    align-items: center;
+    text-align: center;
+  }
+
+  .address {
+    text-align: center;
+  }
+
+  .links {
+    align-items: center;
+    text-align: center;
+  }
+
+  .ctaHeadline {
+    text-align: center;
+  }
+
   .bottom {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
   }
 }
 

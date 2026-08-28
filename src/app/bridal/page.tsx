@@ -8,23 +8,23 @@ import BridalFAQSection from '@/components/sections/BridalFAQSection'
 import AppointmentCTA from '@/components/sections/AppointmentCTA'
 
 export const metadata: Metadata = {
-  title: 'Bespoke Bridal Makeup & Artistry in Sarai Meer — Glamorous Beauty Studio',
+  title: 'Bridal Makeup & Styling in Sarai Meer — Glamorous Studio',
   description:
-    'Experience bespoke bridal makeup artistry in Sarai Meer at Glamorous Studio. Unhurried consultations, trial sessions, couture hair styling, and radiant skin-first execution for your wedding day.',
+    'Bridal makeup by Sabreen in Sarai Meer. Unhurried consultations, trials, bridal hair styling, and long-lasting waterproof makeup for your wedding day.',
   alternates: {
     canonical: 'https://glamorous.in/bridal',
   },
   openGraph: {
-    title: 'Bespoke Bridal Makeup in Sarai Meer | Glamorous Beauty Studio',
+    title: 'Bridal Makeup in Sarai Meer | Glamorous Studio',
     description:
-      'For the moment you will remember. High-definition bridal artistry, couture hair draping, and personalized bridal suites in Sarai Meer, UP.',
+      'Crafted with patience and care. Long-lasting bridal makeup, hair styling, and dupatta draping in Sarai Meer, UP.',
     url: 'https://glamorous.in/bridal',
     images: [
       {
         url: '/images/bridal/bridal-hero.jpg',
         width: 1200,
         height: 800,
-        alt: 'Glamorous Bridal Beauty Studio — Bespoke Bridal Artistry in Sarai Meer',
+        alt: 'Glamorous Bridal Makeup Studio in Sarai Meer',
       },
     ],
   },
@@ -72,7 +72,7 @@ export default function BridalPage() {
       name: 'Sarai Meer, Azamgarh, Uttar Pradesh',
     },
     description:
-      'Comprehensive bridal beauty and makeup services including in-depth consultations, trial sessions, HD makeup, couture hair sculpting, dupatta setting, and multi-day bridal suites.',
+      'Comprehensive bridal beauty and makeup services including consultations, trial sessions, HD waterproof makeup, bridal hair styling, dupatta setting, and multi-day packages.',
   }
 
   return (
@@ -97,14 +97,14 @@ export default function BridalPage() {
             <span className="block text-gold italic font-light">YOUR MOMENT.</span>
           </>
         }
-        subheadline="An intimate, unhurried bridal beauty journey — crafted around your vision, your skin, and the emotion of your defining chapter."
+        subheadline="An unhurried bridal beauty experience — tailored to your vision, your skin, and the joy of your wedding day."
         ctaLabel="BOOK AN APPOINTMENT"
         ctaHref="/contact?service=bridal"
         secondaryCtaLabel="EXPLORE PACKAGES"
         secondaryCtaHref="#packages"
-        locationTag="SARAI MEER · BRIDAL SANCTUARY"
+        locationTag="SARAI MEER · BRIDAL STUDIO"
         imageSrc="/images/bridal/bridal-hero.jpg"
-        imageAlt="Glamorous luxury bridal makeup artistry in Sarai Meer"
+        imageAlt="Glamorous bridal makeup artistry in Sarai Meer"
       />
 
       {/* 2. STORY SECTION — The Bridal Moment & Approach */}
@@ -132,7 +132,7 @@ export default function BridalPage() {
             STARTS HERE.
           </>
         }
-        body="Dates during the wedding season fill quickly. Reserve your bridal consultation with our master artists in Sarai Meer today to begin designing your defining look."
+        body="Wedding dates fill up fast during the season. Book your bridal consultation with Sabreen in Sarai Meer today to plan your wedding look."
         ctaLabel="BOOK AN APPOINTMENT"
         ctaHref="/contact?service=bridal"
       />

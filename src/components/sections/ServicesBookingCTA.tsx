@@ -35,7 +35,7 @@ export default function ServicesBookingCTA() {
           </div>
 
           <p ref={subtextRef} className={styles.subtext}>
-            Whether reserving auspicious wedding dates, preparing for grand festive celebrations, or scheduling restorative skin rituals — our artists in Sarai Meer are ready to craft your defining look.
+            Whether reserving wedding dates, preparing for family celebrations, or booking a skin care session &mdash; our team in Sarai Meer is ready to help you look your best.
           </p>
 
           <div ref={actionsRef} className={styles.actions}>

@@ -93,7 +93,7 @@
   font-family: var(--font-label);
   font-size: 0.625rem;
   font-weight: 600;
-  letter-spacing: 0.20em;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
   color: var(--color-petal);
 }
@@ -188,7 +188,7 @@
   font-family: var(--font-label);
   font-size: 0.5625rem;
   font-weight: 600;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
   color: var(--color-petal);
 }
@@ -224,14 +224,28 @@
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
+  .editorialGrid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .secondaryCol {
+    gap: var(--space-6);
+  }
+
+  .detailRow {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
   .overlapBadge {
     bottom: var(--space-4);
     left: var(--space-4);
     right: var(--space-4);
   }
 
-  .detailRow {
-    grid-template-columns: 1fr;
+  .imageCardLarge {
+    aspect-ratio: 4/3;
   }
 }

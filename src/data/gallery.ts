@@ -59,7 +59,7 @@ export const galleryImages: GalleryImage[] = [
   {
     id: 'g-bridal-04',
     src: '/images/bridal/bridal-portrait.jpg',
-    alt: 'Luminous bridal portrait with glowing skin and regal accessories in Sarai Meer',
+    alt: 'Glowing bridal portrait with radiant skin and regal accessories in Sarai Meer',
     title: 'Radiant Royal Portrait',
     category: 'bridal',
     aspectRatio: '3/4',
@@ -72,7 +72,7 @@ export const galleryImages: GalleryImage[] = [
     title: 'Maroon Elegance',
     category: 'bridal',
     aspectRatio: '2/3',
-    description: 'Timeless traditional bridal glamour with bespoke dupatta draping.',
+    description: 'Timeless traditional bridal glamour with personalized dupatta draping.',
   },
 
   // ── Makeup ────────────────────────────────────────────────────
@@ -80,7 +80,7 @@ export const galleryImages: GalleryImage[] = [
     id: 'g-makeup-01',
     src: '/images/gallery/makeup/makeup-01.jpg',
     alt: 'Soft glam evening makeup with bronze undertones and glossy nude lip',
-    title: 'Luminous Bronze Glam',
+    title: 'Glowing Bronze Glam',
     category: 'makeup',
     aspectRatio: '16/9',
     isFeature: true,
@@ -93,7 +93,7 @@ export const galleryImages: GalleryImage[] = [
     title: 'Editorial Smoke & Sculpt',
     category: 'makeup',
     aspectRatio: '1/1',
-    description: 'Dimensional smokey eye makeup designed for red-carpet and reception lighting.',
+    description: 'Dimensional smokey eye makeup designed for reception and party lighting.',
   },
   {
     id: 'g-makeup-03',
@@ -102,7 +102,7 @@ export const galleryImages: GalleryImage[] = [
     title: 'Festive Coral Radiance',
     category: 'makeup',
     aspectRatio: '3/4',
-    description: 'Fresh, breathable event makeup celebrating natural facial architecture.',
+    description: 'Fresh, breathable event makeup that enhances your natural beauty.',
   },
 
   // ── Hair ──────────────────────────────────────────────────────
@@ -114,7 +114,7 @@ export const galleryImages: GalleryImage[] = [
     category: 'hair',
     aspectRatio: '4/5',
     isFeature: true,
-    description: 'Textured bridal bun structured for effortless elegance and veil weight balance.',
+    description: 'Textured bridal bun structured for effortless elegance and comfortable dupatta weight.',
   },
   {
     id: 'g-hair-02',
@@ -130,11 +130,11 @@ export const galleryImages: GalleryImage[] = [
   {
     id: 'g-beauty-01',
     src: '/images/gallery/beauty/beauty-01.jpg',
-    alt: 'Luminous post-facial skin glow treatment and minimalist brow grooming',
+    alt: 'Glowing post-facial skin glow treatment and minimalist brow grooming',
     title: 'Glass Skin Rejuvenation',
     category: 'beauty',
     aspectRatio: '1/1',
-    description: 'Deeply hydrated, revitalized complexion following our signature skincare ritual.',
+    description: 'Deeply hydrated, revitalized complexion following our soothing skincare treatment.',
   },
   {
     id: 'g-beauty-02',
@@ -148,11 +148,11 @@ export const galleryImages: GalleryImage[] = [
   {
     id: 'g-beauty-03',
     src: '/images/services/skin.jpg',
-    alt: 'Holistic skin detox and nourishing facial therapy at Glamorous Studio',
-    title: 'Botanical Skin Therapy',
+    alt: 'Skin detox and nourishing facial treatment at Glamorous Studio',
+    title: 'Nourishing Skin Treatment',
     category: 'beauty',
     aspectRatio: '4/5',
-    description: 'Restorative skincare treatment infusing organic botanical serums for long-term health.',
+    description: 'Restorative skincare treatment with nourishing serum treatment for healthy, refreshed skin.',
   },
 
   // ── Details & Ornamentation ───────────────────────────────────

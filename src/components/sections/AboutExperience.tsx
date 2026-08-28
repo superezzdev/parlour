@@ -30,27 +30,27 @@ export default function AboutExperience() {
   const steps: ExperienceStep[] = [
     {
       number: '01',
-      title: 'The Intimate Listening',
+      title: 'Listening & Planning',
       description:
-        'We begin by understanding your personality, event ambiance, lighting conditions, outfit fabric, and comfort preferences.',
+        'We begin by understanding your style, event details, lighting, outfit colors, and what you feel most comfortable with.',
     },
     {
       number: '02',
-      title: 'Skin Preparation & Ritual',
+      title: 'Skin Preparation',
       description:
-        'Targeted hydration, botanical primers, and lymphatic cooling that awaken skin vitality and create an enduring smooth canvas.',
+        'Targeted hydration, gentle skin prep, and gentle cooling treatment that leave your skin fresh, hydrated, and ready for makeup.',
     },
     {
       number: '03',
-      title: 'Layered Artistry',
+      title: 'Detailed Artistry',
       description:
-        'Meticulous application where color, depth, and contour are built in micro-layers for weightless wear and effortless camera clarity.',
+        'Careful, layered application so your makeup feels lightweight on your skin and looks flawless in person and on camera.',
     },
     {
       number: '04',
-      title: 'The Mirror Reveal',
+      title: 'The Final Reveal',
       description:
-        'The final styling, jewelry placement, and setting mist — culminating in a quiet moment of transformative confidence.',
+        'Final styling, jewelry placement, setting mist, and that exciting moment when you see your complete look in the mirror.',
     },
   ]
 
@@ -62,13 +62,13 @@ export default function AboutExperience() {
           <SectionLabel>03 / THE EXPERIENCE</SectionLabel>
           <div className="overflow-hidden">
             <h2 id="experience-heading" ref={headingRef} className={`${styles.heading} section-heading`}>
-              Unhurried, serene, bespoke.
+              Unhurried, serene, personalized.
               <em>From first greeting to final reveal.</em>
             </h2>
           </div>
           <p ref={subTextRef} className={styles.subText}>
-            We believe your beauty session should feel like a calming retreat from the busy world outside.
-            Every appointment is paced with luxury patience so you never feel rushed.
+            We believe your beauty session should feel relaxing and comfortable.
+            Every appointment is given the time it needs so you never feel rushed.
           </p>
         </div>
 
@@ -86,9 +86,9 @@ export default function AboutExperience() {
         {/* Concierge Note */}
         <div ref={noteRef} className={styles.conciergeNote}>
           <div>
-            <strong className={styles.noteTitle}>Our Concierge Promise</strong>
+            <strong className={styles.noteTitle}>Our Booking Promise</strong>
             <p className={styles.noteDesc}>
-              We do not double-book critical bridal and event slots. Your appointment time is entirely dedicated to you and your vision.
+              We do not double-book bridal or major event appointments. Your time slot is reserved entirely for you.
             </p>
           </div>
         </div>

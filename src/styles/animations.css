@@ -181,7 +181,12 @@
   transform: scale(1.05);
 }
 
-/* ─── Button Hover ───────────────────────────────────────────── */
+/* ─── Button Base & Interactions ────────────────────────────── */
+button,
+.btn {
+  min-height: 44px;
+}
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -192,12 +197,7 @@
   letter-spacing: 0.06em;
   text-transform: uppercase;
   cursor: pointer;
-  transition:
-    background var(--duration-fast) var(--ease-out),
-    color var(--duration-fast) var(--ease-out),
-    border-color var(--duration-fast) var(--ease-out),
-    transform var(--duration-fast) var(--ease-out),
-    box-shadow var(--duration-fast) var(--ease-out);
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.15s ease, box-shadow 0.3s ease;
   text-decoration: none;
   white-space: nowrap;
 }
@@ -207,11 +207,11 @@
 }
 
 .btn:active {
-  transform: translateY(0);
+  transform: scale(0.97) !important;
 }
 
 .btn:focus-visible {
-  outline: 2px solid var(--color-rose);
+  outline: 1px solid #C9A96E;
   outline-offset: 3px;
 }
 
@@ -626,26 +626,29 @@
 /* ─── WhatsApp FAB ───────────────────────────────────────────── */
 .whatsapp-fab {
   position: fixed;
-  bottom: var(--space-6);
-  right: var(--space-6);
+  bottom: calc(var(--space-5) + env(safe-area-inset-bottom, 0px));
+  right: clamp(1rem, 4vw, 1.5rem);
   z-index: var(--z-overlay);
-  width: 56px;
-  height: 56px;
+  width: 54px;
+  height: 54px;
   border-radius: 50%;
   background: #25D366;
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 6px 24px rgba(37, 211, 102, 0.45), 0 2px 8px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   transition:
     transform var(--duration-fast) var(--ease-out),
     box-shadow var(--duration-fast) var(--ease-out);
+  -webkit-tap-highlight-color: transparent;
 }
 
-.whatsapp-fab:hover {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: var(--shadow-xl);
+.whatsapp-fab:hover,
+.whatsapp-fab:active {
+  transform: scale(1.08);
+  box-shadow: 0 8px 30px rgba(37, 211, 102, 0.60), 0 4px 12px rgba(0, 0, 0, 0.45);
 }
 
 /* Hide FAB on desktop */

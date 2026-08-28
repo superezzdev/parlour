@@ -21,14 +21,14 @@ export default function BridalStorySection() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/images/bridal/bridal-portrait.jpg"
-                alt="Glamorous Studio bespoke bridal makeup artistry with luminous skin in Sarai Meer"
+                alt="Glamorous Studio bridal makeup artistry with glowing skin in Sarai Meer"
                 className={styles.portraitImage}
                 loading="lazy"
               />
               <div className={styles.visualBadge}>
                 <span className={styles.badgeTag}>PHILOSOPHY OF BRIDAL ARTISTRY</span>
                 <p className={styles.badgeText}>
-                  &ldquo;A bride should never look disguised — only the most elevated, luminous version of herself.&rdquo;
+                  &ldquo;A bride should never look disguised &mdash; only the most elevated, glowing version of herself.&rdquo;
                 </p>
               </div>
             </div>
@@ -45,7 +45,7 @@ export default function BridalStorySection() {
                 </h2>
               </div>
               <p ref={leadRef} className={styles.lead}>
-                A wedding day is an emotional crescendo. Our bridal atelier in Sarai Meer is founded on the principle that true luxury is patience: listening closely to your desires, honouring your cultural traditions, and crafting an unhurried look that holds seamlessly from ceremony to celebration.
+                Your wedding day is one of the most important days of your life. At our studio in Sarai Meer, we believe great makeup takes patience: listening to what you want, respecting your traditions, and taking the time to give you a look that stays fresh from the first ritual to the final farewell.
               </p>
             </div>
 

@@ -13,14 +13,14 @@ import AppointmentCTA from '@/components/sections/AppointmentCTA'
 export const metadata: Metadata = {
   title: 'Glamorous — Luxury Makeup & Bridal Beauty Studio | Sarai Meer, UP',
   description:
-    'Boutique luxury beauty studio in Sarai Meer, Uttar Pradesh. Specialising in bespoke bridal makeup, high-definition party glam, and skin-first artistry. Book your appointment today.',
+    'Boutique makeup and beauty studio in Sarai Meer, UP. Specializing in bridal makeup, party glam, hair styling, and skin care by Sabreen. Book your appointment today.',
   alternates: {
     canonical: 'https://glamorous.in/',
   },
   openGraph: {
-    title: 'Glamorous — Luxury Makeup & Bridal Beauty Studio | Sarai Meer',
+    title: 'Glamorous — Makeup & Bridal Beauty Studio | Sarai Meer',
     description:
-      'Boutique beauty sanctuary in Sarai Meer. Specialising in bespoke bridal makeup, luminous party looks, and skin-first artistry.',
+      'Boutique beauty studio in Sarai Meer. Specializing in bridal makeup, party glam, hair styling, and skin care by Sabreen.',
     url: 'https://glamorous.in/',
     images: [
       {
@@ -53,7 +53,7 @@ export default function HomePage() {
             </div>
           </>
         }
-        subheadline="Artistry tailored to your individuality — celebrating your natural radiance with patience, precision, and quiet luxury in Sarai Meer."
+        subheadline="Bridal and occasion makeup by Sabreen — crafted with patience, precision, and care. Based in Sarai Meer, trusted across Eastern UP."
         ctaLabel="BOOK AN APPOINTMENT"
         ctaHref="/contact"
         secondaryCtaLabel="EXPLORE BRIDAL"

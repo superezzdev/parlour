@@ -29,7 +29,7 @@
   font-size: 0.75rem;
   font-weight: 700;
   color: var(--color-rose);
-  letter-spacing: 0.10em;
+  letter-spacing: 0.25em;
 }
 
 .categoryTag {
@@ -158,7 +158,7 @@
   font-family: var(--font-mono);
   font-size: 0.625rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
   color: var(--color-gold);
   background: rgba(201, 168, 106, 0.12);

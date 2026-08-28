@@ -2,7 +2,7 @@
   position: relative;
   width: 100%;
   background-color: var(--color-noir);
-  padding-block: clamp(5rem, 8vw, 6rem); /* py-24 */
+  padding-block: clamp(4rem, 6vw, 6rem); /* py-16 mobile / py-24 desktop */
   color: var(--color-ivory);
   overflow: hidden;
 }
@@ -121,17 +121,18 @@
   font-size: 0.65rem;
   font-style: normal;
   color: rgba(250, 247, 242, 0.5);
-  letter-spacing: 0.15em;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
 }
 
-/* Responsive Breakpoints */
+/* Responsive Breakpoints (2x2 Grid on Mobile & Tablet) */
 @media (max-width: 1024px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .statCard:nth-child(2) {
+  .statCard:nth-child(2),
+  .statCard:nth-child(4) {
     border-right: none;
   }
 
@@ -142,17 +143,16 @@
 }
 
 @media (max-width: 640px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
-
   .statCard {
-    border-right: none !important;
-    border-bottom: 1px solid var(--color-ghost-border);
-    padding-block: 2rem;
+    padding: 1.75rem 0.75rem;
   }
 
-  .statCard:last-child {
-    border-bottom: none;
+  .number,
+  .suffix {
+    font-size: clamp(2.5rem, 11vw, 3.5rem);
+  }
+
+  .label {
+    font-size: 0.75rem;
   }
 }

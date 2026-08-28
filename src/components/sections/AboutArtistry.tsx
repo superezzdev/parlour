@@ -52,9 +52,9 @@ export default function AboutArtistry() {
             </div>
 
             <p ref={bodyTextRef} className={styles.bodyText}>
-              Our techniques are meticulously tailored for Indian ceremonies, festive lighting, high-definition
-              cameras, and long-wear endurance. From seamless color transitions to delicate dupatta draping,
-              every element is balanced to perfection.
+              Our techniques are designed for Indian weddings and celebrations &mdash; long-lasting wear,
+              lighting-friendly makeup, and clean hair styling. From seamless foundation blending to secure
+              dupatta draping, we take care of every detail.
             </p>
 
             <div ref={craftRef} className={styles.craftList}>
@@ -63,8 +63,8 @@ export default function AboutArtistry() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
                 </svg>
                 <div className={styles.craftText}>
-                  <strong className={styles.craftTitle}>HD Base &amp; Undertone Precision</strong>
-                  <span className={styles.craftDesc}>Skin-matched micro-pigments formulated for camera-ready clarity without heaviness.</span>
+                  <strong className={styles.craftTitle}>HD Base &amp; Undertone Matching</strong>
+                  <span className={styles.craftDesc}>Foundation matched to your exact skin tone without heaviness.</span>
                 </div>
               </div>
 
@@ -74,7 +74,7 @@ export default function AboutArtistry() {
                 </svg>
                 <div className={styles.craftText}>
                   <strong className={styles.craftTitle}>Light Sculpting &amp; Dimension</strong>
-                  <span className={styles.craftDesc}>Architectural highlighting and contouring that catches warm ceremony lights effortlessly.</span>
+                  <span className={styles.craftDesc}>Natural contouring and highlight that catches warm ceremony lights effortlessly.</span>
                 </div>
               </div>
 
@@ -83,17 +83,17 @@ export default function AboutArtistry() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" />
                 </svg>
                 <div className={styles.craftText}>
-                  <strong className={styles.craftTitle}>Couture Hair &amp; Adornment Framing</strong>
-                  <span className={styles.craftDesc}>Structural updos, floral settings, matha patti pinning, and veil weight distribution.</span>
+                  <strong className={styles.craftTitle}>Hair Styling &amp; Dupatta Draping</strong>
+                  <span className={styles.craftDesc}>Secure bridal updos, floral settings, matha patti pinning, and comfortable dupatta draping.</span>
                 </div>
               </div>
             </div>
 
             {/* Respectful Lead Artist Profile Box */}
             <div ref={artistRef} className={styles.artistPlaceholderCard}>
-              <span className={styles.artistTag}>LEAD ARTISTRY DIRECTIVE</span>
+              <span className={styles.artistTag}>LEAD ARTIST</span>
               <p className={styles.artistQuote}>
-                &ldquo;Our vision is rooted in giving every bride and client a sense of royal poise, grounded in comfort and authenticity.&rdquo;
+                &ldquo;I want every woman who sits in my chair to feel like the most beautiful version of herself &mdash; not someone else&apos;s version of beautiful.&rdquo;
               </p>
               <span className={styles.artistName}>Sabreen Siddiqui · Founder &amp; Lead Artist</span>
             </div>

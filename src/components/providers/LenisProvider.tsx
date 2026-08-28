@@ -27,7 +27,19 @@ export default function LenisProvider({ children }: { children: React.ReactNode 
     gsap.ticker.add(updateTicker)
     gsap.ticker.lagSmoothing(0)
 
+    // Refresh ScrollTrigger after initial paint and fonts/images load
+    const refreshTimer = setTimeout(() => {
+      ScrollTrigger.refresh()
+    }, 250)
+
+    const handleResize = () => {
+      ScrollTrigger.refresh()
+    }
+    window.addEventListener('resize', handleResize, { passive: true })
+
     return () => {
+      clearTimeout(refreshTimer)
+      window.removeEventListener('resize', handleResize)
       gsap.ticker.remove(updateTicker)
       lenis.destroy()
     }

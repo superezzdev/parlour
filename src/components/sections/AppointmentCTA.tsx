@@ -17,7 +17,7 @@ interface AppointmentCTAProps {
 export default function AppointmentCTA({
   label = 'RESERVATIONS & CONSULTATIONS',
   headline,
-  body = 'Whether reserving your auspicious bridal dates, preparing for a grand celebration, or scheduling a personal beauty treatment — our team is dedicated to your transformation.',
+  body = 'Whether booking your wedding dates, preparing for a family celebration, or scheduling a skin care treatment — we take our time to get your look just right.',
   ctaLabel = 'BOOK AN APPOINTMENT',
   ctaHref = '/contact',
 }: AppointmentCTAProps) {

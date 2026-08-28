@@ -10,9 +10,11 @@ export default function PageLoader() {
   const [done, setDone] = useState(false)
 
   useEffect(() => {
-    // Don't show if already seen this session
+    // If already seen this session, skip instantly via GSAP to avoid synchronous effect setState
     if (typeof window !== 'undefined' && sessionStorage.getItem('loaderShown')) {
-      setDone(true)
+      if (loaderRef.current) {
+        loaderRef.current.style.display = 'none'
+      }
       return
     }
 

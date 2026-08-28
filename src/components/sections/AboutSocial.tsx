@@ -35,7 +35,7 @@ export default function AboutSocial() {
     },
     {
       src: '/images/gallery/makeup/makeup-01.jpg',
-      alt: 'Luminous bronze evening occasion makeup',
+      alt: 'Glowing bronze evening occasion makeup',
     },
     {
       src: '/images/gallery/hair/hair-01.jpg',
@@ -52,16 +52,16 @@ export default function AboutSocial() {
       <div className="container">
         {/* Header Block */}
         <div className={styles.headerBlock}>
-          <SectionLabel>THE DIGITAL ATELIER</SectionLabel>
+          <SectionLabel>FOLLOW OUR WORK</SectionLabel>
           <div className="overflow-hidden">
             <h2 id="social-heading" ref={headingRef} className={`${styles.heading} section-heading`}>
-              The living portfolio.
-              <em>Follow the journey on Instagram.</em>
+              Our living portfolio.
+              <em>Follow our work on Instagram.</em>
             </h2>
           </div>
           <p ref={subTextRef} className={styles.subText}>
-            Join our community to explore daily bridal transformations, client stories,
-            and an unfiltered view into our creative process in Sarai Meer.
+            Follow along to see daily bridal transformations, real client looks,
+            and behind-the-scenes moments from our studio in Sarai Meer.
           </p>
         </div>
 

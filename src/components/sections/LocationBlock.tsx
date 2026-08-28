@@ -17,7 +17,7 @@ export default function LocationBlock() {
       <div className="container">
         <div className={`${styles.inner} editorial-split editorial-split--60-40`}>
           {/* Map Side / Visual Location Frame */}
-          <div ref={mapRef} className={`${styles.mapContainer} image-reveal-wrapper`} aria-label="Studio location preview">
+          <div ref={mapRef} className={styles.mapContainer} aria-label="Studio location preview">
             {salon.googleMapsEmbedUrl ? (
               <iframe
                 src={salon.googleMapsEmbedUrl}
@@ -59,7 +59,7 @@ export default function LocationBlock() {
 
           {/* Details Side */}
           <div className={styles.details}>
-            <SectionLabel>VISIT OUR SANCTUARY</SectionLabel>
+            <SectionLabel>VISIT OUR STUDIO</SectionLabel>
 
             <div className="overflow-hidden">
               <EditorialHeading

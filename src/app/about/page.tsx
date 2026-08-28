@@ -5,19 +5,19 @@ import AboutArtistry from '@/components/sections/AboutArtistry'
 import AboutExperience from '@/components/sections/AboutExperience'
 import AboutStudio from '@/components/sections/AboutStudio'
 import AboutSocial from '@/components/sections/AboutSocial'
-import AppointmentCTA from '@/components/sections/AppointmentCTA'
+import CompactWhatsAppStrip from '@/components/sections/CompactWhatsAppStrip'
 
 export const metadata: Metadata = {
-  title: 'Our Story & Beauty Philosophy — Glamorous Studio Sarai Meer',
+  title: 'Our Story & Philosophy — Glamorous Studio Sarai Meer',
   description:
-    'Discover the philosophy, artistry, and sanctuary of Glamorous in Sarai Meer. Mindful bridal artistry, high-definition skin preparation, and serene personal care led by Sabreen Siddiqui.',
+    'Discover the philosophy, artistry, and story of Glamorous in Sarai Meer. Bridal makeup, skin preparation, and beauty care led by Sabreen Siddiqui.',
   alternates: {
     canonical: 'https://glamorous.in/about',
   },
   openGraph: {
-    title: 'Our Story & Beauty Philosophy | Glamorous Studio Sarai Meer',
+    title: 'Our Story & Philosophy | Glamorous Studio Sarai Meer',
     description:
-      'Beauty is an experience. Step inside our intimate sanctuary in Sarai Meer dedicated to mindful bridal artistry and unhurried personal care.',
+      'Step inside our boutique studio in Sarai Meer dedicated to mindful bridal artistry and attentive personal care.',
     url: 'https://glamorous.in/about',
     images: [
       {
@@ -62,7 +62,7 @@ export default function AboutPage() {
       founder: {
         '@type': 'Person',
         name: 'Sabreen Siddiqui',
-        jobTitle: 'Lead Bridal Makeup Artist & Creative Director',
+        jobTitle: 'Lead Bridal Makeup Artist & Founder',
       },
       address: {
         '@type': 'PostalAddress',
@@ -94,17 +94,17 @@ export default function AboutPage() {
       {/* 1. HERO — Quiet Editorial Portrait Split */}
       <HeroSection
         variant="about"
-        label="THE ATELIER & SANCTUARY"
+        label="ABOUT SABREEN & GLAMOROUS"
         headline={
           <>
             <span className="block font-light">SABREEN</span>
             <span className="block text-gold italic font-light">SIDDIQUI.</span>
           </>
         }
-        subheadline="An intimate sanctuary in Sarai Meer dedicated to mindful artistry, personal elegance, and the timeless rituals of beauty."
-        locationTag="SARAI MEER · THE SANCTUARY"
+        subheadline="A boutique studio in Sarai Meer dedicated to quality makeup, attentive service, and making every client feel truly special."
+        locationTag="SARAI MEER · OUR STUDIO"
         imageSrc="/images/about/about-studio.jpg"
-        imageAlt="Glamorous beauty studio sanctuary in Sarai Meer"
+        imageAlt="Glamorous beauty studio in Sarai Meer"
       />
 
       {/* 2. THE PHILOSOPHY */}
@@ -122,20 +122,8 @@ export default function AboutPage() {
       {/* 6. SOCIAL & JOURNEY */}
       <AboutSocial />
 
-      {/* 7. APPOINTMENT CTA */}
-      <AppointmentCTA
-        label="EXPERIENCE GLAMOROUS"
-        headline={
-          <>
-            BEGIN YOUR<br />
-            BEAUTY<br />
-            JOURNEY.
-          </>
-        }
-        body="Whether planning for your bridal celebration or treating yourself to personalized skincare and makeup, we invite you to reserve your session at our Sarai Meer studio."
-        ctaLabel="BOOK AN APPOINTMENT"
-        ctaHref="/contact"
-      />
+      {/* 7. Compact WhatsApp Action Strip */}
+      <CompactWhatsAppStrip />
     </>
   )
 }

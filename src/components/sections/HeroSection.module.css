@@ -165,7 +165,7 @@
 
 .servicesHeadline {
   font-family: var(--font-display);
-  font-size: clamp(3.2rem, 6.5vw, 5.5rem);
+  font-size: clamp(2.4rem, 8vw, 5.5rem);
   font-weight: 300;
   line-height: 1.0;
   letter-spacing: -0.02em;
@@ -255,7 +255,7 @@
 
 .galleryHeadline {
   font-family: var(--font-display);
-  font-size: clamp(3.2rem, 7vw, 6.5rem);
+  font-size: clamp(2.5rem, 8.5vw, 6.5rem);
   font-weight: 300;
   line-height: 0.92;
   letter-spacing: -0.02em;
@@ -321,7 +321,7 @@
 /* Sabreen's name in huge Cormorant 300 6rem */
 .aboutHeadline {
   font-family: var(--font-display);
-  font-size: clamp(3.5rem, 6vw, 6rem);
+  font-size: clamp(2.6rem, 8vw, 6rem);
   font-weight: 300;
   line-height: 0.92;
   letter-spacing: -0.02em;
@@ -416,7 +416,7 @@
 
 .contactHeadline {
   font-family: var(--font-display);
-  font-size: clamp(3.2rem, 6.5vw, 5.5rem);
+  font-size: clamp(2.4rem, 8vw, 5.5rem);
   font-weight: 300;
   line-height: 0.95;
   letter-spacing: -0.02em;
@@ -491,8 +491,8 @@
 .headline {
   font-family: 'Cormorant Garamond', var(--font-cormorant), var(--font-display), Georgia, serif;
   font-weight: 300;
-  font-size: clamp(3.5rem, 7.5vw, 6.8rem);
-  line-height: 0.90;
+  font-size: clamp(2.6rem, 9vw, 6.8rem);
+  line-height: 0.92;
   letter-spacing: -0.02em;
   color: var(--color-ivory);
   margin: 0;
@@ -635,8 +635,8 @@
 /* ═══════════════════════════════════════════════════════════════
    Responsive Breakpoints
    ═══════════════════════════════════════════════════════════════ */
-@media (max-width: 1023px) {
-  /* Home */
+@media (min-width: 769px) and (max-width: 1023px) {
+  /* Home Tablet */
   .homeMediaRight {
     width: 100%;
     opacity: 0.35;
@@ -650,7 +650,7 @@
     padding-right: 0;
   }
 
-  /* About */
+  /* About Tablet */
   .aboutSplitGrid {
     grid-template-columns: 1fr;
     gap: var(--space-8);
@@ -664,9 +664,52 @@
 }
 
 @media (max-width: 768px) {
+  /* Home Mobile (< 768px): Stacked layout, image first with 50svh height */
+  .heroHome {
+    flex-direction: column;
+    min-height: auto;
+    height: auto;
+  }
+
+  .homeMediaRight {
+    position: relative;
+    right: auto;
+    top: auto;
+    width: 100%;
+    height: 50svh;
+    min-height: 50svh;
+    opacity: 1;
+    order: 1;
+    z-index: 1;
+  }
+
+  .homeGoldDivider {
+    display: none;
+  }
+
+  .homeContainer {
+    order: 2;
+    min-height: auto;
+    height: auto;
+    width: 100%;
+    display: block;
+    padding-top: 0;
+  }
+
+  .homeLeftContent {
+    width: 100%;
+    max-width: 100%;
+    min-height: auto;
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-12);
+    padding-right: 0;
+    justify-content: flex-start;
+  }
+
   .badgeTopLeft {
     top: calc(72px + var(--space-3));
     left: clamp(1rem, 4vw, 1.5rem);
+    z-index: 20;
   }
 
   .actionGroup {
@@ -689,5 +732,17 @@
     bottom: clamp(1.5rem, 4vw, 2.5rem);
     left: clamp(1rem, 4vw, 1.5rem);
     right: clamp(1rem, 4vw, 1.5rem);
+  }
+
+  /* About Mobile */
+  .aboutSplitGrid {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+  .aboutRightMedia {
+    margin-left: 0;
+  }
+  .aboutImageFrame {
+    height: 360px;
   }
 }

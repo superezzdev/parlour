@@ -49,48 +49,49 @@ export interface BridalFAQ {
 }
 
 /** Story section focus points */
+/** Story section focus points */
 export const bridalStoryPoints: BridalStoryPoint[] = [
   {
     id: 'story-consult',
-    title: 'Consultation & Discovery',
-    subtitle: 'Understanding your unique silhouette',
+    title: 'Consultation & Planning',
+    subtitle: 'Understanding what you want',
     description:
-      'We begin with an unhurried consultation to understand your aesthetic aspirations, wedding attire, jewelry palette, and skin profile.',
+      'We sit down for an unhurried chat about your wedding outfits, jewelry, skin type, and the look you want to achieve.',
   },
   {
     id: 'story-look',
-    title: 'Desired Look Architecture',
-    subtitle: 'Harmonising tradition and modern grace',
+    title: 'Desired Look & Style',
+    subtitle: 'Matching tradition with your personal taste',
     description:
-      'Whether you envision timeless royal crimson, soft ethereal champagne glow, or bold modern glamour, your look is mapped down to every nuance.',
+      'Whether you want a classic royal red bride look, soft champagne glow, or modern glam, we plan every detail to match your outfits.',
   },
   {
     id: 'story-artistry',
     title: 'Precision Makeup Artistry',
-    subtitle: 'Skin-first, camera-ready luminosity',
+    subtitle: 'Skin-first, camera-ready finish',
     description:
-      'Using premium, long-wear formulations tailored for Indian lighting and marathon wedding rituals, we create a flawless second-skin finish that photographs impeccably.',
+      'Using long-lasting, waterproof products suited for Indian wedding lights and ceremonies, we give you a lightweight base that looks flawless in person and in photos.',
   },
   {
     id: 'story-hair',
-    title: 'Couture Hair Sculpting',
-    subtitle: 'Intricate updos & veil draping',
+    title: 'Hair Styling & Draping',
+    subtitle: 'Bridal buns, curls & secure dupatta draping',
     description:
-      'From classic floral chignons to contemporary textured cascades, paired with secure, weight-balanced dupatta and maang tikka placement.',
+      'From traditional floral buns to soft open waves, paired with secure, balanced dupatta and maang tikka pinning that stays comfortable all day.',
   },
   {
     id: 'story-finishing',
     title: 'Finishing Details & Touch-Ups',
-    subtitle: 'Every jewel and lash aligned',
+    subtitle: 'Every jewel and lash in place',
     description:
-      'Patience in the final moments — setting jewelry, perfecting the lip line, and providing you with a day-of touch-up routine for complete peace of mind.',
+      'We take our time in the final moments — setting jewelry, perfecting lipstick, and giving you quick touch-up tips for the day.',
   },
   {
     id: 'story-confidence',
-    title: 'Radiant Poise & Confidence',
-    subtitle: 'The feeling when you see yourself',
+    title: 'Calm & Confidence',
+    subtitle: 'The moment you look in the mirror',
     description:
-      'Beyond makeup, our studio environment offers a calm, celebratory sanctuary where you can pause, breathe, and step forward into your defining chapter with supreme poise.',
+      'More than makeup, our studio offers a calm, friendly space where you can relax, take a breath, and feel completely ready for your big day.',
   },
 ]
 
@@ -99,33 +100,33 @@ export const bridalProcessSteps: BridalStep[] = [
   {
     number: '01',
     title: 'CONSULT',
-    subtitle: 'Aesthetic Discovery & Palette Mapping',
+    subtitle: 'Outfit & Style Consultation',
     description:
-      'An in-depth dialogue about your bridal lehenga or saree, jewelry tones, lighting conditions, and skin preferences. We build your personalized bridal moodboard.',
+      'We discuss your bridal lehenga or saree, jewelry colors, event lighting, and skin preferences to plan your personalized bridal look.',
     timeline: '4–8 weeks before',
   },
   {
     number: '02',
     title: 'PREPARE',
-    subtitle: 'Skin Conditioning & Trial Session',
+    subtitle: 'Skin Prep & Trial Session',
     description:
-      'A dedicated trial run to calibrate undertones, test textures, and refine hair geometry. We also recommend targeted skin preparation rituals for a luminous wedding day base.',
+      'A dedicated trial to test foundation shades, eye makeup, and hairstyles. We also suggest simple skin prep steps so your skin is glowing on your wedding day.',
     timeline: '2–4 weeks before',
   },
   {
     number: '03',
     title: 'CREATE',
-    subtitle: 'Patience, Artistry & Wedding Day Focus',
+    subtitle: 'Your Wedding Day Look',
     description:
-      'On the day of your celebration, we create your look in a serene, unhurried atmosphere with high-definition application, contouring, and couture hair architecture.',
+      'On your wedding day, we take our time creating your look with a long-lasting bridal base, waterproof formulas, eye design tailored to your features, and colors chosen to complement your lehenga.',
     timeline: 'Day of celebration',
   },
   {
     number: '04',
     title: 'REVEAL',
-    subtitle: 'The Defining Moment of Poise',
+    subtitle: 'Final Dupatta Pinning & Reveal',
     description:
-      'Final veil anchoring, matha patti securing, delicate highlighting, and the quiet reveal where you experience the full transformation with effortless radiance.',
+      'Final dupatta and matha patti pinning, delicate finishing touches, and that special moment when you see your complete look in the mirror.',
     timeline: 'Final Reveal & Entry',
   },
 ]
@@ -146,7 +147,7 @@ export const bridalGalleryShowcase: BridalGalleryItem[] = [
   {
     id: 'bg-02',
     src: '/images/bridal/bridal-portrait.jpg',
-    alt: 'Luminous bridal beauty close-up featuring sculpted features and bridal maang tikka',
+    alt: 'Glowing bridal beauty close-up featuring sculpted features and bridal maang tikka',
     title: 'Radiant Bride in Heritage Gold',
     category: 'portraits',
     aspectRatio: '3/4',
@@ -163,7 +164,7 @@ export const bridalGalleryShowcase: BridalGalleryItem[] = [
     id: 'bg-04',
     src: '/images/gallery/hair/hair-01.jpg',
     alt: 'Intricate bridal hair updo adorned with fresh floral baby\'s breath',
-    title: 'Sculpted Floral Chignon',
+    title: 'Floral Romance Chignon',
     category: 'hair',
     aspectRatio: '4/5',
   },
@@ -192,16 +193,16 @@ export const bridalPackages: BridalPackage[] = [
     name: 'BRIDAL ESSENTIAL',
     subtitle: 'Classic Wedding Day Artistry',
     description:
-      'A refined, comprehensive day-of bridal experience designed for brides seeking timeless elegance and seamless execution.',
-    idealFor: 'Single-event celebrations and traditional wedding ceremonies',
+      'A complete wedding day makeup and styling service designed for brides who want a timeless, elegant look without the rush.',
+    idealFor: 'Wedding ceremony or single-event celebrations',
     priceLabel: 'Pricing upon consultation',
     includes: [
-      'Comprehensive pre-event consultation',
-      'High-Definition long-wear bridal makeup',
-      'Skin preparation and radiance priming',
-      'Couture bridal hair styling',
-      'Dupatta, veil & jewellery setting',
-      'Premium lash application & brow shaping',
+      'Pre-event consultation to discuss your look',
+      'Long-lasting bridal base with waterproof formulas',
+      'Skin prep and hydrating primer',
+      'Bridal hair styling and fresh floral setting',
+      'Dupatta, veil & jewelry pinning',
+      'Lash application and eyebrow definition',
     ],
   },
   {
@@ -209,36 +210,36 @@ export const bridalPackages: BridalPackage[] = [
     name: 'BRIDAL SIGNATURE',
     subtitle: 'The Complete Trial & Ceremony Experience',
     description:
-      'Our most requested bridal journey, combining a dedicated trial session with full wedding day luxury and personalized artist attention.',
-    idealFor: 'Brides wanting complete peace of mind with prior look refinement',
+      'Our most popular bridal service — includes a full trial session beforehand plus complete wedding day makeup, hair, and draping.',
+    idealFor: 'Brides who want to test and finalize their look before the wedding',
     priceLabel: 'Pricing upon consultation',
     isSignature: true,
     includes: [
-      'In-depth aesthetic consultation & moodboarding',
-      'Dedicated full bridal trial session',
-      'Luxury bridal makeup with personalized contouring',
-      'Advanced skin hydration prep & glow ritual',
-      'Intricate bridal hair architecture with floral styling',
-      'Double dupatta draping & bridal jewellery anchoring',
-      'Complimentary bridal touch-up kit',
+      'Detailed style consultation and moodboard',
+      'Full bridal trial session for makeup and hair',
+      'Long-lasting bridal makeup with natural contouring and highlight',
+      'Hydrating skin prep for a fresh, natural glow',
+      'Bridal hair styling with floral placement',
+      'Double dupatta draping and heavy jewelry setting',
+      'Complimentary touch-up kit for the ceremony',
     ],
   },
   {
     id: 'pkg-editorial',
-    name: 'BRIDAL EDITORIAL',
-    subtitle: 'Multi-Event Celebration Suite',
+    name: 'BRIDAL CELEBRATION SUITE',
+    subtitle: 'Multi-Event Celebration Package',
     description:
-      'An all-inclusive, multi-day beauty accompaniment tailored for grand wedding celebrations spanning multiple functions.',
-    idealFor: 'Multi-day nuptials: Engagement, Mehendi, Sangeet, Wedding & Reception',
+      'A complete beauty package covering multiple wedding functions like Engagement, Mehendi, Sangeet, Wedding, and Reception.',
+    idealFor: 'Multi-day weddings: Engagement, Mehendi, Sangeet, Wedding & Reception',
     priceLabel: 'Pricing upon consultation',
     includes: [
-      'Customized multi-look consultation & timeline planning',
-      'Full bridal trial session with camera-lighting testing',
-      'Pre-bridal skin conditioning ritual prior to wedding week',
+      'Look planning for every wedding function',
+      'Full trial session before wedding week',
+      'Pre-bridal skin cleanup and glow facial',
       'Artistry for main wedding ceremony and reception/sangeet',
-      'Bespoke hair design variations for each function',
-      'Dedicated on-location assistance & mid-event touch-up support',
-      'Family member beauty coordination (on request)',
+      'Distinct hairstyles and draping styles for each event',
+      'On-location assistance and mid-event touch-ups (on request)',
+      'Family member makeup coordination (on request)',
     ],
   },
 ]
@@ -249,30 +250,30 @@ export const bridalFAQs: BridalFAQ[] = [
     id: 'faq-early',
     question: 'How early should I book?',
     answer:
-      'We recommend securing your date 2 to 6 months in advance, especially during the auspicious autumn and winter wedding seasons (October through March). Because we only accept a limited number of brides per day to ensure undivided attention, dates fill very quickly.',
+      'We recommend booking 2 to 6 months in advance, especially during the peak wedding season (October through March). Because we only take a limited number of brides each day to give you our undivided attention, dates fill up quickly.',
   },
   {
     id: 'faq-trials',
     question: 'Do you offer trials?',
     answer:
-      'Yes, we strongly encourage bridal trial sessions. During the trial, we test base formulations against your skin tone, experiment with eyeshadow textures and lip shades, and construct sample hairstyles alongside your jewelry reference images so you feel 100% assured on your big day.',
+      'Yes, we highly recommend bridal trial sessions. During the trial, we test foundation shades against your skin tone, try eye makeup styles and lip colors, and create sample hairstyles with your jewelry reference photos so you feel 100% confident on your wedding day.',
   },
   {
     id: 'faq-bring',
     question: 'What should I bring to my consultation?',
     answer:
-      'Please bring high-resolution photos of your bridal outfit(s), your jewelry sets (or reference photos), swatches of fabrics if available, and a few visual references of makeup styles you love. If you have specific skin sensitivities or allergies, sharing those helps us prepare custom products.',
+      'Please bring photos of your bridal outfits, jewelry sets (or reference pictures), fabric swatches if you have them, and a few pictures of makeup styles you like. If you have sensitive skin or allergies, let us know so we can prepare suitable products.',
   },
   {
     id: 'faq-custom',
     question: 'Can I discuss a custom look?',
     answer:
-      'Absolutely. Every bride has a distinctive aesthetic, facial structure, and personal comfort level. Whether you prefer minimalist glass-skin elegance, high-contrast smokey eyes, or heritage royal glam, we tailor every single element to your individual preferences.',
+      'Of course! Every bride has her own style, facial features, and comfort level. Whether you prefer a soft dewy glow, defined smokey eyes, or a traditional royal look, we tailor every detail to what suits you best.',
   },
   {
     id: 'faq-combine',
     question: 'What services can be combined?',
     answer:
-      'You can seamlessly combine your bridal makeup with pre-bridal skin therapy, hydrating facials, body polishing, hair conditioning rituals, manicures, and nail extensions. We also offer curated packages for bridesmaids and immediate family members upon prior arrangement.',
+      'You can combine your bridal makeup with pre-bridal skin care, hydrating facials, body polishing, hair treatments, manicures, and nail art. We also take bookings for family members and bridesmaids upon advance notice.',
   },
 ]

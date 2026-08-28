@@ -17,41 +17,41 @@ export default function AboutStudio() {
           {/* Text Information */}
           <div className={styles.textContent}>
             <div className={styles.labelWrapper}>
-              <SectionLabel>04 / THE STUDIO SANCTUARY</SectionLabel>
+              <SectionLabel>04 / OUR STUDIO</SectionLabel>
             </div>
 
             <div className="overflow-hidden">
               <h2 id="studio-heading" ref={headingRef} className={`${styles.heading} section-heading`}>
-                A private haven
+                A comfortable space
                 <em>in Sarai Meer.</em>
               </h2>
             </div>
 
             <p ref={leadRef} className={styles.leadText}>
-              Perched above the town on the 1st Floor of Mumtaz Bangle Store, Glamorous was envisioned
-              as an intimate beauty sanctuary. Bathed in balanced daylight-spectrum illumination with
-              dedicated styling stations, it provides the tranquility required for flawless artistry.
+              Located on the 1st Floor of Mumtaz Bangle Store on Sabji Mandi Road, Glamorous is
+              a calm, welcoming studio. With dedicated stations and proper lighting, we make sure
+              you feel completely comfortable throughout your appointment.
             </p>
 
             <div ref={featuresRef} className={styles.featuresList}>
               <div className={styles.featureItem}>
-                <strong className={styles.featureTitle}>Dedicated Bridal Suite</strong>
-                <span className={styles.featureDesc}>Private dressing and makeup space designed for relaxed pre-wedding transformations.</span>
+                <strong className={styles.featureTitle}>Private Bridal Area</strong>
+                <span className={styles.featureDesc}>A comfortable, private space for brides to get ready without rush or distraction.</span>
               </div>
 
               <div className={styles.featureItem}>
-                <strong className={styles.featureTitle}>Colour-True Lighting</strong>
-                <span className={styles.featureDesc}>Calibrated CRI 95+ vanity illumination ensuring your look appears flawless under any light.</span>
+                <strong className={styles.featureTitle}>Proper Lighting</strong>
+                <span className={styles.featureDesc}>Proper lighting at every station ensures your makeup looks flawless in daylight, evening lights, and photos.</span>
               </div>
 
               <div className={styles.featureItem}>
-                <strong className={styles.featureTitle}>Strict Hygiene Protocol</strong>
-                <span className={styles.featureDesc}>Sterilized brushes, single-use disposables, and premium sanitized skincare tools.</span>
+                <strong className={styles.featureTitle}>Clean &amp; Hygienic Tools</strong>
+                <span className={styles.featureDesc}>Clean brushes, sanitized makeup kits, and fresh disposables for every client.</span>
               </div>
 
               <div className={styles.featureItem}>
-                <strong className={styles.featureTitle}>Central Accessible Location</strong>
-                <span className={styles.featureDesc}>Conveniently situated on Sabji Mandi Rd with easy access for brides and families across the region.</span>
+                <strong className={styles.featureTitle}>Easy to Find Location</strong>
+                <span className={styles.featureDesc}>Centrally located on Sabji Mandi Road, easily accessible from across Sarai Meer and nearby areas.</span>
               </div>
             </div>
           </div>

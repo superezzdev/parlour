@@ -9,6 +9,12 @@
 @import './layout.css';
 @import './animations.css';
 
+/* ─── Typography Smoothing & Feature Settings ─────────────────── */
+h1, h2, h3 {
+  font-feature-settings: "liga" 1, "kern" 1, "onum" 1;
+  -webkit-font-smoothing: antialiased;
+}
+
 /* ─── Base ───────────────────────────────────────────────────── */
 html {
   font-family: var(--font-body);
@@ -23,36 +29,43 @@ body {
   color: var(--color-coffee);
   background-color: var(--color-ivory);
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Global Link Transition ─────────────────────────────────── */
+a {
+  transition: color 0.2s ease;
 }
 
 /* ─── Text Selection ─────────────────────────────────────────── */
 ::selection {
-  background: var(--color-petal);
-  color: var(--color-espresso);
+  background-color: #C9A96E;
+  color: #080808;
 }
 
-/* ─── Focus Ring ─────────────────────────────────────────────── */
+/* ─── Focus Ring (Accessibility) ─────────────────────────────── */
 :focus-visible {
-  outline: 2px solid var(--color-rose);
-  outline-offset: 2px;
+  outline: 1px solid #C9A96E;
+  outline-offset: 3px;
 }
 
 /* ─── Scrollbar ──────────────────────────────────────────────── */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 4px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-ivory);
+  background: #080808;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-champagne);
-  border-radius: var(--radius-pill);
+  background: #C9A96E;
+  border-radius: 2px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-rose);
+  background: var(--color-gold-light);
 }
 
 /* ─── Main Content Area ──────────────────────────────────────── */
