@@ -66,6 +66,7 @@
   height: 100%;
   object-fit: cover;
   object-position: center 25%;
+  filter: contrast(106%) brightness(102%);
   animation: heroSubtleScale 18s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite alternate;
 }
 
@@ -74,16 +75,16 @@
   inset: 0;
   background: linear-gradient(
     to right,
-    rgba(8, 8, 8, 0.92) 0%,
-    rgba(8, 8, 8, 0.45) 25%,
-    rgba(8, 8, 8, 0.20) 70%,
-    rgba(8, 8, 8, 0.60) 100%
+    rgba(8, 8, 8, 0.88) 0%,
+    rgba(8, 8, 8, 0.25) 25%,
+    transparent 65%,
+    rgba(8, 8, 8, 0.35) 100%
   ),
   linear-gradient(
     to bottom,
-    rgba(8, 8, 8, 0.40) 0%,
+    rgba(8, 8, 8, 0.25) 0%,
     transparent 35%,
-    rgba(8, 8, 8, 0.75) 100%
+    rgba(8, 8, 8, 0.60) 100%
   );
 }
 
@@ -136,7 +137,7 @@
 .heroServices {
   position: relative;
   background: var(--color-noir);
-  min-height: clamp(520px, 68vh, 760px);
+  min-height: clamp(580px, 78vh, 840px);
   padding-top: calc(72px + var(--space-12));
   padding-bottom: clamp(4rem, 8vw, 7rem);
   overflow: hidden;
@@ -156,7 +157,8 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 35%;
+  object-position: center 25%;
+  filter: contrast(106%) brightness(102%);
   animation: heroSubtleScale 20s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite alternate;
 }
 
@@ -165,14 +167,15 @@
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(8, 8, 8, 0.70) 0%,
-    rgba(8, 8, 8, 0.85) 50%,
-    rgba(8, 8, 8, 0.98) 100%
+    rgba(8, 8, 8, 0.40) 0%,
+    rgba(8, 8, 8, 0.15) 25%,
+    rgba(8, 8, 8, 0.45) 60%,
+    rgba(8, 8, 8, 0.92) 100%
   ),
   radial-gradient(
-    circle at center,
-    rgba(8, 8, 8, 0.40) 0%,
-    rgba(8, 8, 8, 0.90) 100%
+    ellipse at center,
+    rgba(8, 8, 8, 0.15) 0%,
+    rgba(8, 8, 8, 0.65) 100%
   );
 }
 
@@ -204,6 +207,7 @@
   color: var(--color-ivory);
   text-transform: uppercase;
   margin: 0;
+  text-shadow: 0 4px 28px rgba(0, 0, 0, 0.85), 0 2px 8px rgba(0, 0, 0, 0.6);
 }
 
 /* Thin horizontal line: 1px, bg-ghost, width 60px, mx-auto */
@@ -220,9 +224,10 @@
   font-size: var(--text-lg);
   font-weight: 300;
   line-height: 1.7;
-  color: rgba(250, 247, 242, 0.85);
+  color: rgba(250, 247, 242, 0.90);
   max-width: 680px;
   margin: 0 auto var(--space-8) auto;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.9);
 }
 
 .servicesActionGroup {
@@ -404,13 +409,12 @@
   height: 100%;
   object-fit: cover;
   object-position: center 20%;
-  /* Grayscale + Sepia CSS filter */
-  filter: grayscale(90%) sepia(25%) contrast(1.06) brightness(0.95);
-  transition: filter var(--duration-slow) var(--ease-standard);
+  filter: contrast(106%) brightness(102%);
+  transition: transform var(--duration-slow) var(--ease-standard), filter var(--duration-slow) var(--ease-standard);
 }
 
 .aboutImageFrame:hover .aboutPortraitImage {
-  filter: grayscale(70%) sepia(20%) contrast(1.08) brightness(1.0);
+  transform: scale(1.03);
 }
 
 .aboutImageOverlay {
@@ -418,8 +422,8 @@
   inset: 0;
   background: linear-gradient(
     to right,
-    rgba(8, 8, 8, 0.65) 0%,
-    rgba(8, 8, 8, 0.15) 30%,
+    rgba(8, 8, 8, 0.40) 0%,
+    rgba(8, 8, 8, 0.05) 30%,
     transparent 100%
   );
   pointer-events: none;
@@ -501,6 +505,7 @@
   height: 100%;
   object-fit: cover;
   object-position: center 25%;
+  filter: contrast(106%) brightness(102%);
   animation: heroSubtleScale 18s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite alternate;
 }
 
@@ -509,10 +514,10 @@
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(8, 8, 8, 0.35) 0%,
-    rgba(8, 8, 8, 0.55) 45%,
-    rgba(8, 8, 8, 0.85) 85%,
-    rgba(8, 8, 8, 0.95) 100%
+    rgba(8, 8, 8, 0.30) 0%,
+    rgba(8, 8, 8, 0.10) 30%,
+    rgba(8, 8, 8, 0.50) 65%,
+    rgba(8, 8, 8, 0.92) 100%
   );
 }
 
@@ -538,6 +543,7 @@
   color: var(--color-ivory);
   margin: 0;
   text-transform: uppercase;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.85), 0 2px 10px rgba(0, 0, 0, 0.6);
 }
 
 .headline span,
@@ -580,10 +586,11 @@
   font-family: var(--font-body);
   font-size: var(--text-lg);
   font-weight: 300;
-  color: rgba(250, 247, 242, 0.88);
+  color: rgba(250, 247, 242, 0.90);
   line-height: 1.60;
   max-width: 50ch;
   margin: 0;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.9);
 }
 
 /* Action Group */

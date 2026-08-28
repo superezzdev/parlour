@@ -20,7 +20,7 @@
   height: 100%;
   object-fit: cover;
   object-position: center 30%;
-  filter: contrast(105%) brightness(95%);
+  filter: contrast(106%) brightness(102%);
   transition: transform 1200ms var(--ease-standard);
 }
 
@@ -33,10 +33,10 @@
   inset: 0;
   background: linear-gradient(
     to right,
-    rgba(30, 18, 8, 0.88) 0%,
-    rgba(30, 18, 8, 0.72) 40%,
-    rgba(30, 18, 8, 0.40) 80%,
-    rgba(30, 18, 8, 0.60) 100%
+    rgba(8, 8, 8, 0.85) 0%,
+    rgba(8, 8, 8, 0.50) 45%,
+    rgba(8, 8, 8, 0.15) 75%,
+    rgba(8, 8, 8, 0.40) 100%
   );
 }
 
