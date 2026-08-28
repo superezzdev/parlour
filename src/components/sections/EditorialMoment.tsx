@@ -1,3 +1,6 @@
+'use client'
+
+import { useScrollReveal, useImageClipReveal } from '@/hooks/useScrollReveal'
 import styles from './EditorialMoment.module.css'
 
 interface EditorialMomentProps {
@@ -13,10 +16,13 @@ export default function EditorialMoment({
   tag = 'THE ART OF REFINEMENT',
   headline = 'Every detail composed with quiet intention.',
 }: EditorialMomentProps) {
+  const mediaRef = useImageClipReveal<HTMLDivElement>()
+  const badgeRef = useScrollReveal<HTMLDivElement>({ y: 40, delay: 0.15 })
+
   return (
     <section className={styles.momentSection} aria-label="Editorial beauty showcase">
       {/* Full-bleed media container */}
-      <div className={`${styles.mediaContainer} image-reveal-wrapper`} data-reveal>
+      <div ref={mediaRef} className={`${styles.mediaContainer} image-reveal-wrapper`}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={imageSrc}
@@ -29,7 +35,7 @@ export default function EditorialMoment({
 
       {/* Minimalistic Editorial Floating Badge */}
       <div className={`container ${styles.contentContainer}`}>
-        <div className={styles.minimalBadge} data-reveal="fade">
+        <div ref={badgeRef} className={styles.minimalBadge}>
           <span className={styles.tag}>{tag}</span>
           <p className={styles.headline}>&ldquo;{headline}&rdquo;</p>
         </div>

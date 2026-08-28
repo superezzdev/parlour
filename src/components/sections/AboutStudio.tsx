@@ -1,29 +1,39 @@
+'use client'
+
 import { SectionLabel } from '@/components/ui/Primitives'
+import { useScrollReveal, useHeadingReveal, useImageClipReveal } from '@/hooks/useScrollReveal'
 import styles from './AboutStudio.module.css'
 
 export default function AboutStudio() {
+  const headingRef = useHeadingReveal<HTMLHeadingElement>()
+  const leadRef = useScrollReveal<HTMLParagraphElement>({ y: 30, delay: 0.1 })
+  const featuresRef = useScrollReveal<HTMLDivElement>({ y: 30, delay: 0.2 })
+  const visualRef = useImageClipReveal<HTMLDivElement>()
+
   return (
     <section className={styles.studio} aria-labelledby="studio-heading">
       <div className="container">
         <div className={styles.inner}>
           {/* Text Information */}
-          <div className={styles.textContent} data-reveal>
+          <div className={styles.textContent}>
             <div className={styles.labelWrapper}>
               <SectionLabel>04 / THE STUDIO SANCTUARY</SectionLabel>
             </div>
 
-            <h2 id="studio-heading" className={styles.heading}>
-              A private haven
-              <em>in Sarai Meer.</em>
-            </h2>
+            <div className="overflow-hidden">
+              <h2 id="studio-heading" ref={headingRef} className={`${styles.heading} section-heading`}>
+                A private haven
+                <em>in Sarai Meer.</em>
+              </h2>
+            </div>
 
-            <p className={styles.leadText}>
+            <p ref={leadRef} className={styles.leadText}>
               Perched above the town on the 1st Floor of Mumtaz Bangle Store, Glamorous was envisioned
               as an intimate beauty sanctuary. Bathed in balanced daylight-spectrum illumination with
               dedicated styling stations, it provides the tranquility required for flawless artistry.
             </p>
 
-            <div className={styles.featuresList}>
+            <div ref={featuresRef} className={styles.featuresList}>
               <div className={styles.featureItem}>
                 <strong className={styles.featureTitle}>Dedicated Bridal Suite</strong>
                 <span className={styles.featureDesc}>Private dressing and makeup space designed for relaxed pre-wedding transformations.</span>
@@ -47,7 +57,7 @@ export default function AboutStudio() {
           </div>
 
           {/* Visual Frame */}
-          <div className={styles.visualFrame} data-reveal>
+          <div ref={visualRef} className={styles.visualFrame}>
             <div className={styles.imageWrapper}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img

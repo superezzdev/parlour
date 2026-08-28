@@ -19,13 +19,26 @@ export default function GalleryGrid({
   showFilters = true,
   className = '',
 }: GalleryGridProps) {
-  const [selectedCategory, setSelectedCategory] = useState<GalleryCategory>(initialCategory)
+  const [activeCategory, setActiveCategory] = useState<GalleryCategory>(initialCategory)
+  const [displayedCategory, setDisplayedCategory] = useState<GalleryCategory>(initialCategory)
+  const [isFading, setIsFading] = useState<boolean>(false)
   const [activeImageIndex, setActiveImageIndex] = useState<number | null>(null)
 
+  const handleCategoryChange = (category: GalleryCategory) => {
+    if (category === activeCategory) return
+    setActiveCategory(category)
+    setIsFading(true)
+    setTimeout(() => {
+      setDisplayedCategory(category)
+      setActiveImageIndex(null)
+      setIsFading(false)
+    }, 180)
+  }
+
   const filteredImages = useMemo(() => {
-    if (selectedCategory === 'all') return images
-    return images.filter((img) => img.category === selectedCategory)
-  }, [images, selectedCategory])
+    if (displayedCategory === 'all') return images
+    return images.filter((img) => img.category === displayedCategory)
+  }, [images, displayedCategory])
 
   const activeImage = activeImageIndex !== null ? filteredImages[activeImageIndex] : null
 
@@ -40,85 +53,98 @@ export default function GalleryGrid({
   }
 
   return (
-    <div className={`${styles.galleryRoot} ${className}`}>
-      {/* Category filter pills */}
+    <section className={`${styles.gallerySection} ${className}`} aria-label="Gallery Portfolio">
+      {/* 1. FILTER BAR (sticky top-[navbar height], bg-surface/90, backdrop-blur-md, border-b border-ghost, py-4) */}
       {showFilters && (
-        <div className={styles.filterContainer} data-reveal="fade">
-          <div
-            className={styles.filterList}
-            role="tablist"
-            aria-label="Gallery category filters"
-          >
-            {galleryCategories.map((cat) => {
-              const isActive = selectedCategory === cat.id
-              return (
-                <button
-                  key={cat.id}
-                  role="tab"
-                  aria-selected={isActive}
-                  className={`${styles.filterBtn} ${isActive ? styles.filterBtnActive : ''}`}
-                  onClick={() => {
-                    setSelectedCategory(cat.id)
-                    setActiveImageIndex(null)
-                  }}
-                >
-                  {cat.label}
-                </button>
-              )
-            })}
+        <div className={styles.stickyFilterBar}>
+          <div className={styles.filterScrollWrapper}>
+            <div
+              className={styles.filterList}
+              role="tablist"
+              aria-label="Gallery category filters"
+            >
+              {galleryCategories.map((cat) => {
+                const isActive = activeCategory === cat.id
+                return (
+                  <button
+                    key={cat.id}
+                    role="tab"
+                    id={`gallery-filter-${cat.id}`}
+                    aria-selected={isActive}
+                    aria-controls="gallery-masonry-grid"
+                    className={`${styles.filterBtn} ${isActive ? styles.filterBtnActive : ''}`}
+                    onClick={() => handleCategoryChange(cat.id)}
+                  >
+                    <span>{cat.label}</span>
+                    <span className={styles.filterBtnUnderline} aria-hidden="true" />
+                  </button>
+                )
+              })}
+            </div>
           </div>
         </div>
       )}
 
-      {/* Asymmetric Masonry gallery grid */}
-      <div className="container">
+      {/* 2. MASONRY GRID & 3. HOVER EFFECT */}
+      <div className={`container ${styles.gridContainer}`}>
         {filteredImages.length > 0 ? (
-          <div className={styles.masonryGrid} data-stagger>
-            {filteredImages.map((image, index) => (
-              <div
-                key={image.id}
-                className={styles.gridItem}
-                onClick={() => setActiveImageIndex(index)}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault()
-                    setActiveImageIndex(index)
-                  }
-                }}
-                tabIndex={0}
-                role="button"
-                aria-label={`View full resolution: ${image.title || image.alt}`}
-              >
-                <div className={styles.imageWrapper}>
+          <div
+            id="gallery-masonry-grid"
+            className={`${styles.masonryGrid} ${isFading ? styles.fading : ''}`}
+            role="region"
+            aria-live="polite"
+          >
+            {filteredImages.map((image, index) => {
+              // Alternate image heights:
+              // index % 3 === 0 -> h-80 (320px)
+              // index % 3 === 1 -> h-64 (256px)
+              // index % 3 === 2 -> h-96 (384px)
+              const heightClass =
+                index % 3 === 0
+                  ? styles.height80
+                  : index % 3 === 1
+                  ? styles.height64
+                  : styles.height96
+
+              return (
+                <div
+                  key={image.id}
+                  className={`${styles.masonryItem} ${heightClass}`}
+                  onClick={() => setActiveImageIndex(index)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault()
+                      setActiveImageIndex(index)
+                    }
+                  }}
+                  tabIndex={0}
+                  role="button"
+                  aria-label={`Open photo lightbox: ${image.title || image.alt}`}
+                >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={image.src}
                     alt={image.alt}
-                    loading="lazy"
+                    loading={index < 4 ? 'eager' : 'lazy'}
                     className={styles.image}
-                    style={{ aspectRatio: image.aspectRatio || '4/5' }}
                   />
 
-                  {/* Hover Overlay Metadata */}
-                  <div className={styles.overlay}>
-                    <span className={styles.categoryTag}>{image.category}</span>
-                    <h3 className={styles.itemTitle}>{image.title || image.alt}</h3>
-                    {image.description && (
-                      <p className={styles.itemDesc}>{image.description}</p>
-                    )}
+                  {/* 3. HOVER EFFECT ON EACH GALLERY ITEM */}
+                  <div className={styles.overlay} aria-hidden="true">
+                    <div className={styles.overlayTop}>
+                      <span className={styles.viewText}>
+                        View &rarr;
+                      </span>
+                    </div>
 
-                    <div className={styles.expandIcon} aria-hidden="true">
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <polyline points="15 3 21 3 21 9" />
-                        <polyline points="9 21 3 21 3 15" />
-                        <line x1="21" y1="3" x2="14" y2="10" />
-                        <line x1="3" y1="21" x2="10" y2="14" />
-                      </svg>
+                    <div className={styles.overlayBottom}>
+                      <span className={styles.categoryBadge}>{image.category}</span>
+                      <h3 className={styles.itemTitle}>{image.title || image.alt}</h3>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
         ) : (
           <div className={styles.emptyState}>
@@ -127,7 +153,7 @@ export default function GalleryGrid({
         )}
       </div>
 
-      {/* Lightbox modal with counter and arrow keys */}
+      {/* 5. LIGHTBOX MODAL */}
       <GalleryModal
         image={activeImage}
         isOpen={activeImageIndex !== null}
@@ -137,6 +163,6 @@ export default function GalleryGrid({
         onNext={filteredImages.length > 1 ? handleNext : undefined}
         onPrev={filteredImages.length > 1 ? handlePrev : undefined}
       />
-    </div>
+    </section>
   )
 }

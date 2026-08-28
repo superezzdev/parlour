@@ -9,6 +9,9 @@
   --color-bone:        #F2EDE6;   /* Warm white, card backgrounds */
   --color-champagne:   #EDE0CC;   /* Soft champagne — section dividers */
   --color-parchment:   #E8DECE;   /* Warm mid-tone */
+  --color-noir:        #080808;   /* Deep editorial black */
+  --color-ghost:       rgba(250, 247, 242, 0.15); /* Subtle translucent ghost line */
+  --color-ghost-border: rgba(250, 247, 242, 0.10);
 
   /* ─── Text Colors ───────────────────────────────────────────── */
   --color-espresso:    #1E1208;   /* Primary text — deep, warm dark */
@@ -21,6 +24,8 @@
   --color-blush:       #D9A89B;   /* Hover states, lighter accent */
   --color-petal:       #EDD6CF;   /* Very light blush — backgrounds, borders */
   --color-burgundy:    #6B1A2A;   /* Sparingly — special emphasis only */
+  --color-gold:        #C9A86A;   /* Refined luxury gold */
+  --color-gold-light:  #DFCA9B;   /* Light gold shimmer */
 
   /* ─── UI Functional ─────────────────────────────────────────── */
   --color-border:      rgba(30, 18, 8, 0.12);
@@ -41,6 +46,7 @@
   --font-display: var(--font-cormorant), 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
   --font-body:    var(--font-dmsans), 'DM Sans', 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-label:   var(--font-dmsans), 'DM Sans', sans-serif;
+  --font-mono:    var(--font-mono), 'Space Mono', 'SF Mono', Consolas, Monaco, monospace;
 
   /* ─── Typography: Display Scale (Cormorant Garamond) ────────── */
   --text-display-2xl: clamp(4.5rem, 9vw, 9rem);

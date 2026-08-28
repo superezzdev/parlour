@@ -5,6 +5,7 @@ import { useSearchParams } from 'next/navigation'
 import { serviceCategories } from '@/data/services'
 import { bridalPackages } from '@/data/bridal'
 import { salon } from '@/data/salon'
+import { useHeadingReveal } from '@/hooks/useScrollReveal'
 import styles from './BookingForm.module.css'
 
 interface FormData {
@@ -48,6 +49,7 @@ function getInitialService(serviceParam: string | null): string {
 export default function BookingForm() {
   const searchParams = useSearchParams()
   const serviceParam = searchParams.get('service')
+  const formHeadingRef = useHeadingReveal<HTMLHeadingElement>()
 
   const nameId = useId()
   const phoneId = useId()
@@ -194,7 +196,9 @@ export default function BookingForm() {
       {!isSubmitted ? (
         <>
           <div className={styles.formHeader}>
-            <h2 className={styles.formTitle}>Reserve Your Session</h2>
+            <div className="overflow-hidden">
+              <h2 ref={formHeadingRef} className={`${styles.formTitle} section-heading`}>Reserve Your Session</h2>
+            </div>
             <p className={styles.formSubtitle}>
               Fill in your details below and our studio concierge will confirm your slot within a few hours.
             </p>

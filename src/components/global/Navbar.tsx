@@ -4,36 +4,38 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { navLinks, ctaLink } from '@/data/navigation'
-import { salon } from '@/data/salon'
 import MobileMenu from './MobileMenu'
 import styles from './Navbar.module.css'
 
 export default function Navbar() {
   const pathname = usePathname()
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [menuOpen, setMenuOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false)
   const [prevPathname, setPrevPathname] = useState(pathname)
 
   // Reset menu when pathname changes during render
   if (prevPathname !== pathname) {
     setPrevPathname(pathname)
-    setMenuOpen(false)
+    setMobileOpen(false)
   }
 
   useEffect(() => {
-    const onScroll = () => {
-      setIsScrolled(window.scrollY > 60)
-    }
+    const onScroll = () => setScrolled(window.scrollY > 80)
+    onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? 'hidden' : ''
-    return () => {
-      document.body.style.overflow = ''
+    if (mobileOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'auto'
     }
-  }, [menuOpen])
+    return () => {
+      document.body.style.overflow = 'auto'
+    }
+  }, [mobileOpen])
 
   const isActive = (href: string, exact?: boolean) => {
     if (exact) return pathname === href
@@ -47,42 +49,46 @@ export default function Navbar() {
       </a>
 
       <header
-        className={`${styles.navbar}${isScrolled ? ` ${styles.navbarScrolled}` : ''}`}
+        className={`${styles.navbar}${scrolled ? ` ${styles.navbarScrolled}` : ''}`}
         role="banner"
       >
         <div className={`${styles.inner} container`}>
-          <Link href="/" className={styles.logo} aria-label={`${salon.name} — Home`}>
-            <span className={styles.logoWordmark}>{salon.name}</span>
+          <Link href="/" className={styles.logo} aria-label="GLAMOROUS — Makeup & Beauty">
+            <span className={styles.logoWordmark}>GLAMOROUS</span>
+            <span className={styles.logoSubtitle}>Makeup &amp; Beauty</span>
           </Link>
 
-          <nav className={styles.nav} aria-label="Main navigation">
+          <nav className={`${styles.nav} hidden lg:block`} aria-label="Main navigation">
             <ul className={styles.links} role="list">
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className={`nav-link${isActive(link.href, link.exact) ? ' is-active' : ''}`}
-                    aria-current={isActive(link.href, link.exact) ? 'page' : undefined}
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
+              {navLinks.map((link) => {
+                const active = isActive(link.href, link.exact)
+                return (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className={`${styles.navLink}${active ? ` ${styles.navLinkActive}` : ''}`}
+                      aria-current={active ? 'page' : undefined}
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                )
+              })}
             </ul>
           </nav>
 
-          <div className={styles.cta}>
-            <Link href={ctaLink.href} className="btn btn-primary btn-sm">
+          <div className={`${styles.cta} hidden lg:block`}>
+            <Link href={ctaLink.href} className={styles.ctaButton}>
               {ctaLink.label}
             </Link>
           </div>
 
           <button
-            className={`${styles.hamburger}${menuOpen ? ` ${styles.hamburgerOpen}` : ''}`}
-            aria-expanded={menuOpen}
+            className={`${styles.hamburger} block lg:hidden${mobileOpen ? ` ${styles.hamburgerOpen}` : ''}`}
+            aria-expanded={mobileOpen}
             aria-controls="mobile-menu"
-            aria-label={menuOpen ? 'Close navigation' : 'Open navigation'}
-            onClick={() => setMenuOpen((prev) => !prev)}
+            aria-label={mobileOpen ? 'Close navigation' : 'Open navigation'}
+            onClick={() => setMobileOpen((prev) => !prev)}
           >
             <span className={styles.bar} />
             <span className={styles.bar} />
@@ -93,8 +99,8 @@ export default function Navbar() {
 
       <MobileMenu
         id="mobile-menu"
-        isOpen={menuOpen}
-        onClose={() => setMenuOpen(false)}
+        isOpen={mobileOpen}
+        onClose={() => setMobileOpen(false)}
         currentPath={pathname}
       />
     </>

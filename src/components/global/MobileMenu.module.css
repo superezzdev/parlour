@@ -6,27 +6,33 @@
 .drawer {
   position: fixed;
   inset: 0;
-  z-index: var(--z-mobile-menu);
+  z-index: 40;
   background-color: var(--color-ivory);
   background-image: 
     radial-gradient(ellipse 70% 40% at 85% 10%, rgba(237, 214, 207, 0.42) 0%, transparent 70%),
     radial-gradient(ellipse 60% 50% at 15% 85%, rgba(237, 224, 204, 0.38) 0%, transparent 65%);
-  transform: translateX(100%);
-  opacity: 0;
   visibility: hidden;
-  transition:
-    transform 0.55s cubic-bezier(0.16, 1, 0.3, 1),
-    opacity 0.4s ease,
-    visibility 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s ease;
   overflow: hidden;
   display: flex;
   flex-direction: column;
 }
 
 .drawer.open {
-  transform: translateX(0);
-  opacity: 1;
   visibility: visible;
+  opacity: 1;
+  pointer-events: all;
+}
+
+@media (min-width: 1024px) {
+  .drawer {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
 }
 
 /* ─── Editorial Ghost Watermark ──────────────────────────────── */

@@ -55,6 +55,16 @@ export default function Footer() {
                 {salon.phoneDisplay}
               </a>
 
+              <a
+                href="https://wa.me/917007875415?text=Hi%20Glamorous!%20I%27d%20like%20to%20book%20an%20appointment."
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.contactLink}
+                aria-label="Chat with us on WhatsApp"
+              >
+                WhatsApp Us &rarr;
+              </a>
+
               {salon.instagram.map((ig) => (
                 <a
                   key={ig.handle}

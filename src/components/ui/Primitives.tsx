@@ -1,4 +1,4 @@
-import { HTMLAttributes, ReactNode } from 'react'
+import React, { HTMLAttributes, ReactNode, forwardRef } from 'react'
 import Link from 'next/link'
 
 interface SectionLabelProps extends HTMLAttributes<HTMLParagraphElement> {
@@ -14,7 +14,7 @@ export function SectionLabel({ children, className = '', ...props }: SectionLabe
   )
 }
 
-interface EditorialHeadingProps extends HTMLAttributes<HTMLHeadingElement> {
+export interface EditorialHeadingProps extends HTMLAttributes<HTMLHeadingElement> {
   as?: 'h1' | 'h2' | 'h3' | 'h4'
   size?: '2xl' | 'xl' | 'lg' | 'md' | 'sm'
   italic?: boolean
@@ -23,25 +23,31 @@ interface EditorialHeadingProps extends HTMLAttributes<HTMLHeadingElement> {
   'data-reveal'?: boolean | string
 }
 
-export function EditorialHeading({
-  as: Tag = 'h2',
-  size = 'lg',
-  italic = false,
-  children,
-  className = '',
-  'data-reveal': dataReveal,
-  ...props
-}: EditorialHeadingProps) {
-  return (
-    <Tag
-      className={`text-display-${size}${italic ? ' text-display-italic' : ''} ${className}`}
-      {...(dataReveal !== undefined ? { 'data-reveal': dataReveal === true ? '' : dataReveal } : {})}
-      {...props}
-    >
-      {children}
-    </Tag>
-  )
-}
+export const EditorialHeading = forwardRef<HTMLHeadingElement, EditorialHeadingProps>(
+  function EditorialHeading(
+    {
+      as: Tag = 'h2',
+      size = 'lg',
+      italic = false,
+      children,
+      className = '',
+      'data-reveal': dataReveal,
+      ...props
+    },
+    ref
+  ) {
+    return (
+      <Tag
+        ref={ref}
+        className={`text-display-${size}${italic ? ' text-display-italic' : ''} ${className}`}
+        {...(dataReveal !== undefined ? { 'data-reveal': dataReveal === true ? '' : dataReveal } : {})}
+        {...props}
+      >
+        {children}
+      </Tag>
+    )
+  }
+)
 
 interface ButtonProps {
   href?: string

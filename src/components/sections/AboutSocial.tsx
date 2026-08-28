@@ -1,7 +1,16 @@
+'use client'
+
 import { SectionLabel } from '@/components/ui/Primitives'
+import { useScrollReveal, useHeadingReveal } from '@/hooks/useScrollReveal'
 import styles from './AboutSocial.module.css'
 
 export default function AboutSocial() {
+  const headingRef = useHeadingReveal<HTMLHeadingElement>()
+  const subTextRef = useScrollReveal<HTMLParagraphElement>({ y: 30, delay: 0.1 })
+  const accountsRef = useScrollReveal<HTMLDivElement>({ y: 35, delay: 0.2 })
+  const feedRef = useScrollReveal<HTMLDivElement>({ y: 35, delay: 0.3 })
+  const ctaRef = useScrollReveal<HTMLDivElement>({ y: 30, delay: 0.4 })
+
   const accounts = [
     {
       name: 'SABREEN SIDDIQUI',
@@ -42,20 +51,22 @@ export default function AboutSocial() {
     <section className={styles.socialSection} aria-labelledby="social-heading">
       <div className="container">
         {/* Header Block */}
-        <div className={styles.headerBlock} data-reveal>
+        <div className={styles.headerBlock}>
           <SectionLabel>THE DIGITAL ATELIER</SectionLabel>
-          <h2 id="social-heading" className={styles.heading}>
-            The living portfolio.
-            <em>Follow the journey on Instagram.</em>
-          </h2>
-          <p className={styles.subText}>
+          <div className="overflow-hidden">
+            <h2 id="social-heading" ref={headingRef} className={`${styles.heading} section-heading`}>
+              The living portfolio.
+              <em>Follow the journey on Instagram.</em>
+            </h2>
+          </div>
+          <p ref={subTextRef} className={styles.subText}>
             Join our community to explore daily bridal transformations, client stories,
             and an unfiltered view into our creative process in Sarai Meer.
           </p>
         </div>
 
         {/* Dual Verified Instagram Cards */}
-        <div className={styles.accountsGrid}>
+        <div ref={accountsRef} className={styles.accountsGrid}>
           {accounts.map((acc, index) => (
             <a
               key={index}
@@ -63,7 +74,6 @@ export default function AboutSocial() {
               target="_blank"
               rel="noopener noreferrer"
               className={styles.accountCard}
-              data-reveal
               aria-label={`Open Instagram profile for ${acc.name} (${acc.handle})`}
             >
               <div className={styles.cardHeader}>
@@ -97,7 +107,7 @@ export default function AboutSocial() {
         </div>
 
         {/* Curated Editorial Snapshots */}
-        <div className={styles.feedVisualGrid} data-reveal>
+        <div ref={feedRef} className={styles.feedVisualGrid}>
           {snapshots.map((snap, idx) => (
             <div key={idx} className={styles.feedImageFrame}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -112,14 +122,14 @@ export default function AboutSocial() {
         </div>
 
         {/* CTA */}
-        <div className={styles.ctaWrapper} data-reveal>
+        <div ref={ctaRef} className={styles.ctaWrapper}>
           <a
             href="https://www.instagram.com/glamorouse_makeup_beauty"
             target="_blank"
             rel="noopener noreferrer"
             className={`btn btn-primary btn-lg ${styles.journeyBtn}`}
           >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <svg width="18" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
               <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
               <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />

@@ -1,14 +1,21 @@
+'use client'
+
 import Link from 'next/link'
 import { SectionLabel, EditorialHeading } from '@/components/ui/Primitives'
+import { useScrollReveal, useHeadingReveal } from '@/hooks/useScrollReveal'
 import styles from './BrandIntro.module.css'
 
 export default function BrandIntro() {
+  const leftRef = useScrollReveal<HTMLDivElement>({ y: 40, delay: 0 })
+  const headingRef = useHeadingReveal<HTMLHeadingElement>()
+  const rightTextRef = useScrollReveal<HTMLDivElement>({ y: 40, delay: 0.15 })
+
   return (
     <section className={`${styles.brandIntro} section`} aria-labelledby="brand-intro-heading">
       <div className="container">
         <div className={`${styles.inner} editorial-split editorial-split--40-60`}>
           {/* Left — Section Label, Accent & Studio Origin */}
-          <div className={styles.left} data-reveal="left">
+          <div ref={leftRef} className={styles.left}>
             <SectionLabel>THE GLAMOROUS EXPERIENCE</SectionLabel>
             <div className={styles.accent} aria-hidden="true" />
             <div className={styles.metaBlock}>
@@ -19,18 +26,20 @@ export default function BrandIntro() {
 
           {/* Right — Philosophy Statement & Narrative */}
           <div className={styles.right}>
-            <EditorialHeading
-              as="h2"
-              size="lg"
-              id="brand-intro-heading"
-              className={styles.headline}
-              data-reveal
-            >
-              Beauty should never disguise who you are &mdash;<br />
-              <em>it should reveal your most luminous self.</em>
-            </EditorialHeading>
+            <div className="overflow-hidden">
+              <EditorialHeading
+                ref={headingRef}
+                as="h2"
+                size="lg"
+                id="brand-intro-heading"
+                className={`${styles.headline} section-heading`}
+              >
+                Beauty should never disguise who you are &mdash;<br />
+                <em>it should reveal your most luminous self.</em>
+              </EditorialHeading>
+            </div>
 
-            <div data-stagger className={styles.narrative}>
+            <div ref={rightTextRef} className={styles.narrative}>
               <p className="lead">
                 Nestled on the 1st Floor at Sabji Mandi Road in Sarai Meer, Glamorous is
                 an intimate beauty sanctuary dedicated to the art of personalized aesthetic expression.
@@ -57,3 +66,5 @@ export default function BrandIntro() {
     </section>
   )
 }
+
+export { BrandIntro as AboutTeaser }

@@ -88,13 +88,15 @@ export default function BridalPage() {
 
       {/* 1. HERO — Large Cinematic Bridal Hero */}
       <HeroSection
+        variant="bridal"
         label="THE BRIDAL EXPERIENCE"
-        headline={[
-          'FOR THE',
-          'MOMENT',
-          "YOU'LL",
-          'REMEMBER.',
-        ]}
+        headline={
+          <>
+            <span className="block">YOUR DAY.</span>
+            <span className="block">YOUR LOOK.</span>
+            <span className="block text-gold italic font-light">YOUR MOMENT.</span>
+          </>
+        }
         subheadline="An intimate, unhurried bridal beauty journey — crafted around your vision, your skin, and the emotion of your defining chapter."
         ctaLabel="BOOK AN APPOINTMENT"
         ctaHref="/contact?service=bridal"
@@ -103,7 +105,6 @@ export default function BridalPage() {
         locationTag="SARAI MEER · BRIDAL SANCTUARY"
         imageSrc="/images/bridal/bridal-hero.jpg"
         imageAlt="Glamorous luxury bridal makeup artistry in Sarai Meer"
-        fullBleed={false}
       />
 
       {/* 2. STORY SECTION — The Bridal Moment & Approach */}

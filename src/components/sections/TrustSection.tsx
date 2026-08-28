@@ -1,62 +1,88 @@
+'use client'
+
 import { SectionLabel, EditorialHeading } from '@/components/ui/Primitives'
 import { testimonials } from '@/data/testimonials'
 import { salon } from '@/data/salon'
+import { useScrollReveal, useHeadingReveal } from '@/hooks/useScrollReveal'
 import styles from './TrustSection.module.css'
 
+function TestimonialCardItem({ item, delay }: { item: (typeof testimonials)[0]; delay: number }) {
+  const cardRef = useScrollReveal<HTMLQuoteElement>({ delay, y: 35 })
+
+  return (
+    <blockquote ref={cardRef} className={styles.card}>
+      <div className={styles.cardStars} aria-label={`${item.rating} out of 5 stars`}>
+        {Array.from({ length: item.rating }).map((_, i) => (
+          <svg
+            key={i}
+            width="14"
+            height="14"
+            viewBox="0 0 20 20"
+            fill="var(--color-rose)"
+            aria-hidden="true"
+          >
+            <path d="M10 1l2.6 6.3 6.8.6-5.1 4.5 1.5 6.6-5.8-3.5-5.8 3.5 1.5-6.6-5.1-4.5 6.8-.6z" />
+          </svg>
+        ))}
+      </div>
+
+      <p className={styles.quoteText}>
+        &ldquo;{item.text}&rdquo;
+      </p>
+
+      <footer className={styles.cardFooter}>
+        <div className={styles.avatarCircle} aria-hidden="true">
+          {item.authorInitials}
+        </div>
+        <div className={styles.authorMeta}>
+          <cite className={styles.authorName}>{item.authorName}</cite>
+          <p className={styles.authorLocation}>
+            {item.service && <span>{item.service} &middot; </span>}
+            {item.location}
+          </p>
+        </div>
+      </footer>
+    </blockquote>
+  )
+}
+
 export default function TrustSection() {
+  const headingRef = useHeadingReveal<HTMLHeadingElement>()
+  const igBarRef = useScrollReveal<HTMLDivElement>({ y: 30, delay: 0.2 })
+
   return (
     <section className={`${styles.trustSection} section`} aria-labelledby="trust-heading">
       <div className="container">
         {/* Section Header */}
-        <div className={styles.header} data-reveal>
+        <div className={styles.header}>
           <SectionLabel>CLIENT APPRECIATION</SectionLabel>
-          <EditorialHeading as="h2" size="lg" id="trust-heading" className={styles.headline}>
-            Words from brides,<br />
-            <em>shared with gratitude.</em>
-          </EditorialHeading>
+          <div className="overflow-hidden">
+            <EditorialHeading
+              ref={headingRef}
+              as="h2"
+              size="lg"
+              id="trust-heading"
+              className={`${styles.headline} section-heading`}
+            >
+              Words from brides,<br />
+              <em>shared with gratitude.</em>
+            </EditorialHeading>
+          </div>
         </div>
 
         {/* Testimonials Editorial Grid */}
-        <div className={styles.grid} data-stagger>
-          {testimonials.map((item) => (
-            <blockquote key={item.id} className={styles.card}>
-              <div className={styles.cardStars} aria-label={`${item.rating} out of 5 stars`}>
-                {Array.from({ length: item.rating }).map((_, i) => (
-                  <svg
-                    key={i}
-                    width="14"
-                    height="14"
-                    viewBox="0 0 20 20"
-                    fill="var(--color-rose)"
-                    aria-hidden="true"
-                  >
-                    <path d="M10 1l2.6 6.3 6.8.6-5.1 4.5 1.5 6.6-5.8-3.5-5.8 3.5 1.5-6.6-5.1-4.5 6.8-.6z" />
-                  </svg>
-                ))}
-              </div>
-
-              <p className={styles.quoteText}>
-                &ldquo;{item.text}&rdquo;
-              </p>
-
-              <footer className={styles.cardFooter}>
-                <div className={styles.avatarCircle} aria-hidden="true">
-                  {item.authorInitials}
-                </div>
-                <div className={styles.authorMeta}>
-                  <cite className={styles.authorName}>{item.authorName}</cite>
-                  <p className={styles.authorLocation}>
-                    {item.service && <span>{item.service} &middot; </span>}
-                    {item.location}
-                  </p>
-                </div>
-              </footer>
-            </blockquote>
+        <div className={styles.grid}>
+          {testimonials.map((item, index) => (
+            <TestimonialCardItem
+              key={item.id}
+              item={item}
+              delay={index * 0.12}
+            />
           ))}
         </div>
 
         {/* Instagram Trust Bar */}
-        <div className={styles.instagramBar} data-reveal>
+        <div ref={igBarRef} className={styles.instagramBar}>
           <div className={styles.instagramLeft}>
             <span className={styles.instagramTag}>INSTAGRAM SANCTUARY</span>
             <p className={styles.instagramHeading}>
@@ -88,3 +114,5 @@ export default function TrustSection() {
     </section>
   )
 }
+
+export { TrustSection as TestimonialsSection }

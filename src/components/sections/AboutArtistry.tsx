@@ -1,13 +1,22 @@
+'use client'
+
 import { SectionLabel } from '@/components/ui/Primitives'
+import { useScrollReveal, useHeadingReveal, useImageClipReveal } from '@/hooks/useScrollReveal'
 import styles from './AboutArtistry.module.css'
 
 export default function AboutArtistry() {
+  const visualRef = useImageClipReveal<HTMLDivElement>()
+  const headingRef = useHeadingReveal<HTMLHeadingElement>()
+  const bodyTextRef = useScrollReveal<HTMLParagraphElement>({ y: 30, delay: 0.15 })
+  const craftRef = useScrollReveal<HTMLDivElement>({ y: 30, delay: 0.25 })
+  const artistRef = useScrollReveal<HTMLDivElement>({ y: 30, delay: 0.35 })
+
   return (
     <section className={styles.artistry} aria-labelledby="artistry-heading">
       <div className="container">
         <div className={styles.inner}>
           {/* Dual Visual Showcase */}
-          <div className={styles.dualVisualGrid} data-reveal>
+          <div ref={visualRef} className={styles.dualVisualGrid}>
             <div className={styles.primaryCard}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
@@ -32,21 +41,23 @@ export default function AboutArtistry() {
           </div>
 
           {/* Text & Craft Overview */}
-          <div className={styles.textContent} data-reveal>
+          <div className={styles.textContent}>
             <SectionLabel>02 / THE ARTISTRY</SectionLabel>
 
-            <h2 id="artistry-heading" className={styles.heading}>
-              Mastery in every stroke.
-              <em>Crafted with intention.</em>
-            </h2>
+            <div className="overflow-hidden">
+              <h2 id="artistry-heading" ref={headingRef} className={`${styles.heading} section-heading`}>
+                Mastery in every stroke.
+                <em>Crafted with intention.</em>
+              </h2>
+            </div>
 
-            <p className={styles.bodyText}>
+            <p ref={bodyTextRef} className={styles.bodyText}>
               Our techniques are meticulously tailored for Indian ceremonies, festive lighting, high-definition
               cameras, and long-wear endurance. From seamless color transitions to delicate dupatta draping,
               every element is balanced to perfection.
             </p>
 
-            <div className={styles.craftList}>
+            <div ref={craftRef} className={styles.craftList}>
               <div className={styles.craftItem}>
                 <svg className={styles.craftIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
@@ -79,7 +90,7 @@ export default function AboutArtistry() {
             </div>
 
             {/* Respectful Lead Artist Profile Box */}
-            <div className={styles.artistPlaceholderCard}>
+            <div ref={artistRef} className={styles.artistPlaceholderCard}>
               <span className={styles.artistTag}>LEAD ARTISTRY DIRECTIVE</span>
               <p className={styles.artistQuote}>
                 &ldquo;Our vision is rooted in giving every bride and client a sense of royal poise, grounded in comfort and authenticity.&rdquo;

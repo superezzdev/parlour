@@ -1,14 +1,22 @@
+'use client'
+
 import { SectionLabel } from '@/components/ui/Primitives'
 import { bridalStoryPoints } from '@/data/bridal'
+import { useScrollReveal, useHeadingReveal, useImageClipReveal } from '@/hooks/useScrollReveal'
 import styles from './BridalStorySection.module.css'
 
 export default function BridalStorySection() {
+  const visualRef = useImageClipReveal<HTMLDivElement>()
+  const headingRef = useHeadingReveal<HTMLHeadingElement>()
+  const leadRef = useScrollReveal<HTMLParagraphElement>({ y: 30, delay: 0.15 })
+  const pointsRef = useScrollReveal<HTMLDivElement>({ y: 30, delay: 0.25 })
+
   return (
     <section className={styles.storySection} aria-labelledby="bridal-story-heading">
       <div className="container">
         <div className={styles.grid}>
           {/* Left Column: Visual Moment with Editorial Card */}
-          <div className={styles.visualWrapper} data-reveal="scale">
+          <div ref={visualRef} className={styles.visualWrapper}>
             <div className={styles.portraitCard}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
@@ -27,20 +35,22 @@ export default function BridalStorySection() {
           </div>
 
           {/* Right Column: Editorial Narrative & Pillars */}
-          <div className={styles.contentColumn} data-reveal="right">
+          <div className={styles.contentColumn}>
             <div className={styles.headerBlock}>
               <SectionLabel>THE BRIDAL APPROACH</SectionLabel>
-              <h2 id="bridal-story-heading" className={styles.heading}>
-                Patience, Artistry &amp; <br />
-                <em>Considered Detail.</em>
-              </h2>
-              <p className={styles.lead}>
+              <div className="overflow-hidden">
+                <h2 id="bridal-story-heading" ref={headingRef} className={`${styles.heading} section-heading`}>
+                  Patience, Artistry &amp; <br />
+                  <em>Considered Detail.</em>
+                </h2>
+              </div>
+              <p ref={leadRef} className={styles.lead}>
                 A wedding day is an emotional crescendo. Our bridal atelier in Sarai Meer is founded on the principle that true luxury is patience: listening closely to your desires, honouring your cultural traditions, and crafting an unhurried look that holds seamlessly from ceremony to celebration.
               </p>
             </div>
 
             {/* Structured Pillars Grid */}
-            <div className={styles.pointsGrid} data-stagger>
+            <div ref={pointsRef} className={styles.pointsGrid}>
               {bridalStoryPoints.map((point, index) => (
                 <div key={point.id} className={styles.pointItem}>
                   <span className={styles.pointNumber}>0{index + 1}</span>

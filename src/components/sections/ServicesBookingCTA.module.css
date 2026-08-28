@@ -1,0 +1,169 @@
+/* ═══════════════════════════════════════════════════════════════
+   GLAMOROUS — SERVICES PAGE BOOKING CTA
+   ═══════════════════════════════════════════════════════════════ */
+
+.ctaSection {
+  position: relative;
+  background: var(--color-noir);
+  padding-block: clamp(5rem, 8vw, 8rem);
+  overflow: hidden;
+  margin-top: var(--space-8);
+}
+
+.ghostBorderTop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(250, 247, 242, 0.15) 30%,
+    rgba(201, 168, 106, 0.35) 50%,
+    rgba(250, 247, 242, 0.15) 70%,
+    transparent 100%
+  );
+}
+
+.ambientGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(800px, 90vw);
+  height: 400px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(201, 168, 106, 0.08) 0%,
+    rgba(196, 137, 122, 0.04) 40%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.innerWrapper {
+  position: relative;
+  z-index: 2;
+  max-width: 780px;
+  margin-inline: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.labelWrap {
+  margin-bottom: var(--space-4);
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.15;
+  color: var(--color-ivory);
+  letter-spacing: -0.01em;
+  margin: 0 0 var(--space-5) 0;
+}
+
+.subtext {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(250, 247, 242, 0.70);
+  max-width: 60ch;
+  margin: 0 0 var(--space-8) 0;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+  width: 100%;
+}
+
+.whatsappBtn {
+  background: var(--color-rose) !important;
+  color: var(--color-ivory) !important;
+  border-color: var(--color-rose) !important;
+  box-shadow: 0 4px 20px rgba(196, 137, 122, 0.30);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.whatsappBtn:hover {
+  background: var(--color-blush) !important;
+  border-color: var(--color-blush) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(196, 137, 122, 0.40);
+}
+
+.contactBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  border: 1px solid rgba(250, 247, 242, 0.25);
+  background: rgba(250, 247, 242, 0.05);
+  color: var(--color-ivory);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.contactBtn:hover {
+  background: rgba(250, 247, 242, 0.12);
+  border-color: var(--color-gold);
+  color: var(--color-ivory);
+  transform: translateY(-2px);
+}
+
+.hotlineBlock {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: rgba(250, 247, 242, 0.50);
+}
+
+.hotlinePrefix {
+  color: rgba(250, 247, 242, 0.40);
+}
+
+.hotlineLink {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--color-gold);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color var(--duration-fast) var(--ease-standard);
+}
+
+.hotlineLink:hover {
+  color: var(--color-ivory);
+  text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .whatsappBtn,
+  .contactBtn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hotlineBlock {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+}

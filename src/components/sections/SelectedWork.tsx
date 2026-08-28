@@ -1,21 +1,40 @@
+'use client'
+
 import Link from 'next/link'
 import { SectionLabel, EditorialHeading } from '@/components/ui/Primitives'
+import { useScrollReveal, useHeadingReveal, useImageClipReveal } from '@/hooks/useScrollReveal'
 import styles from './SelectedWork.module.css'
 
 export default function SelectedWork() {
+  const headingRef = useHeadingReveal<HTMLHeadingElement>()
+  const descRef = useScrollReveal<HTMLDivElement>({ y: 30, delay: 0.1 })
+  const img1Ref = useImageClipReveal<HTMLDivElement>({ delay: 0 * 0.08 })
+  const img2Ref = useImageClipReveal<HTMLDivElement>({ delay: 1 * 0.08 })
+  const img3Ref = useImageClipReveal<HTMLDivElement>({ delay: 2 * 0.08 })
+  const img4Ref = useImageClipReveal<HTMLDivElement>({ delay: 3 * 0.08 })
+  const footerRef = useScrollReveal<HTMLDivElement>({ y: 30, delay: 4 * 0.08 })
+
   return (
     <section className={`${styles.selectedWork} section`} aria-labelledby="selected-work-heading">
       <div className="container">
         {/* Editorial Section Header */}
-        <div className={styles.header} data-reveal>
+        <div className={styles.header}>
           <div className={styles.headerLeft}>
             <SectionLabel>PORTFOLIO HIGHLIGHTS</SectionLabel>
-            <EditorialHeading as="h2" size="lg" id="selected-work-heading" className={styles.headline}>
-              Selected works,<br />
-              <em>curated from our studio</em>
-            </EditorialHeading>
+            <div className="overflow-hidden">
+              <EditorialHeading
+                ref={headingRef}
+                as="h2"
+                size="lg"
+                id="selected-work-heading"
+                className={`${styles.headline} section-heading`}
+              >
+                Selected works,<br />
+                <em>curated from our studio</em>
+              </EditorialHeading>
+            </div>
           </div>
-          <div className={styles.headerRight}>
+          <div ref={descRef} className={styles.headerRight}>
             <p className={styles.headerDesc}>
               A glimpse into real bridal transformations, soft-glam party artistry,
               and intricate styling crafted for clients across Sarai Meer and Eastern UP.
@@ -28,9 +47,9 @@ export default function SelectedWork() {
         </div>
 
         {/* Asymmetrical Editorial Composition */}
-        <div className={styles.editorialGrid} data-stagger>
+        <div className={styles.editorialGrid}>
           {/* Item 1: Large Featured Portrait with Overlapping Typography */}
-          <div className={`${styles.featureCol} hover-zoom`}>
+          <div ref={img1Ref} className={`${styles.featureCol} hover-zoom`}>
             <div className={styles.imageCardLarge}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
@@ -53,7 +72,7 @@ export default function SelectedWork() {
           {/* Item 2 & 3: Staggered Secondary Editorial Column */}
           <div className={styles.secondaryCol}>
             {/* Top: Landscape / Soft Glam Showcase */}
-            <div className={`${styles.cardLandscape} hover-zoom`}>
+            <div ref={img2Ref} className={`${styles.cardLandscape} hover-zoom`}>
               <div className={styles.imageCardMedium}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
@@ -74,7 +93,7 @@ export default function SelectedWork() {
             {/* Bottom: Dual Detail Row */}
             <div className={styles.detailRow}>
               {/* Left Detail: Mehendi & Bangles */}
-              <div className={`${styles.cardDetail} hover-zoom`}>
+              <div ref={img3Ref} className={`${styles.cardDetail} hover-zoom`}>
                 <div className={styles.imageCardDetail}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
@@ -91,7 +110,7 @@ export default function SelectedWork() {
               </div>
 
               {/* Right Detail: Bridal Hair Updo */}
-              <div className={`${styles.cardDetail} hover-zoom`}>
+              <div ref={img4Ref} className={`${styles.cardDetail} hover-zoom`}>
                 <div className={styles.imageCardDetail}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
@@ -111,7 +130,7 @@ export default function SelectedWork() {
         </div>
 
         {/* Global Gallery CTA */}
-        <div className={styles.footerAction} data-reveal>
+        <div ref={footerRef} className={styles.footerAction}>
           <Link href="/gallery" className="btn btn-primary btn-lg">
             <span>View All Work</span>
             <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -124,3 +143,5 @@ export default function SelectedWork() {
     </section>
   )
 }
+
+export { SelectedWork as GalleryTeaser }

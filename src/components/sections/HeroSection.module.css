@@ -1,77 +1,16 @@
-/* Full hero (home page) */
-.heroFull {
-  position: relative;
-  min-height: 100dvh;
-  display: flex;
-  align-items: flex-end;
-  overflow: hidden;
-  padding-top: calc(72px + var(--space-12));
-}
+/* ═══════════════════════════════════════════════════════════════
+   GLAMOROUS — HERO SECTION STYLES
+   Art-directed unique visual treatments for each page.
+   ═══════════════════════════════════════════════════════════════ */
 
-/* Page hero (inner pages) */
-.heroPage {
-  position: relative;
-  padding-top: calc(72px + clamp(4rem, 8vw, 8rem));
-  padding-bottom: clamp(4rem, 6vw, 6rem);
-  overflow: hidden;
-}
-
-/* Media Container */
-.media {
+/* ─── Unified Top-Left Location Badge (Single Instance) ──────── */
+.badgeTopLeft {
   position: absolute;
-  inset: 0;
-  z-index: 0;
-  overflow: hidden;
-}
-
-.image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 25%;
-  animation: heroSubtleScale 16s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite alternate;
-}
-
-@keyframes heroSubtleScale {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(1.06);
-  }
-}
-
-.imagePlaceholder {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    135deg,
-    var(--color-champagne) 0%,
-    var(--color-parchment) 30%,
-    var(--color-bone) 60%,
-    var(--color-champagne) 100%
-  );
-}
-
-.overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(30, 18, 8, 0.35) 0%,
-    rgba(30, 18, 8, 0.50) 45%,
-    rgba(30, 18, 8, 0.82) 85%,
-    rgba(30, 18, 8, 0.92) 100%
-  );
-}
-
-/* Top-Right Location Metadata on Desktop */
-.metaTopRight {
-  position: absolute;
-  top: calc(72px + var(--space-8));
-  right: clamp(1.5rem, 5vw, 5rem);
-  z-index: 2;
-  animation: fadeSlideUp var(--duration-slow) var(--ease-out) 400ms both;
+  top: calc(72px + var(--space-6));
+  left: clamp(1.5rem, 5vw, 5rem);
+  z-index: 20;
+  pointer-events: none;
+  animation: fadeSlideUp var(--duration-slow) var(--ease-out) 300ms both;
 }
 
 .locationBadge {
@@ -83,28 +22,462 @@
   font-weight: 500;
   letter-spacing: 0.20em;
   text-transform: uppercase;
-  color: rgba(250, 247, 242, 0.85);
-  background: rgba(30, 18, 8, 0.45);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  padding: 0.5rem 1rem;
+  color: rgba(250, 247, 242, 0.88);
+  background: rgba(8, 8, 8, 0.60);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 0.45rem 0.95rem;
   border-radius: var(--radius-pill);
   border: 1px solid rgba(250, 247, 242, 0.15);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
 }
 
 .locationBadge::before {
   content: '';
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
-  background: var(--color-rose);
-  box-shadow: 0 0 8px var(--color-rose);
+  background: var(--color-gold);
+  box-shadow: 0 0 8px var(--color-gold);
 }
 
-/* Main Content Area */
-.content {
+/* ═══════════════════════════════════════════════════════════════
+   1. HOME HERO (50/50 Split + Absolute Right Image + Gold Line)
+   ═══════════════════════════════════════════════════════════════ */
+.heroHome {
+  position: relative;
+  min-height: 100dvh;
+  width: 100%;
+  background: var(--color-noir);
+  overflow: hidden;
+  display: flex;
+  align-items: stretch;
+}
+
+/* Right Image Panel: position absolute, right: 0, top: 0, width: 50%, height: 100% */
+.homeMediaRight {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.homeImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+  animation: heroSubtleScale 18s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite alternate;
+}
+
+.homeMediaOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(8, 8, 8, 0.92) 0%,
+    rgba(8, 8, 8, 0.45) 25%,
+    rgba(8, 8, 8, 0.20) 70%,
+    rgba(8, 8, 8, 0.60) 100%
+  ),
+  linear-gradient(
+    to bottom,
+    rgba(8, 8, 8, 0.40) 0%,
+    transparent 35%,
+    rgba(8, 8, 8, 0.75) 100%
+  );
+}
+
+/* Subtle Gold Vertical Line: 1px, 120px, bg-gold between left & right panels */
+.homeGoldDivider {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 1px;
+  height: 120px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    var(--color-gold) 20%,
+    var(--color-gold) 80%,
+    transparent 100%
+  );
+  z-index: 10;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+.homeContainer {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  width: 100%;
+  min-height: 100dvh;
+}
+
+/* Left Content: justify-content: flex-end (align to bottom-left) */
+.homeLeftContent {
+  width: 50%;
+  max-width: 50%;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: var(--space-5);
+  padding-top: calc(72px + var(--space-12));
+  padding-bottom: clamp(3.5rem, 6vw, 6.5rem);
+  padding-right: clamp(1.5rem, 4vw, 4rem);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   2. SERVICES HERO (Centered, Minimal, Noir, Short py-20, No Image)
+   ═══════════════════════════════════════════════════════════════ */
+.heroServices {
+  position: relative;
+  background: var(--color-noir);
+  padding-top: calc(72px + var(--space-16));
+  padding-bottom: var(--space-16); /* short py-20 */
+  overflow: hidden;
+}
+
+.servicesContainer {
+  position: relative;
+  z-index: 2;
+}
+
+.servicesContent {
+  max-width: 800px;
+  margin-inline: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.servicesLabelWrapper {
+  margin-bottom: var(--space-4);
+}
+
+.servicesHeadline {
+  font-family: var(--font-display);
+  font-size: clamp(3.2rem, 6.5vw, 5.5rem);
+  font-weight: 300;
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  color: var(--color-ivory);
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* Thin horizontal line: 1px, bg-ghost, width 60px, mx-auto */
+.servicesGhostLine {
+  width: 60px;
+  height: 1px;
+  background: var(--color-ghost);
+  margin: var(--space-6) auto;
+  border-radius: var(--radius-pill);
+}
+
+.servicesSubheadline {
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  font-weight: 300;
+  line-height: 1.65;
+  color: rgba(250, 247, 242, 0.85);
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   3. GALLERY HERO (Image-First, Full Viewport, Bottom Pin)
+   ═══════════════════════════════════════════════════════════════ */
+.heroGallery {
+  position: relative;
+  min-height: 100dvh;
+  width: 100%;
+  background: var(--color-noir);
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+
+.galleryMedia {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.galleryImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  animation: heroSubtleScale 20s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite alternate;
+}
+
+/* Black gradient overlay: transparent 40% to rgba(8,8,8,0.95) 100% */
+.galleryOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(8, 8, 8, 0.25) 0%,
+    transparent 35%,
+    rgba(8, 8, 8, 0.60) 65%,
+    rgba(8, 8, 8, 0.95) 100%
+  );
+}
+
+/* Headline text sitting at the bottom: bottom 60px, left 60px */
+.galleryBottomContent {
+  position: absolute;
+  bottom: clamp(2rem, 5vw, 60px);
+  left: clamp(1.5rem, 5vw, 60px);
+  right: clamp(1.5rem, 5vw, 60px);
+  max-width: 960px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+  text-align: left;
+}
+
+.galleryLabel {
+  margin-bottom: var(--space-1);
+}
+
+.galleryHeadline {
+  font-family: var(--font-display);
+  font-size: clamp(3.2rem, 7vw, 6.5rem);
+  font-weight: 300;
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  color: var(--color-ivory);
+  text-transform: uppercase;
+  margin: 0;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
+}
+
+.gallerySubheadline {
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  font-weight: 300;
+  line-height: 1.6;
+  color: rgba(250, 247, 242, 0.90);
+  max-width: 60ch;
+  margin: 0;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   4. ABOUT HERO (Portrait-Split: 40% Left Text + 60% Right Portrait)
+   ═══════════════════════════════════════════════════════════════ */
+.heroAbout {
+  position: relative;
+  min-height: 100dvh;
+  background: var(--color-noir);
+  padding-top: calc(72px + var(--space-12));
+  padding-bottom: var(--space-16);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.aboutContainer {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.aboutSplitGrid {
+  display: grid;
+  grid-template-columns: 42fr 58fr;
+  align-items: center;
+  gap: clamp(1rem, 3vw, 3rem);
+}
+
+/* 40% Left Text Column: Vertically Centered */
+.aboutLeftText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: var(--space-5);
+  position: relative;
+  z-index: 5;
+}
+
+.aboutLabelWrapper {
+  margin-bottom: var(--space-2);
+}
+
+/* Sabreen's name in huge Cormorant 300 6rem */
+.aboutHeadline {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 6vw, 6rem);
+  font-weight: 300;
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  color: var(--color-ivory);
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.aboutSubheadline {
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  font-weight: 300;
+  line-height: 1.65;
+  color: rgba(250, 247, 242, 0.85);
+  max-width: 44ch;
+  margin: 0;
+}
+
+/* 60% Right Portrait Column with Grayscale + Sepia CSS Filter */
+.aboutRightMedia {
   position: relative;
   z-index: 1;
+  /* Negative margin overlap slightly over left panel */
+  margin-left: -3rem;
+}
+
+.aboutImageFrame {
+  position: relative;
+  width: 100%;
+  height: clamp(480px, 70vh, 760px);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid rgba(250, 247, 242, 0.10);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.60);
+}
+
+.aboutPortraitImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  /* Grayscale + Sepia CSS filter */
+  filter: grayscale(90%) sepia(25%) contrast(1.06) brightness(0.95);
+  transition: filter var(--duration-slow) var(--ease-standard);
+}
+
+.aboutImageFrame:hover .aboutPortraitImage {
+  filter: grayscale(70%) sepia(20%) contrast(1.08) brightness(1.0);
+}
+
+.aboutImageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(8, 8, 8, 0.65) 0%,
+    rgba(8, 8, 8, 0.15) 30%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   5. CONTACT HERO (Text-Only, Short py-20, Animated Underline)
+   ═══════════════════════════════════════════════════════════════ */
+.heroContact {
+  position: relative;
+  background: var(--color-noir);
+  padding-top: calc(72px + var(--space-16));
+  padding-bottom: var(--space-12); /* py-20 small height */
+  overflow: hidden;
+}
+
+.contactContainer {
+  position: relative;
+  z-index: 2;
+}
+
+.contactContent {
+  max-width: 800px;
+  margin-inline: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.contactLabelWrapper {
+  margin-bottom: var(--space-2);
+}
+
+.contactHeadline {
+  font-family: var(--font-display);
+  font-size: clamp(3.2rem, 6.5vw, 5.5rem);
+  font-weight: 300;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  color: var(--color-ivory);
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.contactSubheadline {
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  font-weight: 300;
+  line-height: 1.65;
+  color: rgba(250, 247, 242, 0.85);
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   6. BRIDAL HERO (Cinematic Luxury Bridal Treatment)
+   ═══════════════════════════════════════════════════════════════ */
+.heroBridal {
+  position: relative;
+  min-height: 90dvh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  padding-top: calc(72px + var(--space-12));
+  background: var(--color-noir);
+}
+
+.bridalMedia {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.bridalImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+  animation: heroSubtleScale 18s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite alternate;
+}
+
+.bridalOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(8, 8, 8, 0.35) 0%,
+    rgba(8, 8, 8, 0.55) 45%,
+    rgba(8, 8, 8, 0.85) 85%,
+    rgba(8, 8, 8, 0.95) 100%
+  );
+}
+
+.bridalContent {
+  position: relative;
+  z-index: 2;
   padding-bottom: clamp(3.5rem, 6vw, 6.5rem);
   display: flex;
   flex-direction: column;
@@ -112,39 +485,56 @@
   max-width: 960px;
 }
 
-.heroPage .content {
-  padding-bottom: 0;
-}
-
-/* Section label override on dark background */
-.content :global(.label) {
-  color: rgba(250, 247, 242, 0.90) !important;
-  background: transparent !important;
-}
-
-.content :global(.label)::before {
-  background: var(--color-rose) !important;
-  width: 24px !important;
-  height: 1.5px !important;
-}
-
-/* Headline */
+/* ═══════════════════════════════════════════════════════════════
+   Shared Elements (Typography, CTAs, Keyframes)
+   ═══════════════════════════════════════════════════════════════ */
 .headline {
-  font-family: var(--font-display);
-  font-size: var(--text-display-xl);
+  font-family: 'Cormorant Garamond', var(--font-cormorant), var(--font-display), Georgia, serif;
   font-weight: 300;
-  line-height: 1.02;
-  letter-spacing: -0.01em;
+  font-size: clamp(3.5rem, 7.5vw, 6.8rem);
+  line-height: 0.90;
+  letter-spacing: -0.02em;
   color: var(--color-ivory);
   margin: 0;
   text-transform: uppercase;
 }
 
-.headlineRow {
+.headline span,
+.servicesHeadline span,
+.galleryHeadline span,
+.aboutHeadline span,
+.contactHeadline span {
   display: block;
+  color: var(--color-ivory);
 }
 
-/* Subheadline */
+.headline span:global(.text-gold),
+.headline :global(.text-gold),
+.servicesHeadline :global(.text-gold),
+.galleryHeadline :global(.text-gold),
+.aboutHeadline :global(.text-gold),
+.contactHeadline :global(.text-gold) {
+  color: var(--color-gold) !important;
+}
+
+.headline span:global(.italic),
+.headline :global(.italic),
+.servicesHeadline :global(.italic),
+.galleryHeadline :global(.italic),
+.aboutHeadline :global(.italic),
+.contactHeadline :global(.italic) {
+  font-style: italic !important;
+}
+
+.headline span:global(.font-light),
+.headline :global(.font-light),
+.servicesHeadline :global(.font-light),
+.galleryHeadline :global(.font-light),
+.aboutHeadline :global(.font-light),
+.contactHeadline :global(.font-light) {
+  font-weight: 300 !important;
+}
+
 .subheadline {
   font-family: var(--font-body);
   font-size: var(--text-lg);
@@ -204,33 +594,12 @@
   transform: translateY(-2px);
 }
 
-/* Location Mobile */
-.locationMobile {
-  display: none;
-  align-items: center;
-  gap: var(--space-2);
-  font-family: var(--font-label);
-  font-size: 0.6875rem;
-  font-weight: 500;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: rgba(250, 247, 242, 0.75);
-  margin-top: var(--space-2);
-}
-
-.locationDot {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--color-rose);
-}
-
 /* Scroll indicator */
 .scroll {
   display: flex;
   align-items: center;
   gap: var(--space-3);
-  margin-top: var(--space-6);
+  margin-top: var(--space-4);
 }
 
 .scrollLine {
@@ -254,17 +623,50 @@
   color: rgba(250, 247, 242, 0.60);
 }
 
-@media (max-width: 768px) {
-  .metaTopRight {
+@keyframes heroSubtleScale {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.06);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Responsive Breakpoints
+   ═══════════════════════════════════════════════════════════════ */
+@media (max-width: 1023px) {
+  /* Home */
+  .homeMediaRight {
+    width: 100%;
+    opacity: 0.35;
+  }
+  .homeGoldDivider {
     display: none;
   }
-
-  .locationMobile {
-    display: flex;
+  .homeLeftContent {
+    width: 100%;
+    max-width: 100%;
+    padding-right: 0;
   }
 
-  .headline {
-    font-size: var(--text-display-lg);
+  /* About */
+  .aboutSplitGrid {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+  .aboutRightMedia {
+    margin-left: 0;
+  }
+  .aboutImageFrame {
+    height: 420px;
+  }
+}
+
+@media (max-width: 768px) {
+  .badgeTopLeft {
+    top: calc(72px + var(--space-3));
+    left: clamp(1rem, 4vw, 1.5rem);
   }
 
   .actionGroup {
@@ -281,5 +683,11 @@
 
   .scroll {
     display: none;
+  }
+
+  .galleryBottomContent {
+    bottom: clamp(1.5rem, 4vw, 2.5rem);
+    left: clamp(1rem, 4vw, 1.5rem);
+    right: clamp(1rem, 4vw, 1.5rem);
   }
 }

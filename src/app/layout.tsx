@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
-import { Cormorant_Garamond, DM_Sans } from 'next/font/google'
+import { Cormorant_Garamond, DM_Sans, Space_Mono } from 'next/font/google'
 import '../styles/globals.css'
 import Navbar from '@/components/global/Navbar'
 import Footer from '@/components/global/Footer'
-import Preloader from '@/components/global/Preloader'
+import PageLoader from '@/components/ui/PageLoader'
 import CursorEffect from '@/components/global/CursorEffect'
 import ScrollProgress from '@/components/global/ScrollProgress'
 import WhatsAppFAB from '@/components/global/WhatsAppFAB'
 import ScrollAnimationProvider from '@/components/global/ScrollAnimationProvider'
+import LenisProvider from '@/components/providers/LenisProvider'
 import { salon } from '@/data/salon'
 import { localBusinessSchema } from '@/utils/schema'
 
@@ -24,6 +25,14 @@ const dmSans = DM_Sans({
   weight: ['300', '400', '500'],
   style: ['normal', 'italic'],
   variable: '--font-dmsans',
+  display: 'swap',
+})
+
+const spaceMono = Space_Mono({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  style: ['normal', 'italic'],
+  variable: '--font-mono',
   display: 'swap',
 })
 
@@ -96,7 +105,7 @@ export default function RootLayout({
   return (
     <html
       lang="en-IN"
-      className={`${cormorant.variable} ${dmSans.variable}`}
+      className={`${cormorant.variable} ${dmSans.variable} ${spaceMono.variable}`}
       data-scroll-behavior="smooth"
     >
       <head>
@@ -107,8 +116,8 @@ export default function RootLayout({
         />
       </head>
       <body>
-        {/* Branded preloader */}
-        <Preloader />
+        {/* Cinematic page loader (runs once per session) */}
+        <PageLoader />
 
         {/* Scroll progress bar */}
         <ScrollProgress />
@@ -118,7 +127,9 @@ export default function RootLayout({
 
         {/* Main page content */}
         <main id="main-content" tabIndex={-1}>
-          {children}
+          <LenisProvider>
+            {children}
+          </LenisProvider>
         </main>
 
         {/* Global footer */}

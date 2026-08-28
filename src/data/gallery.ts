@@ -17,12 +17,12 @@ export interface GalleryImage {
 }
 
 export const galleryCategories: { id: GalleryCategory; label: string }[] = [
-  { id: 'all', label: 'All Work' },
-  { id: 'bridal', label: 'Bridal' },
-  { id: 'makeup', label: 'Makeup' },
-  { id: 'hair', label: 'Hair' },
-  { id: 'beauty', label: 'Beauty' },
-  { id: 'details', label: 'Details' },
+  { id: 'all', label: 'ALL' },
+  { id: 'bridal', label: 'BRIDAL' },
+  { id: 'makeup', label: 'MAKEUP' },
+  { id: 'hair', label: 'HAIR' },
+  { id: 'beauty', label: 'BEAUTY' },
+  { id: 'details', label: 'DETAILS' },
 ]
 
 export const galleryImages: GalleryImage[] = [
