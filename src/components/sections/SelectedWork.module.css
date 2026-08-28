@@ -1,5 +1,5 @@
 .selectedWork {
-  background: var(--color-ivory);
+  background: var(--color-noir);
   position: relative;
   overflow: hidden;
 }
@@ -21,6 +21,12 @@
 .headline {
   margin: 0;
   line-height: 1.1;
+  color: #F0EAE0;
+}
+
+.headline em {
+  font-style: italic;
+  color: var(--color-gold);
 }
 
 .headerRight {
@@ -32,9 +38,18 @@
 .headerDesc {
   font-family: var(--font-body);
   font-size: var(--text-base);
-  color: var(--color-coffee);
+  color: #7A7066;
   line-height: 1.65;
   margin: 0;
+}
+
+.headerRight a {
+  color: var(--color-gold);
+  transition: color 0.2s ease;
+}
+
+.headerRight a:hover {
+  color: var(--color-gold-light);
 }
 
 /* Asymmetrical Editorial Grid */

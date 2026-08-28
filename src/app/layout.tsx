@@ -6,7 +6,6 @@ import Footer from '@/components/global/Footer'
 import PageLoader from '@/components/ui/PageLoader'
 import CursorEffect from '@/components/global/CursorEffect'
 import ScrollProgress from '@/components/global/ScrollProgress'
-import WhatsAppFAB from '@/components/global/WhatsAppFAB'
 import ScrollAnimationProvider from '@/components/global/ScrollAnimationProvider'
 import LenisProvider from '@/components/providers/LenisProvider'
 import { salon } from '@/data/salon'
@@ -14,7 +13,7 @@ import { localBusinessSchema } from '@/utils/schema'
 
 const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600'],
+  weight: ['300', '400', '500', '600', '700'],
   style: ['normal', 'italic'],
   variable: '--font-cormorant',
   display: 'swap',
@@ -134,9 +133,6 @@ export default function RootLayout({
 
         {/* Global footer */}
         <Footer />
-
-        {/* Mobile: floating WhatsApp button */}
-        <WhatsAppFAB />
 
         {/* Desktop: custom cursor */}
         <CursorEffect />

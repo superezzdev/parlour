@@ -1,5 +1,5 @@
 .artistry {
-  background-color: var(--color-bone);
+  background-color: var(--color-noir);
   position: relative;
   overflow: hidden;
   padding-block: var(--section-padding-y);
@@ -36,17 +36,19 @@
 .primaryCard {
   border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
   aspect-ratio: 3 / 4;
-  background-color: var(--color-parchment);
+  background-color: var(--color-elevated);
+  border: 1px solid rgba(250, 247, 242, 0.08);
 }
 
 .secondaryCard {
   border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
   aspect-ratio: 1 / 1;
-  background-color: var(--color-parchment);
+  background-color: var(--color-elevated);
+  border: 1px solid rgba(250, 247, 242, 0.08);
   margin-bottom: var(--space-6);
 }
 
@@ -66,13 +68,14 @@
   position: absolute;
   top: var(--space-4);
   right: var(--space-4);
-  background: rgba(30, 18, 8, 0.85);
-  color: var(--color-petal);
-  font-family: var(--font-label);
+  background: rgba(15, 15, 15, 0.88);
+  color: var(--color-gold);
+  font-family: var(--font-mono);
   font-size: var(--text-xs);
-  letter-spacing: var(--label-tracking);
+  letter-spacing: 0.2em;
   padding: var(--space-2) var(--space-4);
-  border-radius: var(--radius-pill);
+  border-radius: 0;
+  border: 1px solid rgba(250, 247, 242, 0.12);
   backdrop-filter: blur(8px);
 }
 
@@ -87,7 +90,7 @@
   font-size: var(--text-display-md);
   font-weight: 300;
   line-height: 1.1;
-  color: var(--color-espresso);
+  color: #F0EAE0;
   letter-spacing: -0.01em;
   margin-top: var(--space-2);
 }
@@ -95,13 +98,13 @@
 .heading em {
   font-style: italic;
   font-weight: 300;
-  color: var(--color-rose);
+  color: var(--color-gold);
   display: block;
 }
 
 .bodyText {
   font-size: var(--text-base);
-  color: var(--color-coffee);
+  color: rgba(250, 247, 242, 0.70);
   line-height: 1.75;
   max-width: 48ch;
 }
@@ -118,21 +121,21 @@
   align-items: flex-start;
   gap: var(--space-4);
   padding: var(--space-4) var(--space-5);
-  background-color: var(--color-ivory);
+  background-color: var(--color-elevated);
   border-radius: var(--radius-md);
-  border: 1px solid var(--color-border);
+  border: 1px solid rgba(250, 247, 242, 0.08);
   transition: transform var(--transition-base), border-color var(--transition-base);
 }
 
 .craftItem:hover {
   transform: translateX(4px);
-  border-color: var(--color-rose);
+  border-color: var(--color-gold);
 }
 
 .craftIcon {
   width: 24px;
   height: 24px;
-  color: var(--color-rose);
+  color: var(--color-gold);
   flex-shrink: 0;
   margin-top: 2px;
 }
@@ -147,28 +150,31 @@
   font-family: var(--font-body);
   font-size: var(--text-sm);
   font-weight: 500;
-  color: var(--color-espresso);
+  color: #F0EAE0;
 }
 
 .craftDesc {
   font-size: var(--text-xs);
-  color: var(--color-mocha);
+  color: #7A7066;
   line-height: 1.5;
 }
 
 .artistPlaceholderCard {
   margin-top: var(--space-6);
   padding: var(--space-6);
-  background: var(--color-ivory);
-  border-left: 3px solid var(--color-rose);
+  background: var(--color-elevated);
+  border-left: 3px solid var(--color-gold);
   border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  border-top: 1px solid rgba(250, 247, 242, 0.08);
+  border-right: 1px solid rgba(250, 247, 242, 0.08);
+  border-bottom: 1px solid rgba(250, 247, 242, 0.08);
 }
 
 .artistTag {
-  font-family: var(--font-label);
+  font-family: var(--font-mono);
   font-size: var(--text-xs);
-  letter-spacing: var(--label-tracking);
-  color: var(--color-rose);
+  letter-spacing: 0.2em;
+  color: var(--color-gold);
   text-transform: uppercase;
   margin-bottom: var(--space-2);
   display: block;
@@ -178,14 +184,14 @@
   font-family: var(--font-display);
   font-size: var(--text-lg);
   font-style: italic;
-  color: var(--color-espresso);
+  color: #F0EAE0;
   line-height: 1.4;
 }
 
 .artistName {
   font-size: var(--text-sm);
   font-weight: 500;
-  color: var(--color-coffee);
+  color: #7A7066;
   margin-top: var(--space-2);
   display: block;
 }

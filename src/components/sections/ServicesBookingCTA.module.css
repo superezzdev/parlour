@@ -88,41 +88,6 @@
   width: 100%;
 }
 
-.whatsappBtn {
-  background: var(--color-rose) !important;
-  color: var(--color-ivory) !important;
-  border-color: var(--color-rose) !important;
-  box-shadow: 0 4px 20px rgba(196, 137, 122, 0.30);
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-}
-
-.whatsappBtn:hover {
-  background: var(--color-blush) !important;
-  border-color: var(--color-blush) !important;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(196, 137, 122, 0.40);
-}
-
-.contactBtn {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-  border: 1px solid rgba(250, 247, 242, 0.25);
-  background: rgba(250, 247, 242, 0.05);
-  color: var(--color-ivory);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-}
-
-.contactBtn:hover {
-  background: rgba(250, 247, 242, 0.12);
-  border-color: var(--color-gold);
-  color: var(--color-ivory);
-  transform: translateY(-2px);
-}
-
 .hotlineBlock {
   display: flex;
   align-items: center;
@@ -156,8 +121,7 @@
     align-items: stretch;
   }
 
-  .whatsappBtn,
-  .contactBtn {
+  .actions > * {
     width: 100%;
     justify-content: center;
   }

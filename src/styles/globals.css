@@ -19,15 +19,16 @@ h1, h2, h3 {
 html {
   font-family: var(--font-body);
   font-size: 16px;
-  color: var(--color-espresso);
-  background-color: var(--color-ivory);
+  color: var(--color-ivory);
+  background-color: var(--color-noir);
+  color-scheme: dark;
 }
 
 body {
   font-family: var(--font-body);
   font-size: var(--text-base);
-  color: var(--color-coffee);
-  background-color: var(--color-ivory);
+  color: rgba(250, 247, 242, 0.75);
+  background-color: var(--color-noir);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

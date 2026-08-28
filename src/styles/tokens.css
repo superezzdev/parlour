@@ -4,43 +4,47 @@
    ═══════════════════════════════════════════════════════════════ */
 
 :root {
-  /* ─── Core Palette ─────────────────────────────────────────── */
-  --color-ivory:       #FAF7F2;   /* Primary background */
-  --color-bone:        #F2EDE6;   /* Warm white, card backgrounds */
-  --color-champagne:   #EDE0CC;   /* Soft champagne — section dividers */
-  --color-parchment:   #E8DECE;   /* Warm mid-tone */
-  --color-noir:        #080808;   /* Deep editorial black */
-  --color-ghost:       rgba(250, 247, 242, 0.15); /* Subtle translucent ghost line */
-  --color-ghost-border: rgba(250, 247, 242, 0.10);
+  /* ─── Core Palette (Dark Noir Foundation) ───────────────────── */
+  --color-noir:        #080808;   /* Deep editorial black — base site background */
+  --color-surface:     #0F0F0F;   /* Subtle elevated dark background */
+  --color-elevated:    #161616;   /* Card & container dark background */
+  --color-ivory:       #FAF7F2;   /* Ivory text / highlights */
+  --color-ivory-warm:  #F0EAE0;   /* Warm editorial ivory */
+  --color-bone:        #161616;   /* Dark component surface */
+  --color-champagne:   #2C2822;   /* Dark subtle divider */
+  --color-parchment:   #1A1714;   /* Dark subtle container background */
+  --color-ghost:       rgba(250, 247, 242, 0.12); /* Subtle translucent ghost line */
+  --color-ghost-border: rgba(250, 247, 242, 0.08);
 
   /* ─── Text Colors ───────────────────────────────────────────── */
-  --color-espresso:    #1E1208;   /* Primary text — deep, warm dark */
-  --color-coffee:      #3D2B1A;   /* Secondary text */
-  --color-mocha:       #6B4C36;   /* Muted text, captions */
-  --color-taupe:       #9A8070;   /* Placeholder text, hints */
+  --color-espresso:    #FAF7F2;   /* Primary high-contrast text on dark */
+  --color-coffee:      rgba(250, 247, 242, 0.75); /* Secondary body text */
+  --color-mocha:       rgba(250, 247, 242, 0.55); /* Muted text, captions */
+  --color-taupe:       #7A7066;   /* Muted subtext / placeholders */
+  --color-muted:       #7A7066;   /* Editorial muted neutral */
 
   /* ─── Accent ────────────────────────────────────────────────── */
   --color-rose:        #C4897A;   /* Primary accent — muted rose */
   --color-blush:       #D9A89B;   /* Hover states, lighter accent */
-  --color-petal:       #EDD6CF;   /* Very light blush — backgrounds, borders */
-  --color-burgundy:    #6B1A2A;   /* Sparingly — special emphasis only */
+  --color-petal:       #DFCA9B;   /* Light gold / warm shimmer */
+  --color-burgundy:    #C9A86A;   /* Luxury gold accent */
   --color-gold:        #C9A86A;   /* Refined luxury gold */
   --color-gold-light:  #DFCA9B;   /* Light gold shimmer */
 
   /* ─── UI Functional ─────────────────────────────────────────── */
-  --color-border:      rgba(30, 18, 8, 0.12);
-  --color-border-rose: rgba(196, 137, 122, 0.30);
-  --color-overlay:     rgba(30, 18, 8, 0.72);
-  --color-surface:     rgba(250, 247, 242, 0.88);  /* Frosted nav */
+  --color-border:      rgba(250, 247, 242, 0.08);
+  --color-border-rose: rgba(201, 168, 106, 0.35);
+  --color-overlay:     rgba(8, 8, 8, 0.85);
+  --color-surface-nav: rgba(15, 15, 15, 0.92);  /* Frosted nav */
   --color-success:     #4A7C5F;
   --color-error:       #B54242;
 
   /* ─── Shadows ───────────────────────────────────────────────── */
-  --shadow-xs:  0 1px 2px rgba(30, 18, 8, 0.06);
-  --shadow-sm:  0 2px 8px rgba(30, 18, 8, 0.08);
-  --shadow-md:  0 4px 16px rgba(30, 18, 8, 0.10);
-  --shadow-lg:  0 8px 32px rgba(30, 18, 8, 0.12);
-  --shadow-xl:  0 16px 56px rgba(30, 18, 8, 0.16);
+  --shadow-xs:  0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-sm:  0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-md:  0 4px 16px rgba(0, 0, 0, 0.5);
+  --shadow-lg:  0 8px 32px rgba(0, 0, 0, 0.6);
+  --shadow-xl:  0 16px 56px rgba(0, 0, 0, 0.7);
 
   /* ─── Typography: Font Stacks ───────────────────────────────── */
   --font-display: var(--font-cormorant), 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
@@ -146,14 +150,14 @@
   --safe-right:        env(safe-area-inset-right, 0px);
 
   /* ─── Form Tokens ───────────────────────────────────────────── */
-  --input-bg:           var(--color-bone);
-  --input-border:       var(--color-border);
-  --input-border-focus: var(--color-rose);
+  --input-bg:           #141414;
+  --input-border:       rgba(250, 247, 242, 0.12);
+  --input-border-focus: var(--color-gold);
   --input-radius:       var(--radius-md);
   --input-padding:      0.875rem 1rem;
   --input-font:         var(--font-body);
   --input-font-size:    var(--text-base);
-  --input-color:        var(--color-espresso);
-  --input-placeholder:  var(--color-taupe);
-  --input-shadow-focus: 0 0 0 3px rgba(196, 137, 122, 0.20);
+  --input-color:        var(--color-ivory);
+  --input-placeholder:  rgba(250, 247, 242, 0.40);
+  --input-shadow-focus: 0 0 0 3px rgba(201, 168, 106, 0.20);
 }

@@ -194,12 +194,16 @@ button,
   gap: var(--space-2);
   font-family: var(--font-body);
   font-weight: 500;
-  letter-spacing: 0.06em;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
+  border-radius: 0;
   cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.15s ease, box-shadow 0.3s ease;
+  padding: 14px 32px;
+  line-height: 1.2;
   text-decoration: none;
   white-space: nowrap;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, opacity 0.3s ease;
 }
 
 .btn:hover {
@@ -207,7 +211,7 @@ button,
 }
 
 .btn:active {
-  transform: scale(0.97) !important;
+  transform: scale(0.98) !important;
 }
 
 .btn:focus-visible {
@@ -215,43 +219,103 @@ button,
   outline-offset: 3px;
 }
 
-/* Primary — rose outline pill */
+/* Button Primary: transparent, gold border, gold text, 0 radius, hover: gold bg, noir text */
 .btn-primary {
-  font-size: var(--text-sm);
-  padding: 0.875rem 2rem;
-  border: 1.5px solid var(--color-rose);
-  border-radius: var(--radius-pill);
-  color: var(--color-espresso);
   background: transparent;
+  border: 1px solid #C9A96E;
+  color: #C9A96E;
+  border-radius: 0;
+  padding: 14px 32px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 .btn-primary:hover {
-  background: var(--color-rose);
-  color: var(--color-ivory);
+  background: #C9A96E;
+  color: #080808;
+  border-color: #C9A96E;
 }
 
-/* Filled */
+/* Button Secondary: transparent, ivory 30% border, ivory text, 0 radius, hover: ivory border, opacity 0.7 */
+.btn-secondary {
+  background: transparent;
+  border: 1px solid rgba(240, 234, 224, 0.3);
+  color: #F0EAE0;
+  border-radius: 0;
+  padding: 14px 32px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, opacity 0.3s ease;
+}
+
+.btn-secondary:hover {
+  border-color: #F0EAE0;
+  opacity: 0.7;
+  color: #F0EAE0;
+}
+
+/* Button Dark Fill: noir bg, gold border, gold text, 0 radius */
+.btn-dark-fill,
 .btn-filled {
-  font-size: var(--text-sm);
-  padding: 0.875rem 2rem;
-  border: 1.5px solid var(--color-espresso);
-  border-radius: var(--radius-pill);
-  background: var(--color-espresso);
-  color: var(--color-ivory);
+  background: #080808;
+  border: 1px solid #C9A96E;
+  color: #C9A96E;
+  border-radius: 0;
+  padding: 14px 32px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
+.btn-dark-fill:hover,
 .btn-filled:hover {
-  background: var(--color-coffee);
-  border-color: var(--color-coffee);
+  background: #C9A96E;
+  color: #080808;
+  border-color: #C9A96E;
 }
 
-/* Ghost */
+/* WhatsApp Button: transparent, ivory 20% border, ivory text, 0 radius */
+.btn-whatsapp {
+  background: transparent;
+  border: 1px solid rgba(240, 234, 224, 0.2);
+  color: #F0EAE0;
+  border-radius: 0;
+  padding: 14px 32px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, opacity 0.3s ease;
+}
+
+.btn-whatsapp:hover {
+  border-color: #F0EAE0;
+  opacity: 0.7;
+  color: #F0EAE0;
+}
+
+/* Ghost Button: gold underline text */
 .btn-ghost {
   font-size: var(--text-sm);
   padding: 0;
   background: transparent;
   border: none;
-  color: var(--color-espresso);
+  border-radius: 0;
+  color: var(--color-gold);
   text-decoration-line: underline;
   text-underline-offset: 4px;
   text-decoration-thickness: 1px;
@@ -261,14 +325,14 @@ button,
 }
 
 .btn-ghost:hover {
-  color: var(--color-rose);
+  color: var(--color-gold-light);
   transform: none;
 }
 
 /* Sizes */
-.btn-sm { padding: 0.625rem 1.25rem; font-size: var(--text-xs); }
-.btn-md { padding: 0.875rem 2rem;    font-size: var(--text-sm); }
-.btn-lg { padding: 1rem 2.5rem;      font-size: var(--text-base); }
+.btn-sm { padding: 10px 20px; font-size: 0.75rem; letter-spacing: 0.12em; }
+.btn-md { padding: 14px 32px; font-size: 0.8rem;  letter-spacing: 0.15em; }
+.btn-lg { padding: 16px 36px; font-size: 0.85rem; letter-spacing: 0.15em; }
 
 /* ─── Nav Link Hover ─────────────────────────────────────────── */
 .nav-link {
@@ -305,17 +369,19 @@ button,
 
 /* ─── Card Hover ─────────────────────────────────────────────── */
 .card {
-  background: var(--color-bone);
-  border: 1px solid var(--color-border);
-  box-shadow: var(--shadow-sm);
+  background: var(--color-elevated);
+  border: 1px solid rgba(250, 247, 242, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   border-radius: var(--radius-lg);
   transition:
     box-shadow var(--duration-base) var(--ease-out),
+    border-color var(--duration-base) var(--ease-out),
     transform var(--duration-base) var(--ease-out);
 }
 
 .card:hover {
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+  border-color: rgba(201, 168, 106, 0.35);
   transform: translateY(-3px);
 }
 
@@ -452,7 +518,7 @@ button,
 .preloader {
   position: fixed;
   inset: 0;
-  background: var(--color-ivory);
+  background: var(--color-noir);
   z-index: var(--z-preloader);
   display: flex;
   flex-direction: column;
@@ -473,17 +539,17 @@ button,
   font-size: clamp(1.8rem, 5vw, 3.5rem);
   font-weight: 300;
   letter-spacing: 0.25em;
-  color: var(--color-espresso);
+  color: var(--color-ivory);
   text-transform: uppercase;
 }
 
 .preloader-tagline {
-  font-family: var(--font-label);
-  font-size: var(--text-label);
-  font-weight: var(--label-weight);
-  letter-spacing: var(--label-tracking);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 400;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: var(--color-rose);
+  color: var(--color-gold);
 }
 
 .preloader-bar-track {
@@ -500,7 +566,7 @@ button,
   inset-block: 0;
   left: 0;
   width: 0;
-  background: var(--color-rose);
+  background: var(--color-gold);
   animation: preloaderProgress 1.2s var(--ease-editorial) forwards;
 }
 
@@ -512,7 +578,7 @@ button,
 
 /* ─── FAQ Accordion ──────────────────────────────────────────── */
 .accordion-item {
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 1px solid rgba(250, 247, 242, 0.09);
 }
 
 .accordion-trigger {
@@ -524,7 +590,7 @@ button,
   font-family: var(--font-body);
   font-size: var(--text-base);
   font-weight: 500;
-  color: var(--color-espresso);
+  color: var(--color-ivory);
   background: none;
   border: none;
   cursor: pointer;
@@ -534,13 +600,14 @@ button,
 }
 
 .accordion-trigger:hover {
-  color: var(--color-rose);
+  color: var(--color-gold);
 }
 
 .accordion-icon {
   flex-shrink: 0;
   width: 20px;
   height: 20px;
+  color: var(--color-gold);
   transition: transform var(--duration-base) var(--ease-editorial);
 }
 
@@ -562,7 +629,7 @@ button,
   padding-bottom: var(--space-6);
   font-family: var(--font-body);
   font-size: var(--text-base);
-  color: var(--color-coffee);
+  color: rgba(250, 247, 242, 0.65);
   line-height: 1.70;
 }
 
@@ -581,9 +648,9 @@ button,
   text-transform: uppercase;
   padding: 0.5rem 1.25rem;
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-pill);
+  border-radius: 0;
   background: transparent;
-  color: var(--color-coffee);
+  color: rgba(250, 247, 242, 0.65);
   cursor: pointer;
   transition:
     background var(--duration-fast) var(--ease-out),
@@ -592,14 +659,14 @@ button,
 }
 
 .filter-pill:hover {
-  border-color: var(--color-rose);
-  color: var(--color-rose);
+  border-color: var(--color-gold);
+  color: var(--color-gold);
 }
 
 .filter-pill.is-active {
-  background: var(--color-espresso);
-  border-color: var(--color-espresso);
-  color: var(--color-ivory);
+  background: var(--color-gold);
+  border-color: var(--color-gold);
+  color: var(--color-noir);
 }
 
 /* ─── Gallery Grid ───────────────────────────────────────────── */
@@ -623,45 +690,10 @@ button,
   .gallery-masonry { columns: 1; }
 }
 
-/* ─── WhatsApp FAB ───────────────────────────────────────────── */
-.whatsapp-fab {
-  position: fixed;
-  bottom: calc(var(--space-5) + env(safe-area-inset-bottom, 0px));
-  right: clamp(1rem, 4vw, 1.5rem);
-  z-index: var(--z-overlay);
-  width: 54px;
-  height: 54px;
-  border-radius: 50%;
-  background: #25D366;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 6px 24px rgba(37, 211, 102, 0.45), 0 2px 8px rgba(0, 0, 0, 0.35);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  transition:
-    transform var(--duration-fast) var(--ease-out),
-    box-shadow var(--duration-fast) var(--ease-out);
-  -webkit-tap-highlight-color: transparent;
-}
-
-.whatsapp-fab:hover,
-.whatsapp-fab:active {
-  transform: scale(1.08);
-  box-shadow: 0 8px 30px rgba(37, 211, 102, 0.60), 0 4px 12px rgba(0, 0, 0, 0.45);
-}
-
-/* Hide FAB on desktop */
-@media (min-width: 1024px) {
-  .whatsapp-fab {
-    display: none;
-  }
-}
-
 /* ─── Testimonial Card ───────────────────────────────────────── */
 .testimonial-card {
-  background: var(--color-bone);
-  border: 1px solid var(--color-border);
+  background: var(--color-elevated);
+  border: 1px solid rgba(250, 247, 242, 0.08);
   border-radius: var(--radius-lg);
   padding: var(--space-8);
 }

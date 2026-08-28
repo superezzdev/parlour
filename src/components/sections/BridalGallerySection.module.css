@@ -1,5 +1,5 @@
 .gallerySection {
-  background-color: var(--color-ivory);
+  background-color: var(--color-noir);
   padding-block: var(--section-padding-y);
   position: relative;
 }
@@ -28,7 +28,7 @@
   font-size: var(--text-display-md);
   font-weight: 300;
   line-height: 1.1;
-  color: var(--color-espresso);
+  color: #F0EAE0;
   margin-top: var(--space-3);
   margin-bottom: var(--space-3);
 }
@@ -38,7 +38,7 @@
   font-size: var(--text-base);
   font-weight: 300;
   line-height: 1.7;
-  color: var(--color-coffee);
+  color: #7A7066;
   margin: 0;
 }
 
@@ -86,10 +86,10 @@
   position: relative;
   border-radius: var(--radius-md);
   overflow: hidden;
-  background-color: var(--color-bone);
+  background-color: var(--color-elevated);
   cursor: pointer;
-  border: 1px solid var(--color-border);
-  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(250, 247, 242, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
   transition:
     transform var(--duration-slow) var(--ease-editorial),
     box-shadow var(--duration-slow) var(--ease-editorial),
@@ -98,8 +98,8 @@
 
 .imageCard:hover {
   transform: translateY(-4px);
-  box-shadow: var(--shadow-xl);
-  border-color: var(--color-border-rose);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.6);
+  border-color: rgba(201, 168, 106, 0.4);
 }
 
 .imageElement {
@@ -119,8 +119,8 @@
   inset: 0;
   background: linear-gradient(
     to top,
-    rgba(30, 18, 8, 0.85) 0%,
-    rgba(30, 18, 8, 0.25) 45%,
+    rgba(8, 8, 8, 0.90) 0%,
+    rgba(8, 8, 8, 0.35) 45%,
     transparent 100%
   );
   display: flex;
@@ -132,11 +132,11 @@
 }
 
 .tag {
-  font-family: var(--font-label);
+  font-family: var(--font-mono);
   font-size: 0.625rem;
-  letter-spacing: var(--label-tracking);
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--color-blush);
+  color: var(--color-gold);
   display: block;
   margin-bottom: var(--space-1);
 }
@@ -145,7 +145,7 @@
   font-family: var(--font-display);
   font-size: var(--text-lg);
   font-weight: 400;
-  color: var(--color-ivory);
+  color: #F0EAE0;
   margin: 0;
   line-height: 1.25;
 }
@@ -157,12 +157,13 @@
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: rgba(30, 18, 8, 0.6);
+  background: rgba(8, 8, 8, 0.7);
   backdrop-filter: blur(4px);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-ivory);
+  color: var(--color-gold);
+  border: 1px solid rgba(250, 247, 242, 0.15);
   opacity: 0;
   transform: scale(0.8);
   transition:

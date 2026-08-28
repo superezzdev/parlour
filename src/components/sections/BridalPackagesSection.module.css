@@ -1,8 +1,8 @@
 .packagesSection {
-  background-color: var(--color-bone);
+  background-color: var(--color-noir);
   padding-block: var(--section-padding-y);
   position: relative;
-  border-top: 1px solid var(--color-champagne);
+  border-top: 1px solid rgba(250, 247, 242, 0.08);
 }
 
 .header {
@@ -17,7 +17,7 @@
   font-size: var(--text-display-md);
   font-weight: 300;
   line-height: 1.1;
-  color: var(--color-espresso);
+  color: #F0EAE0;
   margin-top: var(--space-3);
   margin-bottom: var(--space-4);
 }
@@ -27,7 +27,7 @@
   font-size: var(--text-base);
   font-weight: 300;
   line-height: 1.7;
-  color: var(--color-coffee);
+  color: #7A7066;
   margin: 0;
 }
 
@@ -49,13 +49,13 @@
 
 .card {
   position: relative;
-  background: var(--color-ivory);
-  border: 1px solid var(--color-border);
+  background: var(--color-elevated);
+  border: 1px solid rgba(250, 247, 242, 0.08);
   border-radius: var(--radius-lg);
   padding: clamp(2rem, 4vw, 2.75rem);
   display: flex;
   flex-direction: column;
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   transition:
     transform var(--duration-base) var(--ease-out),
     box-shadow var(--duration-base) var(--ease-out),
@@ -64,14 +64,14 @@
 
 .card:hover {
   transform: translateY(-4px);
-  box-shadow: var(--shadow-xl);
-  border-color: var(--color-border-rose);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+  border-color: rgba(201, 168, 106, 0.35);
 }
 
 .cardFeatured {
-  background: var(--color-ivory);
-  border: 1.5px solid var(--color-rose);
-  box-shadow: var(--shadow-md);
+  background: #181818;
+  border: 1.5px solid var(--color-gold);
+  box-shadow: 0 8px 32px rgba(201, 168, 106, 0.15);
 }
 
 .popularBadge {
@@ -79,19 +79,20 @@
   top: -12px;
   left: 50%;
   transform: translateX(-50%);
-  background: var(--color-espresso);
-  color: var(--color-ivory);
-  font-family: var(--font-label);
+  background: var(--color-gold);
+  color: #080808;
+  font-family: var(--font-mono);
   font-size: 0.625rem;
-  letter-spacing: var(--label-tracking);
+  font-weight: 700;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   padding: 0.35rem 1rem;
-  border-radius: var(--radius-pill);
-  box-shadow: var(--shadow-sm);
+  border-radius: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 .cardHeader {
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 1px solid rgba(250, 247, 242, 0.08);
   padding-bottom: var(--space-6);
   margin-bottom: var(--space-6);
 }
@@ -100,18 +101,19 @@
   font-family: var(--font-display);
   font-size: var(--text-display-sm);
   font-weight: 400;
-  color: var(--color-espresso);
-  letter-spacing: 0.04em;
+  color: #F0EAE0;
+  letter-spacing: 0.02em;
   margin: 0 0 var(--space-1) 0;
   line-height: 1.15;
 }
 
 .packageSubtitle {
-  font-family: var(--font-label);
-  font-size: 0.6875rem;
-  letter-spacing: var(--label-tracking);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--color-rose);
+  color: var(--color-gold);
   margin-bottom: var(--space-4);
   display: block;
 }
@@ -119,24 +121,25 @@
 .packageDesc {
   font-family: var(--font-body);
   font-size: var(--text-sm);
-  color: var(--color-coffee);
+  color: rgba(250, 247, 242, 0.65);
   line-height: 1.6;
   margin: 0;
 }
 
 .idealBox {
-  background: var(--color-bone);
+  background: rgba(250, 247, 242, 0.04);
+  border: 1px solid rgba(250, 247, 242, 0.06);
   border-radius: var(--radius-sm);
   padding: var(--space-3) var(--space-4);
   margin-bottom: var(--space-6);
 }
 
 .idealLabel {
-  font-family: var(--font-label);
+  font-family: var(--font-mono);
   font-size: 0.625rem;
-  letter-spacing: var(--label-tracking);
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--color-mocha);
+  color: var(--color-gold);
   display: block;
   margin-bottom: var(--space-1);
 }
@@ -144,18 +147,18 @@
 .idealText {
   font-family: var(--font-body);
   font-size: var(--text-xs);
-  color: var(--color-espresso);
+  color: rgba(250, 247, 242, 0.85);
   margin: 0;
   line-height: 1.4;
 }
 
 /* ─── Inclusions List ────────────────────────────────────────── */
 .inclusionsTitle {
-  font-family: var(--font-label);
+  font-family: var(--font-mono);
   font-size: 0.6875rem;
-  letter-spacing: var(--label-tracking);
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--color-espresso);
+  color: #F0EAE0;
   margin-bottom: var(--space-3);
   display: block;
 }
@@ -176,7 +179,7 @@
   gap: var(--space-3);
   font-family: var(--font-body);
   font-size: var(--text-sm);
-  color: var(--color-coffee);
+  color: rgba(250, 247, 242, 0.75);
   line-height: 1.5;
 }
 
@@ -184,7 +187,7 @@
   flex-shrink: 0;
   width: 18px;
   height: 18px;
-  color: var(--color-rose);
+  color: var(--color-gold);
   margin-top: 2px;
 }
 
@@ -197,11 +200,11 @@
 }
 
 .priceTag {
-  font-family: var(--font-label);
-  font-size: 0.6875rem;
-  letter-spacing: var(--label-tracking);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--color-taupe);
+  color: var(--color-gold);
   text-align: center;
 }
 
@@ -215,15 +218,15 @@
   margin-inline: auto;
   margin-top: clamp(2.5rem, 5vw, 4rem);
   padding: var(--space-6);
-  background: var(--color-ivory);
+  background: #121212;
   border-radius: var(--radius-md);
-  border: 1px solid var(--color-border);
+  border: 1px solid rgba(250, 247, 242, 0.08);
 }
 
 .disclaimerText {
   font-family: var(--font-body);
   font-size: var(--text-xs);
-  color: var(--color-mocha);
+  color: rgba(250, 247, 242, 0.6);
   line-height: 1.6;
   margin: 0;
 }

@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   overflow: hidden;
-  background: var(--color-espresso);
+  background: var(--color-noir);
 }
 
 .media {
@@ -109,23 +109,6 @@
   margin-top: var(--space-4);
 }
 
-.cta {
-  background: var(--color-rose) !important;
-  color: var(--color-ivory) !important;
-  border-color: var(--color-rose) !important;
-  box-shadow: 0 4px 20px rgba(196, 137, 122, 0.35);
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-3);
-}
-
-.cta:hover {
-  background: var(--color-blush) !important;
-  border-color: var(--color-blush) !important;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(196, 137, 122, 0.45);
-}
-
 @media (max-width: 768px) {
   .bridalTeaser {
     min-height: 70vh;
@@ -140,7 +123,7 @@
     );
   }
 
-  .cta {
+  .ctaWrapper > * {
     width: 100%;
     justify-content: center;
   }

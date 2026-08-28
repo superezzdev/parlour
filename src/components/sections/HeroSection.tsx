@@ -55,54 +55,66 @@ export default function HeroSection({
   const aboutImageRef = useImageClipReveal<HTMLDivElement>({ start: 'top 80%' })
   const bridalImageRef = useImageClipReveal<HTMLDivElement>({ start: 'top 80%' })
 
-  // PART A — Hero text animation (runs on page load, not scroll):
-  // After the page has rendered (useEffect with 0.2s delay), animate the hero content
+  // PART A — Hero text & image animation:
+  // Initial states are applied immediately to prevent any flicker during navigation,
+  // then smoothly animated into view.
   useEffect(() => {
     if (typeof window === 'undefined') return
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
-
-    const timer = setTimeout(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       const heroEl = heroRef.current
       if (!heroEl) return
+      const image = heroEl.querySelector<HTMLElement>('.hero-image')
+      if (image) image.style.clipPath = 'inset(0% 0 0 0)'
+      return
+    }
 
-      const ctx = gsap.context(() => {
-        const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
+    const heroEl = heroRef.current
+    if (!heroEl) return
 
-        const eyebrow = heroEl.querySelector('.hero-eyebrow')
-        const line1 = heroEl.querySelector('.hero-line-1')
-        const line2 = heroEl.querySelector('.hero-line-2')
-        const line3 = heroEl.querySelector('.hero-line-3')
-        const desc = heroEl.querySelector('.hero-description')
-        const buttons = heroEl.querySelector('.hero-buttons')
-        const image = heroEl.querySelector('.hero-image')
+    const ctx = gsap.context(() => {
+      const eyebrow = heroEl.querySelector('.hero-eyebrow')
+      const line1 = heroEl.querySelector('.hero-line-1')
+      const line2 = heroEl.querySelector('.hero-line-2')
+      const line3 = heroEl.querySelector('.hero-line-3')
+      const desc = heroEl.querySelector('.hero-description')
+      const buttons = heroEl.querySelector('.hero-buttons')
+      const image = heroEl.querySelector('.hero-image')
 
-        if (eyebrow) {
-          tl.from(eyebrow, { opacity: 0, y: 20, duration: 0.6 })
-        }
-        if (line1) {
-          tl.from(line1, { y: '100%', duration: 0.8 }, eyebrow ? '-=0.3' : '+=0')
-        }
-        if (line2) {
-          tl.from(line2, { y: '100%', duration: 0.8 }, '-=0.6')
-        }
-        if (line3) {
-          tl.from(line3, { y: '100%', duration: 0.8 }, '-=0.6')
-        }
-        if (desc) {
-          tl.from(desc, { opacity: 0, y: 20, duration: 0.6 }, '-=0.4')
-        }
-        if (buttons) {
-          tl.from(buttons, { opacity: 0, y: 20, duration: 0.6 }, '-=0.4')
-        }
-        if (image) {
-          tl.from(image, { clipPath: 'inset(100% 0 0 0)', duration: 1.2, ease: 'power2.inOut' }, '-=0.8')
-        }
-      }, heroRef)
+      // Set initial states synchronously so there is zero flash of unstyled content
+      if (image) gsap.set(image, { clipPath: 'inset(100% 0 0 0)' })
+      if (eyebrow) gsap.set(eyebrow, { opacity: 0, y: 20 })
+      if (line1) gsap.set(line1, { y: '100%' })
+      if (line2) gsap.set(line2, { y: '100%' })
+      if (line3) gsap.set(line3, { y: '100%' })
+      if (desc) gsap.set(desc, { opacity: 0, y: 20 })
+      if (buttons) gsap.set(buttons, { opacity: 0, y: 20 })
 
-      return () => ctx.revert()
-    }, 200)
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
 
-    return () => clearTimeout(timer)
+      if (image) {
+        tl.to(image, { clipPath: 'inset(0% 0 0 0)', duration: 1.2, ease: 'power2.inOut' }, 0)
+      }
+      if (eyebrow) {
+        tl.to(eyebrow, { opacity: 1, y: 0, duration: 0.6 }, 0.1)
+      }
+      if (line1) {
+        tl.to(line1, { y: '0%', duration: 0.8 }, 0.2)
+      }
+      if (line2) {
+        tl.to(line2, { y: '0%', duration: 0.8 }, 0.35)
+      }
+      if (line3) {
+        tl.to(line3, { y: '0%', duration: 0.8 }, 0.5)
+      }
+      if (desc) {
+        tl.to(desc, { opacity: 1, y: 0, duration: 0.6 }, 0.65)
+      }
+      if (buttons) {
+        tl.to(buttons, { opacity: 1, y: 0, duration: 0.6 }, 0.75)
+      }
+    }, heroRef)
+
+    return () => ctx.revert()
   }, [variant])
 
   // Top-left location badge (Unified single instance across all pages)
@@ -113,12 +125,27 @@ export default function HeroSection({
   ) : null
 
   // ─────────────────────────────────────────────────────────────
-  // 1. SERVICES HERO (Centered, Minimal, Noir, Short py-20, No Image)
+  // 1. SERVICES HERO (Atmospheric Luxury Background + Centered Editorial)
   // ─────────────────────────────────────────────────────────────
   if (variant === 'services') {
     return (
       <section ref={heroRef} className={styles.heroServices} aria-label="Services hero">
         {locationBadgeNode}
+
+        {imageSrc && (
+          <div className={`${styles.servicesMedia} hero-image`} aria-hidden="true">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={imageSrc}
+              alt={imageAlt || 'Glamorous beauty and bridal services menu'}
+              className={styles.servicesImage}
+              loading="eager"
+              fetchPriority="high"
+            />
+            <div className={styles.servicesOverlay} aria-hidden="true" />
+          </div>
+        )}
+
         <div className={`container ${styles.servicesContainer}`}>
           <div className={styles.servicesContent}>
             {label && (
@@ -136,6 +163,26 @@ export default function HeroSection({
 
             {subheadline && (
               <p className={`${styles.servicesSubheadline} hero-description`}>{subheadline}</p>
+            )}
+
+            {(ctaLabel || secondaryCtaLabel) && (
+              <div className={`${styles.servicesActionGroup} hero-buttons`}>
+                {ctaLabel && (
+                  <Link href={ctaHref} className="btn btn-primary btn-lg">
+                    {ctaLabel}
+                  </Link>
+                )}
+
+                {secondaryCtaLabel && (
+                  <Link href={secondaryCtaHref} className="btn btn-secondary btn-lg">
+                    <span>{secondaryCtaLabel}</span>
+                    <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <line x1="4" y1="10" x2="16" y2="10" />
+                      <polyline points="11,5 16,10 11,15" />
+                    </svg>
+                  </Link>
+                )}
+              </div>
             )}
           </div>
         </div>
@@ -305,13 +352,13 @@ export default function HeroSection({
           {(ctaLabel || secondaryCtaLabel) && (
             <div className={`${styles.actionGroup} hero-buttons`}>
               {ctaLabel && (
-                <Link href={ctaHref} className={`btn btn-primary btn-lg ${styles.heroPrimaryCta}`}>
+                <Link href={ctaHref} className="btn btn-primary btn-lg">
                   {ctaLabel}
                 </Link>
               )}
 
               {secondaryCtaLabel && (
-                <Link href={secondaryCtaHref} className={`btn ${styles.heroSecondaryCta}`}>
+                <Link href={secondaryCtaHref} className="btn btn-secondary btn-lg">
                   <span>{secondaryCtaLabel}</span>
                   <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <line x1="4" y1="10" x2="16" y2="10" />
@@ -371,13 +418,13 @@ export default function HeroSection({
           {(ctaLabel || secondaryCtaLabel) && (
             <div className={`${styles.actionGroup} hero-buttons`}>
               {ctaLabel && (
-                <Link href={ctaHref} className={`btn btn-primary btn-lg ${styles.heroPrimaryCta}`}>
+                <Link href={ctaHref} className="btn btn-primary btn-lg">
                   {ctaLabel}
                 </Link>
               )}
 
               {secondaryCtaLabel && (
-                <Link href={secondaryCtaHref} className={`btn ${styles.heroSecondaryCta}`}>
+                <Link href={secondaryCtaHref} className="btn btn-secondary btn-lg">
                   <span>{secondaryCtaLabel}</span>
                   <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <line x1="4" y1="10" x2="16" y2="10" />

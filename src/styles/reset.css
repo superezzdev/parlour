@@ -48,7 +48,8 @@ h4,
 h5,
 h6 {
   overflow-wrap: break-word;
-  hyphens: auto;
+  hyphens: manual;
+  text-wrap: pretty;
 }
 
 ul,
@@ -80,8 +81,8 @@ input[type='number']::-webkit-outer-spin-button {
   left: var(--space-4);
   z-index: var(--z-preloader);
   padding: var(--space-3) var(--space-6);
-  background: var(--color-espresso);
-  color: var(--color-ivory);
+  background: var(--color-gold);
+  color: var(--color-noir);
   font-family: var(--font-body);
   font-size: var(--text-sm);
   font-weight: 500;

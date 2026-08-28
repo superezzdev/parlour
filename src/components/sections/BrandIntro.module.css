@@ -1,67 +1,160 @@
 .brandIntro {
-  background: var(--color-ivory);
+  background: var(--color-noir);
   position: relative;
   overflow: hidden;
+  border-top: 1px solid rgba(250, 247, 242, 0.06);
 }
 
 .inner {
+  display: grid;
+  grid-template-columns: 42fr 58fr;
+  gap: clamp(2.5rem, 5vw, 5rem);
   align-items: flex-start;
-  gap: clamp(2rem, 5vw, 5rem);
 }
 
+/* ─── Left Column ────────────────────────────────────────────── */
 .left {
   display: flex;
   flex-direction: column;
   gap: var(--space-6);
-  padding-top: var(--space-2);
 }
 
-.accent {
-  width: 1px;
-  height: 90px;
-  background: linear-gradient(to bottom, var(--color-rose), transparent);
-  margin-left: 2px;
+.labelWrapper {
+  margin-bottom: -0.5rem;
+}
+
+.visualCard {
+  position: relative;
+  background: var(--color-surface);
+  border: 1px solid rgba(201, 168, 106, 0.18);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: border-color var(--duration-base) ease, transform var(--duration-base) ease;
+}
+
+.visualCard:hover {
+  border-color: rgba(201, 168, 106, 0.35);
+  transform: translateY(-2px);
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+.studioImage {
+  object-fit: cover;
+  object-position: center 35%;
+  transition: transform 0.8s var(--ease-editorial);
+}
+
+.visualCard:hover .studioImage {
+  transform: scale(1.03);
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(8, 8, 8, 0.1) 0%,
+    rgba(8, 8, 8, 0.4) 60%,
+    rgba(8, 8, 8, 0.85) 100%
+  );
+  pointer-events: none;
+}
+
+.cardContent {
+  padding: var(--space-5) var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  background: var(--color-surface);
 }
 
 .metaBlock {
   display: flex;
   flex-direction: column;
-  gap: var(--space-1);
+  gap: 0.25rem;
 }
 
-.metaTitle {
-  font-family: var(--font-label);
-  font-size: 0.6875rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
+.metaBadge {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: var(--color-rose);
+  color: var(--color-gold);
+  font-weight: 500;
+}
+
+.studioName {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  color: var(--color-ivory);
   margin: 0;
+  line-height: 1.2;
 }
 
 .metaLocation {
   font-family: var(--font-body);
-  font-size: var(--text-sm);
+  font-size: var(--text-xs);
   color: var(--color-taupe);
   margin: 0;
+  letter-spacing: 0.02em;
 }
 
+.accentLine {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    rgba(201, 168, 106, 0.35) 0%,
+    rgba(201, 168, 106, 0.05) 80%,
+    transparent 100%
+  );
+  margin-block: 0.125rem;
+}
+
+.studioTagline {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: rgba(250, 247, 242, 0.65);
+  margin: 0;
+  letter-spacing: 0.06em;
+}
+
+/* ─── Right Column ───────────────────────────────────────────── */
 .right {
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: var(--space-6);
+}
+
+.headingWrapper {
+  margin-bottom: var(--space-2);
 }
 
 .headline {
-  margin-bottom: var(--space-8);
-  color: var(--color-espresso);
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.8vw, 3.25rem);
+  font-weight: 300;
   line-height: 1.15;
+  color: #F0EAE0;
+  letter-spacing: -0.01em;
+  margin: 0;
 }
 
-.headline em {
+.headlineHighlight {
   font-style: italic;
-  color: var(--color-coffee);
+  color: var(--color-gold);
   font-weight: 300;
+  display: inline-block;
+  margin-top: 0.25rem;
 }
 
 .narrative {
@@ -70,24 +163,105 @@
   gap: var(--space-6);
 }
 
-.narrative p {
+.leadText {
+  font-family: var(--font-body);
+  font-size: clamp(1.0625rem, 1.2vw, 1.2rem);
+  line-height: 1.75;
+  font-weight: 300;
+  color: rgba(250, 247, 242, 0.88);
   margin: 0;
 }
 
-.action {
-  margin-top: var(--space-4);
+.bodyText {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  font-weight: 400;
+  color: rgba(250, 247, 242, 0.65);
+  margin: 0;
 }
 
-@media (max-width: 768px) {
-  .left {
-    flex-direction: column;
-    gap: var(--space-4);
+/* ─── 3 Core Pillars ─────────────────────────────────────────── */
+.pillarsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+  padding: var(--space-5) 0;
+  margin-block: var(--space-2);
+  border-top: 1px solid rgba(250, 247, 242, 0.08);
+  border-bottom: 1px solid rgba(250, 247, 242, 0.08);
+}
+
+.pillarItem {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.pillarNum {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--color-gold);
+  letter-spacing: 0.15em;
+  font-weight: 500;
+}
+
+.pillarText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.pillarTitle {
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 500;
+  color: var(--color-ivory);
+  letter-spacing: 0.01em;
+}
+
+.pillarDesc {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  line-height: 1.45;
+  color: rgba(250, 247, 242, 0.55);
+}
+
+/* ─── Action Button ──────────────────────────────────────────── */
+.action {
+  margin-top: var(--space-2);
+  display: flex;
+  align-items: center;
+}
+
+/* ─── Responsive Breakpoints ─────────────────────────────────── */
+@media (max-width: 991px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
   }
 
-  .accent {
-    width: 60px;
-    height: 1px;
-    background: linear-gradient(to right, var(--color-rose), transparent);
-    margin-left: 0;
+  .visualCard {
+    max-width: 500px;
+  }
+
+  .pillarsGrid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+}
+
+@media (max-width: 640px) {
+  .headline {
+    font-size: 1.875rem;
+    line-height: 1.2;
+  }
+
+  .leadText {
+    font-size: 1rem;
+  }
+
+  .cardContent {
+    padding: var(--space-4);
   }
 }

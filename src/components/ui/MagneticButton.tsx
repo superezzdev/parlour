@@ -8,7 +8,7 @@ interface MagneticButtonProps {
   children: ReactNode
   href?: string
   onClick?: () => void
-  variant?: 'primary' | 'filled' | 'ghost'
+  variant?: 'primary' | 'secondary' | 'filled' | 'dark-fill' | 'whatsapp' | 'ghost'
   size?: 'sm' | 'md' | 'lg'
   className?: string
   strength?: number
