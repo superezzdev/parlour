@@ -66,22 +66,32 @@ const servicesList: ServiceItem[] = [
 ]
 
 export default function ServiceGrid() {
-  const [activeService, setActiveService] = useState<number>(0)
+  const [activeService, setActiveService] = useState<number | null>(0)
   const imagePanelRef = useScrollReveal<HTMLDivElement>({ y: 30, delay: 0 })
   const headingRef = useHeadingReveal<HTMLHeadingElement>()
   const rightColRef = useScrollReveal<HTMLDivElement>({ y: 30, delay: 0.15 })
+
+  const currentDesktopIndex = activeService ?? 0
+
+  const handleRowClick = (e: React.MouseEvent, index: number) => {
+    // On mobile & touch screens (< 992px), toggle the accordion on tap instead of immediate navigation
+    if (typeof window !== 'undefined' && window.innerWidth < 992) {
+      e.preventDefault()
+      setActiveService((prev) => (prev === index ? null : index))
+    }
+  }
 
   return (
     <section className={styles.servicesSection} aria-labelledby="services-preview-heading">
       <div className={styles.container}>
         <div className={styles.splitLayout}>
-          {/* ─── Left Column: Dynamic Visual Panel (60% width, desktop) ─── */}
+          {/* ─── Left Column: Dynamic Visual Panel (60% width, desktop only) ─── */}
           <div ref={imagePanelRef} className={styles.leftCol} aria-hidden="true">
             {servicesList.map((service, index) => (
               <div
                 key={service.id}
                 className={`${styles.imageWrapper} ${
-                  activeService === index ? styles.imageActive : ''
+                  currentDesktopIndex === index ? styles.imageActive : ''
                 }`}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -97,11 +107,11 @@ export default function ServiceGrid() {
             <div className={styles.imageOverlay} />
             <div className={styles.imageBadge}>
               <span className={styles.badgeNumber}>
-                {servicesList[activeService].number} / 06
+                {servicesList[currentDesktopIndex].number} / 06
               </span>
               <span className={styles.badgeDot} />
               <span className={styles.badgeName}>
-                {servicesList[activeService].name}
+                {servicesList[currentDesktopIndex].name}
               </span>
             </div>
           </div>
@@ -126,31 +136,106 @@ export default function ServiceGrid() {
                 const isActive = activeService === index
 
                 return (
-                  <Link
+                  <div
                     key={service.id}
-                    href={`/services#${service.slug}`}
                     className={`${styles.rowItem} ${isActive ? styles.rowActive : ''}`}
-                    onMouseEnter={() => setActiveService(index)}
-                    onFocus={() => setActiveService(index)}
                     role="listitem"
-                    aria-label={`${service.number} ${service.name}`}
                   >
-                    <div className={styles.rowHeader}>
-                      {/* Left: Number */}
-                      <span className={styles.rowNumber}>{service.number}</span>
+                    <Link
+                      href={`/services#${service.slug}`}
+                      className={styles.rowLink}
+                      onClick={(e) => handleRowClick(e, index)}
+                      onMouseEnter={() => setActiveService(index)}
+                      onFocus={() => setActiveService(index)}
+                      aria-expanded={isActive}
+                      aria-label={`${service.number} ${service.name}`}
+                    >
+                      <div className={styles.rowHeader}>
+                        {/* Left: Number */}
+                        <span className={styles.rowNumber}>{service.number}</span>
 
-                      {/* Center: Name & Expanding 1-Line Description */}
-                      <div className={styles.rowContent}>
-                        <h3 className={styles.rowName}>{service.name}</h3>
-                        <p className={styles.description}>{service.description}</p>
+                        {/* Center: Name & Desktop-only Hover Description */}
+                        <div className={styles.rowContent}>
+                          <h3 className={styles.rowName}>{service.name}</h3>
+                          <p className={styles.description}>{service.description}</p>
+                        </div>
+
+                        {/* Right: Desktop Arrow & Mobile Accordion Toggle */}
+                        <div className={styles.rowAction} aria-hidden="true">
+                          <span className={styles.rowArrow}>&rarr;</span>
+                          <span
+                            className={`${styles.mobileToggle} ${
+                              isActive ? styles.mobileToggleOpen : ''
+                            }`}
+                          >
+                            <svg
+                              width="14"
+                              height="14"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            >
+                              <polyline points="6 9 12 15 18 9" />
+                            </svg>
+                          </span>
+                        </div>
                       </div>
+                    </Link>
 
-                      {/* Right: Arrow */}
-                      <span className={styles.rowArrow} aria-hidden="true">
-                        &rarr;
-                      </span>
+                    {/* Mobile-only Expanding Rich Card (< 992px) */}
+                    <div
+                      className={`${styles.mobileExpandedBody} ${
+                        isActive ? styles.mobileExpandedOpen : ''
+                      }`}
+                      aria-hidden={!isActive}
+                    >
+                      <div className={styles.mobileCardContent}>
+                        <Link
+                          href={`/services#${service.slug}`}
+                          className={styles.mobileImageFrame}
+                          tabIndex={isActive ? 0 : -1}
+                          aria-label={`View ${service.name} gallery and details`}
+                        >
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img
+                            src={service.image}
+                            alt={service.name}
+                            className={styles.mobileImage}
+                            loading="lazy"
+                            decoding="async"
+                          />
+                          <div className={styles.mobileImageOverlay} />
+                          <div className={styles.mobileImageBadge}>
+                            <span className={styles.mobileBadgeNumber}>
+                              {service.number}
+                            </span>
+                            <span className={styles.mobileBadgeDot} />
+                            <span className={styles.mobileBadgeLabel}>
+                              SIGNATURE SERVICE
+                            </span>
+                          </div>
+                        </Link>
+
+                        <p className={styles.mobileDescription}>
+                          {service.description}
+                        </p>
+
+                        <Link
+                          href={`/services#${service.slug}`}
+                          className={styles.mobileServiceCta}
+                          tabIndex={isActive ? 0 : -1}
+                        >
+                          <span>Explore {service.name}</span>
+                          <span className={styles.mobileCtaArrow} aria-hidden="true">
+                            &rarr;
+                          </span>
+                        </Link>
+                      </div>
                     </div>
-                  </Link>
+                  </div>
                 )
               })}
             </div>

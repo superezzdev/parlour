@@ -15,10 +15,10 @@ interface GalleryStripItem {
 const STRIP_IMAGES: GalleryStripItem[] = [
   {
     id: 'strip-1',
-    src: '/images/hero/editorial-moment.jpg',
-    alt: 'Champagne gold bridal portrait — Glamorous studio artistry',
-    title: 'Art of Refinement',
-    subtitle: 'Champagne Gold Bridal Artistry',
+    src: '/images/gallery/hair/hair-01.jpg',
+    alt: 'Floral romance chignon and bridal updo styling',
+    title: 'Sculpted Grace',
+    subtitle: 'Floral Romance Chignon Coiffure',
   },
   {
     id: 'strip-2',
@@ -43,10 +43,10 @@ const STRIP_IMAGES: GalleryStripItem[] = [
   },
   {
     id: 'strip-5',
-    src: '/images/gallery/hair/hair-01.jpg',
-    alt: 'Floral romance chignon and bridal updo styling',
-    title: 'Sculpted Grace',
-    subtitle: 'Floral Romance Chignon Coiffure',
+    src: '/images/hero/editorial-moment.jpg',
+    alt: 'Champagne gold bridal portrait — Glamorous studio artistry',
+    title: 'Art of Refinement',
+    subtitle: 'Champagne Gold Bridal Artistry',
   },
   {
     id: 'strip-6',
