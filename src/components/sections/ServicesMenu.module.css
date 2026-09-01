@@ -48,7 +48,8 @@
     display: block;
     position: sticky;
     top: 96px;
-    height: auto;
+    align-self: start;
+    height: fit-content;
   }
 
   .tablesColumn {
