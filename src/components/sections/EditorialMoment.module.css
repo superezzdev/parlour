@@ -157,12 +157,12 @@
   margin: 0;
 }
 
-/* ─── MOBILE FULL-BLEED INTERACTIVE GALLERY (< 768px) ─── */
+/* ─── MOBILE & TABLET FULL-BLEED INTERACTIVE GALLERY (< 1024px) ─── */
 .mobileMediaContainer {
   display: none;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1023px) {
   .accordionContainer,
   .desktopContentContainer {
     display: none;
@@ -430,19 +430,4 @@
   }
 }
 
-@media (min-width: 768px) and (max-width: 1024px) {
-  .momentSection {
-    height: clamp(460px, 60vh, 600px);
-  }
-
-  .desktopContentContainer {
-    bottom: 40px;
-    left: 40px;
-    max-width: 420px;
-  }
-
-  .headline {
-    font-size: clamp(1.35rem, 2.8vw, 2rem);
-  }
-}
 

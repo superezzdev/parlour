@@ -127,13 +127,25 @@
   }
 }
 
-.hero-label    { animation: fadeSlideUp var(--duration-slow) var(--ease-out) 200ms both; }
-.hero-line-1   { animation: fadeSlideUp var(--duration-slow) var(--ease-editorial) 350ms both; }
-.hero-line-2   { animation: fadeSlideUp var(--duration-slow) var(--ease-editorial) 430ms both; }
-.hero-line-3   { animation: fadeSlideUp var(--duration-slow) var(--ease-editorial) 510ms both; }
-.hero-body     { animation: fadeSlideUp var(--duration-slow) var(--ease-out) 650ms both; }
-.hero-cta      { animation: fadeSlideUp var(--duration-slow) var(--ease-out) 850ms both; }
-.hero-scroll   { animation: fadeSlideUp var(--duration-base) var(--ease-out) 1100ms both; }
+.hero-label,
+.hero-eyebrow     { animation: fadeSlideUp var(--duration-slow) var(--ease-out) 200ms both; }
+.hero-line-1     { animation: fadeSlideUp var(--duration-slow) var(--ease-editorial) 350ms both; }
+.hero-line-2     { animation: fadeSlideUp var(--duration-slow) var(--ease-editorial) 430ms both; }
+.hero-line-3     { animation: fadeSlideUp var(--duration-slow) var(--ease-editorial) 510ms both; }
+.hero-body,
+.hero-description { animation: fadeSlideUp var(--duration-slow) var(--ease-out) 650ms both; }
+.hero-cta,
+.hero-buttons     { animation: fadeSlideUp var(--duration-slow) var(--ease-out) 850ms both; }
+.hero-scroll     { animation: fadeSlideUp var(--duration-base) var(--ease-out) 1100ms both; }
+
+.hero-image {
+  animation: heroClipReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) 100ms forwards;
+}
+
+@keyframes heroClipReveal {
+  from { clip-path: inset(100% 0 0 0); }
+  to   { clip-path: inset(0% 0 0 0); }
+}
 
 /* ─── Gold Underline Animation (Contact Hero & Accents) ──────── */
 @keyframes goldUnderlineExpand {
@@ -333,6 +345,16 @@ button,
 .btn-sm { padding: 10px 20px; font-size: 0.75rem; letter-spacing: 0.12em; }
 .btn-md { padding: 14px 32px; font-size: 0.8rem;  letter-spacing: 0.15em; }
 .btn-lg { padding: 16px 36px; font-size: 0.85rem; letter-spacing: 0.15em; }
+
+@media (max-width: 640px) {
+  .btn-md,
+  .btn-lg {
+    padding: 13px 20px;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    min-height: 44px;
+  }
+}
 
 /* ─── Nav Link Hover ─────────────────────────────────────────── */
 .nav-link {

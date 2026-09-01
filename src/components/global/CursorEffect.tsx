@@ -13,9 +13,9 @@ export default function CursorEffect() {
     if (prefersReducedMotion()) return
     if (typeof window === 'undefined') return
 
-    // Check for touch (no cursor on touch devices)
-    const isTouch = window.matchMedia('(hover: none)').matches
-    if (isTouch) return
+    // Check for touch / mobile (no cursor on touch or mobile devices)
+    const isTouchOrMobile = window.matchMedia('(pointer: coarse), (hover: none), (max-width: 1023px)').matches
+    if (isTouchOrMobile) return
 
     const dot = dotRef.current
     const ring = ringRef.current

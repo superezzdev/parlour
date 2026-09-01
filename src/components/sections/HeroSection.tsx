@@ -56,66 +56,16 @@ export default function HeroSection({
   const aboutImageRef = useImageClipReveal<HTMLDivElement>({ start: 'top 80%' })
   const bridalImageRef = useImageClipReveal<HTMLDivElement>({ start: 'top 80%' })
 
-  // PART A — Hero text & image animation:
-  // Initial states are applied immediately to prevent any flicker during navigation,
-  // then smoothly animated into view.
+  // Hero image reveal fallback for prefers-reduced-motion or immediate hydration
   useEffect(() => {
     if (typeof window === 'undefined') return
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      const heroEl = heroRef.current
-      if (!heroEl) return
-      const image = heroEl.querySelector<HTMLElement>('.hero-image')
-      if (image) image.style.clipPath = 'inset(0% 0 0 0)'
-      return
-    }
-
     const heroEl = heroRef.current
     if (!heroEl) return
 
-    const ctx = gsap.context(() => {
-      const eyebrow = heroEl.querySelector('.hero-eyebrow')
-      const line1 = heroEl.querySelector('.hero-line-1')
-      const line2 = heroEl.querySelector('.hero-line-2')
-      const line3 = heroEl.querySelector('.hero-line-3')
-      const desc = heroEl.querySelector('.hero-description')
-      const buttons = heroEl.querySelector('.hero-buttons')
-      const image = heroEl.querySelector('.hero-image')
-
-      // Set initial states synchronously so there is zero flash of unstyled content
-      if (image) gsap.set(image, { clipPath: 'inset(100% 0 0 0)' })
-      if (eyebrow) gsap.set(eyebrow, { opacity: 0, y: 20 })
-      if (line1) gsap.set(line1, { y: '100%' })
-      if (line2) gsap.set(line2, { y: '100%' })
-      if (line3) gsap.set(line3, { y: '100%' })
-      if (desc) gsap.set(desc, { opacity: 0, y: 20 })
-      if (buttons) gsap.set(buttons, { opacity: 0, y: 20 })
-
-      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
-
-      if (image) {
-        tl.to(image, { clipPath: 'inset(0% 0 0 0)', duration: 1.2, ease: 'power2.inOut' }, 0)
-      }
-      if (eyebrow) {
-        tl.to(eyebrow, { opacity: 1, y: 0, duration: 0.6 }, 0.1)
-      }
-      if (line1) {
-        tl.to(line1, { y: '0%', duration: 0.8 }, 0.2)
-      }
-      if (line2) {
-        tl.to(line2, { y: '0%', duration: 0.8 }, 0.35)
-      }
-      if (line3) {
-        tl.to(line3, { y: '0%', duration: 0.8 }, 0.5)
-      }
-      if (desc) {
-        tl.to(desc, { opacity: 1, y: 0, duration: 0.6 }, 0.65)
-      }
-      if (buttons) {
-        tl.to(buttons, { opacity: 1, y: 0, duration: 0.6 }, 0.75)
-      }
-    }, heroRef)
-
-    return () => ctx.revert()
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const image = heroEl.querySelector<HTMLElement>('.hero-image')
+      if (image) image.style.clipPath = 'inset(0% 0 0 0)'
+    }
   }, [variant])
 
   // Top-left location badge (Unified single instance across all pages)

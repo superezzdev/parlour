@@ -22,6 +22,8 @@ html {
   color: var(--color-ivory);
   background-color: var(--color-noir);
   color-scheme: dark;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -29,6 +31,7 @@ body {
   font-size: var(--text-base);
   color: rgba(250, 247, 242, 0.75);
   background-color: var(--color-noir);
+  max-width: 100%;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -49,6 +52,13 @@ textarea,
 label {
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
+}
+
+/* Immediate touch feedback for mobile interaction responsiveness */
+button:active:not(:disabled),
+a.btn:active,
+[role="button"]:active {
+  transform: scale(0.98);
 }
 
 /* Prevent text resize on rotate in iOS */
@@ -98,6 +108,20 @@ main {
 .no-js [data-stagger] > * {
   opacity: 1;
   transform: none;
+}
+
+/* ─── Slow-Network Graceful Content Reveal Fallback ──────────── */
+/* If low-end device or slow 2G/3G network delays hydration > 1.2s, smoothly reveal content */
+@keyframes gracefulNetworkFallback {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+[data-reveal]:not([data-visible="true"]),
+[data-stagger]:not([data-visible="true"]) > * {
+  animation: gracefulNetworkFallback 0.5s ease 1.2s forwards;
 }
 
 /* ─── Lenis Smooth Scroll Rules ──────────────────────────────── */

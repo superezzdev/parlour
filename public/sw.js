@@ -47,18 +47,36 @@ self.addEventListener('fetch', (event) => {
     return
   }
 
-  // Navigation requests: Network First, fallback to cached page or /offline
+  // Navigation requests: Network First with 2.5s timeout race, fallback to cached page or /offline
   if (request.mode === 'navigate') {
     event.respondWith(
-      fetch(request)
-        .then((response) => {
-          if (response.status === 200) {
-            const responseClone = response.clone()
-            caches.open(CACHE_NAME).then((cache) => cache.put(request, responseClone))
+      (async () => {
+        const timeoutPromise = new Promise((resolve) =>
+          setTimeout(() => resolve(null), 2500)
+        )
+
+        try {
+          const networkPromise = fetch(request).then((response) => {
+            if (response && response.status === 200) {
+              const responseClone = response.clone()
+              caches.open(CACHE_NAME).then((cache) => cache.put(request, responseClone))
+            }
+            return response
+          })
+
+          const fastResponse = await Promise.race([networkPromise, timeoutPromise])
+          if (fastResponse) return fastResponse
+
+          // Network was too slow (>2.5s on spotty connection) — serve cached version immediately
+          const cachedResponse = await caches.match(request)
+          if (cachedResponse) {
+            networkPromise.catch(() => {}) // keep background cache update alive
+            return cachedResponse
           }
-          return response
-        })
-        .catch(async () => {
+
+          // If not cached, wait for network
+          return await networkPromise
+        } catch {
           const cachedResponse = await caches.match(request)
           if (cachedResponse) return cachedResponse
           const offlineFallback = await caches.match(OFFLINE_URL)
@@ -66,7 +84,8 @@ self.addEventListener('fetch', (event) => {
           return new Response('You are currently offline. Please reconnect to view Glamorous.', {
             headers: { 'Content-Type': 'text/plain' },
           })
-        })
+        }
+      })()
     )
     return
   }

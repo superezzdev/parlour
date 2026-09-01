@@ -12,26 +12,45 @@ export default function PageLoader() {
   useEffect(() => {
     if (typeof window === 'undefined') return
 
+    const nav = navigator as unknown as { connection?: { saveData?: boolean; effectiveType?: string } }
+    const isSlowConnection =
+      nav.connection?.saveData ||
+      nav.connection?.effectiveType === '2g' ||
+      nav.connection?.effectiveType === 'slow-2g'
+
     const isAuditOrBot =
       /Chrome-Lighthouse|Googlebot|PTST|HeadlessChrome|bot|crawl|spider/i.test(
         navigator.userAgent
       ) ||
       window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
-      Boolean(sessionStorage.getItem('loaderShown'))
+      Boolean(sessionStorage.getItem('loaderShown')) ||
+      isSlowConnection
 
     if (isAuditOrBot) {
       if (loaderRef.current) {
         loaderRef.current.style.display = 'none'
       }
       setDone(true)
+      sessionStorage.setItem('loaderShown', '1')
       return
     }
 
     // Lock scroll on body while loader is active
     document.body.style.overflow = 'hidden'
 
+    // Hard safety timeout: loader will NEVER block the screen longer than 1000ms on slow devices
+    const safetyTimer = setTimeout(() => {
+      document.body.style.overflow = ''
+      setDone(true)
+      sessionStorage.setItem('loaderShown', '1')
+    }, 1000)
+
+    const isMobile = window.innerWidth < 640
+    const finalLetterSpacing = isMobile ? '0.22em' : '0.35em'
+
     const tl = gsap.timeline({
       onComplete: () => {
+        clearTimeout(safetyTimer)
         document.body.style.overflow = ''
         setDone(true)
         sessionStorage.setItem('loaderShown', '1')
@@ -42,19 +61,19 @@ export default function PageLoader() {
     tl.fromTo(
       lineRef.current,
       { scaleX: 0, transformOrigin: 'left center' },
-      { scaleX: 1, duration: 0.3, ease: 'power2.inOut' }
+      { scaleX: 1, duration: 0.28, ease: 'power2.inOut' }
     )
       // Fade in text
       .fromTo(
         textRef.current,
-        { opacity: 0, letterSpacing: '0.5em' },
-        { opacity: 1, letterSpacing: '0.4em', duration: 0.25, ease: 'power2.out' },
-        '-=0.15'
+        { opacity: 0, letterSpacing: '0.4em' },
+        { opacity: 1, letterSpacing: finalLetterSpacing, duration: 0.22, ease: 'power2.out' },
+        '-=0.12'
       )
       // Slide the loader UP and OFF screen with immediate pointer-events release
       .to(loaderRef.current, {
         yPercent: -100,
-        duration: 0.35,
+        duration: 0.32,
         ease: 'power3.inOut',
         onStart: () => {
           if (loaderRef.current) {
@@ -65,6 +84,7 @@ export default function PageLoader() {
       })
 
     return () => {
+      clearTimeout(safetyTimer)
       document.body.style.overflow = ''
       tl.kill()
     }
