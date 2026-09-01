@@ -37,7 +37,7 @@ export default function BrandIntro() {
             <div className={styles.studioInfo}>
               <span className={styles.metaBadge}>BOUTIQUE STUDIO</span>
               <div className={styles.studioName}>GLAMOROUS</div>
-              <p className={styles.metaLocation}>Sabji Mandi Rd, Sarai Meer, UP</p>
+              <p className={styles.metaLocation}>Sarai Meer, UP</p>
               <div className={styles.dividerLine} aria-hidden="true" />
               <p className={styles.studioTagline}>
                 Occasion &amp; Bridal Artistry &bull; By Appointment
@@ -66,7 +66,7 @@ export default function BrandIntro() {
 
           <div ref={rightTextRef} className={styles.narrative}>
             <p className={styles.leadText}>
-              We&apos;re a boutique makeup and beauty studio on Sabji Mandi Road, Sarai Meer. We do bridal makeup, party glam, hair styling, and skin care &mdash; and we take our time getting every look right. Because your occasion deserves nothing less.
+              We&apos;re a boutique makeup and beauty studio in Sarai Meer. We do bridal makeup, party glam, hair styling, and skin care &mdash; and we take our time getting every look right. Because your occasion deserves nothing less.
             </p>
 
             <p className={styles.bodyText}>

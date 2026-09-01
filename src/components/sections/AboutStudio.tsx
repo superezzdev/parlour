@@ -28,7 +28,7 @@ export default function AboutStudio() {
             </div>
 
             <p ref={leadRef} className={styles.leadText}>
-              Located on the 1st Floor of Mumtaz Bangle Store on Sabji Mandi Road, Glamorous is
+              Located in the heart of Sarai Meer, Glamorous is
               a calm, welcoming studio. With dedicated stations and proper lighting, we make sure
               you feel completely comfortable throughout your appointment.
             </p>
@@ -51,7 +51,7 @@ export default function AboutStudio() {
 
               <div className={styles.featureItem}>
                 <strong className={styles.featureTitle}>Easy to Find Location</strong>
-                <span className={styles.featureDesc}>Centrally located on Sabji Mandi Road, easily accessible from across Sarai Meer and nearby areas.</span>
+                <span className={styles.featureDesc}>Centrally located, easily accessible from across Sarai Meer and nearby areas.</span>
               </div>
             </div>
           </div>
@@ -70,7 +70,7 @@ export default function AboutStudio() {
             <div className={styles.locationCard}>
               <div className={styles.locationTitle}>Glamorous (makeup &amp; beauty)</div>
               <p className={styles.locationAddress}>
-                1st Floor, Mumtaz Bangle Store · Sabji Mandi Rd, Sarai Meer, UP 276305
+                Main Market Road · Sarai Meer, UP 276305
               </p>
             </div>
           </div>

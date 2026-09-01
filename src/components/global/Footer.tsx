@@ -23,7 +23,7 @@ export default function Footer() {
             </p>
             <div className={styles.badge}>
               <span className={styles.badgeDot} />
-              <span className={styles.badgeText}>Sabji Mandi Rd · Sarai Meer</span>
+              <span className={styles.badgeText}>Sarai Meer, Uttar Pradesh</span>
             </div>
           </div>
 

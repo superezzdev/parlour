@@ -6,14 +6,14 @@ import ContactDetailsSection from '@/components/sections/ContactDetailsSection'
 export const metadata: Metadata = {
   title: 'Book an Appointment & Visit — Glamorous Studio Sarai Meer',
   description:
-    'Book your bridal consultation, occasion makeup session, or beauty treatment at Glamorous Studio in Sarai Meer. Call +91 70078 75415 or book online.',
+    'Book your bridal consultation, occasion makeup session, or beauty treatment at Glamorous Studio in Sarai Meer. Call +91 88377 79719 or book online.',
   alternates: {
     canonical: 'https://glamorous.in/contact',
   },
   openGraph: {
     title: 'Book an Appointment | Glamorous Studio Sarai Meer',
     description:
-      'Book your bridal consultation or beauty appointment. Located at 1st Floor, Mumtaz Bangle Store, Sabji Mandi Rd, Sarai Meer.',
+      'Book your bridal consultation or beauty appointment at Glamorous Studio in Sarai Meer.',
     url: 'https://glamorous.in/contact',
     images: [
       {
@@ -56,13 +56,13 @@ export default function ContactPage() {
       name: 'Glamorous (makeup & beauty)',
       address: {
         '@type': 'PostalAddress',
-        streetAddress: '1st Floor, Mumtaz Bangle Store, Sabji Mandi Rd',
+        streetAddress: 'Main Market Road',
         addressLocality: 'Sarai Meer',
         addressRegion: 'Uttar Pradesh',
         postalCode: '276305',
         addressCountry: 'IN',
       },
-      telephone: '+91 70078 75415',
+      telephone: '+91 88377 79719',
       url: 'https://glamorous.in/contact',
       potentialAction: {
         '@type': 'ReserveAction',

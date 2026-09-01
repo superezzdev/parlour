@@ -87,12 +87,12 @@ export default function ContactDetailsSection() {
                 <h2 ref={cardTitleRef} className={`${styles.cardTitle} section-heading`}>Glamorous (makeup &amp; beauty)</h2>
               </div>
 
-              {/* Exact Address */}
+              {/* Studio Location */}
               <address className={styles.addressBlock}>
-                <p className={styles.addressHighlight}>1st Floor, Mumtaz Bangle Store</p>
-                <p>Sabji Mandi Rd</p>
-                <p>Sarai Meer</p>
-                <p>Uttar Pradesh 276305</p>
+                <p className={styles.addressHighlight}>{salon.address.line1}</p>
+                <p>{salon.address.line2}</p>
+                <p>{salon.address.city}</p>
+                <p>{salon.address.state} {salon.address.pincode}</p>
               </address>
 
               {/* Hours */}
@@ -149,7 +149,7 @@ export default function ContactDetailsSection() {
                 </div>
               </a>
               <div className={styles.mapFooter}>
-                <span className={styles.mapFooterText}>Sabji Mandi Rd · Sarai Meer</span>
+                <span className={styles.mapFooterText}>{salon.address.city}, {salon.address.state}</span>
                 <span className={styles.mapFooterAction}>OPEN LIVE MAP &rarr;</span>
               </div>
             </div>

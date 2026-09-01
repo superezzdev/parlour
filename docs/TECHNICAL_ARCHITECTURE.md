@@ -172,25 +172,25 @@ export const salon = {
   name: 'Glamorous',
   tagline: 'Beauty Crafted for Your Most Memorable Moments', // PLACEHOLDER H01
   description: 'A premium makeup and beauty studio in Sarai Meer, Uttar Pradesh, specialising in bridal artistry and beauty transformations.', // PLACEHOLDER BRAND_INTRO
-  phone: '+917007875415',
-  phoneDisplay: '+91 70078 75415',
-  whatsapp: '+917007875415',
-  whatsappUrl: 'https://wa.me/917007875415?text=Hi%20Glamorous!%20I%27d%20like%20to%20book%20an%20appointment.',
+  phone: '+918837779719',
+  phoneDisplay: '+91 88377 79719',
+  whatsapp: '+918837779719',
+  whatsappUrl: 'https://wa.me/918837779719?text=Hi%20Glamorous!%20I%27d%20like%20to%20book%20an%20appointment.',
   instagram: [
-    { handle: '@makeup_by_sabreen_786', url: 'https://instagram.com/makeup_by_sabreen_786' },
-    { handle: '@glamorouse_makeup_beauty', url: 'https://instagram.com/glamorouse_makeup_beauty' },
+    { handle: '@glamorous', url: 'https://superezz.dev' },
+    { handle: '@glamorous_beauty', url: 'https://superezz.dev' },
   ],
   address: {
-    line1: '1st Floor, Mumtaz Bangle Store',
-    line2: 'Sabji Mandi Rd, Sarai Meer',
+    line1: 'Glamorous Studio',
+    line2: 'Main Market Road',
     city: 'Sarai Meer',
     district: 'Azamgarh',
     state: 'Uttar Pradesh',
     pincode: '276305',
     country: 'India',
-    formatted: '1st Floor, Mumtaz Bangle Store, Sabji Mandi Rd, Sarai Meer, Uttar Pradesh 276305, India',
+    formatted: 'Glamorous Studio, Main Market Road, Sarai Meer, Uttar Pradesh 276305, India',
   },
-  googleMapsUrl: 'https://maps.app.goo.gl/LEeeeG6BkDa33Xdc6',
+  googleMapsUrl: 'https://superezz.dev',
   googleMapsEmbedUrl: '', // PLACEHOLDER SEO03 — generate from Google Maps
   hours: [
     // PLACEHOLDER B01 — verify with business owner

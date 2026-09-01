@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     template: '%s | Glamorous, Sarai Meer',
   },
   description:
-    'Premium makeup and beauty studio in Sarai Meer. Specialising in bridal makeup, party looks, and beauty transformations. Book an appointment today — +91 70078 75415.',
+    'Premium makeup and beauty studio in Sarai Meer. Specialising in bridal makeup, party looks, and beauty transformations. Book an appointment today — +91 88377 79719.',
   keywords: [
     'Glamorous makeup Sarai Meer',
     'bridal makeup Sarai Meer',

@@ -14,7 +14,7 @@ const faqs: FAQItem[] = [
   {
     question: 'How do I book an appointment or consultation?',
     answer:
-      'You can book directly by clicking "Reserve" on any service above, filling our short booking form on the Contact page, or messaging us on WhatsApp (+91 70078 75415). We confirm your date and time slot promptly.',
+      'You can book directly by clicking "Reserve" on any service above, filling our short booking form on the Contact page, or messaging us on WhatsApp (+91 88377 79719). We confirm your date and time slot promptly.',
   },
   {
     question: 'Do you offer trial sessions before weddings or major events?',
@@ -34,7 +34,7 @@ const faqs: FAQItem[] = [
   {
     question: 'Where is Glamorous studio located in Sarai Meer?',
     answer:
-      'Our studio is situated on the 1st Floor, Mumtaz Bangle Store, Sabji Mandi Road, Sarai Meer, Uttar Pradesh. We offer a private, clean, comfortable boutique environment dedicated exclusively to client appointments.',
+      'Our studio is situated in Sarai Meer, Uttar Pradesh. We offer a private, clean, comfortable boutique environment dedicated exclusively to client appointments.',
   },
 ]
 

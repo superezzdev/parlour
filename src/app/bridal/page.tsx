@@ -59,13 +59,13 @@ export default function BridalPage() {
       name: 'Glamorous Makeup & Beauty Studio',
       address: {
         '@type': 'PostalAddress',
-        streetAddress: '1st Floor, Mumtaz Bangle Store, Sabji Mandi Rd',
+        streetAddress: 'Main Market Road',
         addressLocality: 'Sarai Meer',
         addressRegion: 'Uttar Pradesh',
         postalCode: '276305',
         addressCountry: 'IN',
       },
-      telephone: '+91 70078 75415',
+      telephone: '+91 88377 79719',
     },
     areaServed: {
       '@type': 'Place',

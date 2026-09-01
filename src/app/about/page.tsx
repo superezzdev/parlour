@@ -66,16 +66,15 @@ export default function AboutPage() {
       },
       address: {
         '@type': 'PostalAddress',
-        streetAddress: '1st Floor, Mumtaz Bangle Store, Sabji Mandi Rd',
+        streetAddress: 'Main Market Road',
         addressLocality: 'Sarai Meer',
         addressRegion: 'Uttar Pradesh',
         postalCode: '276305',
         addressCountry: 'IN',
       },
-      telephone: '+91 70078 75415',
+      telephone: '+91 88377 79719',
       sameAs: [
-        'https://www.instagram.com/glamorouse_makeup_beauty',
-        'https://www.instagram.com/makeup_by_sabreen_786',
+        'https://superezz.dev',
       ],
     },
   }

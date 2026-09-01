@@ -45,7 +45,7 @@
 
 ```html
 <title>Glamorous — Makeup & Beauty Studio | Sarai Meer, Uttar Pradesh</title>
-<meta name="description" content="Premium makeup and beauty studio in Sarai Meer. Specialising in bridal makeup, party looks, and beauty transformations. Book an appointment today — +91 70078 75415.">
+<meta name="description" content="Premium makeup and beauty studio in Sarai Meer. Specialising in bridal makeup, party looks, and beauty transformations. Book an appointment today — +91 88377 79719.">
 <link rel="canonical" href="https://glamorous.in/">
 
 <!-- Open Graph -->
@@ -71,7 +71,7 @@
 
 ```html
 <title>Our Services — Makeup, Bridal, Hair & Beauty | Glamorous, Sarai Meer</title>
-<meta name="description" content="Explore Glamorous's curated services: bridal makeup, party looks, hair styling, and beauty treatments in Sarai Meer, Uttar Pradesh. Book online or call +91 70078 75415.">
+<meta name="description" content="Explore Glamorous's curated services: bridal makeup, party looks, hair styling, and beauty treatments in Sarai Meer, Uttar Pradesh. Book online or call +91 88377 79719.">
 <link rel="canonical" href="https://glamorous.in/services">
 ```
 
@@ -119,7 +119,7 @@
 
 ```html
 <title>Book an Appointment — Glamorous Beauty Studio, Sarai Meer</title>
-<meta name="description" content="Book your beauty appointment at Glamorous, Sarai Meer. Call +91 70078 75415, WhatsApp us, or fill in our booking form. Located on Sabji Mandi Rd, Sarai Meer, UP 276305.">
+<meta name="description" content="Book your beauty appointment at Glamorous, Sarai Meer. Call +91 88377 79719, WhatsApp us, or fill in our booking form. Located in Sarai Meer, UP 276305.">
 <link rel="canonical" href="https://glamorous.in/contact">
 ```
 
@@ -137,11 +137,11 @@
   "@type": "BeautySalon",
   "name": "Glamorous",
   "description": "Premium makeup and beauty studio in Sarai Meer, Uttar Pradesh, specialising in bridal artistry.",
-  "url": "https://glamorous.in",
-  "telephone": "+917007875415",
+  "url": "https://glamorous.superezz.dev",
+  "telephone": "+918837779719",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "1st Floor, Mumtaz Bangle Store, Sabji Mandi Rd",
+    "streetAddress": "Main Market Road",
     "addressLocality": "Sarai Meer",
     "addressRegion": "Uttar Pradesh",
     "postalCode": "276305",
@@ -162,9 +162,7 @@
     }
   ],
   "sameAs": [
-    "https://instagram.com/makeup_by_sabreen_786",
-    "https://instagram.com/glamorouse_makeup_beauty",
-    "https://maps.app.goo.gl/LEeeeG6BkDa33Xdc6"
+    "https://superezz.dev"
   ],
   "image": "https://glamorous.in/og-home.jpg",
   "priceRange": "PLACEHOLDER — verify with owner"

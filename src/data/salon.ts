@@ -62,42 +62,42 @@ export const salon: SalonData = {
   name: 'Glamorous',
   tagline: 'Bridal and Occasion Makeup by Sabreen in Sarai Meer',
   description:
-    'A boutique makeup and beauty studio on Sabji Mandi Road, Sarai Meer. Specialising in bridal makeup, party glam, hair styling, and skin care — crafted with patience, precision, and care.',
+    'A boutique makeup and beauty studio in Sarai Meer. Specialising in bridal makeup, party glam, hair styling, and skin care — crafted with patience, precision, and care.',
 
-  phone: '+917007875415',
-  phoneDisplay: '+91 70078 75415',
-  whatsapp: '+917007875415',
+  phone: '+918837779719',
+  phoneDisplay: '+91 88377 79719',
+  whatsapp: '+918837779719',
   whatsappUrl:
-    'https://wa.me/917007875415?text=Hi%20Glamorous!%20I%27d%20like%20to%20book%20an%20appointment.',
+    'https://wa.me/918837779719?text=Hi%20Glamorous!%20I%27d%20like%20to%20book%20an%20appointment.',
 
   instagram: [
     {
-      name: 'SABREEN SIDDIQUI',
-      handle: '@glamorouse_makeup_beauty',
-      url: 'https://www.instagram.com/glamorouse_makeup_beauty',
-      label: 'Sabreen Siddiqui',
+      name: 'GLAMOROUS',
+      handle: '@glamorous',
+      url: 'https://superezz.dev',
+      label: 'Glamorous',
     },
     {
-      name: 'GLAMOROUS MAKEUP & BEAUTI',
-      handle: '@makeup_by_sabreen_786',
-      url: 'https://www.instagram.com/makeup_by_sabreen_786',
-      label: 'Glamorous Makeup & Beauti',
+      name: 'GLAMOROUS BEAUTY',
+      handle: '@glamorous.beauty',
+      url: 'https://superezz.dev',
+      label: 'Glamorous Beauty',
     },
   ],
 
   address: {
-    line1: '1st Floor, Mumtaz Bangle Store',
-    line2: 'Sabji Mandi Rd, Sarai Meer',
+    line1: 'Glamorous Studio',
+    line2: 'Main Market Road',
     city: 'Sarai Meer',
     district: 'Azamgarh',
     state: 'Uttar Pradesh',
     pincode: '276305',
     country: 'India',
     formatted:
-      '1st Floor, Mumtaz Bangle Store, Sabji Mandi Rd, Sarai Meer, Uttar Pradesh 276305, India',
+      'Glamorous Studio, Main Market Road, Sarai Meer, Uttar Pradesh 276305, India',
   },
 
-  googleMapsUrl: 'https://maps.app.goo.gl/LEeeeG6BkDa33Xdc6',
+  googleMapsUrl: 'https://superezz.dev',
   googleMapsEmbedUrl: '', // [PLACEHOLDER B03] — replace with embed src from Google Maps
 
   hours: [
@@ -111,6 +111,6 @@ export const salon: SalonData = {
     longitude: null,  // [PLACEHOLDER] — add from Google Maps
   },
 
-  domain: 'https://glamorous.in', // [PLACEHOLDER B04] — TBD by owner
+  domain: 'https://glamorous.superezz.dev', // [PLACEHOLDER B04] — TBD by owner
   email: null, // [PLACEHOLDER B05] — verify with business owner
 }

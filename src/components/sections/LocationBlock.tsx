@@ -50,7 +50,7 @@ export default function LocationBlock() {
                 </div>
                 <div className={styles.mapBadge}>
                   <span className={styles.mapBadgeTitle}>Glamorous Makeup &amp; Beauty</span>
-                  <span className={styles.mapBadgeSub}>Sabji Mandi Rd, Sarai Meer</span>
+                  <span className={styles.mapBadgeSub}>Sarai Meer, Uttar Pradesh</span>
                   <span className={styles.mapBadgeAction}>Tap for live GPS navigation &rarr;</span>
                 </div>
               </a>
@@ -76,9 +76,9 @@ export default function LocationBlock() {
 
             {/* Address */}
             <address ref={addressRef} className={styles.address}>
-              <p className={styles.addressLinePrimary}>1st Floor, Mumtaz Bangle Store</p>
-              <p>Sabji Mandi Rd, Sarai Meer</p>
-              <p>Uttar Pradesh 276305</p>
+              <p className={styles.addressLinePrimary}>{salon.address.line1}</p>
+              <p>{salon.address.line2}</p>
+              <p>{salon.address.city}, {salon.address.state} {salon.address.pincode}</p>
             </address>
 
             {/* Phone & Direct Contact */}

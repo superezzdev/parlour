@@ -11,12 +11,12 @@
 |---|---|
 | Brand Name | Glamorous |
 | Category | Makeup & Beauty / Bridal Beauty |
-| Address | 1st Floor, Mumtaz Bangle Store, Sabji Mandi Rd, Sarai Meer, Uttar Pradesh 276305, India |
-| Phone | +91 70078 75415 |
-| WhatsApp | +91 70078 75415 |
-| Instagram | @makeup_by_sabreen_786 |
-| Instagram | @glamorouse_makeup_beauty |
-| Google Maps | https://maps.app.goo.gl/LEeeeG6BkDa33Xdc6 |
+| Address | Glamorous Studio, Main Market Road, Sarai Meer, Uttar Pradesh 276305, India |
+| Phone | +91 88377 79719 |
+| WhatsApp | +91 88377 79719 |
+| Instagram | @glamorous |
+| Instagram | @glamorous_beauty |
+| Google Maps | https://superezz.dev |
 
 ### 1.1 Brand Personality
 - **Elegant** — graceful, refined, never overdone
@@ -314,7 +314,7 @@ The bridal page is the **emotional centerpiece** of the site.
 
 ### 8.4 WhatsApp CTA URL
 ```
-https://wa.me/917007875415?text=Hi%20Glamorous!%20I%27d%20like%20to%20book%20an%20appointment.
+https://wa.me/918837779719?text=Hi%20Glamorous!%20I%27d%20like%20to%20book%20an%20appointment.
 ```
 
 ---

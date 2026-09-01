@@ -13,16 +13,16 @@ export default function AboutSocial() {
 
   const accounts = [
     {
-      name: 'SABREEN SIDDIQUI',
-      handle: '@glamorouse_makeup_beauty',
-      url: 'https://www.instagram.com/glamorouse_makeup_beauty',
+      name: 'GLAMOROUS',
+      handle: '@glamorous',
+      url: 'https://superezz.dev',
       bio: 'Lead Bridal Artist & Creative Director. Behind-the-scenes transformations, bridal preparation, and signature styling in Sarai Meer.',
       tag: 'OFFICIAL INSTAGRAM',
     },
     {
-      name: 'GLAMOROUS MAKEUP & BEAUTI',
-      handle: '@makeup_by_sabreen_786',
-      url: 'https://www.instagram.com/makeup_by_sabreen_786',
+      name: 'GLAMOROUS BEAUTY',
+      handle: '@glamorous_beauty',
+      url: 'https://superezz.dev',
       bio: 'Studio showcase featuring client portraits, occasion glamour, skincare rituals, and daily artistry updates.',
       tag: 'STUDIO PORTFOLIO',
     },
@@ -124,7 +124,7 @@ export default function AboutSocial() {
         {/* CTA */}
         <div ref={ctaRef} className={styles.ctaWrapper}>
           <a
-            href="https://www.instagram.com/glamorouse_makeup_beauty"
+            href="https://superezz.dev"
             target="_blank"
             rel="noopener noreferrer"
             className={`btn btn-primary btn-lg ${styles.journeyBtn}`}
