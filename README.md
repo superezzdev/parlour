@@ -17,7 +17,7 @@
   <br />
 
   <a href="https://glamorous.superezz.dev">
-    <img src="./public/images/hero/hero-editorial.jpg" alt="Glamorous — Beauty, Made Personal" width="100%" style="border-radius: 4px;" />
+    <img src="./public/images/hero/hero-preview.png" alt="Glamorous — Beauty, Made Personal" width="100%" style="border-radius: 4px;" />
   </a>
 
 </div>
