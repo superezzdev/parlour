@@ -53,11 +53,11 @@
   --font-mono:    var(--font-mono), 'Space Mono', 'SF Mono', Consolas, Monaco, monospace;
 
   /* ─── Typography: Display Scale (Cormorant Garamond) ────────── */
-  --text-display-2xl: clamp(4.5rem, 9vw, 9rem);
-  --text-display-xl:  clamp(3.5rem, 7vw, 7rem);
-  --text-display-lg:  clamp(2.8rem, 5vw, 5.5rem);
-  --text-display-md:  clamp(2.2rem, 4vw, 4rem);
-  --text-display-sm:  clamp(1.8rem, 3vw, 2.75rem);
+  --text-display-2xl: clamp(2.75rem, 8vw, 8rem);
+  --text-display-xl:  clamp(2.25rem, 6vw, 6rem);
+  --text-display-lg:  clamp(1.85rem, 4.5vw, 4.5rem);
+  --text-display-md:  clamp(1.5rem, 3.5vw, 3.25rem);
+  --text-display-sm:  clamp(1.25rem, 2.5vw, 2.25rem);
 
   /* ─── Typography: Body Scale (DM Sans) ─────────────────────── */
   --text-xl:    1.25rem;

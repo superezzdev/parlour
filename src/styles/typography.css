@@ -193,7 +193,10 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
   font-weight: 300;
   color: var(--color-espresso);
-  line-height: 1.10;
+  line-height: 1.15;
+  text-wrap: balance;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 p {
@@ -201,6 +204,8 @@ p {
   font-size: var(--text-base);
   line-height: 1.70;
   color: var(--color-coffee);
+  text-wrap: pretty;
+  overflow-wrap: break-word;
 }
 
 /* ─── Italic Emphasis (Editorial) ────────────────────────────── */
@@ -221,3 +226,64 @@ em {
   border-left: 2px solid var(--color-rose);
   padding-left: var(--space-8);
 }
+
+/* ─── Mobile Responsive Typography Adjustments ───────────────── */
+@media (max-width: 768px) {
+  .text-display-2xl {
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+  }
+
+  .text-display-xl {
+    line-height: 1.14;
+    letter-spacing: -0.01em;
+  }
+
+  .text-display-lg {
+    line-height: 1.16;
+  }
+
+  .text-display-md {
+    line-height: 1.18;
+  }
+
+  /* Compact tracking on mobile to prevent overflow and broken words */
+  .tracking-\[0\.4em\] {
+    letter-spacing: 0.20em !important;
+  }
+
+  .tracking-\[0\.3em\] {
+    letter-spacing: 0.16em !important;
+  }
+
+  .tracking-\[0\.25em\] {
+    letter-spacing: 0.14em !important;
+  }
+
+  .font-mono.uppercase,
+  .font-mono[class*="uppercase"],
+  .mono-label,
+  [data-mono-label] {
+    letter-spacing: 0.15em !important;
+  }
+
+  .label {
+    letter-spacing: 0.14em;
+    gap: var(--space-2);
+  }
+
+  .label::before {
+    width: 16px;
+  }
+
+  .lead {
+    font-size: 1.1rem;
+    line-height: 1.65;
+  }
+
+  .pull-quote {
+    padding-left: var(--space-4);
+    border-left-width: 1.5px;
+  }
+}
+

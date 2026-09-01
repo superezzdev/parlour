@@ -203,3 +203,19 @@
     text-align: left;
   }
 }
+
+@media (max-width: 480px) {
+  .tierRow {
+    padding: 1.5rem 1rem;
+    gap: 1.15rem;
+  }
+
+  .tierName {
+    font-size: 1.45rem;
+  }
+
+  .inclusionItem {
+    font-size: 0.8rem;
+    line-height: 1.6;
+  }
+}

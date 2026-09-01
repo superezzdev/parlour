@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import styles from './TestimonialsSection.module.css'
 
 interface TestimonialItem {
@@ -45,14 +45,35 @@ const testimonials: TestimonialItem[] = [
 
 export default function TestimonialsSection() {
   const [active, setActive] = useState(0)
+  const touchStartXRef = useRef<number | null>(null)
+  const touchStartYRef = useRef<number | null>(null)
   const total = testimonials.length
 
   const prevIndex = (active - 1 + total) % total
   const nextIndex = (active + 1) % total
 
   const desktopThumbnailIndices = [prevIndex, active, nextIndex]
-
   const current = testimonials[active]
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartXRef.current = e.touches[0].clientX
+    touchStartYRef.current = e.touches[0].clientY
+  }
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartXRef.current === null || touchStartYRef.current === null) return
+    const deltaX = e.changedTouches[0].clientX - touchStartXRef.current
+    const deltaY = e.changedTouches[0].clientY - touchStartYRef.current
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 40) {
+      if (deltaX < 0) {
+        setActive((prev) => (prev + 1) % total) // Swiped left -> next
+      } else {
+        setActive((prev) => (prev - 1 + total) % total) // Swiped right -> prev
+      }
+    }
+    touchStartXRef.current = null
+    touchStartYRef.current = null
+  }
 
   return (
     <section className={styles.testimonialsSection} aria-labelledby="testimonials-heading">
@@ -164,7 +185,11 @@ export default function TestimonialsSection() {
         </div>
 
         {/* ─── MOBILE VIEW (< 1024px) ────────────────────────── */}
-        <div className={styles.mobileContainer}>
+        <div
+          className={styles.mobileContainer}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+        >
           {/* Top Counter (Right aligned) */}
           <div className={styles.mobileTopBar}>
             <span className={styles.mobileCounter}>

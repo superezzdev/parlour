@@ -25,12 +25,28 @@ export default function LenisProvider({ children }: { children: React.ReactNode 
     }
 
     gsap.ticker.add(updateTicker)
-    gsap.ticker.lagSmoothing(0)
+    // Use sensible lagSmoothing so frame drops on mobile/bad internet do not cause visual jumping
+    gsap.ticker.lagSmoothing(500, 33)
 
-    // Refresh ScrollTrigger after initial paint and fonts/images load
-    const refreshTimer = setTimeout(() => {
+    // Refresh ScrollTrigger after initial paint, font readiness, and complete window load
+    const refreshTimer1 = setTimeout(() => {
       ScrollTrigger.refresh()
-    }, 250)
+    }, 300)
+
+    const refreshTimer2 = setTimeout(() => {
+      ScrollTrigger.refresh()
+    }, 1200)
+
+    if (typeof document !== 'undefined' && 'fonts' in document) {
+      document.fonts.ready.then(() => {
+        ScrollTrigger.refresh()
+      })
+    }
+
+    const handleLoad = () => {
+      ScrollTrigger.refresh()
+    }
+    window.addEventListener('load', handleLoad, { passive: true })
 
     const handleResize = () => {
       ScrollTrigger.refresh()
@@ -38,7 +54,9 @@ export default function LenisProvider({ children }: { children: React.ReactNode 
     window.addEventListener('resize', handleResize, { passive: true })
 
     return () => {
-      clearTimeout(refreshTimer)
+      clearTimeout(refreshTimer1)
+      clearTimeout(refreshTimer2)
+      window.removeEventListener('load', handleLoad)
       window.removeEventListener('resize', handleResize)
       gsap.ticker.remove(updateTicker)
       lenis.destroy()
