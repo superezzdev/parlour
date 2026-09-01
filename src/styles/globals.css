@@ -23,7 +23,7 @@ html {
   background-color: var(--color-noir);
   color-scheme: dark;
   max-width: 100%;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 body {
@@ -32,7 +32,7 @@ body {
   color: rgba(250, 247, 242, 0.75);
   background-color: var(--color-noir);
   max-width: 100%;
-  overflow-x: hidden;
+  overflow-x: clip;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

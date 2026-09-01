@@ -110,11 +110,17 @@
   .desktopSidebar {
     display: block;
     width: 100%;
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .desktopSidebar::-webkit-scrollbar {
+    display: none;
   }
 
   .sidebarStickyInner {
-    position: sticky;
-    top: 110px;
     padding-top: var(--space-4);
     padding-bottom: var(--space-8);
     display: flex;
