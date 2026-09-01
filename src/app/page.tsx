@@ -74,8 +74,8 @@ export default function HomePage() {
 
       {/* 4. Editorial Image Moment — Full-Width Visual Reset */}
       <EditorialMoment
-        imageSrc="/images/hero/editorial-moment.jpg"
-        imageAlt="Editorial beauty moment — Glamorous studio artistry"
+        imageSrc="/images/gallery/hair/hair-01.jpg"
+        imageAlt="Floral romance chignon and bridal updo styling"
         tag="THE ART OF REFINEMENT"
         headline="Every look composed with patient precision and quiet intention."
       />
